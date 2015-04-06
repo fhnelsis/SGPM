@@ -1,10 +1,9 @@
-
 -- phpMyAdmin SQL Dump
 -- version 4.1.14
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 06-Abr-2015 às 20:21
+-- Generation Time: 06-Abr-2015 às 21:36
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -68,6 +67,20 @@ INSERT INTO `paciente` (`id_paciente`, `nome_paciente`, `cpf`) VALUES
 (1, 'José Emiliano Gonçalves', '83691247511'),
 (2, 'João Augusto Silveira Filho', '93125661571'),
 (4, 'Paulo da Silva Santos', '9745632111');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `prontuario`
+--
+
+CREATE TABLE IF NOT EXISTS `prontuario` (
+  `id_prontuario` int(10) NOT NULL AUTO_INCREMENT,
+  `id_paciente` varchar(4) NOT NULL,
+  `id_funcionario` varchar(4) NOT NULL,
+  PRIMARY KEY (`id_prontuario`),
+  UNIQUE KEY `id_prontuario` (`id_prontuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
