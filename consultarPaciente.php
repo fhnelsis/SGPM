@@ -40,7 +40,8 @@
 				    <tbody>
 
 				    <?php $con = mysqli_connect();
-				    	  $query = mysqli_query($con, "SELECT * FROM ");
+                                    //Verificar essa query. Saber de onde ela pega o POST para a busca.
+				    	  $query = mysqli_query($con, "SELECT * FROM paciente WHERE nome LIKE ");
 
 				    	  while($linha = mysqli_fetch_array(query)) {
 
