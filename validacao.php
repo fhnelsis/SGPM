@@ -43,7 +43,7 @@ if (mysqli_connect_error())
         //Monta a session
         session_name('sistema');
         session_start();
-        $_SESSION['LOGIN']['CODIGO']= $consulta['idadmin'];
+        //$_SESSION['LOGIN']['CODIGO']= $consulta['idadmin'];
         $_SESSION['LOGIN']['NOME']= $consulta['nome'];
         $_SESSION['LOGIN']['USUARIO']= $consulta['usuario'];
        

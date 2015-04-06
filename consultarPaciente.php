@@ -40,7 +40,7 @@
 				    <tbody>
 
 				    <?php $con = mysqli_connect();
-				    	  $query = mysqli_query($con, "SELECT WEFWFE");
+				    	  $query = mysqli_query($con, "SELECT * FROM ");
 
 				    	  while($linha = mysqli_fetch_array(query)) {
 
