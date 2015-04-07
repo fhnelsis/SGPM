@@ -811,7 +811,7 @@ h4 small {
 ul,
 ol {
   padding: 0;
-  margin: 0 0 10px 25px;
+  margin: 0 0 0px 0px;
 }
 
 ul ul,
@@ -6231,6 +6231,7 @@ Aqui começam edições no Bootstrap CSS original.
   font-family: Verdana;
   font-style: inherit;
   font-size: 12;
+  
 }
 
 .form {
