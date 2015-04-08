@@ -6,9 +6,11 @@
 	<div class="tudo">
 		<div id="meio">
 			
-			<a href="" id="logo_home">
+                    <div class="aviso">
+                        <a href="" id="logo_home">
       			<img src="img/aviso.png">
   			</a>
+                    </div>
 
 			<form action="validacao.php" method="post">
 				<div class="form">

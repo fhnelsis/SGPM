@@ -6242,3 +6242,15 @@ margin-left: 100px;
 margin-top: 50px;
 
 }
+
+.aviso{
+    position: absolute;
+    top: 380px;
+    left: 520px;
+}
+
+.form{
+    position: absolute;
+    top: 350px;
+    left: 790px;
+}
