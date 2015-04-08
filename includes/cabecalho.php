@@ -15,4 +15,7 @@
 		<a href="">
 			<img src="img/sgpm_logo2_fundoless_pequeno.png" class="logo">
 		</a>
+            <div class="wrapLogoutButton">
+                <a class="logoutButton" href="">Logout</a>                
+            </div>
 	</div>

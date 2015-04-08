@@ -40,7 +40,7 @@
       </ul>
    </li>
    <li><a href='#'>Sobre</a></li>
-   <li><a href='#'>Contato</a></li>
+   <li><a href="mailto:fhnelsis@outlook.com" target="_top">Contato</a></li>
 </ul>
 </div>
 

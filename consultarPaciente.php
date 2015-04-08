@@ -1,6 +1,5 @@
 <?php include ('includes/cabecalho.php') ?>
-
-    <?php include ('includes/menu.php') ?>
+<?php include ('includes/menu.php') ?>
 
 
 <?php

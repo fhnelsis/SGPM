@@ -225,7 +225,7 @@ textarea {
 body {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 31px;
   line-height: 20px;
   background-image:url('../img/congruent_pentagon.png');
 }
@@ -6245,12 +6245,42 @@ margin-top: 50px;
 
 .aviso{
     position: absolute;
-    top: 380px;
+    top: 300px;
     left: 520px;
 }
 
 .form{
     position: absolute;
-    top: 350px;
+    top: -600px;
     left: 790px;
 }
+
+.indexMeio{
+    position: absolute;
+    bottom: 100px;
+    
+}
+
+.divBoasVindas{
+    
+}
+
+.logoutButton{
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Courier New;
+  color: #d8f3f0;
+  font-size: 20px;
+  background: #3ab4a6;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  position: relative;
+  padding: : 0px;
+}
+
+.logoutButton:hover {
+  background: #4ea370;
+  text-decoration: none;
+}
+

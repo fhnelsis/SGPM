@@ -29,8 +29,7 @@
 
         $query = mysqli_query($con, "SELECT * FROM paciente WHERE id_paciente = {$_GET['id']} ");
         $dadosPaciente = mysqli_fetch_array($query);
-    }
-    
+    }  
     
 ?>
 
