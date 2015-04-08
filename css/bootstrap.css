@@ -7,6 +7,7 @@
  *
  * Designed and built with all the love in the world by @mdo and @fat.
  */
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,200);
 
 .clearfix {
   *zoom: 1;
@@ -890,12 +891,6 @@ dd {
 
 .dl-horizontal dd {
   margin-left: 180px;
-}
-
-.rodape {
-  position: relative bottom;
-  background-color: green;
-  margin-bottom: 0px;
 }
 
 abbr[title],
@@ -6205,7 +6200,7 @@ Aqui começam edições no Bootstrap CSS original.
   text-shadow:0px 1px 0px #5b8a3c;
   position: fixed right;
   margin-left: 1250px;
-  margin top: 500px;
+  margin_top: 500px;
 }
 .loginbutton:hover {
   background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #72b352), color-stop(1, #77b55a));
@@ -6222,26 +6217,16 @@ Aqui começam edições no Bootstrap CSS original.
   top:1px;
 }
 
-.rodape {
-  min-width: 100%;
-  position: absolute;
-  bottom: 0px;
-  height: 50px;
-  text-align: center;
-  font-family: Verdana;
-  font-style: inherit;
-  font-size: 12;
-  
-}
-
 .form {
   text-align: center;
   margin-top: 200px;
 }
 
 #tituloPagina{
-  margin-left: 70px;
-  margin-top: 20px;
+  margin-left: 20%;
+  margin-top: -250px;
+  margin-bottom: 150px;
+  position: inherit;
 }
 
 .body2 {

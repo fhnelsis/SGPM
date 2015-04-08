@@ -1,8 +1,10 @@
-	<div id="rodape">
+<LINK href="css/rodape.css" rel="stylesheet" type="text/css">
+<style type="text/css"></style>	
+<div id="rodape">
 		
 		<div class="rodape"> 
 			<br>
-			<font face="verdana" color="white">SGPM - Sistema Gerenciador de Prontuários Médicos - Desenvolvido por Francisco Nelsis</font>
+			SGPM - Sistema Gerenciador de Prontuários Médicos
 		</div>
 </body>
 

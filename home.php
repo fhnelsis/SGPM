@@ -1,15 +1,16 @@
 <?php
 	include ('includes/cabecalho.php')
 ?>
+<?php
+	include ('includes/menu.php')
+?>
+
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<div class="tudo">
 		<div id="meio">
 			
-			<a href="" id="logo_home">
-      			<img src="img/aviso.png">
-  			</a>
-
+		
 			<form action="validacao.php" method="post">
 				<div class="form">
 					<div class="campo">

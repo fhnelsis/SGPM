@@ -1,5 +1,7 @@
 <?php include ('includes/cabecalho.php') ?>
-<?php include ('includes/menu.php') ?>
+
+    <?php include ('includes/menu.php') ?>
+
 
 <?php
      if(isset($_GET['id_exclusao'])){
@@ -30,7 +32,7 @@
 			<div id="formBuscaPaciente">
 				
 
-			<div class="content-dataTable" style="width: 80%; margin: 0 auto; margin-top: 50px; ">
+			<div class="content-dataTable" style="width: 70%; margin: 0 auto; margin-top: 50px; margin-right: 70px; border: 10px solid black">
                                 <?php if (isset($_SESSION['msg'])) : ?>
                                     <div class="alert alert-success" role="alert"><?php echo $_SESSION['msg']; ?></div>
                                     <?php unset($_SESSION['msg']); ?>
@@ -62,7 +64,7 @@
 				            <td><?php echo $linha['cpf']; ?></td>
 				            <td>     <center>
                                                     <a href="formPaciente.php?id=<?php echo $linha['id_paciente']; ?>">editar</a>
-                                                    <a href="consultarPaciente.php?id_exclusao=<?php echo $linha['id_paciente']; ?>">excluir</a>
+                                                    <a href="buscarPaciente.php?id_exclusao=<?php echo $linha['id_paciente']; ?>">excluir</a>
                                                 </center>
                                            
                                             </td>

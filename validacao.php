@@ -48,7 +48,7 @@ if (mysqli_connect_error())
         $_SESSION['LOGIN']['USUARIO']= $consulta['usuario'];
        
         //Redireciona após validação
-        header('Location: consultarPaciente.php');
+        header('Location: home.php');
 
     }catch(Exception $e){
         echo "<script>alert('".$e->getMessage()."');</script>";
