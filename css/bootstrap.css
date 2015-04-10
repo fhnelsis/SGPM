@@ -227,7 +227,7 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 31px;
     line-height: 20px;
-    background-image:url('../img/congruent_pentagon.png');
+    background-image:url('../img/background_su.jpg');
 }
 
 a {
@@ -6229,8 +6229,9 @@ Aqui começam edições no Bootstrap CSS original.
     margin-top: -250px;
     margin-bottom: 150px;
     position: inherit;
+    margin-right: 1300px;
+    
 }
-
 .body2 {
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -6239,11 +6240,10 @@ Aqui começam edições no Bootstrap CSS original.
     background-color: #C0D9D9;
 }
 
-#formBuscaPaciente {
+#formBuscaPaciente  {
     margin-left: 100px;
     margin-top: 50px;
     font-size: 16;
-
 }
 
 .aviso{
@@ -6295,6 +6295,7 @@ Aqui começam edições no Bootstrap CSS original.
     font-family: Raleway, sans-serif;
     bottom: 200px;
     right: 100px;
+    //background-image:url('../img/background_su.jpg');
 }
 
 #divBoasVindas{
@@ -6302,3 +6303,4 @@ Aqui começam edições no Bootstrap CSS original.
     margin-left: 500px;
     margin-top: -70px;
 }
+
