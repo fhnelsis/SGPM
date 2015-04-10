@@ -39,72 +39,40 @@ if (isset($_GET['id'])) {
 
         <center>
             <div id="formBuscaPaciente" >
-                <div class="content-dataTable" style="width: 40%; margin: 0 auto; margin-top: -70px; margin-right: 900px">
+                <div class="content-dataTable" style="width: 40%; margin: 0 auto; margin-top: 200px; margin-right: 900px">
                     <form method="POST" >
                         <table width="500px">
                             <tr >
                                 <td><label for="nome_paciente" >Nome: </label></td>
-                                <td><input style="width: 400px;" type="text" name="nome_paciente" id="nome_paciente"  maxlength="50" value="<?php if (isset($dadosPaciente['nome_paciente'])) {echo $dadosPaciente['nome_paciente'];} ?>"/></td>
+                                <td><input style="width: 400px;" type="text" name="nome_paciente" id="nome_paciente"  maxlength="50" value="<?php if (isset($dadosPaciente['nome_paciente'])) {
+    echo $dadosPaciente['nome_paciente'];
+} ?>"/></td>
                             </tr>
                             <tr>
                                 <td><label for="cpf">CPF: </label></td>
-                                <td><input type="text" name="cpf" id="cpf" maxlength="11" value="<?php if (isset($dadosPaciente['cpf'])) {echo $dadosPaciente['cpf'];} ?>" /></td>
+                                <td><input style="width: 150px;" type="text" name="cpf" id="cpf" maxlength="11" value="<?php if (isset($dadosPaciente['cpf'])) {
+    echo $dadosPaciente['cpf'];
+} ?>" /></td>
+                            </tr>
+                            <tr>
+                                <td><label for="cpf">RG: </label></td>
+                                <td><input type="text" name="rg" id="rg" maxlength="10" value="<?php if (isset($dadosPaciente['rg'])) {
+    echo $dadosPaciente['rg'];
+} ?>" /></td>
                             </tr>
                             <tr>
                                 <td><label for="cpf">CPF: </label></td>
-                                <td><input type="text" name="cpf" id="cpf" maxlength="11" value="<?php if (isset($dadosPaciente['cpf'])) {echo $dadosPaciente['cpf'];} ?>" /></td>
+                                <td><input type="text" name="cpf" id="cpf" maxlength="11" value="<?php if (isset($dadosPaciente['cpf'])) {
+    echo $dadosPaciente['cpf'];
+} ?>" /></td>
                             </tr>
-                            <tr>
-                                <td><label for="cpf">CPF: </label></td>
-                                <td><input type="text" name="cpf" id="cpf" maxlength="11" value="<?php if (isset($dadosPaciente['cpf'])) {echo $dadosPaciente['cpf'];} ?>" /></td>
-                            </tr>
-                        
-                            
-                            
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
                         </table>
 
-                        <input type="hidden" id="id" name="id" value="<?php if (isset($dadosPaciente['id_paciente'])) {
+                        <input type="hidden" id="id" name="id" value="<?php
+if (isset($dadosPaciente['id_paciente'])) {
     echo $dadosPaciente['id_paciente'];
-} ?>" />
+}
+?>" />
                         <input type="submit" name="enviar" value="ENVIAR" />
                     </form>
                 </div>
@@ -112,9 +80,5 @@ if (isset($_GET['id'])) {
         </center>
     </div>
 </div>
-<?php
-include ('includes/menuBack.php')
-?>
-<?php
-include ('includes/rodape.php')
-?>
+<?php include ('includes/menuBack.php') ?>
+<?php include ('includes/rodape.php') ?>

@@ -6164,10 +6164,15 @@ Aqui começam edições no Bootstrap CSS original.
 */
 
 .cabecalho {
-    position: relative top;
+    position: absolute top;
     //background-color: #3ab4a6;
     background-color: #49505a;
-    
+    z-index: 999; 
+}
+
+#cabecalho {
+    position: absolute;
+    z-index: 999;    
 }
 
 .logo {
@@ -6293,7 +6298,8 @@ Aqui começam edições no Bootstrap CSS original.
 #meio{
     position: relative;
     font-family: Raleway, sans-serif;
-    bottom: 200px;
+    //bottom: 200px;
+    margin-top: -600px;
     right: 100px;
     //background-image:url('../img/background_su.jpg');
 }
@@ -6303,4 +6309,3 @@ Aqui começam edições no Bootstrap CSS original.
     margin-left: 500px;
     margin-top: -70px;
 }
-

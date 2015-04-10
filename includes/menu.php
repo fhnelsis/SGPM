@@ -14,34 +14,38 @@
         <div id='cssmenu'>
             <ul>
                 <li><a href='home.php'>Home</a></li>
+                
+                <li class='active'><a href='#'>Atendimentos</a>
+                    <ul>
+                        <li><a href='#'>Buscar Atedimento</a></li>
+                        <li><a href='#'>Novo Atendimento</a>
+                    </ul>
+                </li>
+                                
                 <li class='active'><a href='#'>Pacientes</a>
                     <ul>
-                        <li><a href='consultarPaciente.php'>Buscar Pacientes</a></li>
+                        <li><a href='consultarPaciente.php'>Buscar Paciente</a></li>
                         <li><a href='formPaciente.php'>Novo Paciente</a>
-                        <ul>
-                            <li><a href='#'>Sub Product</a></li>
-                            <!--               <li><a href='#'>Sub Product</a></li>-->
-                        </ul>
+                    </ul>
+                </li>
+                
+                <li class='active'><a href='#'>Funcionários</a>
+                    <ul>
+                        <li><a href='#'>Buscar Funcionário</a></li>
+                        <li><a href='#'>Novo Funcionário</a>
                 </li>
             </ul>
         </li>
-        <li class='active'><a href='#'>Funcionários</a>
+        <li class='active'><a href='#'>Relatórios</a>
             <ul>
-                <li><a href='#'>Buscar Funcionários</a></li>
-                <!--         <li><a href='#'>Buscar Funcionários</a>-->
+                <li><a href='#'>Relatórios Administrativos</a></li>
+                <li><a href='#'>Relatórios Médicos</a>
+                </li>
+            </ul>
         </li>
+        <li><a href='#'>Sobre</a></li>
+        <li><a href="mailto:fhnelsis@outlook.com" target="_top">Contato</a></li>
     </ul>
-</li>
-<li class='active'><a href='#'>Relatórios</a>
-    <ul>
-        <li><a href='#'>Relatórios Administrativos</a></li>
-        <li><a href='#'>Relatórios Médicos</a>
-        </li>
-    </ul>
-</li>
-<li><a href='#'>Sobre</a></li>
-<li><a href="mailto:fhnelsis@outlook.com" target="_top">Contato</a></li>
-</ul>
 </div>
 </body>
 <html>
