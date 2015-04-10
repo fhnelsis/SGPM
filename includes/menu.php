@@ -14,7 +14,7 @@
         <div id='cssmenu'>
             <ul>
                 <li><a href='home.php'>Home</a></li>
-                <li class='active has-sub'><a href='#'>Pacientes</a>
+                <li class='active'><a href='#'>Pacientes</a>
                     <ul>
                         <li><a href='consultarPaciente.php'>Buscar Pacientes</a></li>
                         <li><a href='formPaciente.php'>Novo Paciente</a>
@@ -25,14 +25,14 @@
                 </li>
             </ul>
         </li>
-        <li class='active has-sub'><a href='#'>Funcionários</a>
+        <li class='active'><a href='#'>Funcionários</a>
             <ul>
                 <li><a href='#'>Buscar Funcionários</a></li>
                 <!--         <li><a href='#'>Buscar Funcionários</a>-->
         </li>
     </ul>
 </li>
-<li class='active has-sub'><a href='#'>Relatórios</a>
+<li class='active'><a href='#'>Relatórios</a>
     <ul>
         <li><a href='#'>Relatórios Administrativos</a></li>
         <li><a href='#'>Relatórios Médicos</a>
