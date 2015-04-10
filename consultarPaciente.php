@@ -31,7 +31,7 @@
 			<div id="formBuscaPaciente">
 				
 
-			<div class="content-dataTable" style="width: 70%; margin: 0 auto; margin-top: 50px; margin-right: 70px; border: 10px solid black">
+			<div class="content-dataTable" style="width: 80%; margin: 0 auto; margin-top: -70px; margin-right: 70px">
                                 <?php if (isset($_SESSION['msg'])) : ?>
                                     <div class="alert alert-success" role="alert"><?php echo $_SESSION['msg']; ?></div>
                                     <?php unset($_SESSION['msg']); ?>
