@@ -1,4 +1,4 @@
-<LINK href="css/rodape.css" rel="stylesheet" type="text/css">
+<LINK href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <style type="text/css"></style>
 <div id="rodape">
 	<div class="rodape">

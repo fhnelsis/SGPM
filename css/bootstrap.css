@@ -5829,7 +5829,7 @@ to {
 }
 
 /*!
-Aqui começam edições no Bootstrap CSS original.
+Aqui come�am edi��es no Bootstrap CSS original.
 */
 .cabecalho {
 	height: 50px;
@@ -5840,6 +5840,20 @@ Aqui começam edições no Bootstrap CSS original.
 	z-index:150;
 	margin-top: 0px;
 	top: 0px;
+}
+
+.rodape {
+  min-width: 100%;
+  height: 40px;
+  text-align: center;
+  font-style: inherit;
+  font-size: 16px;
+  font-family: Raleway, sans-serif;
+  width: 100%;
+  background-color: #49505a;
+  color: #ffffff; 
+  position: fixed;
+  bottom: 0;
 }
 
 .logo {
@@ -5904,7 +5918,7 @@ Aqui começam edições no Bootstrap CSS original.
 
 #tituloPagina {
 	margin-left: 20%;
-	margin-top: 5%;
+	margin-top: -30%;
 	margin-bottom: 150px;
 	position: inherit;
 	
@@ -5920,15 +5934,15 @@ Aqui começam edições no Bootstrap CSS original.
 }
 
 #formBuscaPaciente {
-	margin-left: 500px;
-	margin-top: -160px;
-	font-size: 16;
+	margin-left: 100px;
+	margin-top: 10px;
+	font-size: 12;
 }
 
 .aviso {
 	position: absolute;
-	top: 15%;
-	left: 15%;
+	top: 25%;
+	left: 22%;
 }
 
 .form {
@@ -5963,14 +5977,16 @@ Aqui começam edições no Bootstrap CSS original.
 .meio {
 	position: relative;
 	font-family: Raleway, sans-serif;
-	
-	margin-top: 100px;
+	margin-top: 0px;
 	background-image: url('../img/background_su.jpg');
 	
 }
 
 #divBoasVindas {
+	font-size: 25;
+	width: 70%;
+	position: relative;
 	font-weight: bold;
-	margin-left: 500px;
-	margin-top: -70px;
+	margin-left: 350px;
+	margin-top: -20%;
 }

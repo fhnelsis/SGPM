@@ -17,6 +17,7 @@ if (isset ( $_GET ['id_exclusao'] )) {
 	header ( 'Location: consultarPaciente.php' );
 }
 ?>
+
 <script type="text/javascript">
     jQuery(document).ready(function () {
         jQuery('#pacientes').DataTable();
@@ -50,13 +51,15 @@ if (isset ( $_GET ['id_exclusao'] )) {
 
 					<tbody>
 
-<?php $con = mysqli_connect ( "localhost", "root", "", "sgpm" );
-	mysqli_set_charset ( $con, "utf8" );
-	
+<?php
+
+$con = mysqli_connect ( "localhost", "root", "", "sgpm" );
+mysqli_set_charset ( $con, "utf8" );
+
 // Verificar essa query. Saber de onde ela pega o POST para a busca.
 $query = mysqli_query ( $con, "SELECT * FROM paciente" );
-							while ( $linha = mysqli_fetch_array ( $query ) ) {
-								?>
+while ( $linha = mysqli_fetch_array ( $query ) ) {
+	?>
 
                             <tr>
 							<td><?php echo $linha['nome_paciente']; ?></td>
@@ -69,7 +72,7 @@ $query = mysqli_query ( $con, "SELECT * FROM paciente" );
 									<a
 										href="buscarPaciente.php?id_exclusao=<?php echo $linha['id_paciente']; ?>">Excluir</a></td>
 							</center>
-
+<?php }?>
 
 						</tr>
 					</tbody>

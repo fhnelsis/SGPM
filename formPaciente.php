@@ -21,7 +21,7 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 	header ( 'Location: consultarPaciente.php' );
 }
 
-// Se exitir um id passado por parâmetro
+// Se exitir um id passado por parametro
 if (isset ( $_GET ['id'] )) {
 	$con = mysqli_connect ( "localhost", "root", "", "sgpm" );
 	mysqli_set_charset ( $con, "utf8" );
@@ -51,7 +51,7 @@ if (isset ( $_GET ['id'] )) {
 									name="nome_paciente" id="nome_paciente" maxlength="50"
 									value="<?php
 									
-if (isset ( $dadosPaciente ['nome_paciente'] )) {
+									if (isset ( $dadosPaciente ['nome_paciente'] )) {
 										echo $dadosPaciente ['nome_paciente'];
 									}
 									?>" /></td>
@@ -62,7 +62,7 @@ if (isset ( $dadosPaciente ['nome_paciente'] )) {
 									maxlength="11"
 									value="<?php
 									
-if (isset ( $dadosPaciente ['cpf'] )) {
+									if (isset ( $dadosPaciente ['cpf'] )) {
 										echo $dadosPaciente ['cpf'];
 									}
 									?>" /></td>
@@ -72,7 +72,7 @@ if (isset ( $dadosPaciente ['cpf'] )) {
 								<td><input type="text" name="rg" id="rg" maxlength="10"
 									value="<?php
 									
-if (isset ( $dadosPaciente ['rg'] )) {
+									if (isset ( $dadosPaciente ['rg'] )) {
 										echo $dadosPaciente ['rg'];
 									}
 									?>" /></td>
@@ -82,7 +82,7 @@ if (isset ( $dadosPaciente ['rg'] )) {
 								<td><input type="text" name="cpf" id="cpf" maxlength="11"
 									value="<?php
 									
-if (isset ( $dadosPaciente ['cpf'] )) {
+									if (isset ( $dadosPaciente ['cpf'] )) {
 										echo $dadosPaciente ['cpf'];
 									}
 									?>" /></td>

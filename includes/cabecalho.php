@@ -1,8 +1,8 @@
 <?php session_start(); ?>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>SGPM - Sistema Gerenciador de Prontu√°rios M√©dicos</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+<title>SGPM - Sistema Gerenciador de Prontu·rios MÈdicos</title>
 <LINK href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="css/dataTables.css">
 
