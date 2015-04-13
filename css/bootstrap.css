@@ -5908,10 +5908,10 @@ Aqui começam edições no Bootstrap CSS original.
 
 #tituloPagina {
 	margin-left: 20%;
-	margin-top: -250px;
+	margin-top: 5%;
 	margin-bottom: 150px;
 	position: inherit;
-	margin-right: 1300px;
+	
 }
 
 .body2 {
@@ -5924,8 +5924,8 @@ Aqui começam edições no Bootstrap CSS original.
 }
 
 #formBuscaPaciente {
-	margin-left: 100px;
-	margin-top: 50px;
+	margin-left: 500px;
+	margin-top: -160px;
 	font-size: 16;
 }
 
@@ -5973,9 +5973,9 @@ Aqui começam edições no Bootstrap CSS original.
 	position: relative;
 	font-family: Raleway, sans-serif; //
 	bottom: 200px;
-	margin-top: -600px;
-	right: 100px; //
+	margin-top: -500px;
 	background-image: url('../img/background_su.jpg');
+	
 }
 
 #divBoasVindas {
