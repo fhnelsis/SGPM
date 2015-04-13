@@ -30,6 +30,7 @@
 				</div>
 			</div>
 		</form>
+		
 	</div>
 </div>
-<?php include ('includes/rodape.php') ?>
+<?php include ('includes/rodape.php')?>

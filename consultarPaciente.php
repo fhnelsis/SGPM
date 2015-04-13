@@ -21,7 +21,7 @@ if (isset ( $_GET ['id_exclusao'] )) {
     jQuery(document).ready(function () {
         jQuery('#pacientes').DataTable();
     });
-</script>
+    </script>
 <div class="tudo">
 	<div id="meio">
 		<div id="tituloPagina">
@@ -50,15 +50,13 @@ if (isset ( $_GET ['id_exclusao'] )) {
 
 					<tbody>
 
-                        <?php
-																								$con = mysqli_connect ( "localhost", "root", "", "sgpm" );
-																								mysqli_set_charset ( $con, "utf8" );
-																								
-																								// Verificar essa query. Saber de onde ela pega o POST para a busca.
-																								$query = mysqli_query ( $con, "SELECT * FROM paciente" );
-																								
-																								while ( $linha = mysqli_fetch_array ( $query ) ) {
-																									?>
+<?php $con = mysqli_connect ( "localhost", "root", "", "sgpm" );
+	mysqli_set_charset ( $con, "utf8" );
+	
+// Verificar essa query. Saber de onde ela pega o POST para a busca.
+$query = mysqli_query ( $con, "SELECT * FROM paciente" );
+							while ( $linha = mysqli_fetch_array ( $query ) ) {
+								?>
 
                             <tr>
 							<td><?php echo $linha['nome_paciente']; ?></td>
