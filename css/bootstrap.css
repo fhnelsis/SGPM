@@ -5835,15 +5835,11 @@ Aqui começam edições no Bootstrap CSS original.
 	height: 50px;
 	position: absolute top;
 	background-color: #49505a;
-	z-index: 999;
 	width: 100%;
 	position:absolute; 
 	z-index:150;
-}
-
-#cabecalho {
-	position: absolute;
-	
+	margin-top: 0px;
+	top: 0px;
 }
 
 .logo {
@@ -5931,19 +5927,13 @@ Aqui começam edições no Bootstrap CSS original.
 
 .aviso {
 	position: absolute;
-	top: 300px;
-	left: 520px;
+	top: 15%;
+	left: 15%;
 }
 
 .form {
-	position: absolute;
-	top: -600px;
-	left: 790px;
-}
-
-.indexMeio {
-	position: absolute;
-	bottom: 100px;
+	position: relative;
+	margin-top: 25%;
 }
 
 .logoutButton {
@@ -5952,12 +5942,12 @@ Aqui começam edições no Bootstrap CSS original.
 	border-radius: 28px;
 	font-family: Courier New;
 	color: #d8f3f0;
-	font-size: 18px;
+	font-size: 16px;
 	background: #3ab4a6;
 	padding: 10px 20px 10px 20px;
 	text-decoration: none;
 	position: relative;
-	padding: 10px;
+	padding: 8px;
 	position: relative;
 	border-right: 0px;
 	left: 92%;
@@ -5969,11 +5959,12 @@ Aqui começam edições no Bootstrap CSS original.
 	text-decoration: none;
 }
 
-#meio {
+
+.meio {
 	position: relative;
-	font-family: Raleway, sans-serif; //
-	bottom: 200px;
-	margin-top: -500px;
+	font-family: Raleway, sans-serif;
+	
+	margin-top: 100px;
 	background-image: url('../img/background_su.jpg');
 	
 }

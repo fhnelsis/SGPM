@@ -13,7 +13,7 @@ if (isset ( $_GET ['id_exclusao'] )) {
 	$exec = mysqli_query ( $con, $sql );
 	
 	// Verificar alert de exclus„o
-	$_SESSION ['msg'] = 'Registro Exclu√≠do Com Sucesso!';
+	$_SESSION ['msg'] = 'Registro ExcluÌdo Com Sucesso!';
 	header ( 'Location: consultarPaciente.php' );
 }
 ?>
@@ -43,8 +43,8 @@ if (isset ( $_GET ['id_exclusao'] )) {
 						<tr>
 							<th>Nome</th>
 							<th>CPF</th>
-							<th>Edi√ß√£o</th>
-							<th>Exclus√£o</th>
+							<th>EdiÁ„o</th>
+							<th>Exclus„o</th>
 						</tr>
 					</thead>
 
@@ -74,13 +74,11 @@ if (isset ( $_GET ['id_exclusao'] )) {
 
 
 						</tr>
-
-<?php } ?>
-                    </tbody>
+					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
 </div>
-<?php include ( 'includes/menuBack.php')?>
+<?php include ('includes/menuBack.php')?>
 <?php include ('includes/rodape.php')?>
