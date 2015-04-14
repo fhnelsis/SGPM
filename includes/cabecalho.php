@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
 <title>SGPM - Sistema Gerenciador de Prontuários Médicos</title>
-<LINK href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<LINK href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="css/dataTables.css">
 
 <script type="text/javascript" language="javascript"
