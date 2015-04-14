@@ -26,25 +26,55 @@ audio, canvas, progress, video {
 }
 
 audio
+
+
+
+
 :not
+
+
  
+
+
 (
 [
 controls
 ]
+
+
  
+
+
 )
 {
 display
-:
- 
-none
-;
 
-	
-height
+
+
+
 :
+
+
  
+
+
+none
+
+
+
+
+;
+height
+
+
+
+
+:
+
+
+ 
+
+
 0;
 }
 [hidden], template {
@@ -105,20 +135,42 @@ img {
 }
 
 svg
+
+
+
+
 :not
+
+
  
+
+
 (
 :root
+
+
  
+
+
 )
 {
 overflow
+
+
+
+
 :
+
+
  
+
+
 hidden
+
+
+
+
 ;
-
-
 }
 figure {
 	margin: 1em 40px;
@@ -3890,29 +3942,65 @@ tbody.collapse.in {
 .btn-group
 >
 .btn
+
+
+
+
 :not
+
+
  
+
+
 (
 :first-child
+
+
  
+
+
 )
 :not
+
+
  
+
+
 (
 :last-child
+
+
  
+
+
 )
 :not
+
+
  
+
+
 (
 .dropdown-toggle
 
+
+
 	
+
+
 )
 {
 border-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 }
 .btn-group>.btn:first-child {
@@ -3922,57 +4010,141 @@ border-radius
 .btn-group
 >
 .btn
+
+
+
+
 :first-child
+
+
+
+
 :not
+
+
  
+
+
 (
 :last-child
+
+
  
+
+
 )
 :not
+
+
  
+
+
 (
 .dropdown-toggle
+
+
  
+
+
 )
 {
 border-top-right-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 border-bottom-right-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 }
 .btn-group
 >
 .btn
+
+
+
+
 :last-child
+
+
+
+
 :not
+
+
  
+
+
 (
 :first-child
+
+
  
+
+
 ),
 .btn-group
 >
 .dropdown-toggle
+
+
+
+
 :not
 
+
+
 	
+
+
 (
 :first-child
+
+
  
+
+
 )
 {
 border-top-left-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 border-bottom-left-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 }
 .btn-group>.btn-group {
@@ -4054,79 +4226,191 @@ border-bottom-left-radius
 .btn-group-vertical
 >
 .btn
+
+
+
+
 :not
+
+
  
+
+
 (
 :first-child
+
+
  
+
+
 )
 :not
+
+
  
+
+
 (
 :last-child
+
+
  
+
+
 )
 {
 border-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 }
 .btn-group-vertical
 >
 .btn
+
+
+
+
 :first-child
+
+
+
+
 :not
+
+
  
+
+
 (
 :last-child
+
+
  
+
+
 )
 {
 border-top-right-radius
+
+
+
+
 :
+
+
  
+
+
 4
 px
-;
 
-	
+
+
+
+;
 border-bottom-right-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 border-bottom-left-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 }
 .btn-group-vertical
 >
 .btn
+
+
+
+
 :last-child
+
+
+
+
 :not
+
+
  
+
+
 (
 :first-child
+
+
  
+
+
 )
 {
 border-top-left-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 border-top-right-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 border-bottom-left-radius
+
+
+
+
 :
+
+
  
+
+
 4
 px
+
+
+
+
 ;
-
-
 }
 .btn-group-vertical>.btn-group:not (:first-child ):not (:last-child ) >.btn
 	{
@@ -4244,51 +4528,123 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 }
 
 .input-group-addon
-:not
- 
-(
-:first-child
- 
-)
-:not
- 
-(
-:last-child
- 
-),
-.input-group-btn
-:not
- 
-(
-:first-child
- 
-)
-:not
- 
-(
-:last-child
- 
-),
-.input-group
- 
-.form-control
+
+
+
+
 :not
 
-	
+
+ 
+
+
 (
 :first-child
+
+
  
+
+
 )
 :not
+
+
  
+
+
 (
 :last-child
+
+
  
+
+
+),
+.input-group-btn
+
+
+
+
+:not
+
+
+ 
+
+
+(
+:first-child
+
+
+ 
+
+
+)
+:not
+
+
+ 
+
+
+(
+:last-child
+
+
+ 
+
+
+),
+.input-group
+
+
+ 
+
+
+.form-control
+
+
+
+
+:not
+
+
+
+	
+
+
+(
+:first-child
+
+
+ 
+
+
+)
+:not
+
+
+ 
+
+
+(
+:last-child
+
+
+ 
+
+
 )
 {
 border-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 }
 .input-group-addon, .input-group-btn {
@@ -7421,9 +7777,8 @@ button.close {
 Aqui começam edições no Bootstrap CSS original.
 */
 
-
 /* ---------------------------------------------------------------------- 1024x768 ---------------------------------------------------------------------- */
-@media ( min-width : 1020px) {
+@media ( max-width : 1024px) {
 	.cabecalho {
 		height: 50px;
 		position: absolute top;
@@ -7503,11 +7858,21 @@ Aqui começam edições no Bootstrap CSS original.
 		margin-top: 200px;
 	}
 	#tituloPagina {
-		margin-left: 20%;
-		margin-top: -30%;
+		margin-left: 26%;
+		margin-top: -42%;
 		margin-bottom: 150px;
 		position: inherit;
+		font-size: 22;
 	}
+	
+	#tituloPaginaCadastroAlteracao{
+		margin-left: -300px;
+		margin-top: -420px;
+		margin-bottom: 150px;
+		position: inherit;
+		font-size: 22;
+	}
+	
 	.body2 {
 		width: 100%;
 		margin: 0;
@@ -7517,9 +7882,10 @@ Aqui começam edições no Bootstrap CSS original.
 		background-color: #C0D9D9;
 	}
 	#formBuscaPaciente {
-		margin-left: 100px;
-		margin-top: 10px;
-		font-size: 12;
+		width: 85%;
+		margin-left: 270px;
+		margin-top: -12%;
+		font-size: 8;
 	}
 	.aviso {
 		position: absolute;
@@ -7558,11 +7924,159 @@ Aqui começam edições no Bootstrap CSS original.
 		background-image: url('../img/background_su.jpg');
 	}
 	#divBoasVindas {
-		font-size: 25;
-		width: 70%;
+		font-size: 15;
+		width: 50%;
 		position: relative;
 		font-weight: bold;
-		margin-left: 350px;
-		margin-top: -20%;
+		margin-left: 380px;
+		margin-top: -300px;
 	}
+	
 }
+
+
+/* /* ---------------------------------------------------------------------- 1920x1080 ---------------------------------------------------------------------- */
+*
+/
+/* @media ( min-width : 1920px) { */
+/* 	.cabecalho { */
+/* 		height: 50px; */
+/* 		position: absolute top; */
+/* 		background-color: #49505a; */
+/* 		width: 100%; */
+/* 		position: absolute; */
+/* 		z-index: 150; */
+/* 		margin-top: 0px; */
+/* 		top: 0px; */
+/* 	} */
+/* 	.rodape { */
+/* 		min-width: 100%; */
+/* 		height: 40px; */
+/* 		text-align: center; */
+/* 		font-style: inherit; */
+/* 		font-size: 16px; */
+/* 		font-family: Raleway, sans-serif; */
+/* 		width: 100%; */
+/* 		background-color: #49505a; */
+/* 		color: #ffffff; */
+/* 		position: fixed; */
+/* 		bottom: 0; */
+/* 	} */
+/* 	.logo { */
+/* 		margin-left: 20px; */
+/* 		margin-top: 5px; */
+/* 	} */
+/* 	.loginbutton { */
+/* 		-moz-box-shadow: 0px 10px 14px -7px #3e7327; */
+/* 		-webkit-box-shadow: 0px 10px 14px -7px #3e7327; */
+/* 		box-shadow: 0px 10px 14px -7px #3e7327; */
+/* 		background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77b55a */
+/* 			), color-stop(1, #72b352)); */
+/* 		background: -moz-linear-gradient(top, #77b55a 5%, #72b352 100%); */
+/* 		background: -webkit-linear-gradient(top, #77b55a 5%, #72b352 100%); */
+/* 		background: -o-linear-gradient(top, #77b55a 5%, #72b352 100%); */
+/* 		background: -ms-linear-gradient(top, #77b55a 5%, #72b352 100%); */
+/* 		background: linear-gradient(to bottom, #77b55a 5%, #72b352 100%); */
+/* 		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#77b55a', */
+/* 			endColorstr='#72b352', GradientType=0); */
+/* 		background-color: #77b55a; */
+/* 		-moz-border-radius: 4px; */
+/* 		-webkit-border-radius: 4px; */
+/* 		border-radius: 4px; */
+/* 		border: 1px solid #4b8f29; */
+/* 		display: inline-block; */
+/* 		cursor: pointer; */
+/* 		color: #ffffff; */
+/* 		font-family: arial; */
+/* 		font-size: 15px; */
+/* 		font-weight: bold; */
+/* 		padding: 8px 21px; */
+/* 		text-decoration: none; */
+/* 		text-shadow: 0px 1px 0px #5b8a3c; */
+/* 		position: fixed right; */
+/* 		margin-left: 1250px; */
+/* 		margin_top: 500px; */
+/* 	} */
+/* 	.loginbutton:hover { */
+/* 		background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #72b352 */
+/* 			), color-stop(1, #77b55a)); */
+/* 		background: -moz-linear-gradient(top, #72b352 5%, #77b55a 100%); */
+/* 		background: -webkit-linear-gradient(top, #72b352 5%, #77b55a 100%); */
+/* 		background: -o-linear-gradient(top, #72b352 5%, #77b55a 100%); */
+/* 		background: -ms-linear-gradient(top, #72b352 5%, #77b55a 100%); */
+/* 		background: linear-gradient(to bottom, #72b352 5%, #77b55a 100%); */
+/* 		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#72b352', */
+/* 			endColorstr='#77b55a', GradientType=0); */
+/* 		background-color: #72b352; */
+/* 	} */
+/* 	.loginbutton:active { */
+/* 		position: relative; */
+/* 		top: 1px; */
+/* 	} */
+/* 	.form { */
+/* 		text-align: center; */
+/* 		margin-top: 200px; */
+/* 		position: relative; */
+/* 		margin-top: 22%; */
+/* 		margin-right: 10%; */
+/* 	} */
+/* 	.aviso { */
+/* 		position: absolute; */
+/* 		top: 25%; */
+/* 		left: 25%; */
+/* 	} */
+/* 	#tituloPagina { */
+/* 		margin-left: 20%; */
+/* 		margin-top: -30%; */
+/* 		margin-bottom: 150px; */
+/* 		position: inherit; */
+/* 	} */
+/* 	.body2 { */
+/* 		width: 100%; */
+/* 		margin: 0; */
+/* 		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+/* 		font-size: 14px; */
+/* 		line-height: 20px; */
+/* 		background-color: #C0D9D9; */
+/* 	} */
+/* 	#formBuscaPaciente { */
+/* 		margin-left: 100px; */
+/* 		margin-top: 10px; */
+/* 		font-size: 12; */
+/* 	} */
+/* 	.logoutButton { */
+/* 		-webkit-border-radius: 28; */
+/* 		-moz-border-radius: 28; */
+/* 		border-radius: 28px; */
+/* 		font-family: Courier New; */
+/* 		color: #d8f3f0; */
+/* 		font-size: 16px; */
+/* 		background: #3ab4a6; */
+/* 		padding: 10px 20px 10px 20px; */
+/* 		text-decoration: none; */
+/* 		position: relative; */
+/* 		padding: 8px; */
+/* 		position: relative; */
+/* 		border-right: 0px; */
+/* 		left: 95%; */
+/* 		bottom: 32px; */
+/* 	} */
+/* 	.logoutButton:hover { */
+/* 		background: #4ea370; */
+/* 		text-decoration: none; */
+/* 	} */
+/* 	.meio { */
+/* 		position: relative; */
+/* 		font-family: Raleway, sans-serif; */
+/* 		margin-top: 0px; */
+/* 		background-image: url('../img/background_su.jpg'); */
+/* 	} */
+/* 	#divBoasVindas { */
+/* 		font-size: 25; */
+/* 		width: 70%; */
+/* 		position: relative; */
+/* 		font-weight: bold; */
+/* 		margin-left: 350px; */
+/* 		margin-top: -20%; */
+/* 	} */
+/* } */

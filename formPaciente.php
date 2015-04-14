@@ -33,9 +33,9 @@ if (isset ( $_GET ['id'] )) {
 
 <div class="tudo">
 	<div id="meio">
-		<div id="tituloPagina">
+		<div id="tituloPaginaCadastroAlteracao">
 			<center>
-				<h3><?php echo isset($_GET['id']) ? "Alterar Paciente" : "Cadastrar Paciente"; ?></h3>
+				<?php echo isset($_GET['id']) ? "Alterar Paciente" : "Cadastrar Paciente"; ?>
 			</center>
 		</div>
 
@@ -46,7 +46,7 @@ if (isset ( $_GET ['id'] )) {
 					<form method="POST">
 						<table width="500px">
 							<tr>
-								<td><label for="nome_paciente">Nome: </label></td>
+								<td><label for="nome_paciente">Nome:</label></td>
 								<td><input style="width: 400px;" type="text"
 									name="nome_paciente" id="nome_paciente" maxlength="50"
 									value="<?php
@@ -57,7 +57,7 @@ if (isset ( $_GET ['id'] )) {
 									?>" /></td>
 							</tr>
 							<tr>
-								<td><label for="cpf">CPF: </label></td>
+								<td><label for="cpf">CPF:</label></td>
 								<td><input style="width: 150px;" type="text" name="cpf" id="cpf"
 									maxlength="11"
 									value="<?php
@@ -68,7 +68,7 @@ if (isset ( $_GET ['id'] )) {
 									?>" /></td>
 							</tr>
 							<tr>
-								<td><label for="cpf">RG: </label></td>
+								<td><label for="cpf">RG:</label></td>
 								<td><input type="text" name="rg" id="rg" maxlength="10"
 									value="<?php
 									
@@ -78,7 +78,7 @@ if (isset ( $_GET ['id'] )) {
 									?>" /></td>
 							</tr>
 							<tr>
-								<td><label for="cpf">CPF: </label></td>
+								<td><label for="cpf">CPF:</label></td>
 								<td><input type="text" name="cpf" id="cpf" maxlength="11"
 									value="<?php
 									
@@ -94,7 +94,7 @@ if (isset ( $_GET ['id'] )) {
 							if (isset ( $dadosPaciente ['id_paciente'] )) {
 								echo $dadosPaciente ['id_paciente'];
 							}
-							?>" /> <input type="submit" name="enviar" value="ENVIAR" />
+							?>" /> <input type="submit" name="enviar" value="ENVIAR" id="enviar_cadastro" />
 					</form>
 				</div>
 			</div>

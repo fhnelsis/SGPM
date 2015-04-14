@@ -26,7 +26,7 @@ if (isset ( $_GET ['id_exclusao'] )) {
 <div class="tudo">
 	<div id="meio">
 		<div id="tituloPagina">
-			<h3>Buscar Paciente</h3>
+			Buscar Paciente
 		</div>
 
 		<div id="formBuscaPaciente">
