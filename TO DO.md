@@ -2,3 +2,4 @@
 - [ ] Colocar o nome no aluno no slide de capa.
 - [ ] Layout e Cadastro tem que funcionar para Sexta.
 - [ ] Deixar claro na apresentação (provavelmente no cronograma) que o desenvolvimento está sendo feito. 
+- [ ] Ajustar o layout do sistema para a resolução de 1024x768. Verificar responsividade do Bootstrap.
