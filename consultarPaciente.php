@@ -24,7 +24,7 @@ if (isset ( $_GET ['id_exclusao'] )) {
     });
     </script>
 <div class="tudo">
-	<div id="meio">
+	
 		<div id="tituloPagina">
 			Buscar Paciente
 		</div>
@@ -79,7 +79,7 @@ while ( $linha = mysqli_fetch_array ( $query ) ) {
 				</table>
 			</div>
 		</div>
-	</div>
+	
 </div>
 <?php include ('includes/menuBack.php')?>
 <?php include ('includes/rodape.php')?>

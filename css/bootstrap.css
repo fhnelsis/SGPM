@@ -8252,7 +8252,7 @@ Aqui começam edições no Bootstrap CSS original.
 		width: 85%;
 		margin-left: 270px;
 		margin-top: -12%;
-		font-size: 8;
+		font-size: 12;
 	}
 	.aviso {
 		position: absolute;
@@ -8290,7 +8290,7 @@ Aqui começam edições no Bootstrap CSS original.
 		height: 100%;
 		position: relative;
 		font-family: Raleway, sans-serif;
-		margin-top: 0px; 
+		margin-top: -300px; 
 		background-image: url('../img/background_su.jpg');
 		//background-image: url('../img/simple_blue_background-wallpaper-1024x768.jpg');
 	}

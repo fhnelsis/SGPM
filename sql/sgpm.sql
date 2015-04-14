@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 06-Abr-2015 às 21:36
+-- Generation Time: 14-Abr-2015 às 22:07
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `paciente` (
   PRIMARY KEY (`id_paciente`),
   UNIQUE KEY `cpf` (`cpf`),
   KEY `id_paciente` (`id_paciente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Extraindo dados da tabela `paciente`
@@ -66,7 +66,16 @@ CREATE TABLE IF NOT EXISTS `paciente` (
 INSERT INTO `paciente` (`id_paciente`, `nome_paciente`, `cpf`) VALUES
 (1, 'José Emiliano Gonçalves', '83691247511'),
 (2, 'João Augusto Silveira Filho', '93125661571'),
-(4, 'Paulo da Silva Santos', '9745632111');
+(4, 'Paulo da Silva Santos', '9745632111'),
+(5, 'Ana de Mesquita Nelsis', '93121548477'),
+(6, 'Carlos Antônio Pinheiro Borba', '89651985195'),
+(7, 'Vilson de Souza Camargo', '98487877484'),
+(8, 'Francisco Henrique de Paiva Nelsis', '83330763000'),
+(9, 'Rodrigo de Almeida Martins', '65951954878'),
+(10, 'Diego de Oliveira Marinho', '98481195138'),
+(11, 'Bruno Quintino Camões', '81658787398'),
+(12, 'Helen de Azevedo Silva', '84718272646'),
+(13, 'Viviane Gastão Vicentini', '');
 
 -- --------------------------------------------------------
 
