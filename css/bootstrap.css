@@ -30,10 +30,18 @@ audio
 
 
 
+
+
+
+
 :not
 
 
+
+
  
+
+
 
 
 (
@@ -42,7 +50,11 @@ controls
 ]
 
 
+
+
  
+
+
 
 
 )
@@ -52,13 +64,25 @@ display
 
 
 
+
+
+
+
 :
+
+
 
 
  
 
 
+
+
 none
+
+
+
+
 
 
 
@@ -69,10 +93,18 @@ height
 
 
 
+
+
+
+
 :
 
 
+
+
  
+
+
 
 
 0;
@@ -139,17 +171,29 @@ svg
 
 
 
+
+
+
+
 :not
 
 
+
+
  
+
+
 
 
 (
 :root
 
 
+
+
  
+
+
 
 
 )
@@ -159,13 +203,25 @@ overflow
 
 
 
+
+
+
+
 :
+
+
 
 
  
 
 
+
+
 hidden
+
+
+
+
 
 
 
@@ -3946,38 +4002,62 @@ tbody.collapse.in {
 
 
 
+
+
+
+
 :not
 
 
+
+
  
+
+
 
 
 (
 :first-child
 
 
+
+
  
+
+
 
 
 )
 :not
 
 
+
+
  
+
+
 
 
 (
 :last-child
 
 
+
+
  
+
+
 
 
 )
 :not
 
 
+
+
  
+
+
 
 
 (
@@ -3985,7 +4065,11 @@ tbody.collapse.in {
 
 
 
+
+
 	
+
+
 
 
 )
@@ -3995,10 +4079,18 @@ border-radius
 
 
 
+
+
+
+
 :
 
 
+
+
  
+
+
 
 
 0;
@@ -4014,7 +4106,15 @@ border-radius
 
 
 
+
+
+
+
 :first-child
+
+
+
+
 
 
 
@@ -4022,28 +4122,44 @@ border-radius
 :not
 
 
+
+
  
+
+
 
 
 (
 :last-child
 
 
+
+
  
+
+
 
 
 )
 :not
 
 
+
+
  
+
+
 
 
 (
 .dropdown-toggle
 
 
+
+
  
+
+
 
 
 )
@@ -4053,10 +4169,18 @@ border-top-right-radius
 
 
 
+
+
+
+
 :
 
 
+
+
  
+
+
 
 
 0;
@@ -4065,10 +4189,18 @@ border-bottom-right-radius
 
 
 
+
+
+
+
 :
 
 
+
+
  
+
+
 
 
 0;
@@ -4080,7 +4212,15 @@ border-bottom-right-radius
 
 
 
+
+
+
+
 :last-child
+
+
+
+
 
 
 
@@ -4088,14 +4228,22 @@ border-bottom-right-radius
 :not
 
 
+
+
  
+
+
 
 
 (
 :first-child
 
 
+
+
  
+
+
 
 
 ),
@@ -4106,18 +4254,30 @@ border-bottom-right-radius
 
 
 
+
+
+
+
 :not
+
+
 
 
 
 	
 
 
+
+
 (
 :first-child
 
 
+
+
  
+
+
 
 
 )
@@ -4127,10 +4287,18 @@ border-top-left-radius
 
 
 
+
+
+
+
 :
 
 
+
+
  
+
+
 
 
 0;
@@ -4139,10 +4307,18 @@ border-bottom-left-radius
 
 
 
+
+
+
+
 :
 
 
+
+
  
+
+
 
 
 0;
@@ -4230,31 +4406,51 @@ border-bottom-left-radius
 
 
 
+
+
+
+
 :not
 
 
+
+
  
+
+
 
 
 (
 :first-child
 
 
+
+
  
+
+
 
 
 )
 :not
 
 
+
+
  
+
+
 
 
 (
 :last-child
 
 
+
+
  
+
+
 
 
 )
@@ -4264,10 +4460,18 @@ border-radius
 
 
 
+
+
+
+
 :
 
 
+
+
  
+
+
 
 
 0;
@@ -4279,7 +4483,15 @@ border-radius
 
 
 
+
+
+
+
 :first-child
+
+
+
+
 
 
 
@@ -4287,14 +4499,22 @@ border-radius
 :not
 
 
+
+
  
+
+
 
 
 (
 :last-child
 
 
+
+
  
+
+
 
 
 )
@@ -4304,14 +4524,26 @@ border-top-right-radius
 
 
 
+
+
+
+
 :
+
+
 
 
  
 
 
+
+
 4
 px
+
+
+
+
 
 
 
@@ -4322,10 +4554,18 @@ border-bottom-right-radius
 
 
 
+
+
+
+
 :
 
 
+
+
  
+
+
 
 
 0;
@@ -4334,10 +4574,18 @@ border-bottom-left-radius
 
 
 
+
+
+
+
 :
 
 
+
+
  
+
+
 
 
 0;
@@ -4349,7 +4597,15 @@ border-bottom-left-radius
 
 
 
+
+
+
+
 :last-child
+
+
+
+
 
 
 
@@ -4357,14 +4613,22 @@ border-bottom-left-radius
 :not
 
 
+
+
  
+
+
 
 
 (
 :first-child
 
 
+
+
  
+
+
 
 
 )
@@ -4374,10 +4638,18 @@ border-top-left-radius
 
 
 
+
+
+
+
 :
 
 
+
+
  
+
+
 
 
 0;
@@ -4386,10 +4658,18 @@ border-top-right-radius
 
 
 
+
+
+
+
 :
 
 
+
+
  
+
+
 
 
 0;
@@ -4398,14 +4678,26 @@ border-bottom-left-radius
 
 
 
+
+
+
+
 :
+
+
 
 
  
 
 
+
+
 4
 px
+
+
+
+
 
 
 
@@ -4532,31 +4824,51 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
 :not
 
 
+
+
  
+
+
 
 
 (
 :first-child
 
 
+
+
  
+
+
 
 
 )
 :not
 
 
+
+
  
+
+
 
 
 (
 :last-child
 
 
+
+
  
+
+
 
 
 ),
@@ -4565,38 +4877,62 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
 :not
 
 
+
+
  
+
+
 
 
 (
 :first-child
 
 
+
+
  
+
+
 
 
 )
 :not
 
 
+
+
  
+
+
 
 
 (
 :last-child
 
 
+
+
  
+
+
 
 
 ),
 .input-group
 
 
+
+
  
+
+
 
 
 .form-control
@@ -4604,32 +4940,52 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
 :not
+
+
 
 
 
 	
 
 
+
+
 (
 :first-child
 
 
+
+
  
+
+
 
 
 )
 :not
 
 
+
+
  
+
+
 
 
 (
 :last-child
 
 
+
+
  
+
+
 
 
 )
@@ -4639,10 +4995,18 @@ border-radius
 
 
 
+
+
+
+
 :
 
 
+
+
  
+
+
 
 
 0;
@@ -7790,17 +8154,19 @@ Aqui começam edições no Bootstrap CSS original.
 		top: 0px;
 	}
 	.rodape {
-		min-width: 100%;
-		height: 40px;
+		height: 25px;
 		text-align: center;
-		font-style: inherit;
-		font-size: 16px;
 		font-family: Raleway, sans-serif;
 		width: 100%;
 		background-color: #49505a;
 		color: #ffffff;
 		position: fixed;
 		bottom: 0;
+		text-align: center;
+	}
+	.rodapeTexto {
+		font-size: 12px;
+		margin-top: 5px;
 	}
 	.logo {
 		margin-left: 20px;
@@ -7853,10 +8219,12 @@ Aqui começam edições no Bootstrap CSS original.
 		position: relative;
 		top: 1px;
 	}
-	.form {
-		text-align: center;
-		margin-top: 200px;
+	
+	.logoHome{
+	margin-left: 50%;
+	margin-right: 50%;
 	}
+
 	#tituloPagina {
 		margin-left: 26%;
 		margin-top: -42%;
@@ -7864,17 +8232,16 @@ Aqui começam edições no Bootstrap CSS original.
 		position: inherit;
 		font-size: 22;
 	}
-	
-	#tituloPaginaCadastroAlteracao{
+	#tituloPaginaCadastroAlteracao {
 		margin-left: -300px;
 		margin-top: -420px;
 		margin-bottom: 150px;
 		position: inherit;
 		font-size: 22;
 	}
-	
-	.body2 {
+	.body {
 		width: 100%;
+		height: 100%;
 		margin: 0;
 		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 		font-size: 14px;
@@ -7889,12 +8256,13 @@ Aqui começam edições no Bootstrap CSS original.
 	}
 	.aviso {
 		position: absolute;
-		top: 25%;
+		top: 20%;
 		left: 15%;
 	}
 	.form {
 		position: relative;
-		margin-top: 32%;
+		text-align: center;
+		padding-top: 30%;
 	}
 	.logoutButton {
 		-webkit-border-radius: 28;
@@ -7917,12 +8285,16 @@ Aqui começam edições no Bootstrap CSS original.
 		background: #4ea370;
 		text-decoration: none;
 	}
-	.meio {
+
+	.tudo {
+		height: 100%;
 		position: relative;
 		font-family: Raleway, sans-serif;
-		margin-top: 0px;
+		margin-top: 0px; 
 		background-image: url('../img/background_su.jpg');
+		//background-image: url('../img/simple_blue_background-wallpaper-1024x768.jpg');
 	}
+	
 	#divBoasVindas {
 		font-size: 15;
 		width: 50%;
@@ -7931,9 +8303,7 @@ Aqui começam edições no Bootstrap CSS original.
 		margin-left: 380px;
 		margin-top: -300px;
 	}
-	
 }
-
 
 /* /* ---------------------------------------------------------------------- 1920x1080 ---------------------------------------------------------------------- */
 *
