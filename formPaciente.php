@@ -193,5 +193,4 @@ if (isset ( $_GET ['id'] )) {
 		</div>
 	</center>
 </div>
-<?php include ('includes/menuBack.php')?>
 <?php include ('includes/rodape.php')?>

@@ -29,8 +29,8 @@
 						<tr>
 							<th>Nome</th>
 							<th>CPF</th>
-							<th>Edição</th>
-							<th>Exclusão</th>
+							<th>Edi&#231;&#228;o</th>
+							<th>Exclus&#228;o</th>
 						</tr>
 					</thead>
 

@@ -1,4 +1,4 @@
-- [ ] Colocar Github, Eclipse, jQuery e Bootstrap nos slides da apresenta√ß√£o.
+- [x] Colocar Github, Eclipse, jQuery e Bootstrap nos slides da apresentaÁ„o e no relatÛrio.
 - [ ] Colocar o nome no aluno no slide de capa.
 - [ ] Layout e Cadastro tem que funcionar para Sexta.
 - [ ] Deixar claro na apresenta√ß√£o (provavelmente no cronograma) que o desenvolvimento est√° sendo feito. 
