@@ -1,8 +1,8 @@
 - [x] Colocar Github, Eclipse, jQuery e Bootstrap nos slides da apresentação e no relatório.
-- [ ] Colocar o nome no aluno no slide de capa.
+- [x] Colocar o nome no aluno no slide de capa.
 - [ ] Layout e Cadastro tem que funcionar para Sexta.
-- [ ] Deixar claro na apresentaÃ§Ã£o (provavelmente no cronograma) que o desenvolvimento estÃ¡ sendo feito. 
-- [ ] Ajustar o layout do sistema para a resoluÃ§Ã£o de 1024x768. Verificar responsividade do Bootstrap.
+- [ ] Deixar claro na apresentação (provavelmente no cronograma) que o desenvolvimento está sendo feito. 
+- [x] Ajustar o layout do sistema para a resolução de 1024x768. Verificar responsividade do Bootstrap.
 
 
 - [ ] Inserir na query de insert dos pacientes:
