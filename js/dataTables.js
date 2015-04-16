@@ -2925,9 +2925,9 @@
                         sNext: "Próximo",
                         sPrevious: "Anterior"
                     },
-                    sEmptyTable: "No data available in table",
+                    sEmptyTable: "Nenhum dado disponível para visualização.",
                     sInfo: "Mostrando _START_ até _END_ de _TOTAL_ registros.",
-                    sInfoEmpty: "Showing 0 to 0 of 0 entries",
+                    sInfoEmpty: "Mostrando 0 até 0 de 0 registros.",
                     sInfoFiltered: "(filtered from _MAX_ total entries)",
                     sInfoPostFix: "",
                     sDecimal: "",
