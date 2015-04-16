@@ -2938,7 +2938,7 @@
                     sSearch: "Buscar:",
                     sSearchPlaceholder: "",
                     sUrl: "",
-                    sZeroRecords: "No matching records found"
+                    sZeroRecords: "Nenhum resultado encontrado!"
                 },
                 oSearch: h.extend({}, o.models.oSearch),
                 sAjaxDataProp: "data",

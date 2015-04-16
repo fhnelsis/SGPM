@@ -1,13 +1,9 @@
 .menuBack {
-  width: 220px;
-  //width: 290px;
-  position: relative;
-  height: 173%;
-  background-color: #3ab4a6;
-  //background-color: #ffffff;
-  //background-color: #49505a;
-  margin-top: -458px;
-  left: 0px;
-  
-  
-  }
+	width: 220px;
+	//width: 290px;
+	position: relative;
+	height: 173%;
+	background-color: #3ab4a6;
+	margin-top: -458px;
+	left: 0px;
+}

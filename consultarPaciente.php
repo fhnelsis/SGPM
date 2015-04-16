@@ -2,28 +2,13 @@
 <?php include ('includes/cabecalho.php')?>
 <?php include ('includes/menu.php')?>
 
-
-<?php
-if (isset ( $_GET ['id_exclusao'] )) {
-	$con = mysqli_connect ( "localhost", "root", "", "sgpm" );
-	mysqli_set_charset ( $con, "utf8" );
-	
-	// Inserir alert de confirmação
-	$sql = "DELETE FROM paciente WHERE id_paciente = {$_GET['id_exclusao']} ";
-	$exec = mysqli_query ( $con, $sql );
-	
-	// Verificar alert de exclusão
-	$_SESSION ['msg'] = 'Registro Excluído Com Sucesso!';
-	header ( 'Location: consultarPaciente.php' );
-}
-?>
-
 <script type="text/javascript">
     jQuery(document).ready(function () {
         jQuery('#pacientes').DataTable();
     });
     </script>
-<div class="tudo">
+<div class="divTudoConsultarPaciente">
+
 	
 		<div id="tituloPagina">
 			Buscar Paciente
@@ -39,7 +24,7 @@ if (isset ( $_GET ['id_exclusao'] )) {
                     <?php unset($_SESSION['msg']); ?>
                 <?php endif; ?>
                 <table id="pacientes" class="display" cellspacing="0"
-					width="100%">
+					width="100%" content="text/html;charset=utf-8" >
 					<thead>
 						<tr>
 							<th>Nome</th>
@@ -70,7 +55,7 @@ while ( $linha = mysqli_fetch_array ( $query ) ) {
 								</center></td>
 							<td><center>
 									<a
-										href="buscarPaciente.php?id_exclusao=<?php echo $linha['id_paciente']; ?>">Excluir</a></td>
+										href="excluirPaciente.php?id_exclusao=<?php echo $linha['id_paciente']; ?>">Excluir</a></td>
 							</center>
 <?php }?>
 

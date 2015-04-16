@@ -26,7 +26,7 @@ try {
 	
 	// Se <> de zero, invalida o acesso
 	if ($num_rows != 1) {
-		throw new Exception ( 'O paciente não existe!' );
+		//throw new Exception ( 'O paciente não existe!' );
 		header ( 'Location: consultarPaciente.php' );
 	} else
 		header ( 'Location: visualizarPaciente.php' );

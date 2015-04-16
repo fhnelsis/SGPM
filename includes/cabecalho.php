@@ -14,7 +14,7 @@
 
 <body>
 	<div class="cabecalho">
-		<a href="index.php"> <img src="img/sgpm_logo2_fundoless_pequeno.png"
+		<a href="home.php"> <img src="img/sgpm_logo2_fundoless_pequeno.png"
 			class="logo">
 		</a>
 		<div class="wrapLogoutButton">
