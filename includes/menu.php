@@ -31,7 +31,7 @@
 
 			<li class='active'><a href='#'>Funcionários</a>
 				<ul>
-					<li><a href='#'>Buscar Funcionário</a></li>
+					<li><a href='consultarFuncionario.php'>Buscar Funcionário</a></li>
 					<li><a href='#'>Novo Funcionário</a></li>
 				</ul></li>
 			<li class='active'><a href='#'>Relatórios</a>
