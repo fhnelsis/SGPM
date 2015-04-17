@@ -180,7 +180,7 @@ if (isset ( $_GET ['id'] )) {
 						<tr>
 							<td><label for="endereco" style="width: 100px">Endere&#231;o:</label></td>
 							<td><input style="width: 300px;" type="text" name="endereco"
-								id="endereco" maxlength="30"
+								id="endereco" maxlength="100"
 								value="<?php
 								
 								if (isset ( $dadosPaciente ['endereco'] )) {

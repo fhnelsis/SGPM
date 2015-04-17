@@ -2920,15 +2920,15 @@
                         sSortDescending: ": activate to sort column descending"
                     },
                     oPaginate: {
-                        sFirst: "First",
-                        sLast: "Last",
+                        sFirst: "Primeiro",
+                        sLast: "Último",
                         sNext: "Próximo",
                         sPrevious: "Anterior"
                     },
                     sEmptyTable: "Nenhum dado disponível para visualização.",
                     sInfo: "Mostrando _START_ até _END_ de _TOTAL_ registros.",
                     sInfoEmpty: "Mostrando 0 até 0 de 0 registros.",
-                    sInfoFiltered: "(filtered from _MAX_ total entries)",
+                    sInfoFiltered: "(filtrando de _MAX_ registros no total)",
                     sInfoPostFix: "",
                     sDecimal: "",
                     sThousands: ",",
