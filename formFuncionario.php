@@ -135,15 +135,15 @@ if (isset ( $_GET ['id_funcionario'] )) {
 	$con = mysqli_connect ( "localhost", "root", "", "sgpm" );
 	mysqli_set_charset ( $con, "utf8" );
 	
-	$query = mysqli_query ( $con, "SELECT * FROM paciente WHERE id_funcionario = {$_GET['id_funcionario']} " );
-	$dadosPaciente = mysqli_fetch_array ( $query );
+	$query = mysqli_query ( $con, "SELECT * FROM funcionario WHERE id_funcionario = {$_GET['id_funcionario']} " );
+	$dadosFuncionario = mysqli_fetch_array ( $query );
 }
 ?>
 
 <div class="divTudoFormPaciente">
 	<div id="tituloPaginaCadastroAlteracao">
 		<center>
-				<?php echo isset($_GET['id_funcionario']) ? "Alterar Funcion&#225;rio" : "Cadastrar Funcionário"; ?>
+				<?php echo isset($_GET['id_funcionario']) ? "Alterar Funcion&#225;rio" : "Cadastrar Funcion&#225;rio"; ?>
 			</center>
 	</div>
 
@@ -154,25 +154,59 @@ if (isset ( $_GET ['id_funcionario'] )) {
 					<table width="100%">
 						<tr>
 							<br />
-							<td><label for="nome_paciente">Nome:</label></td>
-							<td><input style="width: 400px;" type="text" name="nome_paciente"
-								id="nome_paciente" maxlength="50"
+							<td><label for="login">Login:</label></td>
+							<td><input style="width: 150px;" type="text" name="login"
+								id="login" maxlength="30"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['nome_paciente'] )) {
-									echo $dadosPaciente ['nome_paciente'];
+								if (isset ( $dadosFuncionario ['login'] )) {
+									echo $dadosFuncionario ['login'];
+								}
+								?>" /></td>
+						</tr>
+
+						<tr>
+							<td><label for="senha">Senha:</label></td>
+							<td><input style="width: 150px;" type="password" name="senha"
+								id="senha" maxlength="15"
+								value="<?php
+								
+								if (isset ( $dadosFuncionario ['senha'] )) {
+									echo $dadosFuncionario ['senha'];
+								}
+								?>" /></td>
+						</tr>
+
+						<tr>
+							<td><label for="nome_funcionario">Nome:</label></td>
+							<td><input style="width: 400px;" "text" name="nome_funcionario"
+								id="nome_funcionario" maxlength="50"
+								value="<?php
+								
+								if (isset ( $dadosFuncionario ['nome_funcionario'] )) {
+									echo $dadosFuncionario ['nome_funcionario'];
+								}
+								?>" /></td>
+						</tr>
+
+						<tr>
+							<td><label for="cargo">Cargo:</label></td>
+							<td><input type="text" name="cargo" id="cargo" maxlength="20"
+								value="<?php
+								
+								if (isset ( $dadosFuncionario ['cargo'] )) {
+									echo $dadosFuncionario ['cargo'];
 								}
 								?>" /></td>
 						</tr>
 
 						<tr>
 							<td><label for="cpf">CPF:</label></td>
-							<td><input style="width: 150px;" type="text" name="cpf" id="cpf"
-								maxlength="11"
+							<td><input type="text" name="cpf" id="cpf" maxlength="11"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['cpf'] )) {
-									echo $dadosPaciente ['cpf'];
+								if (isset ( $dadosFuncionario ['cpf'] )) {
+									echo $dadosFuncionario ['cpf'];
 								}
 								?>" /></td>
 						</tr>
@@ -182,8 +216,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 							<td><input type="text" name="rg" id="rg" maxlength="10"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['rg'] )) {
-									echo $dadosPaciente ['rg'];
+								if (isset ( $dadosFuncionario ['rg'] )) {
+									echo $dadosFuncionario ['rg'];
 								}
 								?>" /></td>
 						</tr>
@@ -195,8 +229,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="org_exp" maxlength="6"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['org_exp'] )) {
-									echo $dadosPaciente ['org_exp'];
+								if (isset ( $dadosFuncionario ['org_exp'] )) {
+									echo $dadosFuncionario ['org_exp'];
 								}
 								?>" /></td>
 						</tr>
@@ -207,8 +241,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="genero" maxlength="1"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['genero'] )) {
-									echo $dadosPaciente ['genero'];
+								if (isset ( $dadosFuncionario ['genero'] )) {
+									echo $dadosFuncionario ['genero'];
 								}
 								?>" /></td>
 						</tr>
@@ -220,8 +254,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="data_nasc" maxlength="10"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['data_nasc'] )) {
-									echo $dadosPaciente ['data_nasc'];
+								if (isset ( $dadosFuncionario ['data_nasc'] )) {
+									echo $dadosFuncionario ['data_nasc'];
 								}
 								?>" /></td>
 						</tr>
@@ -232,8 +266,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="endereco" maxlength="100"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['endereco'] )) {
-									echo $dadosPaciente ['endereco'];
+								if (isset ( $dadosFuncionario ['endereco'] )) {
+									echo $dadosFuncionario ['endereco'];
 								}
 								?>" /></td>
 						</tr>
@@ -244,8 +278,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="bairro" maxlength="30"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['bairro'] )) {
-									echo $dadosPaciente ['bairro'];
+								if (isset ( $dadosFuncionario ['bairro'] )) {
+									echo $dadosFuncionario ['bairro'];
 								}
 								?>" /></td>
 						</tr>
@@ -256,8 +290,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								maxlength="9"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['cep'] )) {
-									echo $dadosPaciente ['cep'];
+								if (isset ( $dadosFuncionario ['cep'] )) {
+									echo $dadosFuncionario ['cep'];
 								}
 								?>" /></td>
 						</tr>
@@ -268,8 +302,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="cidade" maxlength="30"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['cidade'] )) {
-									echo $dadosPaciente ['cidade'];
+								if (isset ( $dadosFuncionario ['cidade'] )) {
+									echo $dadosFuncionario ['cidade'];
 								}
 								?>" /></td>
 						</tr>
@@ -280,8 +314,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="estado" maxlength="2"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['estado'] )) {
-									echo $dadosPaciente ['estado'];
+								if (isset ( $dadosFuncionario ['estado'] )) {
+									echo $dadosFuncionario ['estado'];
 								}
 								?>" /></td>
 						</tr>
@@ -292,8 +326,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="pais_nacionalidade" id="pais_nacionalidade" maxlength="30"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['pais_nacionalidade'] )) {
-									echo $dadosPaciente ['pais_nacionalidade'];
+								if (isset ( $dadosFuncionario ['pais_nacionalidade'] )) {
+									echo $dadosFuncionario ['pais_nacionalidade'];
 								}
 								?>" /></td>
 						</tr>
@@ -304,8 +338,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="cidade_natural" id="cidade_natural" maxlength="30"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['cidade_natural'] )) {
-									echo $dadosPaciente ['cidade_natural'];
+								if (isset ( $dadosFuncionario ['cidade_natural'] )) {
+									echo $dadosFuncionario ['cidade_natural'];
 								}
 								?>" /></td>
 						</tr>
@@ -317,8 +351,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="estado_natural" maxlength="2"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['estado_natural'] )) {
-									echo $dadosPaciente ['estado_natural'];
+								if (isset ( $dadosFuncionario ['estado_natural'] )) {
+									echo $dadosFuncionario ['estado_natural'];
 								}
 								?>" /></td>
 						</tr>
@@ -329,8 +363,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="ubs_atendimento" id="ubs_atendimento" maxlength="30"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['ubs_atendimento'] )) {
-									echo $dadosPaciente ['ubs_atendimento'];
+								if (isset ( $dadosFuncionario ['ubs_atendimento'] )) {
+									echo $dadosFuncionario ['ubs_atendimento'];
 								}
 								?>" /></td>
 						</tr>
@@ -341,8 +375,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="nome_mae" maxlength="50"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['nome_mae'] )) {
-									echo $dadosPaciente ['nome_mae'];
+								if (isset ( $dadosFuncionario ['nome_mae'] )) {
+									echo $dadosFuncionario ['nome_mae'];
 								}
 								?>" /></td>
 						</tr>
@@ -353,20 +387,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="nome_pai" maxlength="50"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['nome_pai'] )) {
-									echo $dadosPaciente ['nome_pai'];
-								}
-								?>" /></td>
-						</tr>
-
-						<tr>
-							<td><label for="profissao" style="width: 120px">Profiss&#227;o:</label></td>
-							<td><input style="width: 200px;" type="text" name="profissao"
-								id="profissao" maxlength="50"
-								value="<?php
-								
-								if (isset ( $dadosPaciente ['profissao'] )) {
-									echo $dadosPaciente ['profissao'];
+								if (isset ( $dadosFuncionario ['nome_pai'] )) {
+									echo $dadosFuncionario ['nome_pai'];
 								}
 								?>" /></td>
 						</tr>
@@ -377,8 +399,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="estado_civil" maxlength="50"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['estado_civil'] )) {
-									echo $dadosPaciente ['estado_civil'];
+								if (isset ( $dadosFuncionario ['estado_civil'] )) {
+									echo $dadosFuncionario ['estado_civil'];
 								}
 								?>" /></td>
 						</tr>
@@ -389,8 +411,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="escolaridade" maxlength="50"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['escolaridade'] )) {
-									echo $dadosPaciente ['escolaridade'];
+								if (isset ( $dadosFuncionario ['escolaridade'] )) {
+									echo $dadosFuncionario ['escolaridade'];
 								}
 								?>" /></td>
 						</tr>
@@ -402,8 +424,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="tipo_sanguineo" maxlength="3"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['tipo_sanguineo'] )) {
-									echo $dadosPaciente ['tipo_sanguineo'];
+								if (isset ( $dadosFuncionario ['tipo_sanguineo'] )) {
+									echo $dadosFuncionario ['tipo_sanguineo'];
 								}
 								?>" /></td>
 						</tr>
@@ -415,8 +437,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="email_pessoal" maxlength="50"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['email_pessoal'] )) {
-									echo $dadosPaciente ['email_pessoal'];
+								if (isset ( $dadosFuncionario ['email_pessoal'] )) {
+									echo $dadosFuncionario ['email_pessoal'];
 								}
 								?>" /></td>
 						</tr>
@@ -428,8 +450,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="email_pessoal" maxlength="50"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['email_prof'] )) {
-									echo $dadosPaciente ['email_prof'];
+								if (isset ( $dadosFuncionario ['email_prof'] )) {
+									echo $dadosFuncionario ['email_prof'];
 								}
 								?>" /></td>
 						</tr>
@@ -440,8 +462,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="tel_cel" maxlength="10"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['tel_cel'] )) {
-									echo $dadosPaciente ['tel_cel'];
+								if (isset ( $dadosFuncionario ['tel_cel'] )) {
+									echo $dadosFuncionario ['tel_cel'];
 								}
 								?>" /></td>
 						</tr>
@@ -452,21 +474,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="tel_cel" maxlength="10"
 								value="<?php
 								
-								if (isset ( $dadosPaciente ['tel_fixo'] )) {
-									echo $dadosPaciente ['tel_fixo'];
-								}
-								?>" /></td>
-						</tr>
-
-						<tr>
-							<td><label for="tel_contato" style="width: 140px">Telefone
-									Contato:</label></td>
-							<td><input style="width: 100px;" type="text" name="tel_contato"
-								id="tel_contato" maxlength="10"
-								value="<?php
-								
-								if (isset ( $dadosPaciente ['tel_contato'] )) {
-									echo $dadosPaciente ['tel_contato'];
+								if (isset ( $dadosFuncionario ['tel_fixo'] )) {
+									echo $dadosFuncionario ['tel_fixo'];
 								}
 								?>" /></td>
 						</tr>
@@ -474,8 +483,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 					</table>
 					<br> <input type="hidden" id="id" name="id"
 						value="<?php
-						if (isset ( $dadosPaciente ['id_paciente'] )) {
-							echo $dadosPaciente ['id_paciente'];
+						if (isset ( $dadosFuncionario ['id_funcionario'] )) {
+							echo $dadosFuncionario ['id_funcionario'];
 						}
 						?>" /> <input type="submit" name="enviar" value="ENVIAR"
 						id="enviar_cadastro" />
