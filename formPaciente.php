@@ -19,7 +19,6 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 	$cep = $_POST ['cep'];
 	$cidade = $_POST ['cidade'];
 	$estado = $_POST ['estado'];
-	$estado = $_POST ['estado'];
 	$pais_nacionalidade = $_POST ['pais_nacionalidade'];
 	$cidade_natural = $_POST ['cidade_natural'];
 	$estado_natural = $_POST ['estado_natural'];

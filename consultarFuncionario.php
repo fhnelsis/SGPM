@@ -49,7 +49,7 @@ while ( $linha = mysqli_fetch_array ( $query ) ) {
 						<td><center><?php echo $linha['cargo']; ?></center></td>
 						<td><center>
 								<a
-									href="formFuncionario.php?id=<?php echo $linha['id_funcionario']; ?>">Editar</a>
+									href="formFuncionario.php?id_funcionario=<?php echo $linha['id_funcionario']; ?>">Editar</a>
 							</center></td>
 						<td><center>
 								<a
