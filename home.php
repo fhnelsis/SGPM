@@ -6,7 +6,7 @@
 <div id="divMeioHome">
 
 <div id="divBoasVindas">
-	<p>Bem-vindo ao Sistema Gerenciador de Formulários Médicos</p>
+	<p>Bem-vindo ao Sistema Gerenciador de Prontuários Médicos</p>
 </div>
 
 <div class="logoHome">

@@ -1,5 +1,6 @@
 <?php include ('includes/cabecalho.php')?>
 <?php include ('includes/menu.php')?>
+<?php include ('includes/menuBack.php')?>
 <?php
 
 if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
