@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 17-Abr-2015 às 15:15
+-- Generation Time: 08-Maio-2015 às 22:08
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -23,6 +23,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `atendimento`
+--
+
+CREATE TABLE IF NOT EXISTS `atendimento` (
+  `id_atendimento` int(12) NOT NULL AUTO_INCREMENT,
+  `tipo_atendimento` int(3) NOT NULL,
+  `id_funcionario` int(5) NOT NULL,
+  `data_atendimento` date NOT NULL,
+  `fumante` varchar(1) NOT NULL,
+  `alcool` varchar(1) NOT NULL,
+  `alergia_reac_div` varchar(50) NOT NULL,
+  `sintomas` varchar(30) NOT NULL,
+  `queixa_principal` varchar(30) NOT NULL,
+  `hist_molestia` varchar(100) NOT NULL,
+  `frequencia_cardiaca` varchar(10) NOT NULL,
+  `ritmo_cardiaco` varchar(10) NOT NULL,
+  `pressao_arterial` varchar(10) NOT NULL,
+  `ritmo_respiratorio` varchar(10) NOT NULL,
+  `observacoes` varchar(300) NOT NULL,
+  KEY `id_atendimento` (`id_atendimento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `funcionario`
 --
 
@@ -31,18 +56,43 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
   `login` varchar(30) NOT NULL,
   `senha` varchar(30) NOT NULL,
   `nome_funcionario` varchar(50) NOT NULL,
+  `cargo` varchar(30) NOT NULL,
+  `cpf` int(11) NOT NULL,
+  `rg` int(10) NOT NULL,
+  `org_exp` varchar(10) NOT NULL,
+  `genero` varchar(15) NOT NULL,
+  `data_nasc` date NOT NULL,
+  `endereco` varchar(30) NOT NULL,
+  `bairro` varchar(30) NOT NULL,
+  `cep` varchar(10) NOT NULL,
+  `cidade` varchar(30) NOT NULL,
+  `estado` varchar(2) NOT NULL,
+  `pais_nacionalidade` varchar(30) NOT NULL,
+  `cidade_natural` varchar(30) NOT NULL,
+  `estado_natural` varchar(2) NOT NULL,
+  `ubs_atendimento` varchar(30) NOT NULL,
+  `nome_mae` varchar(30) NOT NULL,
+  `nome_pai` varchar(30) NOT NULL,
+  `estado_civil` varchar(15) NOT NULL,
+  `escolaridade` varchar(30) NOT NULL,
+  `tipo_sanguineo` varchar(3) NOT NULL,
+  `email_pessoal` varchar(50) NOT NULL,
+  `email_prof` varchar(30) NOT NULL,
+  `tel_cel` int(15) NOT NULL,
+  `tel_fixo` int(15) NOT NULL,
   PRIMARY KEY (`id_funcionario`),
   UNIQUE KEY `login` (`login`),
   KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Extraindo dados da tabela `funcionario`
 --
 
-INSERT INTO `funcionario` (`id_funcionario`, `login`, `senha`, `nome_funcionario`) VALUES
-(1, 'fhnelsis', '12345', 'Francisco Henrique de Paiva Nelsis'),
-(2, 'admin', 'admin', 'admin');
+INSERT INTO `funcionario` (`id_funcionario`, `login`, `senha`, `nome_funcionario`, `cargo`, `cpf`, `rg`, `org_exp`, `genero`, `data_nasc`, `endereco`, `bairro`, `cep`, `cidade`, `estado`, `pais_nacionalidade`, `cidade_natural`, `estado_natural`, `ubs_atendimento`, `nome_mae`, `nome_pai`, `estado_civil`, `escolaridade`, `tipo_sanguineo`, `email_pessoal`, `email_prof`, `tel_cel`, `tel_fixo`) VALUES
+(1, 'fhnelsis', '12345', 'Francisco Henrique de Paiva Nelsis', 'Administrador', 0, 0, '', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0),
+(2, 'admin', 'admin', 'admin', 'Administrador', 0, 0, '', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0),
+(5, 'elisa.solano', 'eliosa', 'Elisa Pereira Solano', 'Enfermeira', 2147483647, 2147483647, 'SSP/RS', 'F', '1984-06-13', 'Travessa do Camarim, 480/201', 'Menino Deus', '90804-000', 'Porto Alegre', 'RS', 'Brasileira', 'Porto Aegre', 'RS', 'UBS Menino Deus', 'Luciana de Assis Pereira', 'Luiz de Almeida Solano', 'Casada', 'Superior Completo', 'A+', 'solanoelisa@hotmail.com', 'elisa.solano@ubs.com.br', 2147483647, 2147483647);
 
 -- --------------------------------------------------------
 
@@ -81,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `paciente` (
   PRIMARY KEY (`id_paciente`),
   UNIQUE KEY `cpf` (`cpf`),
   KEY `id_paciente` (`id_paciente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=113 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=114 ;
 
 --
 -- Extraindo dados da tabela `paciente`
@@ -103,16 +153,24 @@ INSERT INTO `paciente` (`id_paciente`, `nome_paciente`, `cpf`, `rg`, `org_exp`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `prontuario`
+-- Estrutura da tabela `tipo_atendimento`
 --
 
-CREATE TABLE IF NOT EXISTS `prontuario` (
-  `id_prontuario` int(10) NOT NULL AUTO_INCREMENT,
-  `id_paciente` varchar(4) NOT NULL,
-  `id_funcionario` varchar(4) NOT NULL,
-  PRIMARY KEY (`id_prontuario`),
-  UNIQUE KEY `id_prontuario` (`id_prontuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `tipo_atendimento` (
+  `id_tipo_atendimento` int(3) NOT NULL AUTO_INCREMENT,
+  `nome_tipo_atendimento` varchar(100) NOT NULL,
+  `descricao` varchar(300) NOT NULL,
+  `data_insercao` date NOT NULL,
+  `data_desativacao` date DEFAULT NULL,
+  PRIMARY KEY (`id_tipo_atendimento`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Extraindo dados da tabela `tipo_atendimento`
+--
+
+INSERT INTO `tipo_atendimento` (`id_tipo_atendimento`, `nome_tipo_atendimento`, `descricao`, `data_insercao`, `data_desativacao`) VALUES
+(1, 'Testre', 'Teste', '2015-05-08', NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
