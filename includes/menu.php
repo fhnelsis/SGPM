@@ -17,8 +17,9 @@
 
 			<li class='active'><a href='#'>Atendimentos</a>
 				<ul>
-					<li><a href='#'>Buscar Atedimento</a></li>
-					<li><a href='#'>Novo Atendimento</a>
+					<li><a href='consultarAtendimento.php'>Buscar Atedimento</a></li>
+					<li><a href='formAtendimento.php'>Novo Atendimento</a>
+					<li><a href='formTiposAtendimento.php'>Tipos de Atendimento</a>
 				
 				</ul></li>
 
