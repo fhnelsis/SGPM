@@ -122,7 +122,7 @@ VALUES      ('{$login}',
 					       tel_cel = '{$tel_cel}', 
 					       tel_fixo = '{$tel_fixo}' 
 					WHERE  
-						   id_funcionario = {$id_funcionario} ";
+						   id_funcionario = {$id_funcionario}";
 	}
 	
 	$exec = mysqli_query ( $con, $sql );
@@ -155,8 +155,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 						<tr>
 							<br />
 							<td><label for="login">Login:</label></td>
-							<td><input style="width: 150px;" type="text" name="login"
-								id="login" maxlength="30"
+							<td><input style="width: 150px; margin-bottom: 5px;" type="text"
+								name="login" id="login" maxlength="30"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['login'] )) {
@@ -167,8 +167,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="senha">Senha:</label></td>
-							<td><input style="width: 150px;" type="password" name="senha"
-								id="senha" maxlength="15"
+							<td><input style="width: 150px; margin-bottom: 5px;"
+								type="password" name="senha" id="senha" maxlength="15"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['senha'] )) {
@@ -179,8 +179,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="nome_funcionario">Nome:</label></td>
-							<td><input style="width: 400px;" "text" name="nome_funcionario"
-								id="nome_funcionario" maxlength="50"
+							<td><input style="width: 400px; margin-bottom: 5px;" type="text"
+								name="nome_funcionario" id="nome_funcionario" maxlength="50"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['nome_funcionario'] )) {
@@ -191,7 +191,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="cargo">Cargo:</label></td>
-							<td><input type="text" name="cargo" id="cargo" maxlength="20"
+							<td><input style="margin-bottom: 5px;" type="text" name="cargo"
+								id="cargo" maxlength="20"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['cargo'] )) {
@@ -202,7 +203,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="cpf">CPF:</label></td>
-							<td><input type="text" name="cpf" id="cpf" maxlength="11"
+							<td><input style="margin-bottom: 5px;" type="text" name="cpf"
+								id="cpf" maxlength="11"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['cpf'] )) {
@@ -213,7 +215,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="rg">RG:</label></td>
-							<td><input type="text" name="rg" id="rg" maxlength="10"
+							<td><input style="margin-bottom: 5px;" type="text" name="rg"
+								id="rg" maxlength="10"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['rg'] )) {
@@ -225,8 +228,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 						<tr>
 							<td><label for="org_exp" style="width: 140px">Org&#227;o
 									Expedidor:</label></td>
-							<td><input style="width: 100px;" type="text" name="org_exp"
-								id="org_exp" maxlength="6"
+							<td><input style="width: 100px; margin-bottom: 5px;" type="text"
+								name="org_exp" id="org_exp" maxlength="6"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['org_exp'] )) {
@@ -237,8 +240,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="genero">G&#234;nero:</label></td>
-							<td><input style="width: 30px;" type="text" name="genero"
-								id="genero" maxlength="1"
+							<td><input style="width: 30px; margin-bottom: 5px;" type="text"
+								name="genero" id="genero" maxlength="1"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['genero'] )) {
@@ -250,8 +253,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 						<tr>
 							<td><label for="data_nasc" style="width: 160px">Data de
 									Nascimento:</label></td>
-							<td><input style="width: 200px;" type="date" name="data_nasc"
-								id="data_nasc" maxlength="10"
+							<td><input style="width: 200px; margin-bottom: 5px;" type="date"
+								name="data_nasc" id="data_nasc" maxlength="10"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['data_nasc'] )) {
@@ -262,8 +265,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="endereco" style="width: 100px">Endere&#231;o:</label></td>
-							<td><input style="width: 300px;" type="text" name="endereco"
-								id="endereco" maxlength="100"
+							<td><input style="width: 300px; margin-bottom: 5px;" type="text"
+								name="endereco" id="endereco" maxlength="100"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['endereco'] )) {
@@ -274,8 +277,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="bairro" style="width: 100px">Bairro:</label></td>
-							<td><input style="width: 160px;" type="text" name="bairro"
-								id="bairro" maxlength="30"
+							<td><input style="width: 160px; margin-bottom: 5px;" type="text"
+								name="bairro" id="bairro" maxlength="30"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['bairro'] )) {
@@ -286,8 +289,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="cep" style="width: 100px">CEP:</label></td>
-							<td><input style="width: 160px;" type="text" name="cep" id="cep"
-								maxlength="9"
+							<td><input style="width: 160px; margin-bottom: 5px;" type="text"
+								name="cep" id="cep" maxlength="9"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['cep'] )) {
@@ -298,8 +301,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="cidade" style="width: 100px">Cidade:</label></td>
-							<td><input style="width: 160px;" type="text" name="cidade"
-								id="cidade" maxlength="30"
+							<td><input style="width: 160px; margin-bottom: 5px;" type="text"
+								name="cidade" id="cidade" maxlength="30"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['cidade'] )) {
@@ -310,8 +313,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="estado" style="width: 100px">Estado:</label></td>
-							<td><input style="width: 30px;" type="text" name="estado"
-								id="estado" maxlength="2"
+							<td><input style="width: 30px; margin-bottom: 5px;" type="text"
+								name="estado" id="estado" maxlength="2"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['estado'] )) {
@@ -322,7 +325,7 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="pais_nacionalidade" style="width: 100px">Nacionalidade:</label></td>
-							<td><input style="width: 140px;" type="text"
+							<td><input style="width: 140px; margin-bottom: 5px;" type="text"
 								name="pais_nacionalidade" id="pais_nacionalidade" maxlength="30"
 								value="<?php
 								
@@ -334,7 +337,7 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="cidade_natural" style="width: 100px">Naturalidade:</label></td>
-							<td><input style="width: 140px;" type="text"
+							<td><input style="width: 140px; margin-bottom: 5px;" type="text"
 								name="cidade_natural" id="cidade_natural" maxlength="30"
 								value="<?php
 								
@@ -347,8 +350,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 						<tr>
 							<td><label for="estado_natural" style="width: 120px">Estado
 									Natural:</label></td>
-							<td><input style="width: 30px;" type="text" name="estado_natural"
-								id="estado_natural" maxlength="2"
+							<td><input style="width: 30px; margin-bottom: 5px;" type="text"
+								name="estado_natural" id="estado_natural" maxlength="2"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['estado_natural'] )) {
@@ -359,7 +362,7 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="ubs_atendimento" style="width: 120px">UBS:</label></td>
-							<td><input style="width: 200px;" type="text"
+							<td><input style="width: 200px; margin-bottom: 5px;" type="text"
 								name="ubs_atendimento" id="ubs_atendimento" maxlength="30"
 								value="<?php
 								
@@ -371,8 +374,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="nome_mae" style="width: 120px">Nome da M&#227;e:</label></td>
-							<td><input style="width: 300px;" type="text" name="nome_mae"
-								id="nome_mae" maxlength="50"
+							<td><input style="width: 300px; margin-bottom: 5px;" type="text"
+								name="nome_mae" id="nome_mae" maxlength="50"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['nome_mae'] )) {
@@ -383,8 +386,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="nome_pai" style="width: 120px">Nome do Pai:</label></td>
-							<td><input style="width: 300px;" type="text" name="nome_pai"
-								id="nome_pai" maxlength="50"
+							<td><input style="width: 300px; margin-bottom: 5px;" type="text"
+								name="nome_pai" id="nome_pai" maxlength="50"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['nome_pai'] )) {
@@ -395,8 +398,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="estado_civil" style="width: 120px">Estado Civil:</label></td>
-							<td><input style="width: 200px;" type="text" name="estado_civil"
-								id="estado_civil" maxlength="50"
+							<td><input style="width: 200px; margin-bottom: 5px;" type="text"
+								name="estado_civil" id="estado_civil" maxlength="50"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['estado_civil'] )) {
@@ -407,8 +410,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="escolaridade" style="width: 120px">Escolaridade:</label></td>
-							<td><input style="width: 200px;" type="text" name="escolaridade"
-								id="escolaridade" maxlength="50"
+							<td><input style="width: 200px; margin-bottom: 5px;" type="text"
+								name="escolaridade" id="escolaridade" maxlength="50"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['escolaridade'] )) {
@@ -420,8 +423,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 						<tr>
 							<td><label for="tipo_sanguineo" style="width: 140px">Tipo
 									Sangu&#237;neo:</label></td>
-							<td><input style="width: 40px;" type="text" name="tipo_sanguineo"
-								id="tipo_sanguineo" maxlength="3"
+							<td><input style="width: 40px; margin-bottom: 5px;" type="text"
+								name="tipo_sanguineo" id="tipo_sanguineo" maxlength="3"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['tipo_sanguineo'] )) {
@@ -433,8 +436,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 						<tr>
 							<td><label for="email_pessoal" style="width: 140px">E-mail
 									Pessoal:</label></td>
-							<td><input style="width: 300px;" type="text" name="email_pessoal"
-								id="email_pessoal" maxlength="50"
+							<td><input style="width: 300px; margin-bottom: 5px;" type="text"
+								name="email_pessoal" id="email_pessoal" maxlength="50"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['email_pessoal'] )) {
@@ -446,8 +449,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 						<tr>
 							<td><label for="email_prof" style="width: 140px">E-mail
 									Profissional:</label></td>
-							<td><input style="width: 300px;" type="text" name="email_prof"
-								id="email_pessoal" maxlength="50"
+							<td><input style="width: 300px; margin-bottom: 5px;" type="text"
+								name="email_prof" id="email_pessoal" maxlength="50"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['email_prof'] )) {
@@ -458,8 +461,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="tel_cel" style="width: 140px">Telefone Celular:</label></td>
-							<td><input style="width: 100px;" type="text" name="tel_cel"
-								id="tel_cel" maxlength="10"
+							<td><input style="width: 100px; margin-bottom: 5px;" type="text"
+								name="tel_cel" id="tel_cel" maxlength="10"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['tel_cel'] )) {
@@ -470,8 +473,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 
 						<tr>
 							<td><label for="tel_fixo" style="width: 140px">Telefone Fixo:</label></td>
-							<td><input style="width: 100px;" type="text" name="tel_fixo"
-								id="tel_cel" maxlength="10"
+							<td><input style="width: 100px; margin-bottom: 5px;" type="text"
+								name="tel_fixo" id="tel_cel" maxlength="10"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['tel_fixo'] )) {

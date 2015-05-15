@@ -19,7 +19,10 @@
 				<ul>
 					<li><a href='consultarAtendimento.php'>Buscar Atedimento</a></li>
 					<li><a href='formAtendimento.php'>Novo Atendimento</a>
-					<li><a href='formTiposAtendimento.php'>Tipos de Atendimento</a>
+					
+					<li><a href='consultarTipoAtendimento.php'>Tipos de Atendimento</a>
+					
+					<li><a href='formTipoAtendimento.php'>Novo Tipo de Atendimento</a>
 				
 				</ul></li>
 
@@ -46,33 +49,3 @@
 	</div>
 </body>
 <html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<div id='cssmenu'>
-    <ul>
-       <li class='active'><a href='index.html'>Home</a></li>
-       <li class='active has-sub'><a href='#'>Novo Atendimento</a></li>
-       <li><a href='#'>Consultar Funcionário</a></li>
-       <li><a href='#'>Criar Funcionário</a></li>
-       <li class='has-sub'><a href='#'>Pacientes</a></li>
-       <li><a href='consultarPaciente.php'>Consultar Pacientes</a></li>
-       <li><a href='formPaciente.php'>Criar Pacientes</a></li>
-       <li><a href='#'>Relatórios</a></li>
-       <li><a href='#'>Contact</a></li>
-       <li><a href='#'>Sobre</a></li>
-    </ul>
-    </div>-->

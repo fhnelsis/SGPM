@@ -25,10 +25,9 @@
 				width="100%" content="text/html;charset=utf-8">
 				<thead>
 					<tr>
-						<th>Nome</th>
+						<th>Paciente</th>
 						<th>Data do Atendimento</th>
-						<th>Edi&#231;&#228;o</th>
-						<th>Exclus&#228;o</th>
+						<th>Visualizar</th>
 					</tr>
 				</thead>
 

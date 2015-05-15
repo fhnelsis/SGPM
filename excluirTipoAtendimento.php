@@ -1,5 +1,5 @@
 <?php
-if (isset ( $_GET ['id_exclusao'] )) {
+if (isset ( $_GET ['id_tipo_atendimento_exclusao'] )) {
 	$con = mysqli_connect ( "localhost", "root", "", "sgpm" );
 	mysqli_set_charset ( $con, "utf8" );
 	
