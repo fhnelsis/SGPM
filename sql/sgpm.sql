@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 08-Maio-2015 às 22:08
+-- Generation Time: 15-Maio-2015 às 23:10
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -83,15 +83,14 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
   PRIMARY KEY (`id_funcionario`),
   UNIQUE KEY `login` (`login`),
   KEY `id_funcionario` (`id_funcionario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 --
 -- Extraindo dados da tabela `funcionario`
 --
 
 INSERT INTO `funcionario` (`id_funcionario`, `login`, `senha`, `nome_funcionario`, `cargo`, `cpf`, `rg`, `org_exp`, `genero`, `data_nasc`, `endereco`, `bairro`, `cep`, `cidade`, `estado`, `pais_nacionalidade`, `cidade_natural`, `estado_natural`, `ubs_atendimento`, `nome_mae`, `nome_pai`, `estado_civil`, `escolaridade`, `tipo_sanguineo`, `email_pessoal`, `email_prof`, `tel_cel`, `tel_fixo`) VALUES
-(1, 'fhnelsis', '12345', 'Francisco Henrique de Paiva Nelsis', 'Administrador', 0, 0, '', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0),
-(2, 'admin', 'admin', 'admin', 'Administrador', 0, 0, '', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0),
+(2, 'admin', 'admin', 'Francisco Henrique de Paiva Nelsis', 'Administrador', 2147483647, 2147483647, 'SSP/RS', 'M', '0000-00-00', 'Rua Silveiro, 597/401', 'Menino Deus', '90850-000', 'Porto Alegre', 'RS', 'Brasil', 'Porto Alegre', 'RS', 'UBS Menino Deus', 'Maria Cristina Paiva', 'Pedro Augosto Nelsis', 'Casado', 'Superior Completo', 'A+', 'fhnelsis@outlook.com', 'francisco.nelsis@ilegra.com', 2147483647, 2147483647),
 (5, 'elisa.solano', 'eliosa', 'Elisa Pereira Solano', 'Enfermeira', 2147483647, 2147483647, 'SSP/RS', 'F', '1984-06-13', 'Travessa do Camarim, 480/201', 'Menino Deus', '90804-000', 'Porto Alegre', 'RS', 'Brasileira', 'Porto Aegre', 'RS', 'UBS Menino Deus', 'Luciana de Assis Pereira', 'Luiz de Almeida Solano', 'Casada', 'Superior Completo', 'A+', 'solanoelisa@hotmail.com', 'elisa.solano@ubs.com.br', 2147483647, 2147483647);
 
 -- --------------------------------------------------------
@@ -131,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `paciente` (
   PRIMARY KEY (`id_paciente`),
   UNIQUE KEY `cpf` (`cpf`),
   KEY `id_paciente` (`id_paciente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=114 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=113 ;
 
 --
 -- Extraindo dados da tabela `paciente`
@@ -162,15 +161,16 @@ CREATE TABLE IF NOT EXISTS `tipo_atendimento` (
   `descricao` varchar(300) NOT NULL,
   `data_insercao` date NOT NULL,
   `data_desativacao` date DEFAULT NULL,
+  `data_alteracao` date DEFAULT NULL,
   PRIMARY KEY (`id_tipo_atendimento`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Extraindo dados da tabela `tipo_atendimento`
 --
 
-INSERT INTO `tipo_atendimento` (`id_tipo_atendimento`, `nome_tipo_atendimento`, `descricao`, `data_insercao`, `data_desativacao`) VALUES
-(1, 'Testre', 'Teste', '2015-05-08', NULL);
+INSERT INTO `tipo_atendimento` (`id_tipo_atendimento`, `nome_tipo_atendimento`, `descricao`, `data_insercao`, `data_desativacao`, `data_alteracao`) VALUES
+(6, 'Check-up Geral', 'Procedimento para verificar condições de saúde gerais do paciente.', '2015-05-15', NULL, '2015-05-15');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
