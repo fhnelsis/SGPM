@@ -122,11 +122,12 @@ VALUES      ('{$login}',
 					       tel_cel = '{$tel_cel}', 
 					       tel_fixo = '{$tel_fixo}' 
 					WHERE  
-						   id_funcionario = {$id_funcionario}";
+						   id_funcionario = '{$id_funcionario}'";
 	}
 	
 	$exec = mysqli_query ( $con, $sql );
 	$_SESSION ['msg'] = 'Registro Salvo Com Sucesso!';
+	echo $sql;
 	header ( 'Location: consultarFuncionario.php' );
 }
 

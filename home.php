@@ -10,7 +10,7 @@
 </div>
 
 <div class="logoHome">
-	<img src="img\sgpm_logo2_fundoless.png" class="logoHome">
+	<img src="img//sgpm_logo2_fundoless.png" class="logoHome">
 </div>
 </div>
 
