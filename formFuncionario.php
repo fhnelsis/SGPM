@@ -142,7 +142,7 @@ if (isset ( $_GET ['id_funcionario'] )) {
 ?>
 
 <div class="divTudoFormPaciente">
-	<div id="tituloPaginaCadastroAlteracao">
+	<div id="tituloPagina">
 		<center>
 				<?php echo isset($_GET['id_funcionario']) ? "Alterar Funcion&#225;rio" : "Cadastrar Funcion&#225;rio"; ?>
 			</center>

@@ -3,6 +3,8 @@
 <?php include ('includes/menuBack.php')?>
 <?php
 
+$con = mysqli_connect ( "localhost", "root", "", "sgpm" );
+
 if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 	$con = mysqli_connect ( "localhost", "root", "", "sgpm" );
 	mysqli_set_charset ( $con, "utf8" );
@@ -92,7 +94,7 @@ if (isset ( $_GET ['id'] )) {
 ?>
 
 <div class="divTudoFormPaciente">
-	<div id="tituloPaginaCadastroAlteracao">
+	<div id="tituloPagina">
 		<center>
 				<?php echo isset($_GET['id']) ? "Alterar Paciente" : "Cadastrar Paciente"; ?>
 			</center>
@@ -277,17 +279,32 @@ if (isset ( $_GET ['id'] )) {
 
 						<tr>
 							<td><label for="ubs_atendimento" style="width: 120px">UBS:</label></td>
-							<td><input style="width: 200px; margin-bottom: 5px;" type="text"
-								name="ubs_atendimento" id="ubs_atendimento" maxlength="30"
-								value="<?php
+							<td><select style="width: 200px; margin-bottom: 5px;" type="text"
+								name="ubs_atendimento" id="ubs_atendimento" maxlength="30">
+							
+							<?php
+							
+							if (isset ( $dadosPaciente ['ubs_atendimento'] )) {
+								echo $dadosPaciente ['ubs_atendimento'];
+							} else {
 								
-								if (isset ( $dadosPaciente ['ubs_atendimento'] )) {
-									echo $dadosPaciente ['ubs_atendimento'];
-								}
-								?>" /></td>
+								$sql_ubs_atendimento = "select nome_ubs from UBS";
+								
+								$resultado = mysqli_query ( $con, $sql_ubs_atendimento );
+								
+								while ( $line = mysqli_fetch_array ( $resultado ) ) {
+									?>
+									<option value="<?php echo $line['nome_ubs'];?>"> <?php echo $line['nome_ubs'];} ?></option>
+							</select>
+					
+								<?php
+							}
+							
+							?></td>
 						</tr>
 
 						<tr>
+
 							<td><label for="nome_mae" style="width: 120px">Nome da M&#227;e:</label></td>
 							<td><input style="width: 300px; margin-bottom: 5px;" type="text"
 								name="nome_mae" id="nome_mae" maxlength="50"

@@ -18,25 +18,33 @@
 			<li class='active'><a href='#'>Atendimentos</a>
 				<ul>
 					<li><a href='consultarAtendimento.php'>Buscar Atedimento</a></li>
-					<li><a href='formAtendimento.php'>Novo Atendimento</a>
-					
-					<li><a href='consultarTipoAtendimento.php'>Tipos de Atendimento</a>
-					
-					<li><a href='formTipoAtendimento.php'>Novo Tipo de Atendimento</a>
+					<li><a href='formAtendimento.php'>Cadastrar Atendimento</a>
+				
+				</ul></li>
+
+			<li class='active'><a href='#'>Tipos de Atendimentos</a>
+				<ul>
+					<li><a href='consultarTipoAtendimento.php'>Buscar Tipos de Atendimento</a>
+					<li><a href='formTipoAtendimento.php'>Cadastrar Tipo de Atendimento</a>
 				
 				</ul></li>
 
 			<li class='active'><a href='#'>Pacientes</a>
 				<ul>
 					<li><a href='consultarPaciente.php'>Buscar Paciente</a></li>
-					<li><a href='formPaciente.php'>Novo Paciente</a>
+					<li><a href='formPaciente.php'>Cadastrar Paciente</a>
 				
 				</ul></li>
 
 			<li class='active'><a href='#'>Funcionários</a>
 				<ul>
 					<li><a href='consultarFuncionario.php'>Buscar Funcionário</a></li>
-					<li><a href='formFuncionario.php'>Novo Funcionário</a></li>
+					<li><a href='formFuncionario.php'>Cadastrar Funcionário</a></li>
+				</ul></li>
+			<li class='active'><a href='#'>Unidades Básicas</a>
+				<ul>
+					<li><a href='consultarUBS.php'>Buscar Unidade</a></li>
+					<li><a href='formUBS.php'>Cadastrar Unidade</a></li>
 				</ul></li>
 			<li class='active'><a href='#'>Relatórios</a>
 				<ul>
