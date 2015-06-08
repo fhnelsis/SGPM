@@ -277,12 +277,9 @@ if (isset ( $_GET ['id'] )) {
 
 						<tr>
 							<td><label for="ubs_atendimento" style="width: 120px">UBS:</label></td>
-							<td><select style="width: 200px; margin-bottom: 5px;" type="text"
+							<td><input style="width: 200px; margin-bottom: 5px;" type="text"
 								name="ubs_atendimento" id="ubs_atendimento" maxlength="30"
 								value="<?php
-								
-								$sqlBuscaUBS = mysql_query("SELECT nome_ubs FROM ubs");
-								
 								
 								if (isset ( $dadosPaciente ['ubs_atendimento'] )) {
 									echo $dadosPaciente ['ubs_atendimento'];
@@ -295,7 +292,7 @@ if (isset ( $_GET ['id'] )) {
 							<td><input style="width: 300px; margin-bottom: 5px;" type="text"
 								name="nome_mae" id="nome_mae" maxlength="50"
 								value="<?php
-
+								
 								if (isset ( $dadosPaciente ['nome_mae'] )) {
 									echo $dadosPaciente ['nome_mae'];
 								}
