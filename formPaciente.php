@@ -38,15 +38,59 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 	$tel_contato = $_POST ['tel_contato'];
 	
 	if (empty ( $id )) {
-		$sql = "INSERT INTO paciente (nome_paciente, cpf, rg, org_exp, genero, data_nasc, endereco, bairro, cep, 
-									  cidade, estado, pais_nacionalidade, cidade_natural, estado_natural, 
-		                              ubs_atendimento, nome_mae, nome_pai, profissao, estado_civil, escolaridade, 
-		                              tipo_sanguineo, email_pessoal, email_prof, tel_cel, tel_fixo, tel_contato) 
-				VALUES ('{$nome_paciente}', '{$cpf}', '{$rg}', '{$org_exp}', '{$genero}', '{$data_nasc}', '{$endereco}', 
-						'{$bairro}', '{$cep}', '{$cidade}', '{$estado}', '{$pais_nacionalidade}', '{$cidade_natural}', 
-						'{$estado_natural}', '{$ubs_atendimento}', '{$nome_mae}', '{$nome_pai}', '{$profissao}', 
-						'{$estado_civil}', '{$escolaridade}', '{$tipo_sanguineo}', '{$email_pessoal}', '{$email_prof}', 
-						'{$tel_cel}', '{$tel_fixo}', '{$tel_contato}')";
+		$sql = "INSERT INTO paciente 
+            (nome_paciente, 
+             cpf, 
+             rg, 
+             org_exp, 
+             genero, 
+             data_nasc, 
+             endereco, 
+             bairro, 
+             cep, 
+             cidade, 
+             estado, 
+             pais_nacionalidade, 
+             cidade_natural, 
+             estado_natural, 
+             ubs_atendimento, 
+             nome_mae, 
+             nome_pai, 
+             profissao, 
+             estado_civil, 
+             escolaridade, 
+             tipo_sanguineo, 
+             email_pessoal, 
+             email_prof, 
+             tel_cel, 
+             tel_fixo, 
+             tel_contato) 
+VALUES      ('{$nome_paciente}', 
+             '{$cpf}', 
+             '{$rg}', 
+             '{$org_exp}', 
+             '{$genero}', 
+             '{$data_nasc}', 
+             '{$endereco}', 
+             '{$bairro}', 
+             '{$cep}', 
+             '{$cidade}', 
+             '{$estado}', 
+             '{$pais_nacionalidade}', 
+             '{$cidade_natural}', 
+             '{$estado_natural}', 
+             '{$ubs_atendimento}', 
+             '{$nome_mae}', 
+             '{$nome_pai}', 
+             '{$profissao}', 
+             '{$estado_civil}', 
+             '{$escolaridade}', 
+             '{$tipo_sanguineo}', 
+             '{$email_pessoal}', 
+             '{$email_prof}', 
+             '{$tel_cel}', 
+             '{$tel_fixo}', 
+             '{$tel_contato}') ";
 	} else {
 		$sql = "UPDATE paciente 
 					SET    nome_paciente = '{$nome_paciente}',
@@ -166,13 +210,13 @@ if (isset ( $_GET ['id'] )) {
 								echo $dadosPaciente ['genero'];
 							} else {
 								
-								$sql_genero = "select nome_genero from genero";
+								$sql_genero = "select genero from genero";
 								
 								$resultado = mysqli_query ( $con, $sql_genero );
 								
 								while ( $line = mysqli_fetch_array ( $resultado ) ) {
 									?>
-									<option value="<?php echo $line['nome_genero'];?>"> <?php echo $line['nome_genero'];} ?></option>
+									<option value="<?php echo $line['genero'];?>"> <?php echo $line['genero'];} ?></option>
 							</select>
 					
 								<?php
@@ -184,7 +228,7 @@ if (isset ( $_GET ['id'] )) {
 						<tr>
 							<td><label for="data_nasc" style="width: 160px">Data de
 									Nascimento:</label></td>
-							<td><input style="width: 200px; margin-bottom: 5px;" type="date"
+							<td><input style="width: 200px; height: 28px; margin-bottom: 5px;" type="date"
 								name="data_nasc" id="data_nasc" maxlength="10"
 								value="<?php
 								
@@ -329,13 +373,13 @@ if (isset ( $_GET ['id'] )) {
 								echo $dadosPaciente ['ubs_atendimento'];
 							} else {
 								
-								$sql_ubs_atendimento = "select nome_ubs from UBS";
+								$sql_ubs_atendimento = "select ubs_atendimento from UBS";
 								
 								$resultado = mysqli_query ( $con, $sql_ubs_atendimento );
 								
 								while ( $line = mysqli_fetch_array ( $resultado ) ) {
 									?>
-									<option value="<?php echo $line['nome_ubs'];?>"> <?php echo $line['nome_ubs'];} ?></option>
+									<option value="<?php echo $line['ubs_atendimento'];?>"> <?php echo $line['ubs_atendimento'];} ?></option>
 							</select>
 					
 								<?php
@@ -382,9 +426,9 @@ if (isset ( $_GET ['id'] )) {
 						</tr>
 
 <tr>
-							<td><label for="estado">Estado Civil:</label></td>
+							<td><label for="estado_civil">Estado Civil:</label></td>
 							<td><select style="width: 130px; margin-bottom: 5px;" type="text"
-								name="estado" id="estado">
+								name="estado_civil" id="estado_civil">
 							
 							<?php
 							
@@ -392,13 +436,13 @@ if (isset ( $_GET ['id'] )) {
 								echo $dadosPaciente ['estado_civil'];
 							} else {
 								
-								$sql_estado_civil = "select nome_estado_civil from estado_civil";
+								$sql_estado_civil = "select estado_civil from estado_civil";
 								
 								$resultado = mysqli_query ( $con, $sql_estado_civil );
 								
 								while ( $line = mysqli_fetch_array ( $resultado ) ) {
 									?>
-									<option value="<?php echo $line['nome_estado_civil'];?>"> <?php echo $line['nome_estado_civil'];} ?></option>
+									<option value="<?php echo $line['estado_civil'];?>"> <?php echo $line['estado_civil'];} ?></option>
 							</select>
 					
 								<?php
@@ -418,13 +462,13 @@ if (isset ( $_GET ['id'] )) {
 								echo $dadosPaciente ['escolaridade'];
 							} else {
 								
-								$sql_escolaridade = "select nome_escolaridade from escolaridade";
+								$sql_escolaridade = "select escolaridade from escolaridade";
 								
 								$resultado = mysqli_query ( $con, $sql_escolaridade );
 								
 								while ( $line = mysqli_fetch_array ( $resultado ) ) {
 									?>
-									<option value="<?php echo $line['nome_escolaridade'];?>"> <?php echo $line['nome_escolaridade'];} ?></option>
+									<option value="<?php echo $line['escolaridade'];?>"> <?php echo $line['escolaridade'];} ?></option>
 							</select>
 					
 								<?php
