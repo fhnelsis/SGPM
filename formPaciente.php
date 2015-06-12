@@ -157,14 +157,28 @@ if (isset ( $_GET ['id'] )) {
 
 						<tr>
 							<td><label for="genero">G&#234;nero:</label></td>
-							<td><input style="width: 30px; margin-bottom: 5px;" type="text"
-								name="genero" id="genero" maxlength="1"
-								value="<?php
+							<td><select style="width: 230px; margin-bottom: 5px;" type="text"
+								name="genero" id="genero">
+							
+							<?php
+							
+							if (isset ( $dadosPaciente ['genero'] )) {
+								echo $dadosPaciente ['genero'];
+							} else {
 								
-								if (isset ( $dadosPaciente ['genero'] )) {
-									echo $dadosPaciente ['genero'];
-								}
-								?>" /></td>
+								$sql_genero = "select nome_genero from genero";
+								
+								$resultado = mysqli_query ( $con, $sql_genero );
+								
+								while ( $line = mysqli_fetch_array ( $resultado ) ) {
+									?>
+									<option value="<?php echo $line['nome_genero'];?>"> <?php echo $line['nome_genero'];} ?></option>
+							</select>
+					
+								<?php
+							}
+							
+							?></td>
 						</tr>
 
 						<tr>
@@ -229,15 +243,29 @@ if (isset ( $_GET ['id'] )) {
 						</tr>
 
 						<tr>
-							<td><label for="estado" style="width: 100px">Estado:</label></td>
-							<td><input style="width: 30px; margin-bottom: 5px;" type="text"
-								name="estado" id="estado" maxlength="2"
-								value="<?php
+							<td><label for="estado">Estado:</label></td>
+							<td><select style="width: 130px; margin-bottom: 5px;" type="text"
+								name="estado" id="estado">
+							
+							<?php
+							
+							if (isset ( $dadosPaciente ['estado'] )) {
+								echo $dadosPaciente ['estado'];
+							} else {
 								
-								if (isset ( $dadosPaciente ['estado'] )) {
-									echo $dadosPaciente ['estado'];
-								}
-								?>" /></td>
+								$sql_estado = "select sigla_estado from estado";
+								
+								$resultado = mysqli_query ( $con, $sql_estado );
+								
+								while ( $line = mysqli_fetch_array ( $resultado ) ) {
+									?>
+									<option value="<?php echo $line['sigla_estado'];?>"> <?php echo $line['sigla_estado'];} ?></option>
+							</select>
+					
+								<?php
+							}
+							
+							?></td>
 						</tr>
 
 						<tr>
@@ -264,17 +292,30 @@ if (isset ( $_GET ['id'] )) {
 								?>" /></td>
 						</tr>
 
-						<tr>
-							<td><label for="estado_natural" style="width: 120px">Estado
-									Natural:</label></td>
-							<td><input style="width: 30px; margin-bottom: 5px;" type="text"
-								name="estado_natural" id="estado_natural" maxlength="2"
-								value="<?php
+	<tr>
+							<td><label for="estado_natural" style="width: 120px">Estado de Natureza:</label></td>
+							<td><select style="width: 200px; margin-bottom: 5px;" type="text"
+								name="estado_natural" id="estado_natural" maxlength="30">
+							
+							<?php
+							
+							if (isset ( $dadosPaciente ['estado_natural'] )) {
+								echo $dadosPaciente ['estado_natural'];
+							} else {
 								
-								if (isset ( $dadosPaciente ['estado_natural'] )) {
-									echo $dadosPaciente ['estado_natural'];
-								}
-								?>" /></td>
+								$sql_estado = "select sigla_estado from estado";
+								
+								$resultado = mysqli_query ( $con, $sql_estado );
+								
+								while ( $line = mysqli_fetch_array ( $resultado ) ) {
+									?>
+									<option value="<?php echo $line['sigla_estado'];?>"> <?php echo $line['sigla_estado'];} ?></option>
+							</select>
+					
+								<?php
+							}
+							
+							?></td>
 						</tr>
 
 						<tr>
@@ -340,28 +381,56 @@ if (isset ( $_GET ['id'] )) {
 								?>" /></td>
 						</tr>
 
-						<tr>
-							<td><label for="estado_civil" style="width: 120px">Estado Civil:</label></td>
-							<td><input style="width: 200px; margin-bottom: 5px;" type="text"
-								name="estado_civil" id="estado_civil" maxlength="50"
-								value="<?php
+<tr>
+							<td><label for="estado">Estado Civil:</label></td>
+							<td><select style="width: 130px; margin-bottom: 5px;" type="text"
+								name="estado" id="estado">
+							
+							<?php
+							
+							if (isset ( $dadosPaciente ['estado_civil'] )) {
+								echo $dadosPaciente ['estado_civil'];
+							} else {
 								
-								if (isset ( $dadosPaciente ['estado_civil'] )) {
-									echo $dadosPaciente ['estado_civil'];
-								}
-								?>" /></td>
+								$sql_estado_civil = "select nome_estado_civil from estado_civil";
+								
+								$resultado = mysqli_query ( $con, $sql_estado_civil );
+								
+								while ( $line = mysqli_fetch_array ( $resultado ) ) {
+									?>
+									<option value="<?php echo $line['nome_estado_civil'];?>"> <?php echo $line['nome_estado_civil'];} ?></option>
+							</select>
+					
+								<?php
+							}
+							
+							?></td>
 						</tr>
 
-						<tr>
+	<tr>
 							<td><label for="escolaridade" style="width: 120px">Escolaridade:</label></td>
-							<td><input style="width: 200px; margin-bottom: 5px;" type="text"
-								name="escolaridade" id="escolaridade" maxlength="50"
-								value="<?php
+							<td><select style="width: 200px; margin-bottom: 5px;" type="text"
+								name="escolaridade" id="escolaridade" maxlength="30">
+							
+							<?php
+							
+							if (isset ( $dadosPaciente ['escolaridade'] )) {
+								echo $dadosPaciente ['escolaridade'];
+							} else {
 								
-								if (isset ( $dadosPaciente ['escolaridade'] )) {
-									echo $dadosPaciente ['escolaridade'];
-								}
-								?>" /></td>
+								$sql_escolaridade = "select nome_escolaridade from escolaridade";
+								
+								$resultado = mysqli_query ( $con, $sql_escolaridade );
+								
+								while ( $line = mysqli_fetch_array ( $resultado ) ) {
+									?>
+									<option value="<?php echo $line['nome_escolaridade'];?>"> <?php echo $line['nome_escolaridade'];} ?></option>
+							</select>
+					
+								<?php
+							}
+							
+							?></td>
 						</tr>
 
 						<tr>

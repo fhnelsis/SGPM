@@ -10069,7 +10069,7 @@ Aqui começam edições no Bootstrap CSS original.
 	#formBuscaPaciente {
 		width: 85%;
 		margin-left: 170px;
-		margin-top: 180px;
+		margin-top: 177px;
 		font-size: 14;
 	}
 	.formAlteraPaciente {
@@ -10119,6 +10119,17 @@ Aqui começam edições no Bootstrap CSS original.
 		background-image:
 			url('../img/simple_blue_background-wallpaper-1024x768.jpg');
 	}
+	
+		.tudoHome {
+		height: 100%;
+		position: relative top;
+		font-family: Raleway, sans-serif;
+		margin-top: -200px;
+		background-image: url('../img/background_su.jpg'); //
+		background-image:
+			url('../img/simple_blue_background-wallpaper-1024x768.jpg');
+	}
+	
 	.divMeioHome {
 		background-image: url('../img/background_su.jpg');
 	}
@@ -10126,7 +10137,7 @@ Aqui começam edições no Bootstrap CSS original.
 	height: 130%;
 	position: relative top;
 	font-family: Raleway, sans-serif;
-	margin-top: -1185px;
+	margin-top: -1164px;
 	background-image: url('../img/background_su.jpg'); //
 	background-image:
 		url('../img/simple_blue_background-wallpaper-1024x768.jpg');
@@ -10146,7 +10157,7 @@ Aqui começam edições no Bootstrap CSS original.
 		position: relative;
 		font-weight: bold;
 		margin-left: 380px;
-		margin-top: -300px;
+		margin-top: -400px;
 	}
 }
 
@@ -10154,7 +10165,7 @@ Aqui começam edições no Bootstrap CSS original.
 	height: 130%;
 	position: relative top;
 	font-family: Raleway, sans-serif;
-	margin-top: -487px;
+	margin-top: -703px;
 	background-image: url('../img/background_su.jpg'); //
 	background-image:
 		url('../img/simple_blue_background-wallpaper-1024x768.jpg');
@@ -10172,7 +10183,7 @@ Aqui começam edições no Bootstrap CSS original.
 	width: 100%;
 	position: relative top;
 	font-family: Raleway, sans-serif;
-	margin-top: -601px;
+	margin-top: -702px;
 	background-image: url('../img/background_su.jpg'); //
 	background-image:
 		url('../img/simple_blue_background-wallpaper-1024x768.jpg');
@@ -10193,14 +10204,14 @@ Aqui começam edições no Bootstrap CSS original.
 }
 
 #formAtendimento {
-	margin-top: 0px;
+	margin-top: 10px;
 }
 
 .divTudoFormTipoAtendimento {
 	height: 130%;
 	position: relative top;
 	font-family: Raleway, sans-serif;
-	margin-top: -1185px;
+	margin-top: -1163px;
 	background-image: url('../img/background_su.jpg'); //
 	background-image:
 		url('../img/simple_blue_background-wallpaper-1024x768.jpg');
@@ -10210,7 +10221,7 @@ Aqui começam edições no Bootstrap CSS original.
 	height: 130%;
 	position: relative top;
 	font-family: Raleway, sans-serif;
-	margin-top: -1185px;
+	margin-top: -1162px;
 	background-image: url('../img/background_su.jpg'); //
 	background-image:
 		url('../img/simple_blue_background-wallpaper-1024x768.jpg');
@@ -10220,7 +10231,7 @@ Aqui começam edições no Bootstrap CSS original.
 	height: 100%;
 	position: absolute top;
 	font-family: Raleway, sans-serif;
-	margin-top: -650px;
+	margin-top: -703px;
 	background-image: url('../img/background_su.jpg'); //
 	background-image:
 		url('../img/simple_blue_background-wallpaper-1024x768.jpg');
@@ -10240,7 +10251,7 @@ Aqui começam edições no Bootstrap CSS original.
 	height: 130%;
 	position: relative top;
 	font-family: Raleway, sans-serif;
-	margin-top: -1250px;
+	margin-top: -1173px;
 	background-image: url('../img/background_su.jpg'); //
 	background-image:
 		url('../img/simple_blue_background-wallpaper-1024x768.jpg');

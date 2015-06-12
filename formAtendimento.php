@@ -18,6 +18,9 @@ mysqli_set_charset ( $con, "utf8" );
 	<center>
 	<form action="validacaoPacienteAtendimento.php" method="post">
 		<div id="formAtendimento">
+		<br>
+		<br>
+		<br>
 			<div class="content-dataTable" style="width: 40%; margin: 0 auto">
 				<form method="POST">
 					<table width="100%">
