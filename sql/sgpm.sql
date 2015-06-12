@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 08-Jun-2015 às 22:27
+-- Generation Time: 12-Jun-2015 às 02:45
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -44,6 +44,100 @@ CREATE TABLE IF NOT EXISTS `atendimento` (
   `observacoes` varchar(300) NOT NULL,
   KEY `id_atendimento` (`id_atendimento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `escolaridade`
+--
+
+CREATE TABLE IF NOT EXISTS `escolaridade` (
+  `id_escolaridade` int(5) NOT NULL AUTO_INCREMENT,
+  `nome_escolaridade` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_escolaridade`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+
+--
+-- Extraindo dados da tabela `escolaridade`
+--
+
+INSERT INTO `escolaridade` (`id_escolaridade`, `nome_escolaridade`) VALUES
+(7, 'Fundamental - Incompleto\r\n'),
+(8, 'Fundamental - Completo\r\n'),
+(9, 'Medio - Incompleto'),
+(10, 'Medio - Completo'),
+(11, 'Superior - Incompleto'),
+(12, 'Superior - Completo'),
+(13, 'Pos-graduado - Incompleto'),
+(14, 'Pos-graduado - Completo');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `estado`
+--
+
+CREATE TABLE IF NOT EXISTS `estado` (
+  `id_estado` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_estado` varchar(30) NOT NULL,
+  `sigla_estado` varchar(2) NOT NULL,
+  PRIMARY KEY (`id_estado`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
+
+--
+-- Extraindo dados da tabela `estado`
+--
+
+INSERT INTO `estado` (`id_estado`, `nome_estado`, `sigla_estado`) VALUES
+(1, 'Acre', 'AC'),
+(2, 'Alagoas', 'AL'),
+(3, 'Amazonas', 'AM'),
+(4, 'Amapá', 'AP'),
+(5, 'Bahia', 'BA'),
+(6, 'Ceará', 'CE'),
+(7, 'Distrito Federal', 'DF'),
+(8, 'Espírito Santo', 'ES'),
+(9, 'Goiás', 'GO'),
+(10, 'Maranhão', 'MA'),
+(11, 'Minas Gerais', 'MG'),
+(12, 'Mato Grosso do Sul', 'MS'),
+(13, 'Mato Grosso', 'MT'),
+(14, 'Pará', 'PA'),
+(15, 'Paraíba', 'PB'),
+(16, 'Pernambuco', 'PE'),
+(17, 'Piauí', 'PI'),
+(18, 'Paraná', 'PR'),
+(19, 'Rio de Janeiro', 'RJ'),
+(20, 'Rio Grande do Norte', 'RN'),
+(21, 'Rondônia', 'RO'),
+(22, 'Roraima', 'RR'),
+(23, 'Rio Grande do Sul', 'RS'),
+(24, 'Santa Catarina', 'SC'),
+(25, 'Sergipe', 'SE'),
+(26, 'São Paulo', 'SP'),
+(27, 'Tocantins', 'TO');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `estado_civil`
+--
+
+CREATE TABLE IF NOT EXISTS `estado_civil` (
+  `id_estado_civil` int(5) NOT NULL AUTO_INCREMENT,
+  `nome_estado_civil` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_estado_civil`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Extraindo dados da tabela `estado_civil`
+--
+
+INSERT INTO `estado_civil` (`id_estado_civil`, `nome_estado_civil`) VALUES
+(1, 'Solteiro(a)'),
+(2, 'Casado(a)'),
+(3, 'Viuvo(a)'),
+(4, 'Divorciado(a)');
 
 -- --------------------------------------------------------
 
@@ -97,6 +191,26 @@ INSERT INTO `funcionario` (`id_funcionario`, `login`, `senha`, `nome_funcionario
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `genero`
+--
+
+CREATE TABLE IF NOT EXISTS `genero` (
+  `id_genero` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_genero` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_genero`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Extraindo dados da tabela `genero`
+--
+
+INSERT INTO `genero` (`id_genero`, `nome_genero`) VALUES
+(1, 'Masculino'),
+(2, 'Feminino');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `paciente`
 --
 
@@ -131,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `paciente` (
   PRIMARY KEY (`id_paciente`),
   UNIQUE KEY `cpf` (`cpf`),
   KEY `id_paciente` (`id_paciente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=113 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=114 ;
 
 --
 -- Extraindo dados da tabela `paciente`
