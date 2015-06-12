@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 12-Jun-2015 às 02:45
+-- Generation Time: 12-Jun-2015 às 05:03
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `atendimento` (
 
 CREATE TABLE IF NOT EXISTS `escolaridade` (
   `id_escolaridade` int(5) NOT NULL AUTO_INCREMENT,
-  `nome_escolaridade` varchar(30) NOT NULL,
+  `escolaridade` varchar(30) NOT NULL,
   PRIMARY KEY (`id_escolaridade`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `escolaridade` (
 -- Extraindo dados da tabela `escolaridade`
 --
 
-INSERT INTO `escolaridade` (`id_escolaridade`, `nome_escolaridade`) VALUES
+INSERT INTO `escolaridade` (`id_escolaridade`, `escolaridade`) VALUES
 (7, 'Fundamental - Incompleto\r\n'),
 (8, 'Fundamental - Completo\r\n'),
 (9, 'Medio - Incompleto'),
@@ -79,7 +79,7 @@ INSERT INTO `escolaridade` (`id_escolaridade`, `nome_escolaridade`) VALUES
 
 CREATE TABLE IF NOT EXISTS `estado` (
   `id_estado` int(11) NOT NULL AUTO_INCREMENT,
-  `nome_estado` varchar(30) NOT NULL,
+  `estado` varchar(30) NOT NULL,
   `sigla_estado` varchar(2) NOT NULL,
   PRIMARY KEY (`id_estado`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `estado` (
 -- Extraindo dados da tabela `estado`
 --
 
-INSERT INTO `estado` (`id_estado`, `nome_estado`, `sigla_estado`) VALUES
+INSERT INTO `estado` (`id_estado`, `estado`, `sigla_estado`) VALUES
 (1, 'Acre', 'AC'),
 (2, 'Alagoas', 'AL'),
 (3, 'Amazonas', 'AM'),
@@ -125,7 +125,7 @@ INSERT INTO `estado` (`id_estado`, `nome_estado`, `sigla_estado`) VALUES
 
 CREATE TABLE IF NOT EXISTS `estado_civil` (
   `id_estado_civil` int(5) NOT NULL AUTO_INCREMENT,
-  `nome_estado_civil` varchar(30) NOT NULL,
+  `estado_civil` varchar(30) NOT NULL,
   PRIMARY KEY (`id_estado_civil`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `estado_civil` (
 -- Extraindo dados da tabela `estado_civil`
 --
 
-INSERT INTO `estado_civil` (`id_estado_civil`, `nome_estado_civil`) VALUES
+INSERT INTO `estado_civil` (`id_estado_civil`, `estado_civil`) VALUES
 (1, 'Solteiro(a)'),
 (2, 'Casado(a)'),
 (3, 'Viuvo(a)'),
@@ -196,7 +196,7 @@ INSERT INTO `funcionario` (`id_funcionario`, `login`, `senha`, `nome_funcionario
 
 CREATE TABLE IF NOT EXISTS `genero` (
   `id_genero` int(11) NOT NULL AUTO_INCREMENT,
-  `nome_genero` varchar(30) NOT NULL,
+  `genero` varchar(30) NOT NULL,
   PRIMARY KEY (`id_genero`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `genero` (
 -- Extraindo dados da tabela `genero`
 --
 
-INSERT INTO `genero` (`id_genero`, `nome_genero`) VALUES
+INSERT INTO `genero` (`id_genero`, `genero`) VALUES
 (1, 'Masculino'),
 (2, 'Feminino');
 
@@ -220,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `paciente` (
   `cpf` varchar(11) NOT NULL,
   `rg` int(11) NOT NULL,
   `org_exp` varchar(10) NOT NULL,
-  `genero` varchar(1) NOT NULL,
+  `genero` varchar(30) NOT NULL,
   `data_nasc` date NOT NULL,
   `endereco` varchar(50) NOT NULL,
   `bairro` varchar(30) NOT NULL,
@@ -245,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `paciente` (
   PRIMARY KEY (`id_paciente`),
   UNIQUE KEY `cpf` (`cpf`),
   KEY `id_paciente` (`id_paciente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=114 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=125 ;
 
 --
 -- Extraindo dados da tabela `paciente`
@@ -260,7 +260,9 @@ INSERT INTO `paciente` (`id_paciente`, `nome_paciente`, `cpf`, `rg`, `org_exp`, 
 (109, 'Cristiane Bastos Einhonfen', '98225845132', 2147483647, 'SSP/RS', 'F', '1988-04-22', 'Avenida Getúlio Vargas, 1600/802', 'Menino Deus', 90850, 'Porto Alegre', 'RS', 'Brasileira', 'Porto Alegre', 'RS', 'UBS Menino Deus', 'Maria das Graças Bastos', 'Henrique dos Santos Einhonfen', 'Vendedora', 'Solteira', 'Ensino Médio Incompleto', 'O-', 'crisein@gmail.com', '', '5192179865', '5130286555', '5130584849'),
 (110, 'Paula Hering Batista', '89981981959', 1891686176, 'SSP/RS', 'F', '1984-01-22', 'Rua Lima e Silva, 640/1200', 'Cidade Baixa', 90856, 'Porto Alegre', 'RS', 'Brasileira', 'Porto Alegre', 'RS', 'UBS Cidade Baixa', 'Luana Batista dos Santos', 'Paulo Hering Batista', 'Publicitária', 'Solteira', 'Superior Completo', 'A-', 'paulah@hotmail.com', 'paula.hering@oisf.com.br', '5192001111', '5130251544', '5190458877'),
 (111, 'Zenilde Soneca de Assis', '87484844324', 2147483647, 'SSP/RS', 'F', '1954-08-12', 'Rua João Pessoa, 1643/201', 'Cidade Baixa', 90874, 'Porto Alegre', 'RS', 'Brasileira', 'Porto Alegre', 'RS', 'UBS Cidade Baixa', 'Suzana Soneca de Assis', 'João Pedro de Assis Pereira', 'Enfermeira', 'Casada', 'Superior Completo', 'A+', 'zenildeassis@hotmail.com', 'zenilde.assis@hpv.com', '5190555000', '5130284577', '5180545888'),
-(112, 'Nilmar Júnior de Assis Schiafino', '59197179179', 2147483647, 'SSP/RS', 'M', '2000-05-12', 'Rua do Busão, 580', 'Morada dos Ventos', 74099, 'Porto Alegre', 'RS', 'Brasileiro', 'Porto Alegre', 'RS', 'UBS Morada dos Ventos', 'Nilmar Pereira de Assis', 'Joana Pereira Schiafino', 'Estudante', 'Solteiro', 'Ensino Médio Incompleto', 'A-', 'nilmaravilha@hotmail.com', '', '5192147555', '5130259887', '');
+(112, 'Nilmar Júnior de Assis Schiafino', '59197179179', 2147483647, 'SSP/RS', 'M', '2000-05-12', 'Rua do Busão, 580', 'Morada dos Ventos', 74099, 'Porto Alegre', 'RS', 'Brasileiro', 'Porto Alegre', 'RS', 'UBS Morada dos Ventos', 'Nilmar Pereira de Assis', 'Joana Pereira Schiafino', 'Estudante', 'Solteiro', 'Ensino Médio Incompleto', 'A-', 'nilmaravilha@hotmail.com', '', '5192147555', '5130259887', ''),
+(122, 'Elisa Prietsch Pirotti Nelsis', '19195748518', 1987981651, 'SSP/RS', 'Feminino', '1983-06-13', 'Travessa Caramuru, 1643/802', 'Menino Deus', 90160, 'Porto Alegre', 'RS', 'Brasileira', 'Porto Alegre', 'RS', 'UBS Menino Deus', 'Luci Prietsch', 'Antônio Augusto Portinho Pirotti', 'Enfermeira', 'Casado(a)', 'Superior - Completo', 'A+', 'elisa.prietsch@yahoo.com.br', 'elisaprietsch@investdream.com.br', '5191954714', '5130154877', '5192147856'),
+(124, '123', '', 0, '', 'M', '0000-00-00', '', '', 0, '', 'AC', '', '', 'AC', 'UBS Bom Fim', '', '', '', 'Solteiro(a)', 'Fundamental - Incompleto\r\n', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -294,7 +296,7 @@ INSERT INTO `tipo_atendimento` (`id_tipo_atendimento`, `nome_tipo_atendimento`, 
 
 CREATE TABLE IF NOT EXISTS `ubs` (
   `id_ubs` int(3) NOT NULL AUTO_INCREMENT,
-  `nome_ubs` varchar(30) NOT NULL,
+  `ubs_atendimento` varchar(30) NOT NULL,
   `localizacao` varchar(50) NOT NULL,
   `data_alteracao` date NOT NULL,
   `data_desativacao` date NOT NULL,
@@ -306,7 +308,7 @@ CREATE TABLE IF NOT EXISTS `ubs` (
 -- Extraindo dados da tabela `ubs`
 --
 
-INSERT INTO `ubs` (`id_ubs`, `nome_ubs`, `localizacao`, `data_alteracao`, `data_desativacao`, `data_insercao`) VALUES
+INSERT INTO `ubs` (`id_ubs`, `ubs_atendimento`, `localizacao`, `data_alteracao`, `data_desativacao`, `data_insercao`) VALUES
 (2, 'UBS Bom Fim', '', '0000-00-00', '0000-00-00', '0000-00-00'),
 (3, 'UBS Orfanatrofio', 'Rua Orfanatrófio, 253', '0000-00-00', '0000-00-00', '2015-06-08'),
 (4, 'UBS Menino Deus', 'Avenida João Pessoa, 465', '2015-06-08', '0000-00-00', '2015-06-08'),
