@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 12-Jun-2015 às 05:03
+-- Generation Time: 12-Jun-2015 às 05:42
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -245,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `paciente` (
   PRIMARY KEY (`id_paciente`),
   UNIQUE KEY `cpf` (`cpf`),
   KEY `id_paciente` (`id_paciente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=125 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=126 ;
 
 --
 -- Extraindo dados da tabela `paciente`
@@ -262,7 +262,8 @@ INSERT INTO `paciente` (`id_paciente`, `nome_paciente`, `cpf`, `rg`, `org_exp`, 
 (111, 'Zenilde Soneca de Assis', '87484844324', 2147483647, 'SSP/RS', 'F', '1954-08-12', 'Rua João Pessoa, 1643/201', 'Cidade Baixa', 90874, 'Porto Alegre', 'RS', 'Brasileira', 'Porto Alegre', 'RS', 'UBS Cidade Baixa', 'Suzana Soneca de Assis', 'João Pedro de Assis Pereira', 'Enfermeira', 'Casada', 'Superior Completo', 'A+', 'zenildeassis@hotmail.com', 'zenilde.assis@hpv.com', '5190555000', '5130284577', '5180545888'),
 (112, 'Nilmar Júnior de Assis Schiafino', '59197179179', 2147483647, 'SSP/RS', 'M', '2000-05-12', 'Rua do Busão, 580', 'Morada dos Ventos', 74099, 'Porto Alegre', 'RS', 'Brasileiro', 'Porto Alegre', 'RS', 'UBS Morada dos Ventos', 'Nilmar Pereira de Assis', 'Joana Pereira Schiafino', 'Estudante', 'Solteiro', 'Ensino Médio Incompleto', 'A-', 'nilmaravilha@hotmail.com', '', '5192147555', '5130259887', ''),
 (122, 'Elisa Prietsch Pirotti Nelsis', '19195748518', 1987981651, 'SSP/RS', 'Feminino', '1983-06-13', 'Travessa Caramuru, 1643/802', 'Menino Deus', 90160, 'Porto Alegre', 'RS', 'Brasileira', 'Porto Alegre', 'RS', 'UBS Menino Deus', 'Luci Prietsch', 'Antônio Augusto Portinho Pirotti', 'Enfermeira', 'Casado(a)', 'Superior - Completo', 'A+', 'elisa.prietsch@yahoo.com.br', 'elisaprietsch@investdream.com.br', '5191954714', '5130154877', '5192147856'),
-(124, '123', '', 0, '', 'M', '0000-00-00', '', '', 0, '', 'AC', '', '', 'AC', 'UBS Bom Fim', '', '', '', 'Solteiro(a)', 'Fundamental - Incompleto\r\n', '', '', '', '', '', '');
+(124, '123', '', 0, '', 'M', '0000-00-00', '', '', 0, '', 'AC', '', '', 'AC', 'UBS Bom Fim', '', '', '', 'Solteiro(a)', 'Fundamental - Incompleto\r\n', '', '', '', '', '', ''),
+(125, 'Laura Prietsch Pirotti Nelsis', '95195817197', 2147483647, 'SSP/RS', 'Feminino', '2011-09-16', 'Travessa Pintadinha, 289/401', 'Cidade Baixa', 90710, 'Porto Alegre', 'RS', 'Brasileira', 'Porto Alegre', 'Es', 'UBS Tristeza', 'Elisa Prietsch Pirotti', 'Francisco Henrique de Paiva Nelsis', 'Estudante', 'Solteiro(a)', 'Pos-graduado - Completo', 'A+', 'laura.pirotti@gmail.com', 'laura.nelsis@alegria.com.br', '519101154', '5132154847', '5132012444');
 
 -- --------------------------------------------------------
 

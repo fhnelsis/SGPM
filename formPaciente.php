@@ -207,7 +207,20 @@ if (isset ( $_GET ['id'] )) {
 							<?php
 							
 							if (isset ( $dadosPaciente ['genero'] )) {
-								echo $dadosPaciente ['genero'];
+								$sql_genero = "SELECT genero FROM paciente WHERE id_paciente = {$_GET['id']} ";
+								
+								$resultado = mysqli_query ( $con, $sql_genero );
+								
+								while ( $line = mysqli_fetch_array ( $resultado ) ) {
+									?>
+									<option value="<?php echo $line['genero'];?>"> <?php echo $line['genero'];} ?></option><?php
+								
+								$sqlOtherGeneros = "SELECT genero FROM genero WHERE genero != (SELECT genero FROM paciente WHERE id_paciente = {$_GET['id']}) ";
+								$resultado = mysqli_query ( $con, $sqlOtherGeneros );
+								
+								while ( $line = mysqli_fetch_array ( $resultado ) ) {
+									?>
+									<option value="<?php echo $line['genero'];?>"> <?php echo $line['genero'];} ?></option><?php
 							} else {
 								
 								$sql_genero = "select genero from genero";
@@ -228,8 +241,9 @@ if (isset ( $_GET ['id'] )) {
 						<tr>
 							<td><label for="data_nasc" style="width: 160px">Data de
 									Nascimento:</label></td>
-							<td><input style="width: 200px; height: 28px; margin-bottom: 5px;" type="date"
-								name="data_nasc" id="data_nasc" maxlength="10"
+							<td><input
+								style="width: 200px; height: 28px; margin-bottom: 5px;"
+								type="date" name="data_nasc" id="data_nasc" maxlength="10"
 								value="<?php
 								
 								if (isset ( $dadosPaciente ['data_nasc'] )) {
@@ -294,12 +308,25 @@ if (isset ( $_GET ['id'] )) {
 							<?php
 							
 							if (isset ( $dadosPaciente ['estado'] )) {
-								echo $dadosPaciente ['estado'];
-							} else {
-								
-								$sql_estado = "select sigla_estado from estado";
+								$sql_estado = "SELECT estado FROM paciente WHERE id_paciente = {$_GET['id']} ";
 								
 								$resultado = mysqli_query ( $con, $sql_estado );
+								
+								while ( $line = mysqli_fetch_array ( $resultado ) ) {
+									?>
+									<option value="<?php echo $line['estado'];?>"> <?php echo $line['estado'];} ?></option><?php
+								
+								$sqlOtherEstados = "SELECT estado FROM estado WHERE estado != (SELECT estado FROM paciente WHERE id_paciente = {$_GET['id']}) ";
+								$resultado = mysqli_query ( $con, $sqlOtherEstados );
+								
+								while ( $line = mysqli_fetch_array ( $resultado ) ) {
+									?>
+									<option value="<?php echo $line['estado'];?>"> <?php echo $line['estado'];} ?></option><?php
+							} else {
+								
+								$sql_genero = "select sigla_estado from estado";
+								
+								$resultado = mysqli_query ( $con, $sql_genero );
 								
 								while ( $line = mysqli_fetch_array ( $resultado ) ) {
 									?>
@@ -336,15 +363,29 @@ if (isset ( $_GET ['id'] )) {
 								?>" /></td>
 						</tr>
 
-	<tr>
-							<td><label for="estado_natural" style="width: 120px">Estado de Natureza:</label></td>
+						<tr>
+							<td><label for="estado_natural" style="width: 120px">Estado de
+									Natureza:</label></td>
 							<td><select style="width: 200px; margin-bottom: 5px;" type="text"
 								name="estado_natural" id="estado_natural" maxlength="30">
 							
 							<?php
 							
 							if (isset ( $dadosPaciente ['estado_natural'] )) {
-								echo $dadosPaciente ['estado_natural'];
+								$sql_estado_natural = "SELECT estado_natural FROM paciente WHERE id_paciente = {$_GET['id']} ";
+								
+								$resultado = mysqli_query ( $con, $sql_estado_natural );
+								
+								while ( $line = mysqli_fetch_array ( $resultado ) ) {
+									?>
+									<option value="<?php echo $line['estado_natural'];?>"> <?php echo $line['estado_natural'];} ?></option><?php
+								
+								$sqlOtherEstados = "SELECT estado FROM estado WHERE estado != (SELECT estado_natural FROM paciente WHERE id_paciente = {$_GET['id']}) ";
+								$resultado = mysqli_query ( $con, $sqlOtherEstados );
+								
+								while ( $line = mysqli_fetch_array ( $resultado ) ) {
+									?>
+									<option value="<?php echo $line['estado'];?>"> <?php echo $line['estado'];} ?></option><?php
 							} else {
 								
 								$sql_estado = "select sigla_estado from estado";
@@ -370,10 +411,23 @@ if (isset ( $_GET ['id'] )) {
 							<?php
 							
 							if (isset ( $dadosPaciente ['ubs_atendimento'] )) {
-								echo $dadosPaciente ['ubs_atendimento'];
+								$sql_ubs_atendimento = "SELECT ubs_atendimento FROM paciente WHERE id_paciente = {$_GET['id']} ";
+								
+								$resultado = mysqli_query ( $con, $sql_ubs_atendimento );
+								
+								while ( $line = mysqli_fetch_array ( $resultado ) ) {
+									?>
+									<option value="<?php echo $line['ubs_atendimento'];?>"> <?php echo $line['ubs_atendimento'];} ?></option><?php
+								
+								$sqlOtherUBS = "SELECT ubs_atendimento FROM ubs WHERE ubs_atendimento != (SELECT ubs_atendimento FROM paciente WHERE id_paciente = {$_GET['id']}) ";
+								$resultado = mysqli_query ( $con, $sqlOtherUBS );
+								
+								while ( $line = mysqli_fetch_array ( $resultado ) ) {
+									?>
+									<option value="<?php echo $line['ubs_atendimento'];?>"> <?php echo $line['ubs_atendimento'];} ?></option><?php
 							} else {
 								
-								$sql_ubs_atendimento = "select ubs_atendimento from UBS";
+								$sql_ubs_atendimento = "select ubs_atendimento from ubs";
 								
 								$resultado = mysqli_query ( $con, $sql_ubs_atendimento );
 								
@@ -425,7 +479,7 @@ if (isset ( $_GET ['id'] )) {
 								?>" /></td>
 						</tr>
 
-<tr>
+						<tr>
 							<td><label for="estado_civil">Estado Civil:</label></td>
 							<td><select style="width: 130px; margin-bottom: 5px;" type="text"
 								name="estado_civil" id="estado_civil">
@@ -433,7 +487,20 @@ if (isset ( $_GET ['id'] )) {
 							<?php
 							
 							if (isset ( $dadosPaciente ['estado_civil'] )) {
-								echo $dadosPaciente ['estado_civil'];
+								$sql_estado_civil = "SELECT estado_civil FROM paciente WHERE id_paciente = {$_GET['id']} ";
+								
+								$resultado = mysqli_query ( $con, $sql_estado_civil );
+								
+								while ( $line = mysqli_fetch_array ( $resultado ) ) {
+									?>
+									<option value="<?php echo $line['estado_civil'];?>"> <?php echo $line['estado_civil'];} ?></option><?php
+								
+								$sqlOtherEstadoCivil = "SELECT estado_civil FROM estado_civil WHERE estado_civil != (SELECT ubs_atendimento FROM paciente WHERE id_paciente = {$_GET['id']}) ";
+								$resultado = mysqli_query ( $con, $sqlOtherEstadoCivil );
+								
+								while ( $line = mysqli_fetch_array ( $resultado ) ) {
+									?>
+									<option value="<?php echo $line['estado_civil'];?>"> <?php echo $line['estado_civil'];} ?></option><?php
 							} else {
 								
 								$sql_estado_civil = "select estado_civil from estado_civil";
@@ -451,7 +518,7 @@ if (isset ( $_GET ['id'] )) {
 							?></td>
 						</tr>
 
-	<tr>
+						<tr>
 							<td><label for="escolaridade" style="width: 120px">Escolaridade:</label></td>
 							<td><select style="width: 200px; margin-bottom: 5px;" type="text"
 								name="escolaridade" id="escolaridade" maxlength="30">
@@ -459,7 +526,20 @@ if (isset ( $_GET ['id'] )) {
 							<?php
 							
 							if (isset ( $dadosPaciente ['escolaridade'] )) {
-								echo $dadosPaciente ['escolaridade'];
+								$sql_escolaridade = "SELECT escolaridade FROM paciente WHERE id_paciente = {$_GET['id']} ";
+								
+								$resultado = mysqli_query ( $con, $sql_escolaridade );
+								
+								while ( $line = mysqli_fetch_array ( $resultado ) ) {
+									?>
+									<option value="<?php echo $line['escolaridade'];?>"> <?php echo $line['escolaridade'];} ?></option><?php
+								
+								$sqlOtherEscolaridade = "SELECT escolaridade FROM escolaridade WHERE escolaridade != (SELECT ubs_atendimento FROM paciente WHERE id_paciente = {$_GET['id']}) ";
+								$resultado = mysqli_query ( $con, $sqlOtherEscolaridade );
+								
+								while ( $line = mysqli_fetch_array ( $resultado ) ) {
+									?>
+									<option value="<?php echo $line['escolaridade'];?>"> <?php echo $line['escolaridade'];} ?></option><?php
 							} else {
 								
 								$sql_escolaridade = "select escolaridade from escolaridade";
