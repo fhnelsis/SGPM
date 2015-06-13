@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 12-Jun-2015 às 05:44
+-- Generation Time: 13-Jun-2015 às 16:12
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -164,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
   `pais_nacionalidade` varchar(30) NOT NULL,
   `cidade_natural` varchar(30) NOT NULL,
   `estado_natural` varchar(2) NOT NULL,
-  `ubs_atendimento` varchar(30) NOT NULL,
+  `ubs_atendimento` int(5) NOT NULL,
   `nome_mae` varchar(30) NOT NULL,
   `nome_pai` varchar(30) NOT NULL,
   `estado_civil` varchar(15) NOT NULL,
@@ -184,9 +184,8 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
 --
 
 INSERT INTO `funcionario` (`id_funcionario`, `login`, `senha`, `nome_funcionario`, `cargo`, `cpf`, `rg`, `org_exp`, `genero`, `data_nasc`, `endereco`, `bairro`, `cep`, `cidade`, `estado`, `pais_nacionalidade`, `cidade_natural`, `estado_natural`, `ubs_atendimento`, `nome_mae`, `nome_pai`, `estado_civil`, `escolaridade`, `tipo_sanguineo`, `email_pessoal`, `email_prof`, `tel_cel`, `tel_fixo`) VALUES
-(2, 'admin', 'admin', 'Francisco Henrique de Paiva Nelsis', 'Administrador', 2147483647, 2147483647, 'SSP/RS', 'M', '0000-00-00', 'Rua Silveiro, 597/401', 'Menino Deus', '90850-000', 'Porto Alegre', 'RS', 'Brasil', 'Porto Alegre', 'RS', 'UBS Menino Deus', 'Maria Cristina Paiva', 'Pedro Augosto Nelsis', 'Casado', 'Superior Completo', 'A+', 'fhnelsis@outlook.com', 'francisco.nelsis@ilegra.com', 2147483647, 2147483647),
-(5, 'elisa.solano', 'eliosa', 'Elisa Pereira Solano', 'Enfermeira', 2147483647, 2147483647, 'SSP/RS', 'F', '1984-06-13', 'Travessa do Camarim, 480/201', 'Menino Deus', '90804-000', 'Porto Alegre', 'RS', 'Brasileira', 'Porto Aegre', 'RS', 'UBS Menino Deus', 'Luciana de Assis Pereira', 'Luiz de Almeida Solano', 'Casada', 'Superior Completo', 'A+', 'solanoelisa@hotmail.com', 'elisa.solano@ubs.com.br', 2147483647, 2147483647),
-(11, 'Teste', 'Teste', 'Teste', 'Teste', 2147483647, 2147483647, 'SSPRS', 'M', '0000-00-00', 'Rua Silviero, 401', 'Menino Deus', '90160030', 'Porto Alegre', 'RS', 'Brasil', 'Teste', 'RS', 'Teste', 'Teste', 'Teste', 'Teste', 'Teste', 'A+', 'Teste', 'Teste', 0, 0);
+(2, 'admin', 'admin', 'Francisco Henrique de Paiva Nelsis', 'Administrador', 2147483647, 2147483647, 'SSP/RS', 'M', '0000-00-00', 'Rua Silveiro, 597/401', 'Menino Deus', '90850-000', 'Porto Alegre', 'RS', 'Brasil', 'Porto Alegre', 'RS', 0, 'Maria Cristina Paiva', 'Pedro Augosto Nelsis', 'Casado', 'Superior Completo', 'A+', 'fhnelsis@outlook.com', 'francisco.nelsis@ilegra.com', 2147483647, 2147483647),
+(5, 'elisa.solano', 'eliosa', 'Elisa Pereira Solano', 'Enfermeira', 2147483647, 2147483647, 'SSP/RS', 'F', '1984-06-13', 'Travessa do Camarim, 480/201', 'Menino Deus', '90804-000', 'Porto Alegre', 'RS', 'Brasileira', 'Porto Aegre', 'RS', 0, 'Luciana de Assis Pereira', 'Luiz de Almeida Solano', 'Casada', 'Superior Completo', 'A+', 'solanoelisa@hotmail.com', 'elisa.solano@ubs.com.br', 2147483647, 2147483647);
 
 -- --------------------------------------------------------
 
@@ -245,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `paciente` (
   PRIMARY KEY (`id_paciente`),
   UNIQUE KEY `cpf` (`cpf`),
   KEY `id_paciente` (`id_paciente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=126 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=128 ;
 
 --
 -- Extraindo dados da tabela `paciente`
@@ -262,8 +261,9 @@ INSERT INTO `paciente` (`id_paciente`, `nome_paciente`, `cpf`, `rg`, `org_exp`, 
 (111, 'Zenilde Soneca de Assis', '87484844324', 2147483647, 'SSP/RS', 'F', '1954-08-12', 'Rua João Pessoa, 1643/201', 'Cidade Baixa', 90874, 'Porto Alegre', 'RS', 'Brasileira', 'Porto Alegre', 'RS', 'UBS Cidade Baixa', 'Suzana Soneca de Assis', 'João Pedro de Assis Pereira', 'Enfermeira', 'Casada', 'Superior Completo', 'A+', 'zenildeassis@hotmail.com', 'zenilde.assis@hpv.com', '5190555000', '5130284577', '5180545888'),
 (112, 'Nilmar Júnior de Assis Schiafino', '59197179179', 2147483647, 'SSP/RS', 'M', '2000-05-12', 'Rua do Busão, 580', 'Morada dos Ventos', 74099, 'Porto Alegre', 'RS', 'Brasileiro', 'Porto Alegre', 'RS', 'UBS Morada dos Ventos', 'Nilmar Pereira de Assis', 'Joana Pereira Schiafino', 'Estudante', 'Solteiro', 'Ensino Médio Incompleto', 'A-', 'nilmaravilha@hotmail.com', '', '5192147555', '5130259887', ''),
 (122, 'Elisa Prietsch Pirotti Nelsis', '19195748518', 1987981651, 'SSP/RS', 'Feminino', '1983-06-13', 'Travessa Caramuru, 1643/802', 'Menino Deus', 90160, 'Porto Alegre', 'RS', 'Brasileira', 'Porto Alegre', 'RS', 'UBS Menino Deus', 'Luci Prietsch', 'Antônio Augusto Portinho Pirotti', 'Enfermeira', 'Casado(a)', 'Superior - Completo', 'A+', 'elisa.prietsch@yahoo.com.br', 'elisaprietsch@investdream.com.br', '5191954714', '5130154877', '5192147856'),
-(124, '123', '', 0, '', 'M', '0000-00-00', '', '', 0, '', 'AC', '', '', 'AC', 'UBS Bom Fim', '', '', '', 'Solteiro(a)', 'Fundamental - Incompleto\r\n', '', '', '', '', '', ''),
-(125, 'Laura Prietsch Pirotti Nelsis', '95195817197', 2147483647, 'SSP/RS', 'Feminino', '2011-09-16', 'Travessa Pintadinha, 289/401', 'Cidade Baixa', 90710, 'Porto Alegre', 'RS', 'Brasileira', 'Porto Alegre', 'Es', 'UBS Tristeza', 'Elisa Prietsch Pirotti', 'Francisco Henrique de Paiva Nelsis', 'Estudante', 'Solteiro(a)', 'Pos-graduado - Completo', 'A+', 'laura.pirotti@gmail.com', 'laura.nelsis@alegria.com.br', '519101154', '5132154847', '5132012444');
+(125, 'Laura Prietsch Pirotti Nelsis', '95195817197', 2147483647, 'SSP/RS', 'Feminino', '2011-09-16', 'Travessa Pintadinha, 289/401', 'Cidade Baixa', 90710, 'Porto Alegre', 'RS', 'Brasileira', 'Porto Alegre', 'Es', 'UBS Tristeza', 'Elisa Prietsch Pirotti', 'Francisco Henrique de Paiva Nelsis', 'Estudante', 'Solteiro(a)', 'Pos-graduado - Completo', 'A+', 'laura.pirotti@gmail.com', 'laura.nelsis@alegria.com.br', '519101154', '5132154847', '5132012444'),
+(126, 'Eduardo Praxedes Heinske', '86161516816', 1818484681, 'SSP/RS', 'Masculino', '1989-09-04', 'Rua Duque, 388/401', 'Mathias Velho', 90151, 'Canoas', 'RS', 'Brasileiro', 'Canoas', 'RS', 'UBS Bom Fim', 'Paula de Oliveira Heinske', 'Martim Praxedes', 'Programador', 'Solteiro(a)', 'Fundamental - Incompleto\r\n', 'O-', 'eduardo.heinske@yahoo.com', 'eheinske@point.com', '5190151111', '5130154878', '5130154548'),
+(127, 'AA Paciente de Teste', '11111111111', 1111111111, 'SSP/RS', 'Masculino', '1987-02-04', '11111111111', '11111111111', 111111111, '11111111111', 'AC', '11111111111', '11111111111', 'AC', 'UBS Bom Fim', '11111111111', '11111111111', '11111111111', 'Solteiro(a)', 'Fundamental - Incompleto\r\n', 'A+', '11111111111', '11111111111', '1111111111', '1111111111', '1111111111');
 
 -- --------------------------------------------------------
 
@@ -286,7 +286,7 @@ CREATE TABLE IF NOT EXISTS `tipo_atendimento` (
 --
 
 INSERT INTO `tipo_atendimento` (`id_tipo_atendimento`, `nome_tipo_atendimento`, `descricao`, `data_insercao`, `data_desativacao`, `data_alteracao`) VALUES
-(6, 'Check-up Geral', 'Procedimento para verificar condições de saúde gerais do paciente.', '2015-05-15', NULL, '2015-05-15'),
+(6, 'Check-up Geral', 'Procedimento para verificar condições de saúde gerais do paciente.', '2015-05-15', NULL, '2015-06-12'),
 (17, 'Colonoscopia', 'Exame de Colonoscopia feito em pacientes clínicos apresentando sintomas.', '2015-06-02', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -303,7 +303,7 @@ CREATE TABLE IF NOT EXISTS `ubs` (
   `data_desativacao` date NOT NULL,
   `data_insercao` date NOT NULL,
   PRIMARY KEY (`id_ubs`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Extraindo dados da tabela `ubs`
@@ -315,7 +315,8 @@ INSERT INTO `ubs` (`id_ubs`, `ubs_atendimento`, `localizacao`, `data_alteracao`,
 (4, 'UBS Menino Deus', 'Avenida João Pessoa, 465', '2015-06-08', '0000-00-00', '2015-06-08'),
 (6, 'UBS Rio Branco', 'Rua Taquara, 220', '0000-00-00', '0000-00-00', '2015-06-08'),
 (7, 'UBS Tristeza', 'Rua da Coxia, 479', '0000-00-00', '0000-00-00', '2015-06-08'),
-(8, 'UBS Gloria', 'Rua Tuiuiú, 490', '0000-00-00', '0000-00-00', '2015-06-08');
+(8, 'UBS Gloria', 'Rua Tuiuiú, 490', '0000-00-00', '0000-00-00', '2015-06-08'),
+(10, 'UBS Mathias Velho', 'Rua Mathias Velho, 253', '0000-00-00', '0000-00-00', '2015-06-12');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
