@@ -203,7 +203,7 @@ if (isset ( $_GET ['id'] )) {
 							<td><label for="genero">G&#234;nero:</label></td>
 							<td><select style="width: 230px; margin-bottom: 5px;" type="text"
 								name="genero" id="genero">
-							
+							<option value="selecioneGenero"></option>
 							<?php
 							
 							if (isset ( $dadosPaciente ['genero'] )) {
@@ -304,7 +304,7 @@ if (isset ( $_GET ['id'] )) {
 							<td><label for="estado">Estado:</label></td>
 							<td><select style="width: 130px; margin-bottom: 5px;" type="text"
 								name="estado" id="estado">
-							
+							<option value="selecioneEstadoResidencia"></option>
 							<?php
 							
 							if (isset ( $dadosPaciente ['estado'] )) {
@@ -368,7 +368,7 @@ if (isset ( $_GET ['id'] )) {
 									Natureza:</label></td>
 							<td><select style="width: 200px; margin-bottom: 5px;" type="text"
 								name="estado_natural" id="estado_natural" maxlength="30">
-							
+							<option value="selecioneEstadoNatural"></option>
 							<?php
 							
 							if (isset ( $dadosPaciente ['estado_natural'] )) {
@@ -407,7 +407,7 @@ if (isset ( $_GET ['id'] )) {
 							<td><label for="ubs_atendimento" style="width: 120px">UBS:</label></td>
 							<td><select style="width: 200px; margin-bottom: 5px;" type="text"
 								name="ubs_atendimento" id="ubs_atendimento" maxlength="30">
-							
+							<option value="selecioneUBS"></option>
 							<?php
 							
 							if (isset ( $dadosPaciente ['ubs_atendimento'] )) {
@@ -483,7 +483,7 @@ if (isset ( $_GET ['id'] )) {
 							<td><label for="estado_civil">Estado Civil:</label></td>
 							<td><select style="width: 130px; margin-bottom: 5px;" type="text"
 								name="estado_civil" id="estado_civil">
-							
+							<option value="selecioneEstadoCivil"></option>
 							<?php
 							
 							if (isset ( $dadosPaciente ['estado_civil'] )) {
@@ -493,6 +493,7 @@ if (isset ( $_GET ['id'] )) {
 								
 								while ( $line = mysqli_fetch_array ( $resultado ) ) {
 									?>
+									
 									<option value="<?php echo $line['estado_civil'];?>"> <?php echo $line['estado_civil'];} ?></option><?php
 								
 								$sqlOtherEstadoCivil = "SELECT estado_civil FROM estado_civil WHERE estado_civil != (SELECT ubs_atendimento FROM paciente WHERE id_paciente = {$_GET['id']}) ";
@@ -500,6 +501,7 @@ if (isset ( $_GET ['id'] )) {
 								
 								while ( $line = mysqli_fetch_array ( $resultado ) ) {
 									?>
+									
 									<option value="<?php echo $line['estado_civil'];?>"> <?php echo $line['estado_civil'];} ?></option><?php
 							} else {
 								
@@ -522,6 +524,7 @@ if (isset ( $_GET ['id'] )) {
 							<td><label for="escolaridade" style="width: 120px">Escolaridade:</label></td>
 							<td><select style="width: 200px; margin-bottom: 5px;" type="text"
 								name="escolaridade" id="escolaridade" maxlength="30">
+								<option value="selecioneEscolaridade"></option>
 							
 							<?php
 							

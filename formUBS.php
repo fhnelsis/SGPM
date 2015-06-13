@@ -8,17 +8,17 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 	mysqli_set_charset ( $con, "utf8" );
 	
 	$id = $_POST ['id'];
-	$nome_ubs = $_POST ['nome_ubs'];
+	$ubs_atendimento = $_POST ['ubs_atendimento'];
 	$localizacao = $_POST ['localizacao'];
 	$data_insercao = $_POST ['data_insercao'];
 	$data_alteracao = $_POST ['data_alteracao'];
 	
 	if (empty ( $id )) {
-		$sql = "INSERT INTO ubs (nome_ubs, localizacao, data_insercao) 
-				VALUES ('{$nome_ubs}', '{$localizacao}', NOW())";
+		$sql = "INSERT INTO ubs (ubs_atendimento, localizacao, data_insercao) 
+				VALUES ('{$ubs_atendimento}', '{$localizacao}', NOW())";
 	} else {
 		$sql = "UPDATE ubs 
-					SET    nome_ubs = '{$nome_ubs}',
+					SET    ubs_atendimento = '{ubs_atendimento}',
 						   localizacao = '{$localizacao}',
 						   data_alteracao = NOW()
                    WHERE   id_ubs = {$id} ";
@@ -53,15 +53,15 @@ if (isset ( $_GET ['id'] )) {
 					<table width="100%">
 						<tr>
 							<br />
-							<td><label for="nome_ubs" style="width: 250px;">Nome
+							<td><label for="ubs_atendimento" style="width: 250px;">Nome
 									da UBS:</label></td>
 							<td><input style="width: 300px; margin-bottom: 5px;" type="text"
-								name="nome_ubs" id="nome_ubs"
+								name="ubs_atendimento" id="ubs_atendimento"
 								maxlength="50"
 								value="<?php
 								
-								if (isset ( $dadosUbs ['nome_ubs'] )) {
-									echo $dadosUbs ['nome_ubs'];
+								if (isset ( $dadosUbs ['ubs_atendimento'] )) {
+									echo $dadosUbs ['ubs_atendimento'];
 								}
 								?>" /></td>
 						</tr>

@@ -44,7 +44,7 @@ while ( $linha = mysqli_fetch_array ( $query ) ) {
 	?>
 
                             <tr>
-						<td><?php echo $linha['nome_ubs']; ?></td>
+						<td><?php echo $linha['ubs_atendimento']; ?></td>
 						<td><center>
 								<a
 									href="formUbs.php?id=<?php echo $linha['id_ubs']; ?>">Editar</a>

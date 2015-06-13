@@ -7,128 +7,27 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 	$con = mysqli_connect ( "localhost", "root", "", "sgpm" );
 	mysqli_set_charset ( $con, "utf8" );
 	
-	$id_funcionario = $_POST ['id_funcionario'];
-	$login = $_POST ['login'];
-	$senha = $_POST ['senha'];
-	$nome_funcionario = $_POST ['nome_funcionario'];
-	$cargo = $_POST ['cargo'];
-	$cpf = $_POST ['cpf'];
-	$rg = $_POST ['rg'];
-	$org_exp = $_POST ['org_exp'];
-	$genero = $_POST ['genero'];
-	$data_nasc = $_POST ['data_nasc'];
-	$endereco = $_POST ['endereco'];
-	$bairro = $_POST ['bairro'];
-	$cep = $_POST ['cep'];
-	$cidade = $_POST ['cidade'];
-	$estado = $_POST ['estado'];
-	$pais_nacionalidade = $_POST ['pais_nacionalidade'];
-	$cidade_natural = $_POST ['cidade_natural'];
-	$estado_natural = $_POST ['estado_natural'];
-	$ubs_atendimento = $_POST ['ubs_atendimento'];
-	$nome_mae = $_POST ['nome_mae'];
-	$nome_pai = $_POST ['nome_pai'];
-	$estado_civil = $_POST ['estado_civil'];
-	$escolaridade = $_POST ['escolaridade'];
-	$tipo_sanguineo = $_POST ['tipo_sanguineo'];
-	$email_pessoal = $_POST ['email_pessoal'];
-	$email_prof = $_POST ['email_prof'];
-	$tel_cel = $_POST ['tel_cel'];
-	$tel_fixo = $_POST ['tel_fixo'];
-	
-	if (empty ( $id_funcionario )) {
-		$sql = "INSERT INTO funcionario 
+	$id_paciente = $_POST ['id_paciente'];
+
+
+	if (empty ( $id_paciente )) {
+		$sql = "INSERT INTO atendimento 
             (login, 
-             senha, 
-             nome_funcionario, 
-             cargo, 
-             cpf, 
-             rg, 
-             org_exp, 
-             genero, 
-             data_nasc, 
-             endereco, 
-             bairro, 
-             cep, 
-             cidade, 
-             estado, 
-             pais_nacionalidade, 
-             cidade_natural, 
-             estado_natural, 
-             ubs_atendimento, 
-             nome_mae, 
-             nome_pai, 
-             estado_civil, 
-             escolaridade, 
-             tipo_sanguineo, 
-             email_pessoal, 
-             email_prof, 
-             tel_cel, 
              tel_fixo) 
 VALUES      ('{$login}', 
-             '{$senha}', 
-             '{$nome_funcionario}', 
-             '{$cargo}', 
-             '{$cpf}', 
-             '{$rg}', 
-             '{$org_exp}', 
-             '{$genero}', 
-             '{$data_nasc}', 
-             '{$endereco}', 
-             '{$bairro}', 
-             '{$cep}', 
-             '{$cidade}', 
-             '{$estado}', 
-             '{$pais_nacionalidade}', 
-             '{$cidade_natural}', 
-             '{$estado_natural}', 
-             '{$ubs_atendimento}', 
-             '{$nome_mae}', 
-             '{$nome_pai}', 
-             '{$estado_civil}', 
-             '{$escolaridade}', 
-             '{$tipo_sanguineo}', 
-             '{$email_pessoal}', 
-             '{$email_prof}', 
-             '{$tel_cel}', 
              '{$tel_fixo}') ";
 	} else {
-		$sql = "UPDATE funcionario 
+		$sql = "UPDATE atendimento 
 					SET    login = '{$login}', 
-					       senha = '{$senha}', 
-					       nome_funcionario = '{$nome_funcionario}', 
-					       cargo = '{$cargo}', 
-					       cpf = '{$cpf}', 
-					       rg = '{$rg}', 
-					       org_exp = '{$org_exp}', 
-					       genero = '{$genero}', 
-					       data_nasc = '{$data_nasc}', 
-					       endereco = '{$endereco}', 
-					       bairro = '{$bairro}', 
-					       cep = '{$cep}', 
-					       cidade = '{$cidade}', 
-					       estado = '{$estado}', 
-					       pais_nacionalidade = '{$pais_nacionalidade}', 
-					       cidade_natural = '{$cidade_natural}', 
-					       estado_natural = '{$estado_natural}', 
-					       ubs_atendimento = '{$ubs_atendimento}', 
-					       nome_mae = '{$nome_mae}', 
-					       nome_pai = '{$nome_pai}', 
-					       estado_civil = '{$estado_civil}', 
-					       escolaridade = '{$escolaridade}', 
-					       tipo_sanguineo = '{$tipo_sanguineo}', 
-					       email_pessoal = '{$email_pessoal}', 
-					       email_prof = '{$email_prof}', 
-					       tel_cel = '{$tel_cel}', 
 					       tel_fixo = '{$tel_fixo}' 
 					WHERE  
-						   id_funcionario = '{$id_funcionario}'";
+						   id_paciente = '{$id_paciente}'";
 	}
 	
 	$exec = mysqli_query ( $con, $sql );
 	$_SESSION ['msg'] = 'Registro Salvo Com Sucesso!';
 	echo $sql;
-	header ( 'Location: consultarFuncionario.php' );
+	header ( 'Location: consultarAtendimento.php' );
 }
 
 // Se exitir um id passado por parametro
@@ -144,7 +43,7 @@ if (isset ( $_GET ['id_funcionario'] )) {
 <div class="divTudoFormPaciente">
 	<div id="tituloPagina">
 		<center>
-				<?php echo isset($_GET['id_funcionario']) ? "Alterar Funcion&#225;rio" : "Cadastrar Funcion&#225;rio"; ?>
+				<?php echo isset($_GET['id_paciente']) ? "Alterar Atendimento" : "Cadastrar Atendimento"; ?>
 			</center>
 	</div>
 
