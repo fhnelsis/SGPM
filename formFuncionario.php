@@ -7,7 +7,7 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 	$con = mysqli_connect ( "localhost", "root", "", "sgpm" );
 	mysqli_set_charset ( $con, "utf8" );
 	
-	$id_funcionario = $_POST ['id_funcionario'];
+	$id_funcionario = $_POST ['id'];
 	$login = $_POST ['login'];
 	$senha = $_POST ['senha'];
 	$nome_funcionario = $_POST ['nome_funcionario'];
@@ -355,8 +355,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="estado_natural" id="estado_natural" maxlength="2"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['estado_natural'] )) {
-									echo $dadosFuncionario ['estado_natural'];
+								if (isset ( $dadosFuncionario ['estado'] )) {
+									echo $dadosFuncionario ['estado'];
 								}
 								?>" /></td>
 						</tr>
@@ -369,7 +369,7 @@ if (isset ( $_GET ['id_funcionario'] )) {
 							<?php
 							
 							if (isset ( $dadosFuncionario ['ubs_atendimento'] )) {
-								$sql_ubs_atendimento = "SELECT ubs_atendimento FROM funcionario WHERE id_funcionario = {$_GET['id']} ";
+								$sql_ubs_atendimento = "SELECT ubs_atendimento FROM funcionario WHERE id_funcionario = {$_GET['id_funcionario']} ";
 								
 								$resultado = mysqli_query ( $con, $sql_ubs_atendimento );
 								
@@ -377,7 +377,7 @@ if (isset ( $_GET ['id_funcionario'] )) {
 									?>
 									<option value="<?php echo $line['ubs_atendimento'];?>"> <?php echo $line['ubs_atendimento'];} ?></option><?php
 								
-								$sqlOtherUBS = "SELECT ubs_atendimento FROM ubs WHERE ubs_atendimento != (SELECT ubs_atendimento FROM funcionario WHERE id_funcionario = {$_GET['id']}) ";
+								$sqlOtherUBS = "SELECT ubs_atendimento FROM ubs WHERE ubs_atendimento != (SELECT ubs_atendimento FROM funcionario WHERE id_funcionario = {$_GET['id_funcionario']}) ";
 								$resultado = mysqli_query ( $con, $sqlOtherUBS );
 								
 								while ( $line = mysqli_fetch_array ( $resultado ) ) {

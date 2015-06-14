@@ -18,7 +18,7 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 				VALUES ('{$ubs_atendimento}', '{$localizacao}', NOW())";
 	} else {
 		$sql = "UPDATE ubs 
-					SET    ubs_atendimento = '{ubs_atendimento}',
+					SET    ubs_atendimento = '{$ubs_atendimento}',
 						   localizacao = '{$localizacao}',
 						   data_alteracao = NOW()
                    WHERE   id_ubs = {$id} ";

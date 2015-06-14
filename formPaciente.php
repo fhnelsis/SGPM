@@ -207,6 +207,7 @@ if (isset ( $_GET ['id'] )) {
 							<?php
 							
 							if (isset ( $dadosPaciente ['genero'] )) {
+								
 								$sql_genero = "SELECT genero FROM paciente WHERE id_paciente = {$_GET['id']} ";
 								
 								$resultado = mysqli_query ( $con, $sql_genero );
