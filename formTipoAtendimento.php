@@ -43,7 +43,7 @@ if (isset ( $_GET ['id'] )) {
 <div class="divTudoFormTipoAtendimento">
 	<div id="tituloPagina">
 		<center>
-				<?php echo isset($_GET['id']) ? "Alterar Tipo de Atendimento" : "Novo Tipo de Atendimento"; ?>
+				<?php echo isset($_GET['id']) ? "Alterar Tipo de Atendimento" : "Cadastrar Tipo de Atendimento"; ?>
 			</center>
 	</div>
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 14-Jun-2015 às 05:52
+-- Generation Time: 15-Jun-2015 às 20:39
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -280,7 +280,7 @@ CREATE TABLE IF NOT EXISTS `tipo_atendimento` (
   `data_desativacao` date DEFAULT NULL,
   `data_alteracao` date DEFAULT NULL,
   PRIMARY KEY (`id_tipo_atendimento`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
 
 --
 -- Extraindo dados da tabela `tipo_atendimento`
@@ -288,7 +288,16 @@ CREATE TABLE IF NOT EXISTS `tipo_atendimento` (
 
 INSERT INTO `tipo_atendimento` (`id_tipo_atendimento`, `nome_tipo_atendimento`, `descricao`, `data_insercao`, `data_desativacao`, `data_alteracao`) VALUES
 (6, 'Check-up Geral', 'Procedimento para verificar condições de saúde gerais do paciente.', '2015-05-15', NULL, '2015-06-12'),
-(17, 'Colonoscopia', 'Exame de Colonoscopia feito em pacientes clínicos apresentando sintomas.', '2015-06-02', NULL, NULL);
+(19, 'Atendimento Familiar Integrado', 'Atendimento Familiar Integrado', '2015-06-15', NULL, NULL),
+(24, 'Pré-Natal IV - Gestante SEM Risco', 'Pré-Natal IV - Gestante SEM Risco', '2015-06-15', NULL, '2015-06-15'),
+(25, 'Pré-Natal I - Gestante SEM Risco', 'Pré-Natal I - Gestante SEM Risco', '2015-06-15', NULL, '2015-06-15'),
+(26, 'Pré-Natal II - Gestante SEM Risco', 'Pré-Natal II - Gestante SEM Risco', '2015-06-15', NULL, '2015-06-15'),
+(27, 'Pré-Natal III - Gestante SEM Risco', 'Pré-Natal III - Gestante SEM Risco', '2015-06-15', NULL, NULL),
+(28, 'Pré-Natal III - Gestante COM Risco', 'Pré-Natal III - Gestante COM Risco', '2015-06-15', NULL, NULL),
+(29, 'Pré-Natal I - Gestante COM Risco', 'Pré-Natal I - Gestante COM Risco', '2015-06-15', NULL, NULL),
+(30, 'Pré-Natal II - Gestante COM Risco', 'Pré-Natal II - Gestante COM Risco', '2015-06-15', NULL, NULL),
+(31, 'Pré-Natal IV - Gestante COM Risco', 'Pré-Natal IV - Gestante COM Risco', '2015-06-15', NULL, NULL),
+(32, 'Atendimento ao Usuário Químico de Rotina', 'Atendimento ao Usuário Químico de Rotina', '2015-06-15', NULL, NULL);
 
 -- --------------------------------------------------------
 
