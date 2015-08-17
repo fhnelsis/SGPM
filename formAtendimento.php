@@ -6,8 +6,8 @@
 if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 	$con = mysqli_connect ( "localhost", "root", "", "sgpm" );
 	mysqli_set_charset ( $con, "utf8" );
-		
-	$id = $_POST['id'];
+	
+	$id = $_POST ['id'];
 	$tipo_atendimento = $_POST ['tipo_atendimento'];
 	$id_funcionario = $_POST ['id_funcionario'];
 	$data_atendimento = $_POST ['data_atendimento'];
@@ -23,7 +23,7 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 	$ritmo_respiratorio = $_POST ['ritmo_respiratorio'];
 	$observacoes = $_POST ['observacoes'];
 	
-	if (empty ($id)) {
+	if (empty ( $id )) {
 		$sql = "INSERT INTO atendimento (id_atendimento, tipo_atendimento, id_funcionario, data_atendimento, fumante, alcool,
 										 alergia_reac_div, sintomas, queixa_principal, hist_molestia, frequencia_cardiaca, 
 										 ritmo_cardiaco, pressao_arterial, ritmo_respiratorio, observacoes) 
@@ -78,23 +78,13 @@ if (isset ( $_GET ['id'] )) {
 					<table width="100%">
 						<tr>
 							<br />
-							<td><label for="nome_paciente">Nome:</label></td>
-							<td><input style="width: 400px;" type="text" name="nome_paciente"
-								id="nome_paciente" maxlength="50"
-								value="<?php
-								
-								if (isset ( $dadosPaciente ['nome_paciente'] )) {
-									echo $dadosPaciente ['nome_paciente'];
-								}
-								?>" /></td>
+							<td><label for="nome_paciente">CPF:</label></td>
+							<td><input style="width: 400px;" type="text" name="cpf_paciente"
+								id="cpf_paciente" maxlength="11" /></td>
 						</tr>
 
-						
-
 					</table>
-					<br>
-
-					<input type="hidden" id="id" name="id"
+					<br> <input type="hidden" id="id" name="id"
 						value="<?php
 						if (isset ( $dadosPaciente ['id_paciente'] )) {
 							echo $dadosPaciente ['id_paciente'];
