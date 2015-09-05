@@ -1,5 +1,6 @@
 <?php include ('includes/cabecalho.php')?>
 <?php include ('includes/menu.php')?>
+<?php verificarLogin(); ?>
 
 <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
 

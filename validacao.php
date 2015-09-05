@@ -1,6 +1,8 @@
 <?php
 
 $con=mysqli_connect("localhost","root","","sgpm");
+mysqli_set_charset($con, "utf8");
+
 // Check connection
 if (mysqli_connect_error())
   {
@@ -12,29 +14,43 @@ if (mysqli_connect_error())
         $login= $_POST['login'];
         $senha= $_POST['senha'];
         
-        $sql = mysqli_query($con, "SELECT * FROM funcionario WHERE login = '{$login}' and senha = '{$senha}'");
+        $sql = mysqli_query($con, "SELECT func.*, tp.nome_tipo FROM funcionario func INNER JOIN tipo_funcionario tp ON tp.id_tipo_funcionario = func.id_tipo_funcionario WHERE login = '{$login}' and senha = '{$senha}'");
      
-        $row = mysqli_fetch_array($sql);
+       // $row = mysqli_fetch_array($sql);
 
          //Verifica quantidadede linhas
         $num_rows = mysqli_num_rows($sql);
         
         //Se <> de zero, invalida o acesso
         if($num_rows != 1){
-            throw new Exception('Usu·rio ou senha inv·lidos!');
+            throw new Exception('Usu√°rio ou senha inv√°lidos!');
         }      
 
-        //Pega a linha da memÛria
+        //Pega a linha da mem√≥ria
         $consulta = mysqli_fetch_array($sql);
 
+        //Busca as permiss√µes desse usu√°rio de acordo com o seu tipo
+        $queryPermissoes = mysqli_query($con, "SELECT TRIM(func.sigla_funcionalidade) sigla_funcionalidade FROM tipo_funcionario_funcionalidade tpf INNER JOIN funcionalidades func ON func.id_funcionalidade = tpf.id_funcionalidade WHERE tpf.id_tipo_funcionario = ".$consulta['id_tipo_funcionario']." ");
+        
         //Monta a session
-        session_name('sistema');
+        //session_name('sistema');
         session_start();
+        
         //$_SESSION['LOGIN']['CODIGO']= $consulta['idadmin'];
-        $_SESSION['LOGIN']['NOME']= $consulta['nome'];
-        $_SESSION['LOGIN']['USUARIO']= $consulta['usuario'];
-       
-        //Redireciona apÛs validaÁ„o
+        $_SESSION['LOGIN']['NOME']= $consulta['nome_funcionario'];
+        $_SESSION['LOGIN']['CARGO']= $consulta['nome_tipo'];
+        $_SESSION['LOGIN']['USUARIO']= $consulta['login'];
+        
+        //Cria o array que receber√° as permiss√µes do usu√°rio
+        $arrayPermissoes = array();
+        
+        while($linhaPermissoes = mysqli_fetch_array($queryPermissoes)){
+            $arrayPermissoes[] = $linhaPermissoes['sigla_funcionalidade'];
+        }
+        
+        $_SESSION['LOGIN']['PERMISSOES'] = $arrayPermissoes;
+               
+        //Redireciona ap√≥s valida√ß√£o
         header('Location: home.php');
 
     }catch(Exception $e){

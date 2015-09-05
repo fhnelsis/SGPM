@@ -15,7 +15,7 @@ try {
 	} elseif (empty ( $nome )) {
 		$sql = mysqli_query ( $con, "SELECT * FROM pacientes WHERE cpf = '{$cpf}'" );
 	} else
-		throw new Exception ( 'Por favor, digite algum dado válido para pesquisa.' );
+		throw new Exception ( 'Por favor, digite algum dado vÃ¡lido para pesquisa.' );
 	
 	$row = mysqli_fetch_array ( $sql );
 	
@@ -26,12 +26,12 @@ try {
 	
 	// Se <> de zero, invalida o acesso
 	if ($num_rows != 1) {
-		// throw new Exception ( 'O paciente não existe!' );
+		// throw new Exception ( 'O paciente nÃ£o existe!' );
 		header ( 'Location: consultarPaciente.php' );
 	} else
 		header ( 'Location: visualizarPaciente.php' );
 		
-		// Pega a linha da memória
+		// Pega a linha da memï¿½ria
 	$consulta = mysqli_fetch_array ( $sql );
 } catch ( Exception $e ) {
 	echo "<script>alert('" . $e->getMessage () . "');</script>";

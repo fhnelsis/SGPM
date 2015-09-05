@@ -1,40 +1,48 @@
 <?php include ('includes/cabecalho.php')?>
 <?php include ('includes/menu.php')?>
 <?php include ('includes/menuBack.php')?>
+<?php 
+    if(isset($_GET['id_funcionario'])){
+        verificarPermissaoPagina('FUNCIONARIO_ALTERAR');
+    }else{
+        verificarPermissaoPagina('FUNCIONARIO_INSERIR');
+    }
+?>
 <?php
 
-if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$con = mysqli_connect ( "localhost", "root", "", "sgpm" );
 	mysqli_set_charset ( $con, "utf8" );
 	
-	$id_funcionario = $_POST ['id_funcionario'];
-	$login = $_POST ['login'];
-	$senha = $_POST ['senha'];
-	$nome_funcionario = $_POST ['nome_funcionario'];
-	$cargo = $_POST ['cargo'];
-	$cpf = $_POST ['cpf'];
-	$rg = $_POST ['rg'];
-	$org_exp = $_POST ['org_exp'];
-	$genero = $_POST ['genero'];
-	$data_nasc = $_POST ['data_nasc'];
-	$endereco = $_POST ['endereco'];
-	$bairro = $_POST ['bairro'];
-	$cep = $_POST ['cep'];
-	$cidade = $_POST ['cidade'];
-	$estado = $_POST ['estado'];
-	$pais_nacionalidade = $_POST ['pais_nacionalidade'];
-	$cidade_natural = $_POST ['cidade_natural'];
-	$estado_natural = $_POST ['estado_natural'];
-	$ubs_atendimento = $_POST ['ubs_atendimento'];
-	$nome_mae = $_POST ['nome_mae'];
-	$nome_pai = $_POST ['nome_pai'];
-	$estado_civil = $_POST ['estado_civil'];
-	$escolaridade = $_POST ['escolaridade'];
-	$tipo_sanguineo = $_POST ['tipo_sanguineo'];
-	$email_pessoal = $_POST ['email_pessoal'];
-	$email_prof = $_POST ['email_prof'];
-	$tel_cel = $_POST ['tel_cel'];
-	$tel_fixo = $_POST ['tel_fixo'];
+	$id_funcionario = $_POST['id'];
+	$login = $_POST['login'];
+	$senha = $_POST['senha'];
+	$nome_funcionario = $_POST['nome_funcionario'];
+	$cargo = $_POST['cargo'];
+	$cpf = $_POST['cpf'];
+	$rg = $_POST['rg'];
+	$org_exp = $_POST['org_exp'];
+	$genero = $_POST['genero'];
+	$data_nasc = $_POST['data_nasc'];
+	$endereco = $_POST['endereco'];
+	$bairro = $_POST['bairro'];
+	$cep = $_POST['cep'];
+	$cidade = $_POST['cidade'];
+	$estado = $_POST['estado'];
+	$pais_nacionalidade = $_POST['pais_nacionalidade'];
+	$cidade_natural = $_POST['cidade_natural'];
+	$estado_natural = $_POST['estado_natural'];
+	$ubs_atendimento = $_POST['ubs_atendimento'];
+	$nome_mae = $_POST['nome_mae'];
+	$nome_pai = $_POST['nome_pai'];
+	$estado_civil = $_POST['estado_civil'];
+	$escolaridade = $_POST['escolaridade'];
+	$tipo_sanguineo = $_POST['tipo_sanguineo'];
+	$email_pessoal = $_POST['email_pessoal'];
+	$email_prof = $_POST['email_prof'];
+	$tel_cel = $_POST['tel_cel'];
+	$tel_fixo = $_POST['tel_fixo'];
+        $id_tipo_funcionario = $_POST['id_tipo_funcionario'];
 	
 	if (empty ( $id_funcionario )) {
 		$sql = "INSERT INTO funcionario 
@@ -64,7 +72,9 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
              email_pessoal, 
              email_prof, 
              tel_cel, 
-             tel_fixo) 
+             tel_fixo,
+             id_tipo_funcionario
+            ) 
 VALUES      ('{$login}', 
              '{$senha}', 
              '{$nome_funcionario}', 
@@ -91,7 +101,8 @@ VALUES      ('{$login}',
              '{$email_pessoal}', 
              '{$email_prof}', 
              '{$tel_cel}', 
-             '{$tel_fixo}') ";
+             '{$tel_fixo}', 
+             ".$id_tipo_funcionario." )";
 	} else {
 		$sql = "UPDATE funcionario 
 					SET    login = '{$login}', 
@@ -120,25 +131,34 @@ VALUES      ('{$login}',
 					       email_pessoal = '{$email_pessoal}', 
 					       email_prof = '{$email_prof}', 
 					       tel_cel = '{$tel_cel}', 
-					       tel_fixo = '{$tel_fixo}' 
+					       tel_fixo = '{$tel_fixo}',
+                                               id_tipo_funcionario = ".$id_tipo_funcionario."    
 					WHERE  
-						   id_funcionario = '{$id_funcionario}'";
+					       id_funcionario = '{$id_funcionario}'";
 	}
 	
 	$exec = mysqli_query ( $con, $sql );
-	$_SESSION ['msg'] = 'Registro Salvo Com Sucesso!';
+	$_SESSION['msg'] = 'Registro Salvo Com Sucesso!';
 	echo $sql;
 	header ( 'Location: consultarFuncionario.php' );
 }
 
 // Se exitir um id passado por parametro
-if (isset ( $_GET ['id_funcionario'] )) {
+if (isset ( $_GET['id_funcionario'] )) {
 	$con = mysqli_connect ( "localhost", "root", "", "sgpm" );
 	mysqli_set_charset ( $con, "utf8" );
 	
 	$query = mysqli_query ( $con, "SELECT * FROM funcionario WHERE id_funcionario = {$_GET['id_funcionario']} " );
 	$dadosFuncionario = mysqli_fetch_array ( $query );
 }
+
+
+//Busca os tipos de funcionários
+$con = mysqli_connect("localhost", "root", "", "sgpm");
+mysqli_set_charset($con, "utf8");
+
+//Busca os tipos de funcionários
+$queryTipoFuncionario = mysqli_query($con, "SELECT * FROM tipo_funcionario");
 ?>
 
 <div class="divTudoFormPaciente">
@@ -160,8 +180,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="login" id="login" maxlength="30"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['login'] )) {
-									echo $dadosFuncionario ['login'];
+								if (isset ( $dadosFuncionario['login'] )) {
+									echo $dadosFuncionario['login'];
 								}
 								?>" /></td>
 						</tr>
@@ -172,20 +192,33 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								type="password" name="senha" id="senha" maxlength="15"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['senha'] )) {
-									echo $dadosFuncionario ['senha'];
+								if (isset ( $dadosFuncionario['senha'] )) {
+									echo $dadosFuncionario['senha'];
 								}
 								?>" /></td>
 						</tr>
-
+                                                
+                                                <!-- Tipo de Funcionário  -->
+                                                <tr>
+                                                    <td><label for="id_tipo_funcionario">Tipo de funcionário:</label></td>
+                                                    <td>
+                                                        <select name="id_tipo_funcionario" id="id_tipo_fucionario" style="margin-top: 5px; ">
+                                                            <option value="" selected>TIPO DE FUNCIONÁRIO</option>
+                                                            <?php while ($linhaTipoFuncionario = mysqli_fetch_array($queryTipoFuncionario)): ?>
+                                                                <option <?php if (isset($dadosFuncionario['id_tipo_funcionario']) && $dadosFuncionario['id_tipo_funcionario'] == $linhaTipoFuncionario['id_tipo_funcionario']) : ?> selected <?php endif; ?> value="<?php echo $linhaTipoFuncionario['id_tipo_funcionario']; ?>"><?php echo $linhaTipoFuncionario['nome_tipo']; ?></option>
+                                                            <?php endwhile; ?>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                
 						<tr>
 							<td><label for="nome_funcionario">Nome:</label></td>
 							<td><input style="width: 400px; margin-bottom: 5px;" type="text"
 								name="nome_funcionario" id="nome_funcionario" maxlength="50"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['nome_funcionario'] )) {
-									echo $dadosFuncionario ['nome_funcionario'];
+								if (isset ( $dadosFuncionario['nome_funcionario'] )) {
+									echo $dadosFuncionario['nome_funcionario'];
 								}
 								?>" /></td>
 						</tr>
@@ -196,8 +229,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="cargo" maxlength="20"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['cargo'] )) {
-									echo $dadosFuncionario ['cargo'];
+								if (isset ( $dadosFuncionario['cargo'] )) {
+									echo $dadosFuncionario['cargo'];
 								}
 								?>" /></td>
 						</tr>
@@ -208,8 +241,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="cpf" maxlength="11"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['cpf'] )) {
-									echo $dadosFuncionario ['cpf'];
+								if (isset ( $dadosFuncionario['cpf'] )) {
+									echo $dadosFuncionario['cpf'];
 								}
 								?>" /></td>
 						</tr>
@@ -220,8 +253,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								id="rg" maxlength="10"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['rg'] )) {
-									echo $dadosFuncionario ['rg'];
+								if (isset ( $dadosFuncionario['rg'] )) {
+									echo $dadosFuncionario['rg'];
 								}
 								?>" /></td>
 						</tr>
@@ -233,8 +266,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="org_exp" id="org_exp" maxlength="6"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['org_exp'] )) {
-									echo $dadosFuncionario ['org_exp'];
+								if (isset ( $dadosFuncionario['org_exp'] )) {
+									echo $dadosFuncionario['org_exp'];
 								}
 								?>" /></td>
 						</tr>
@@ -245,8 +278,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="genero" id="genero" maxlength="1"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['genero'] )) {
-									echo $dadosFuncionario ['genero'];
+								if (isset ( $dadosFuncionario['genero'] )) {
+									echo $dadosFuncionario['genero'];
 								}
 								?>" /></td>
 						</tr>
@@ -258,8 +291,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="data_nasc" id="data_nasc" maxlength="10"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['data_nasc'] )) {
-									echo $dadosFuncionario ['data_nasc'];
+								if (isset ( $dadosFuncionario['data_nasc'] )) {
+									echo $dadosFuncionario['data_nasc'];
 								}
 								?>" /></td>
 						</tr>
@@ -270,8 +303,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="endereco" id="endereco" maxlength="100"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['endereco'] )) {
-									echo $dadosFuncionario ['endereco'];
+								if (isset ( $dadosFuncionario['endereco'] )) {
+									echo $dadosFuncionario['endereco'];
 								}
 								?>" /></td>
 						</tr>
@@ -282,8 +315,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="bairro" id="bairro" maxlength="30"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['bairro'] )) {
-									echo $dadosFuncionario ['bairro'];
+								if (isset ( $dadosFuncionario['bairro'] )) {
+									echo $dadosFuncionario['bairro'];
 								}
 								?>" /></td>
 						</tr>
@@ -294,8 +327,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="cep" id="cep" maxlength="9"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['cep'] )) {
-									echo $dadosFuncionario ['cep'];
+								if (isset ( $dadosFuncionario['cep'] )) {
+									echo $dadosFuncionario['cep'];
 								}
 								?>" /></td>
 						</tr>
@@ -306,8 +339,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="cidade" id="cidade" maxlength="30"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['cidade'] )) {
-									echo $dadosFuncionario ['cidade'];
+								if (isset ( $dadosFuncionario['cidade'] )) {
+									echo $dadosFuncionario['cidade'];
 								}
 								?>" /></td>
 						</tr>
@@ -318,8 +351,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="estado" id="estado" maxlength="2"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['estado'] )) {
-									echo $dadosFuncionario ['estado'];
+								if (isset ( $dadosFuncionario['estado'] )) {
+									echo $dadosFuncionario['estado'];
 								}
 								?>" /></td>
 						</tr>
@@ -330,8 +363,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="pais_nacionalidade" id="pais_nacionalidade" maxlength="30"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['pais_nacionalidade'] )) {
-									echo $dadosFuncionario ['pais_nacionalidade'];
+								if (isset ( $dadosFuncionario['pais_nacionalidade'] )) {
+									echo $dadosFuncionario['pais_nacionalidade'];
 								}
 								?>" /></td>
 						</tr>
@@ -342,8 +375,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="cidade_natural" id="cidade_natural" maxlength="30"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['cidade_natural'] )) {
-									echo $dadosFuncionario ['cidade_natural'];
+								if (isset ( $dadosFuncionario['cidade_natural'] )) {
+									echo $dadosFuncionario['cidade_natural'];
 								}
 								?>" /></td>
 						</tr>
@@ -355,8 +388,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="estado_natural" id="estado_natural" maxlength="2"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['estado_natural'] )) {
-									echo $dadosFuncionario ['estado_natural'];
+								if (isset ( $dadosFuncionario['estado_natural'] )) {
+									echo $dadosFuncionario['estado_natural'];
 								}
 								?>" /></td>
 						</tr>
@@ -367,8 +400,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="ubs_atendimento" id="ubs_atendimento" maxlength="30"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['ubs_atendimento'] )) {
-									echo $dadosFuncionario ['ubs_atendimento'];
+								if (isset ( $dadosFuncionario['ubs_atendimento'] )) {
+									echo $dadosFuncionario['ubs_atendimento'];
 								}
 								?>" /></td>
 						</tr>
@@ -379,8 +412,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="nome_mae" id="nome_mae" maxlength="50"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['nome_mae'] )) {
-									echo $dadosFuncionario ['nome_mae'];
+								if (isset ( $dadosFuncionario['nome_mae'] )) {
+									echo $dadosFuncionario['nome_mae'];
 								}
 								?>" /></td>
 						</tr>
@@ -391,8 +424,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="nome_pai" id="nome_pai" maxlength="50"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['nome_pai'] )) {
-									echo $dadosFuncionario ['nome_pai'];
+								if (isset ( $dadosFuncionario['nome_pai'] )) {
+									echo $dadosFuncionario['nome_pai'];
 								}
 								?>" /></td>
 						</tr>
@@ -403,8 +436,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="estado_civil" id="estado_civil" maxlength="50"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['estado_civil'] )) {
-									echo $dadosFuncionario ['estado_civil'];
+								if (isset ( $dadosFuncionario['estado_civil'] )) {
+									echo $dadosFuncionario['estado_civil'];
 								}
 								?>" /></td>
 						</tr>
@@ -415,8 +448,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="escolaridade" id="escolaridade" maxlength="50"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['escolaridade'] )) {
-									echo $dadosFuncionario ['escolaridade'];
+								if (isset ( $dadosFuncionario['escolaridade'] )) {
+									echo $dadosFuncionario['escolaridade'];
 								}
 								?>" /></td>
 						</tr>
@@ -428,8 +461,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="tipo_sanguineo" id="tipo_sanguineo" maxlength="3"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['tipo_sanguineo'] )) {
-									echo $dadosFuncionario ['tipo_sanguineo'];
+								if (isset ( $dadosFuncionario['tipo_sanguineo'] )) {
+									echo $dadosFuncionario['tipo_sanguineo'];
 								}
 								?>" /></td>
 						</tr>
@@ -441,8 +474,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="email_pessoal" id="email_pessoal" maxlength="50"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['email_pessoal'] )) {
-									echo $dadosFuncionario ['email_pessoal'];
+								if (isset ( $dadosFuncionario['email_pessoal'] )) {
+									echo $dadosFuncionario['email_pessoal'];
 								}
 								?>" /></td>
 						</tr>
@@ -454,8 +487,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="email_prof" id="email_pessoal" maxlength="50"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['email_prof'] )) {
-									echo $dadosFuncionario ['email_prof'];
+								if (isset ( $dadosFuncionario['email_prof'] )) {
+									echo $dadosFuncionario['email_prof'];
 								}
 								?>" /></td>
 						</tr>
@@ -466,8 +499,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="tel_cel" id="tel_cel" maxlength="10"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['tel_cel'] )) {
-									echo $dadosFuncionario ['tel_cel'];
+								if (isset ( $dadosFuncionario['tel_cel'] )) {
+									echo $dadosFuncionario['tel_cel'];
 								}
 								?>" /></td>
 						</tr>
@@ -478,8 +511,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 								name="tel_fixo" id="tel_cel" maxlength="10"
 								value="<?php
 								
-								if (isset ( $dadosFuncionario ['tel_fixo'] )) {
-									echo $dadosFuncionario ['tel_fixo'];
+								if (isset ( $dadosFuncionario['tel_fixo'] )) {
+									echo $dadosFuncionario['tel_fixo'];
 								}
 								?>" /></td>
 						</tr>
@@ -487,8 +520,8 @@ if (isset ( $_GET ['id_funcionario'] )) {
 					</table>
 					<br> <input type="hidden" id="id" name="id"
 						value="<?php
-						if (isset ( $dadosFuncionario ['id_funcionario'] )) {
-							echo $dadosFuncionario ['id_funcionario'];
+						if (isset ( $dadosFuncionario['id_funcionario'] )) {
+							echo $dadosFuncionario['id_funcionario'];
 						}
 						?>" /> <input type="submit" name="enviar" value="ENVIAR"
 						id="enviar_cadastro" />

@@ -10140,7 +10140,7 @@ button.close {
 /*# sourceMappingURL=bootstrap.css.map */
 
 /*!
-Aqui começam edições no Bootstrap CSS original.
+Aqui comeï¿½am ediï¿½ï¿½es no Bootstrap CSS original.
 */
 
 /* ---------------------------------------------------------------------- 1024x768 ---------------------------------------------------------------------- */
@@ -10337,9 +10337,15 @@ Aqui começam edições no Bootstrap CSS original.
 	position: relative top;
 	font-family: Raleway, sans-serif;
 	margin-top: -487px;
-	background-image: url('../img/background_su.jpg'); //
-	background-image:
-		url('../img/simple_blue_background-wallpaper-1024x768.jpg');
+	background-image: url('../img/background_su.jpg'); 
+	
+}
+
+.divTudoRelatorio {
+        //border: 1px solid black;
+        float: left;
+        margin-left: 260px;
+	margin-top: -487px;
 }
 
 #formBuscaAtendimento {
@@ -10387,6 +10393,9 @@ Aqui começam edições no Bootstrap CSS original.
 
 /* ------------------------------------------------ 1366x768 (notebook) ----------------------------------------------- */
 @media ( min-width : 1366px) {
+        
+       
+        
 	.cabecalho {
 		height: 50px;
 		position: absolute top;
@@ -10515,6 +10524,13 @@ Aqui começam edições no Bootstrap CSS original.
 		position: inherit;
 		font-size: 22;
 	}
+        #tituloPaginaAtendimentoCadastroAlteracao {
+        		margin-right: 660px;
+		margin-top: -450px;
+		margin-bottom: 0px;
+		position: relative;
+		font-size: 22;
+	}
 	.divTudoFormPaciente {
 		height: 130%;
 		position: relative top;
@@ -10582,3 +10598,19 @@ Aqui começam edições no Bootstrap CSS original.
 		margin-top: -20%;
 	}
 }
+
+.filtros{
+    margin-top: 30px;
+}
+
+.filtros input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    height: 25px;
+}
+
+.apresentacao {
+    position: absolute; top: 15px; right: 116px; float: left; color: #fff;
+}
+

@@ -1,6 +1,13 @@
 <?php include ('includes/cabecalho.php')?>
 <?php include ('includes/menu.php')?>
 <?php include ('includes/menuBack.php')?>
+<?php 
+    if(isset($_GET['id'])){
+        verificarPermissaoPagina('PACIENTE_ALTERAR');
+    }else{
+        verificarPermissaoPagina('PACIENTE_INSERIR');
+    }
+?>
 <?php
 
 if ($_SERVER ['REQUEST_METHOD'] == 'POST') {

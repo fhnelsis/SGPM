@@ -1,5 +1,6 @@
 <?php include ('includes/cabecalho.php')?>
 <?php include ('includes/menu.php')?>
+<?php verificarPermissaoPagina('FUNCIONARIO_LISTAR'); ?>
 
 <script type="text/javascript">
     jQuery(document).ready(function () {
@@ -44,20 +45,22 @@ $query = mysqli_query ( $con, "SELECT * FROM funcionario" );
 while ( $linha = mysqli_fetch_array ( $query ) ) {
 	?>
 
-                            <tr>
+                                            <tr>
 						<td><?php echo $linha['nome_funcionario']; ?></td>
 						<td><center><?php echo $linha['cargo']; ?></center></td>
-						<td><center>
-								<a
-									href="formFuncionario.php?id_funcionario=<?php echo $linha['id_funcionario']; ?>">Editar</a>
-							</center></td>
-						<td><center>
-								<a
-									href="excluirFuncionario.php?id_exclusao=<?php echo $linha['id_funcionario']; ?>">Excluir</a></td>
-						</center>
+						<td>
+                                                    <?php if (verificarPermissao('FUNCIONARIO_ALTERAR')): ?>
+                                                        <center><a href="formFuncionario.php?id_funcionario=<?php echo $linha['id_funcionario']; ?>">Editar</a></center>
+                                                    <?php endif; ?>
+                                                </td>
+						<td>
+                                                    <?php if (verificarPermissao('FUNCIONARIO_ALTERAR')): ?>
+                                                        <center><a href="excluirFuncionario.php?id_exclusao=<?php echo $linha['id_funcionario']; ?>">Excluir</a></center>
+                                                    <?php endif; ?>
+                                                </td>
 <?php }?>
 
-						</tr>
+                                            </tr>
 				</tbody>
 			</table>
 		</div>

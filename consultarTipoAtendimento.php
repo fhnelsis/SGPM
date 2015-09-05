@@ -1,6 +1,6 @@
-
 <?php include ('includes/cabecalho.php')?>
 <?php include ('includes/menu.php')?>
+<?php verificarPermissaoPagina('TIPO_ATENDIMENTO_LISTAR'); ?>
 
 <script type="text/javascript">
     jQuery(document).ready(function () {
@@ -13,8 +13,7 @@
 	<div id="tituloPagina">Buscar Tipo de Atendimento</div>
 
 	<div id="formBuscaTipoAtendimento">
-
-
+                
 		<div class="content-dataTable"
 			style="width: 80%; margin: 0 auto; margin-top: -70px; margin-right: 70px">
                 <?php if (isset($_SESSION['msg'])) : ?>
@@ -45,14 +44,16 @@ while ( $linha = mysqli_fetch_array ( $query ) ) {
 
                             <tr>
 						<td><?php echo $linha['nome_tipo_atendimento']; ?></td>
-						<td><center>
-								<a
-									href="formTipoAtendimento.php?id=<?php echo $linha['id_tipo_atendimento']; ?>">Editar</a>
-							</center></td>
-						<td><center>
-								<a
-									href="excluirTipoAtendimento.php?id_tipo_atendimento_exclusao=<?php echo $linha['id_tipo_atendimento']; ?>">Excluir</a></td>
-						</center>
+						<td>
+                                                    <?php if (verificarPermissao('TIPO_ATENDIMENTO_ALTERAR')): ?>
+                                                        <center><a href="formTipoAtendimento.php?id=<?php echo $linha['id_tipo_atendimento']; ?>">Editar</a></center>
+                                                    <?php endif; ?>
+                                                </td>
+						<td>
+                                                    <?php if (verificarPermissao('TIPO_ATENDIMENTO_EXCLUIR')): ?>
+                                                        <center><a  href="excluirTipoAtendimento.php?id_tipo_atendimento_exclusao=<?php echo $linha['id_tipo_atendimento']; ?>">Excluir</a></center>
+                                                    <?php endif; ?>
+                                                </td>
 <?php }?>
 
 						</tr>

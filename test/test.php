@@ -1,6 +1,6 @@
+
 <?php include ('includes/cabecalho.php')?>
 <?php include ('includes/menu.php')?>
-<?php verificarPermissaoPagina('PACIENTE_LISTAR'); ?>
 
 <script type="text/javascript">
     jQuery(document).ready(function () {
@@ -47,16 +47,14 @@ while ( $linha = mysqli_fetch_array ( $query ) ) {
                             <tr>
 						<td><?php echo $linha['nome_paciente']; ?></td>
 						<td><center><?php echo $linha['cpf']; ?></center></td>
-						<td>
-                                                    <?php if (verificarPermissao('PACIENTE_ALTERAR')): ?>
-                                                        <center><a href="formPaciente.php?id=<?php echo $linha['id_paciente']; ?>">Editar</a></center>
-                                                    <?php endif; ?>
-                                                </td>
-						<td>
-                                                    <?php if (verificarPermissao('PACIENTE_EXCLUIR')): ?>
-                                                        <center><a href="excluirPaciente.php?id_exclusao=<?php echo $linha['id_paciente']; ?>">Excluir</a></center>
-                                                    <?php endif; ?>
-                                                </td>
+						<td><center>
+								<a
+									href="formPaciente.php?id=<?php echo $linha['id_paciente']; ?>">Editar</a>
+							</center></td>
+						<td><center>
+								<a
+									href="excluirPaciente.php?id_exclusao=<?php echo $linha['id_paciente']; ?>">Excluir</a></td>
+						</center>
 <?php }?>
 
 						</tr>
@@ -66,5 +64,5 @@ while ( $linha = mysqli_fetch_array ( $query ) ) {
 	</div>
 
 </div>
-<?php include ('includes/menuBack.php'); ?>
-<?php include ('includes/rodape.php'); ?>
+<?php include ('includes/menuBack.php')?>
+<?php include ('includes/rodape.php')?>

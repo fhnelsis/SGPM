@@ -1,51 +1,59 @@
-<!doctype html>
-<html lang='pt'>
-<head>
-<meta charset='utf-8'>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/menu.css">
-<!--<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>-->
-<script src="js/menu.js"></script>
+<div id='cssmenu' style="height: 575px; background-color: #3ab4a6; ">
+    <ul>
+        <li><a href='home.php'>Home</a></li>
 
-</head>
-<body>
+        <li class='active'><a href='#'>Atendimentos</a>
+            <ul>
+                <?php if (verificarPermissao('ATENDIMENTO_LISTAR')): ?>
+                    <li><a href='consultarAtendimento.php'>Buscar Atedimento</a></li>
+                <?php endif; ?>
 
-	<div id='cssmenu'>
-		<ul>
-			<li><a href='home.php'>Home</a></li>
+                <?php if (verificarPermissao('ATENDIMENTO_INSERIR')): ?>
+                    <li><a href='formAtendimento.php'>Novo Atendimento</a>
+                    <?php endif; ?>
 
-			<li class='active'><a href='#'>Atendimentos</a>
-				<ul>
-					<li><a href='consultarAtendimento.php'>Buscar Atedimento</a></li>
-					<li><a href='formAtendimento.php'>Novo Atendimento</a>
-					
-					<li><a href='consultarTipoAtendimento.php'>Tipos de Atendimento</a>
-					
-					<li><a href='formTipoAtendimento.php'>Novo Tipo de Atendimento</a>
-				
-				</ul></li>
+                    <?php if (verificarPermissao('TIPO_ATENDIMENTO_LISTAR')): ?>
+                    <li><a href='consultarTipoAtendimento.php'>Tipos de Atendimento</a>
+                    <?php endif; ?>
 
-			<li class='active'><a href='#'>Pacientes</a>
-				<ul>
-					<li><a href='consultarPaciente.php'>Buscar Paciente</a></li>
-					<li><a href='formPaciente.php'>Novo Paciente</a>
-				
-				</ul></li>
+                    <?php if (verificarPermissao('TIPO_ATENDIMENTO_INSERIR')): ?>
+                    <li><a href='formTipoAtendimento.php'>Novo Tipo de Atendimento</a>
+                    <?php endif; ?>
 
-			<li class='active'><a href='#'>Funcionários</a>
-				<ul>
-					<li><a href='consultarFuncionario.php'>Buscar Funcionário</a></li>
-					<li><a href='formFuncionario.php'>Novo Funcionário</a></li>
-				</ul></li>
-			<li class='active'><a href='#'>Relatórios</a>
-				<ul>
-					<li><a href='#'>Relatórios Administrativos</a></li>
-					<li><a href='#'>Relatórios Médicos</a></li>
-				</ul></li>
-			<li><a href='#'>Sobre</a></li>
-			<li><a href="mailto:fhnelsis@outlook.com" target="_top">Contato</a></li>
-		</ul>
-	</div>
-</body>
-<html>
+            </ul></li>
+
+        <li class='active'><a href='#'>Pacientes</a>
+            <ul>
+                <?php if (verificarPermissao('PACIENTE_LISTAR')): ?>
+                    <li><a href='consultarPaciente.php'>Buscar Paciente</a></li>
+                <?php endif; ?>
+
+                <?php if (verificarPermissao('PACIENTE_INSERIR')): ?>
+                    <li><a href='formPaciente.php'>Novo Paciente</a>
+                    <?php endif; ?>
+            </ul></li>
+
+        <li class='active'><a href='#'>Funcionários</a>
+            <ul>
+                <?php if (verificarPermissao('FUNCIONARIO_LISTAR')): ?>
+                    <li><a href='consultarFuncionario.php'>Buscar Funcionário</a></li>
+                <?php endif; ?>
+
+                <?php if (verificarPermissao('FUNCIONARIO_INSERIR')): ?>
+                    <li><a href='formFuncionario.php'>Novo Funcionário</a></li>
+                <?php endif; ?>
+            </ul></li>
+        <li class='active'><a href='#'>Relatórios</a>
+            <ul>
+                <?php if (verificarPermissao('RELATORIO')): ?>
+                    <li><a href='relatorios.php'>Relatórios Administrativos</a></li>
+                <?php endif; ?>
+
+                <?php if (verificarPermissao('RELATORIO')): ?>
+                    <li><a href='#'>Relatórios Médicos</a></li>
+                <?php endif; ?>
+            </ul></li>
+        <li><a href='#'>Sobre</a></li>
+        <li><a href="mailto:fhnelsis@outlook.com" target="_top">Contato</a></li>
+    </ul>
+</div>
