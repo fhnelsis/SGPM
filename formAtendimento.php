@@ -1,17 +1,14 @@
 <?php include ('includes/cabecalho.php') ?>
 <?php include ('includes/menu.php') ?>
 <?php include ('includes/menuBack.php') ?>
-<?php 
-    if(isset($_GET['id']) && !isset($_GET['detalhes'])){
-        verificarPermissaoPagina('ATENDIMENTO_ALTERAR');
-        
-    }else if(isset($_GET['id']) && isset($_GET['detalhes'])){
-        verificarPermissaoPagina('ATENDIMENTO_DETALHES');
-        
-    }else{
-        verificarPermissaoPagina('ATENDIMENTO_INSERIR');
-        
-    }
+<?php
+if (isset($_GET['id']) && !isset($_GET['detalhes'])) {
+    verificarPermissaoPagina('ATENDIMENTO_ALTERAR');
+} else if (isset($_GET['id']) && isset($_GET['detalhes'])) {
+    verificarPermissaoPagina('ATENDIMENTO_DETALHES');
+} else {
+    verificarPermissaoPagina('ATENDIMENTO_INSERIR');
+}
 ?>
 
 <?php
@@ -34,13 +31,18 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
     $ritmo_respiratorio = $_POST['ritmo_respiratorio'];
     $observacoes = $_POST['observacoes'];
 
+    //Busca o cpf do paciente
+    $queryCpfPaciente = mysqli_query($con, "SELECT id_paciente FROM paciente WHERE cpf = '{$_POST['cpf_paciente']}' ");
+    $pacienteId = mysqli_fetch_array($queryCpfPaciente);
+
+
     if (empty($id_atendimento)) {
         $sql = "INSERT INTO atendimento (id_tipo_atendimento, id_funcionario, data_atendimento, fumante, alcool,
 										 alergia_reac_div, sintomas, queixa_principal, hist_molestia, frequencia_cardiaca, 
-										 ritmo_cardiaco, pressao_arterial, ritmo_respiratorio, observacoes) 
+										 ritmo_cardiaco, pressao_arterial, ritmo_respiratorio, observacoes, id_paciente) 
 				VALUES (" . $id_tipo_atendimento . ", " . $id_funcionario . ", NOW(), '{$fumante}', '{$alcool}',
 						'{$alergia_reac_div}', '{$sintomas}', '{$queixa_principal}', '{$hist_molestia}', '{$frequencia_cardiaca}',
-						'{$ritmo_cardiaco}', '{$pressao_arterial}', '{$ritmo_respiratorio}', '{$observacoes}')";
+						'{$ritmo_cardiaco}', '{$pressao_arterial}', '{$ritmo_respiratorio}', '{$observacoes}', " . $pacienteId['id_paciente'] . ")";
     } else {
         $sql = "UPDATE atendimento 
 					SET    
@@ -56,7 +58,8 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 						   ritmo_cardiaco = '{$ritmo_cardiaco}',
 						   pressao_arterial = '{$pressao_arterial}',
 						   ritmo_respiratorio = '{$ritmo_respiratorio}',
-						   observacoes = '{$observacoes}'
+						   observacoes = '{$observacoes}',
+                                                   id_paciente = " . $pacienteId['id_paciente'] . "
                    WHERE   id_atendimento = {$id_atendimento} ";
     }
 
@@ -70,7 +73,7 @@ if (isset($_GET ['id'])) {
     $con = mysqli_connect("localhost", "root", "", "sgpm");
     mysqli_set_charset($con, "utf8");
 
-    $query = mysqli_query($con, "SELECT * FROM atendimento WHERE id_atendimento = {$_GET['id']} ");
+    $query = mysqli_query($con, "SELECT at.*, pac.cpf cpf_paciente FROM atendimento at LEFT JOIN paciente pac ON pac.id_paciente = at.id_paciente WHERE at.id_atendimento = {$_GET['id']} ");
     $dadosAtendimento = mysqli_fetch_array($query);
 }
 
@@ -87,102 +90,110 @@ $queryFuncionario = mysqli_query($con, "SELECT * FROM funcionario");
 
 <script type="text/javascript">
     function validar() {
-        if ($('#id_tipo_atendimento').val() === "") {
-            alert('Informe o tipo de atendimento!');
-            return false;
-        }
+        $.post("validar_cpf_paciente.php", {cpf: $("#cpf_paciente").val()}, function(data) {
+            if (data == '0') {
+                alert('Informe um cpf de um paciente que esteja cadastrado no sistema!');
+                return false;
+            }
 
-        if ($('#id_funcionario').val() === "") {
-            alert('Informe o funcionário!');
-            return false;
-        }
+            if ($('#id_tipo_atendimento').val() === "") {
+                alert('Informe o tipo de atendimento!');
+                return false;
+            }
 
-        if ($('#f_sim').is(':checked') == false && $('#f_nao').is(':checked') == false) {
-            alert('Informe o se é fumante!');
-            return false;
-        }
+            if ($('#id_funcionario').val() === "") {
+                alert('Informe o funcionário!');
+                return false;
+            }
 
-        if ($('#a_sim').is(':checked') == false && $('#a_nao').is(':checked') == false) {
-            alert('Informe o se usa álcool!');
-            return false;
-        }
+            if ($('#f_sim').is(':checked') == false && $('#f_nao').is(':checked') == false) {
+                alert('Informe o se é fumante!');
+                return false;
+            }
 
-        if ($('#alergia_reac_div').val() === "") {
-            alert('Informe se possui alergia!');
-            return false;
-        }
-        if ($('#alergia_reac_div').val() === "") {
-            alert('Informe se possui alergia!');
-            return false;
-        }
+            if ($('#a_sim').is(':checked') == false && $('#a_nao').is(':checked') == false) {
+                alert('Informe o se usa álcool!');
+                return false;
+            }
 
-        if ($('#sintomas').val() === "") {
-            alert('Informe os sintomas!');
-            return false;
-        }
+            if ($('#alergia_reac_div').val() === "") {
+                alert('Informe se possui alergia!');
+                return false;
+            }
+            if ($('#alergia_reac_div').val() === "") {
+                alert('Informe se possui alergia!');
+                return false;
+            }
 
-        if ($('#queixa_principal').val() === "") {
-            alert('Informe a queixa principal!');
-            return false;
-        }
+            if ($('#sintomas').val() === "") {
+                alert('Informe os sintomas!');
+                return false;
+            }
 
-        if ($('#hist_molestia').val() === "") {
-            alert('Informe se possui histórico de molestia!');
-            return false;
-        }
+            if ($('#queixa_principal').val() === "") {
+                alert('Informe a queixa principal!');
+                return false;
+            }
 
-        if ($('#freq_cardiaca').val() === "") {
-            alert('Informe a frequência cardíaca!');
-            return false;
-        }
+            if ($('#hist_molestia').val() === "") {
+                alert('Informe se possui histórico de molestia!');
+                return false;
+            }
 
-        if ($('#ritmo_cardiaco').val() === "") {
-            alert('Informe o ritmo cardíaco!');
-            return false;
-        }
+            if ($('#freq_cardiaca').val() === "") {
+                alert('Informe a frequência cardíaca!');
+                return false;
+            }
 
-        if ($('#pressao_arterial').val() === "") {
-            alert('Informe a pressão arterial!');
-            return false;
-        }
+            if ($('#ritmo_cardiaco').val() === "") {
+                alert('Informe o ritmo cardíaco!');
+                return false;
+            }
 
-        if ($('#ritmo_respiratorio').val() === "") {
-            alert('Informe o ritmo respiratório!');
-            return false;
-        }
+            if ($('#pressao_arterial').val() === "") {
+                alert('Informe a pressão arterial!');
+                return false;
+            }
 
-        if ($('#observacoes').val() === "") {
-            alert('Informe alguma observação!');
-            return false;
-        }
-        
-        $('form').submit();
+            if ($('#ritmo_respiratorio').val() === "") {
+                alert('Informe o ritmo respiratório!');
+                return false;
+            }
+
+            if ($('#observacoes').val() === "") {
+                alert('Informe alguma observação!');
+                return false;
+            }
+
+            $('form').submit();
+
+
+        });
+
+
 
     }
-    
-    <?php if(isset($_GET['detalhes'])): ?>
-        $(document).ready(function(){
+
+<?php if (isset($_GET['detalhes'])): ?>
+        $(document).ready(function() {
             $('input, select, textarea').attr('disabled', true);
         });
-    <?php endif; ?>
+<?php endif; ?>
 
 </script>
 <div class="divTudoFormAtendimento" >
     <div id="tituloPaginaAtendimentoCadastroAlteracao">
         <center>
-            
-            <?php   
-                if(isset($_GET['id']) && !isset($_GET['detalhes'])){
-                    echo "Alterar Atendimento";
 
-                }else if(isset($_GET['id']) && isset($_GET['detalhes'])){
-                    echo "Visualizar Atendimento";
-
-                }else{
-                    echo "Novo Atendimento";
-
-                } 
-             ?>
+            <?php
+            if (isset($_GET['id']) && !isset($_GET['detalhes'])) {
+                echo "Alterar Atendimento";
+            } else if (isset($_GET['id']) && isset($_GET['detalhes'])) {
+                echo "Visualizar Atendimento";
+            } else {
+                echo "Novo Atendimento";
+            }
+            ?>
         </center>
     </div>
 
@@ -191,6 +202,17 @@ $queryFuncionario = mysqli_query($con, "SELECT * FROM funcionario");
             <div style="margin-top: 30px;  margin-left: 300px; " >
                 <form method="POST" >
                     <table width="100%">
+                        <tr>
+                            <td><label for="cpf">CPF:</label></td>
+                            <td><input style="width: 150px; margin-top: 5px;" type="text"
+                                       name="cpf_paciente" id="cpf_paciente" maxlength="11"
+                                       value="<?php
+                                       if (isset($dadosAtendimento ['cpf_paciente'])) {
+                                           echo $dadosAtendimento ['cpf_paciente'];
+                                       }
+                                       ?>" /></td>
+                        </tr>
+
                         <!-- Tipo de Atendimento -->
                         <tr>
                             <td><label for="id_tipo_atendimento">Tipo Atendimento:</label></td>
@@ -296,11 +318,13 @@ $queryFuncionario = mysqli_query($con, "SELECT * FROM funcionario");
                         </tr>
 
 
+
+
                     </table>
                     <br> 
                     <input type="hidden" id="id" name="id" value="<?php echo isset($dadosAtendimento['id_atendimento']) ? $dadosAtendimento['id_atendimento'] : ""; ?>" /> 
-                    
-                    <?php if(!isset($_GET['detalhes'])): ?>
+
+                    <?php if (!isset($_GET['detalhes'])): ?>
                         <input type="button" name="enviar" value="ENVIAR" id="enviar_cadastro" onclick="validar()"/>
                     <?php endif; ?>
                 </form>
