@@ -12,7 +12,10 @@ if (mysqli_connect_error())
     try{
         //Pega os dados do formulario
         $login= $_POST['login'];
+        //$senha= md5($_POST['senha']);
         $senha= $_POST['senha'];
+        
+        echo $senha;
         
         $sql = mysqli_query($con, "SELECT func.*, tp.nome_tipo FROM funcionario func INNER JOIN tipo_funcionario tp ON tp.id_tipo_funcionario = func.id_tipo_funcionario WHERE login = '{$login}' and senha = '{$senha}'");
      

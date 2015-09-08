@@ -133,11 +133,15 @@ VALUES      ('{$login}',
 					WHERE  
 					       id_funcionario = '{$id_funcionario}'";
 	}
+
+	if ($exec = mysqli_query ( $con, $sql )){
+		$_SESSION ['msg'] = 'Registro Salvo Com Sucesso!';
+		 header ( 'Location: consultarFuncionario.php' );
+	}else
+	{
+		$_SESSION ['msg'] = 'Registro falhou!';
+	}
 	
-	$exec = mysqli_query ( $con, $sql );
-	$_SESSION ['msg'] = 'Registro Salvo Com Sucesso!';
-	echo $sql;
-	header ( 'Location: consultarFuncionario.php' );
 }
 
 // Se exitir um id passado por parametro

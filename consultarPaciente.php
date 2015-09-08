@@ -27,8 +27,8 @@
 					<tr>
 						<th>Nome</th>
 						<th>CPF</th>
-						<th>Edi&#231;&#228;o</th>
-						<th>Exclus&#228;o</th>
+						<th><center>Edi&#231;&#228;o</center></th>
+						<th><center>Exclus&#228;o</center></th>
 					</tr>
 				</thead>
 
@@ -46,17 +46,20 @@ while ( $linha = mysqli_fetch_array ( $query ) ) {
 
                             <tr>
 						<td><?php echo $linha['nome_paciente']; ?></td>
-						<td><center><?php echo $linha['cpf']; ?></center></td>
+						<td><?php echo $linha['cpf']; ?></td>
+						
 						<td>
-                                                    <?php if (verificarPermissao('PACIENTE_ALTERAR')): ?>
-                                                        <center><a href="formPaciente.php?id=<?php echo $linha['id_paciente']; ?>">Editar</a></center>
-                                                    <?php endif; ?>
-                                                </td>
+                        	<?php if (verificarPermissao('PACIENTE_ALTERAR')): ?>
+                            	<center><a href="formPaciente.php?id=<?php echo $linha['id_paciente']; ?>">Editar</a></center>
+                            <?php endif; ?>
+                        </td>
+						
 						<td>
-                                                    <?php if (verificarPermissao('PACIENTE_EXCLUIR')): ?>
-                                                        <center><a href="excluirPaciente.php?id_exclusao=<?php echo $linha['id_paciente']; ?>">Excluir</a></center>
-                                                    <?php endif; ?>
-                                                </td>
+                        	<?php if (verificarPermissao('PACIENTE_EXCLUIR')): ?>
+                            	<center><a href="excluirPaciente.php?id_exclusao=<?php echo $linha['id_paciente']; ?>">Excluir</a></center>
+                            <?php endif; ?>
+						</td>
+						
 <?php }?>
 
 						</tr>
