@@ -21,7 +21,7 @@
         <div class="cabecalho">
             <a href="home.php"> <img src="img/sgpm_logo2_fundoless_pequeno.png" class="logo"></a>
             <?php if (isset($_SESSION['LOGIN'])): ?>
-                <div class="apresentacao" ><strong>Bem Vindo <?php echo $_SESSION['LOGIN']['NOME'] . " - " . $_SESSION['LOGIN']['CARGO']; ?></strong></div>
+                <div class="apresentacao" ><strong>Bem-vindo, <?php echo $_SESSION['LOGIN']['NOME'] . " - " . $_SESSION['LOGIN']['CARGO']; ?></strong></div>
                 <div class="wrapLogoutButton">
                     <a class="logoutButton" href="logout.php">Logout</a>
                 </div>

@@ -10518,10 +10518,10 @@ Aqui come�am edi��es no Bootstrap CSS original.
 		font-size: 22;
 	}
 	#tituloPaginaTipoAtendimentoCadastroAlteracao {
-		margin-left: 250px;
+		margin-left: -400px;
 		margin-top: -450px;
 		margin-bottom: 150px;
-		position: inherit;
+		position: relative;
 		font-size: 22;
 	}
         #tituloPaginaAtendimentoCadastroAlteracao {

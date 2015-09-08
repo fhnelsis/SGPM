@@ -203,7 +203,7 @@ $queryTipoFuncionario = mysqli_query($con, "SELECT * FROM tipo_funcionario");
                                                     <td><label for="id_tipo_funcionario">Tipo de funcionário:</label></td>
                                                     <td>
                                                         <select name="id_tipo_funcionario" id="id_tipo_fucionario" style="margin-top: 5px; ">
-                                                            <option value="" selected>TIPO DE FUNCIONÁRIO</option>
+                                                            <option value="" selected></option>
                                                             <?php while ($linhaTipoFuncionario = mysqli_fetch_array($queryTipoFuncionario)): ?>
                                                                 <option <?php if (isset($dadosFuncionario['id_tipo_funcionario']) && $dadosFuncionario['id_tipo_funcionario'] == $linhaTipoFuncionario['id_tipo_funcionario']) : ?> selected <?php endif; ?> value="<?php echo $linhaTipoFuncionario['id_tipo_funcionario']; ?>"><?php echo $linhaTipoFuncionario['nome_tipo']; ?></option>
                                                             <?php endwhile; ?>

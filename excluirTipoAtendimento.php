@@ -4,7 +4,7 @@ if (isset ( $_GET ['id_tipo_atendimento_exclusao'] )) {
 	mysqli_set_charset ( $con, "utf8" );
 	
 	// Inserir alert de confirmação
-	$sql = "DELETE FROM tipo_atendimento WHERE id_tipo_atendimento = {$_GET['id_tipo_atendimento_exclusao']} ";
+	$sql = "DELETE FROM tipo_atendimento WHERE id_tipo_atendimento = {$_GET['id_tipo_atendimento_exclusao']}";
 	$exec = mysqli_query ( $con, $sql );
 	
 	// Verificar alert de exclusão

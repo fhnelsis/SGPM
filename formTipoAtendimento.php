@@ -1,12 +1,13 @@
 <?php include ('includes/cabecalho.php')?>
 <?php include ('includes/menu.php')?>
 <?php include ('includes/menuBack.php')?>
-<?php 
-    if(isset($_GET['id'])){
-        verificarPermissaoPagina('TIPO_ATENDIMENTO_ALTERAR');
-    }else{
-        verificarPermissaoPagina('TIPO_ATENDIMENTO_INSERIR');
-    }
+<?php
+
+if (isset ( $_GET ['id'] )) {
+	verificarPermissaoPagina ( 'TIPO_ATENDIMENTO_ALTERAR' );
+} else {
+	verificarPermissaoPagina ( 'TIPO_ATENDIMENTO_INSERIR' );
+}
 ?>
 
 <?php
@@ -50,14 +51,12 @@ if (isset ( $_GET ['id'] )) {
 
 <div class="divTudoFormTipoAtendimento">
 	<div id="tituloPaginaTipoAtendimentoCadastroAlteracao">
-		<center>
-				<?php echo isset($_GET['id']) ? "Alterar Tipo de Atendimento" : "Novo Tipo de Atendimento"; ?>
-			</center>
+		<center><?php echo isset($_GET['id']) ? "Alterar Tipo de Atendimento" : "Novo Tipo de Atendimento"; ?></center>
 	</div>
 
 	<center>
 		<div id="formConsultaAtendimento">
-			<div class="content-dataTable" style="width: 40%; margin: 0 auto">
+			<div class="content-dataTable" style="width: 40%; margin: 0 auto; margin-top: -200px; margin-left: 300px">
 				<form method="POST">
 					<table width="100%">
 						<tr>
