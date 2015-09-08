@@ -46,7 +46,7 @@
         <li class='active'><a href='#'>Relatórios</a>
             <ul>
                 <?php if (verificarPermissao('RELATORIO')): ?>
-                    <li><a href='relatorios.php'>Relatórios Administrativos</a></li>
+                    <li><a href='relatoriosAdministrativos.php'>Relatórios Administrativos</a></li>
                 <?php endif; ?>
 
                 <?php if (verificarPermissao('RELATORIO')): ?>

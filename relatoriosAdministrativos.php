@@ -62,14 +62,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="filtros">
         <form method="post">
             <select name="id_tipo_atendimento" id="id_tipo_atendimento" style="margin-top: 5px; ">
-                <option value="" selected>TIPO DE ATENDIMENTO</option>
+                <option value="" selected>Tipo de Atendimento</option>
                 <?php while ($linhaTipoAtendimento = mysqli_fetch_array($queryTipos)): ?>
                     <option value="<?php echo $linhaTipoAtendimento['id_tipo_atendimento']; ?>"><?php echo $linhaTipoAtendimento['nome_tipo_atendimento']; ?></option>
                 <?php endwhile; ?>
             </select>
 
             <select name="id_funcionario" id="id_funcionario" style="margin-top: 5px; ">
-                <option value="" selected>FUNCIONÁRIO</option>
+                <option value="" selected>Funcion&aacute;rio</option>
                 <?php while ($linhaFuncionario = mysqli_fetch_array($queryFuncionario)): ?>
                     <option value="<?php echo $linhaFuncionario['id_funcionario']; ?>"><?php echo $linhaFuncionario['nome_funcionario']; ?></option>
                 <?php endwhile; ?>
