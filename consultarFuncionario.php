@@ -41,13 +41,13 @@ $con = mysqli_connect ( "localhost", "root", "", "sgpm" );
 mysqli_set_charset ( $con, "utf8" );
 
 // Verificar essa query. Saber de onde ela pega o POST para a busca.
-$query = mysqli_query ( $con, "SELECT * FROM funcionario" );
+$query = mysqli_query ( $con, "SELECT fun.*, tp_fun.nome_tipo FROM funcionario fun INNER JOIN tipo_funcionario tp_fun ON fun.id_tipo_funcionario = tp_fun.id_tipo_funcionario" );
 while ( $linha = mysqli_fetch_array ( $query ) ) {
 	?>
 
                                             <tr>
 						<td><?php echo $linha['nome_funcionario']; ?></td>
-						<td><center><?php echo $linha['cargo']; ?></center></td>
+						<td><center><?php echo $linha['nome_tipo']; ?></center></td>
 						<td>
                                                     <?php if (verificarPermissao('FUNCIONARIO_ALTERAR')): ?>
                                                         <center><a href="formFuncionario.php?id_funcionario=<?php echo $linha['id_funcionario']; ?>">Editar</a></center>

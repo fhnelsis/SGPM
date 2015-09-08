@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$login = $_POST['login'];
 	$senha = $_POST['senha'];
 	$nome_funcionario = $_POST['nome_funcionario'];
-	$cargo = $_POST['cargo'];
 	$cpf = $_POST['cpf'];
 	$rg = $_POST['rg'];
 	$org_exp = $_POST['org_exp'];
@@ -49,8 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             (login, 
              senha, 
              nome_funcionario, 
-             cargo, 
-             cpf, 
+			 cpf, 
              rg, 
              org_exp, 
              genero, 
@@ -78,7 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 VALUES      ('{$login}', 
              '{$senha}', 
              '{$nome_funcionario}', 
-             '{$cargo}', 
              '{$cpf}', 
              '{$rg}', 
              '{$org_exp}', 
@@ -108,7 +105,6 @@ VALUES      ('{$login}',
 					SET    login = '{$login}', 
 					       senha = '{$senha}', 
 					       nome_funcionario = '{$nome_funcionario}', 
-					       cargo = '{$cargo}', 
 					       cpf = '{$cpf}', 
 					       rg = '{$rg}', 
 					       org_exp = '{$org_exp}', 
@@ -153,11 +149,11 @@ if (isset ( $_GET['id_funcionario'] )) {
 }
 
 
-//Busca os tipos de funcionários
+//Busca os tipos de funcion�rios
 $con = mysqli_connect("localhost", "root", "", "sgpm");
 mysqli_set_charset($con, "utf8");
 
-//Busca os tipos de funcionários
+//Busca os tipos de funcion�rios
 $queryTipoFuncionario = mysqli_query($con, "SELECT * FROM tipo_funcionario");
 ?>
 
@@ -198,11 +194,11 @@ $queryTipoFuncionario = mysqli_query($con, "SELECT * FROM tipo_funcionario");
 								?>" /></td>
 						</tr>
                                                 
-                                                <!-- Tipo de Funcionário  -->
+                                                <!-- Tipo de Funcion�rio  -->
                                                 <tr>
-                                                    <td><label for="id_tipo_funcionario">Tipo de funcionário:</label></td>
+                                                    <td><label for="id_tipo_funcionario">Tipo de Funcion&aacute;rio:</label></td>
                                                     <td>
-                                                        <select name="id_tipo_funcionario" id="id_tipo_fucionario" style="margin-top: 5px; ">
+                                                        <select name="id_tipo_funcionario" id="id_tipo_fucionario" style="margin-bottom: 5px; ">
                                                             <option value="" selected></option>
                                                             <?php while ($linhaTipoFuncionario = mysqli_fetch_array($queryTipoFuncionario)): ?>
                                                                 <option <?php if (isset($dadosFuncionario['id_tipo_funcionario']) && $dadosFuncionario['id_tipo_funcionario'] == $linhaTipoFuncionario['id_tipo_funcionario']) : ?> selected <?php endif; ?> value="<?php echo $linhaTipoFuncionario['id_tipo_funcionario']; ?>"><?php echo $linhaTipoFuncionario['nome_tipo']; ?></option>
@@ -219,18 +215,6 @@ $queryTipoFuncionario = mysqli_query($con, "SELECT * FROM tipo_funcionario");
 								
 								if (isset ( $dadosFuncionario['nome_funcionario'] )) {
 									echo $dadosFuncionario['nome_funcionario'];
-								}
-								?>" /></td>
-						</tr>
-
-						<tr>
-							<td><label for="cargo">Cargo:</label></td>
-							<td><input style="margin-bottom: 5px;" type="text" name="cargo"
-								id="cargo" maxlength="20"
-								value="<?php
-								
-								if (isset ( $dadosFuncionario['cargo'] )) {
-									echo $dadosFuncionario['cargo'];
 								}
 								?>" /></td>
 						</tr>
