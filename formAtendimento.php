@@ -59,7 +59,7 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 						   pressao_arterial = '{$pressao_arterial}',
 						   ritmo_respiratorio = '{$ritmo_respiratorio}',
 						   observacoes = '{$observacoes}',
-                                                   id_paciente = " . $pacienteId ['id_paciente'] . "
+                           id_paciente = " . $pacienteId ['id_paciente'] . "
                    WHERE   id_atendimento = {$id_atendimento} ";
 	}
 	
@@ -102,17 +102,17 @@ $queryFuncionario = mysqli_query ( $con, "SELECT * FROM funcionario" );
             }
 
             if ($('#id_funcionario').val() === "") {
-                alert('Informe o funcionÃ¡rio!');
+                alert('Informe o funcionário!');
                 return false;
             }
 
             if ($('#f_sim').is(':checked') == false && $('#f_nao').is(':checked') == false) {
-                alert('Informe o se Ã© fumante!');
+                alert('Informe se é fumante!!');
                 return false;
             }
 
             if ($('#a_sim').is(':checked') == false && $('#a_nao').is(':checked') == false) {
-                alert('Informe o se usa Ã¡lcool!');
+                alert('Informe sobre o uso de álcool!');
                 return false;
             }
 
@@ -136,32 +136,32 @@ $queryFuncionario = mysqli_query ( $con, "SELECT * FROM funcionario" );
             }
 
             if ($('#hist_molestia').val() === "") {
-                alert('Informe se possui histÃ³rico de molestia!');
+                alert('Informe se possui histórico de molestia!');
                 return false;
             }
 
             if ($('#freq_cardiaca').val() === "") {
-                alert('Informe a frequÃªncia cardÃ­aca!');
+                alert('Informe a frequÃªncia cardíaca!');
                 return false;
             }
 
             if ($('#ritmo_cardiaco').val() === "") {
-                alert('Informe o ritmo cardÃ­aco!');
+                alert('Informe o ritmo cardíaco!');
                 return false;
             }
 
             if ($('#pressao_arterial').val() === "") {
-                alert('Informe a pressÃ£o arterial!');
+                alert('Informe a pressão arterial!');
                 return false;
             }
 
             if ($('#ritmo_respiratorio').val() === "") {
-                alert('Informe o ritmo respiratÃ³rio!');
+                alert('Informe o ritmo respiratório!');
                 return false;
             }
 
             if ($('#observacoes').val() === "") {
-                alert('Informe alguma observaÃ§Ã£o!');
+                alert('Informe alguma observação!');
                 return false;
             }
 

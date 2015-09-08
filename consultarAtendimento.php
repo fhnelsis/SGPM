@@ -39,12 +39,13 @@
                     mysqli_set_charset($con, "utf8");
 
                     // Verificar essa query. Saber de onde ela pega o POST para a busca.
-                    $query = mysqli_query($con, "SELECT at.*, DATE_FORMAT(at.data_atendimento, '%d/%m/%Y') data_atendimento, fun.nome_funcionario FROM atendimento at INNER JOIN funcionario fun ON fun.id_funcionario = at.id_funcionario ");
+                    //$query = mysqli_query($con, "SELECT at.*, DATE_FORMAT(at.data_atendimento, '%d/%m/%Y') data_atendimento, fun.nome_funcionario FROM atendimento at INNER JOIN funcionario fun ON fun.id_funcionario = at.id_funcionario ");
+                    $query = mysqli_query($con, "SELECT at.*, Date_format(at.data_atendimento, '%d/%m/%Y') data_atendimento, fun.nome_funcionario, pac.nome_paciente FROM   atendimento at        INNER JOIN funcionario fun ON fun.id_funcionario = at.id_funcionario inner join paciente pac on pac.id_paciente = at.id_paciente;   ");
                     while ($linha = mysqli_fetch_array($query)) {
                         ?>
 
                         <tr>
-                            <td><?php echo $linha['nome_funcionario']; ?></td>
+                            <td><?php echo $linha['nome_paciente']; ?></td>
                             <td><?php echo $linha['data_atendimento']; ?></td>
                     <td>
                         <?php if (verificarPermissao('ATENDIMENTO_ALTERAR')): ?>
