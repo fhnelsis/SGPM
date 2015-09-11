@@ -56,6 +56,8 @@ audio
 
 
 
+
+
 :not
 
 
@@ -72,7 +74,9 @@ audio
 
 
 
+
  
+
 
 
 
@@ -107,7 +111,9 @@ controls
 
 
 
+
  
+
 
 
 
@@ -156,7 +162,10 @@ display
 
 
 
+
+
 :
+
 
 
 
@@ -188,7 +197,10 @@ display
 
 
 
+
 none
+
+
 
 
 
@@ -251,6 +263,8 @@ height
 
 
 
+
+
 :
 
 
@@ -267,7 +281,9 @@ height
 
 
 
+
  
+
 
 
 
@@ -373,6 +389,8 @@ svg
 
 
 
+
+
 :not
 
 
@@ -389,7 +407,9 @@ svg
 
 
 
+
  
+
 
 
 
@@ -422,7 +442,9 @@ svg
 
 
 
+
  
+
 
 
 
@@ -471,7 +493,10 @@ overflow
 
 
 
+
+
 :
+
 
 
 
@@ -503,7 +528,10 @@ overflow
 
 
 
+
 hidden
+
+
 
 
 
@@ -4336,6 +4364,8 @@ tbody.collapse.in {
 
 
 
+
+
 :not
 
 
@@ -4352,7 +4382,9 @@ tbody.collapse.in {
 
 
 
+
  
+
 
 
 
@@ -4385,7 +4417,9 @@ tbody.collapse.in {
 
 
 
+
  
+
 
 
 
@@ -4418,7 +4452,9 @@ tbody.collapse.in {
 
 
 
+
  
+
 
 
 
@@ -4451,7 +4487,9 @@ tbody.collapse.in {
 
 
 
+
  
+
 
 
 
@@ -4484,7 +4522,9 @@ tbody.collapse.in {
 
 
 
+
  
+
 
 
 
@@ -4518,7 +4558,9 @@ tbody.collapse.in {
 
 
 
+
 	
+
 
 
 
@@ -4567,6 +4609,8 @@ border-radius
 
 
 
+
+
 :
 
 
@@ -4583,7 +4627,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -4638,7 +4684,11 @@ border-radius
 
 
 
+
+
 :first-child
+
+
 
 
 
@@ -4685,7 +4735,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -4718,7 +4770,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -4751,7 +4805,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -4784,7 +4840,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -4833,6 +4891,8 @@ border-top-right-radius
 
 
 
+
+
 :
 
 
@@ -4849,7 +4909,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -4897,6 +4959,8 @@ border-bottom-right-radius
 
 
 
+
+
 :
 
 
@@ -4913,7 +4977,9 @@ border-bottom-right-radius
 
 
 
+
  
+
 
 
 
@@ -4964,7 +5030,11 @@ border-bottom-right-radius
 
 
 
+
+
 :last-child
+
+
 
 
 
@@ -5011,7 +5081,9 @@ border-bottom-right-radius
 
 
 
+
  
+
 
 
 
@@ -5044,7 +5116,9 @@ border-bottom-right-radius
 
 
 
+
  
+
 
 
 
@@ -5094,7 +5168,10 @@ border-bottom-right-radius
 
 
 
+
+
 :not
+
 
 
 
@@ -5127,6 +5204,7 @@ border-bottom-right-radius
 
 
 
+
 (
 :first-child
 
@@ -5144,7 +5222,9 @@ border-bottom-right-radius
 
 
 
+
  
+
 
 
 
@@ -5193,6 +5273,8 @@ border-top-left-radius
 
 
 
+
+
 :
 
 
@@ -5209,7 +5291,9 @@ border-top-left-radius
 
 
 
+
  
+
 
 
 
@@ -5257,6 +5341,8 @@ border-bottom-left-radius
 
 
 
+
+
 :
 
 
@@ -5273,7 +5359,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -5400,6 +5488,8 @@ border-bottom-left-radius
 
 
 
+
+
 :not
 
 
@@ -5416,7 +5506,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -5449,7 +5541,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -5482,7 +5576,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -5515,7 +5611,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -5564,6 +5662,8 @@ border-radius
 
 
 
+
+
 :
 
 
@@ -5580,7 +5680,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -5631,7 +5733,11 @@ border-radius
 
 
 
+
+
 :first-child
+
+
 
 
 
@@ -5678,7 +5784,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -5711,7 +5819,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -5760,7 +5870,10 @@ border-top-right-radius
 
 
 
+
+
 :
+
 
 
 
@@ -5792,8 +5905,11 @@ border-top-right-radius
 
 
 
+
 4
 px
+
+
 
 
 
@@ -5856,6 +5972,8 @@ border-bottom-right-radius
 
 
 
+
+
 :
 
 
@@ -5872,7 +5990,9 @@ border-bottom-right-radius
 
 
 
+
  
+
 
 
 
@@ -5920,7 +6040,10 @@ border-bottom-left-radius
 
 
 
+
+
 :
+
 
 
 
@@ -5952,11 +6075,14 @@ border-bottom-left-radius
 
 
 
+
 0;
 }
 .btn-group-vertical
 >
 .btn
+
+
 
 
 
@@ -6018,6 +6144,8 @@ border-bottom-left-radius
 
 
 
+
+
 :not
 
 
@@ -6034,7 +6162,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -6067,7 +6197,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -6116,6 +6248,8 @@ border-top-left-radius
 
 
 
+
+
 :
 
 
@@ -6132,7 +6266,9 @@ border-top-left-radius
 
 
 
+
  
+
 
 
 
@@ -6180,6 +6316,8 @@ border-top-right-radius
 
 
 
+
+
 :
 
 
@@ -6196,7 +6334,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -6244,7 +6384,10 @@ border-bottom-left-radius
 
 
 
+
+
 :
+
 
 
 
@@ -6276,8 +6419,11 @@ border-bottom-left-radius
 
 
 
+
 4
 px
+
+
 
 
 
@@ -6456,6 +6602,8 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
 :not
 
 
@@ -6472,7 +6620,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -6505,7 +6655,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -6538,7 +6690,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -6571,7 +6725,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -6619,6 +6775,8 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
 :not
 
 
@@ -6635,7 +6793,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -6668,7 +6828,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -6701,7 +6863,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -6734,7 +6898,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -6767,7 +6933,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -6814,7 +6982,10 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
 :not
+
 
 
 
@@ -6847,6 +7018,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
 (
 :first-child
 
@@ -6864,7 +7036,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -6897,7 +7071,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -6930,7 +7106,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
  
+
 
 
 
@@ -6979,6 +7157,8 @@ border-radius
 
 
 
+
+
 :
 
 
@@ -6995,7 +7175,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -10332,70 +10514,59 @@ Aqui come�am edi��es no Bootstrap CSS original.
 	}
 }
 
-.divTudoConsultarAtendimento {
-	height: 130%;
-	position: relative top;
-	font-family: Raleway, sans-serif;
-	margin-top: -487px;
-	background-image: url('../img/background_su.jpg'); 
-	
-}
-
-.divTudoRelatorio {
-        //border: 1px solid black;
-        float: left;
-        margin-left: 260px;
-	margin-top: -487px;
-}
-
-#formBuscaAtendimento {
-	width: 85%;
-	margin-left: 170px;
-	margin-top: -130px;
-	font-size: 14;
-}
-
-.divTudoConsultarTipoAtendimento {
-	height: 130%;
-	width: 100%;
-	position: relative top;
-	font-family: Raleway, sans-serif;
-	margin-top: -487px;
-	background-image: url('../img/background_su.jpg'); //
-	background-image:
-		url('../img/simple_blue_background-wallpaper-1024x768.jpg');
-}
-
-#formBuscaTipoAtendimento {
-	width: 85%;
-	margin-left: 170px;
-	margin-top: -130px;
-	font-size: 14;
-}
-
-.divTudoFormTipoAtendimento {
-	height: 130%;
-	position: relative top;
-	font-family: Raleway, sans-serif;
-	margin-top: -1200px;
-	background-image: url('../img/background_su.jpg'); //
-	background-image:
-		url('../img/simple_blue_background-wallpaper-1024x768.jpg');
-}
-
-#tituloPaginaTipoAtendimentoCadastroAlteracao {
-	margin-left: -180px;
-	margin-top: -450px;
-	margin-bottom: -30px;
-	position: inherit;
-	font-size: 22;
-}
-
 /* ------------------------------------------------ 1366x768 (notebook) ----------------------------------------------- */
 @media ( min-width : 1366px) {
-        
-       
-        
+	.divTudoConsultarAtendimento {
+		height: 130%;
+		position: relative top;
+		font-family: Raleway, sans-serif;
+		margin-top: -487px;
+		background-image: url('../img/background_su.jpg');
+	}
+	.divTudoRelatorio { //
+		border: 1px solid black;
+		float: left;
+		margin-left: 260px;
+		margin-top: -487px;
+	}
+	#formBuscaAtendimento {
+		width: 85%;
+		margin-left: 170px;
+		margin-top: -130px;
+		font-size: 14;
+	}
+	.divTudoConsultarTipoAtendimento {
+		height: 130%;
+		width: 100%;
+		position: relative top;
+		font-family: Raleway, sans-serif;
+		margin-top: -487px;
+		background-image: url('../img/background_su.jpg'); //
+		background-image:
+			url('../img/simple_blue_background-wallpaper-1024x768.jpg');
+	}
+	#formBuscaTipoAtendimento {
+		width: 85%;
+		margin-left: 170px;
+		margin-top: -130px;
+		font-size: 14;
+	}
+	.divTudoFormTipoAtendimento {
+		height: 130%;
+		position: relative top;
+		font-family: Raleway, sans-serif;
+		margin-top: -1200px;
+		background-image: url('../img/background_su.jpg'); //
+		background-image:
+			url('../img/simple_blue_background-wallpaper-1024x768.jpg');
+	}
+	#tituloPaginaTipoAtendimentoCadastroAlteracao {
+		margin-left: -180px;
+		margin-top: -450px;
+		margin-bottom: -30px;
+		position: inherit;
+		font-size: 22;
+	}
 	.cabecalho {
 		height: 50px;
 		position: absolute top;
@@ -10518,14 +10689,14 @@ Aqui come�am edi��es no Bootstrap CSS original.
 		font-size: 22;
 	}
 	#tituloPaginaTipoAtendimentoCadastroAlteracao {
-		margin-left: -400px;
+		margin-left: -550px;
 		margin-top: -450px;
 		margin-bottom: 150px;
 		position: relative;
 		font-size: 22;
 	}
-        #tituloPaginaAtendimentoCadastroAlteracao {
-        		margin-right: 660px;
+	#tituloPaginaAtendimentoCadastroAlteracao {
+		margin-right: 660px;
 		margin-top: -450px;
 		margin-bottom: 0px;
 		position: relative;
@@ -10544,7 +10715,7 @@ Aqui come�am edi��es no Bootstrap CSS original.
 		height: 100%;
 		position: relative top;
 		font-family: Raleway, sans-serif;
-		margin-top: -460px;
+		margin-top: -478px;
 		background-image: url('../img/background_su.jpg'); //
 		background-image:
 			url('../img/simple_blue_background-wallpaper-1024x768.jpg');
@@ -10599,18 +10770,21 @@ Aqui come�am edi��es no Bootstrap CSS original.
 	}
 }
 
-.filtros{
-    margin-top: 30px;
+.filtros {
+	margin-top: 30px;
 }
 
 .filtros input, button, select, textarea {
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    height: 25px;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	height: 25px;
 }
 
 .apresentacao {
-    position: absolute; top: 15px; right: 116px; float: left; color: #fff;
+	position: absolute;
+	top: 15px;
+	right: 116px;
+	float: left;
+	color: #fff;
 }
-
