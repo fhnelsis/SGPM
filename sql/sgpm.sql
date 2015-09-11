@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 08-Set-2015 às 20:05
+-- Generation Time: 11-Set-2015 às 22:27
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `funcionalidades` (
   `nome_funcionalidade` varchar(50) NOT NULL,
   PRIMARY KEY (`id_funcionalidade`),
   UNIQUE KEY `UQ_funcionalidades_id_funcionalidade` (`id_funcionalidade`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Extraindo dados da tabela `funcionalidades`
@@ -96,7 +96,8 @@ INSERT INTO `funcionalidades` (`id_funcionalidade`, `sigla_funcionalidade`, `nom
 (15, 'FUNCIONARIO_ALTERAR', 'Alterar Funcionário'),
 (16, 'FUNCIONARIO_EXCLUIR', 'Excluir Funcionário'),
 (17, 'RELATORIO', 'Relatórios'),
-(18, 'ATENDIMENTO_DETALHES', 'Atendimento Detalhes');
+(18, 'ATENDIMENTO_DETALHES', 'Atendimento Detalhes'),
+(19, 'PACIENTE_DETALHES', 'Paciente Detalhes');
 
 -- --------------------------------------------------------
 
@@ -109,8 +110,8 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
   `login` varchar(30) NOT NULL,
   `senha` varchar(30) NOT NULL,
   `nome_funcionario` varchar(50) NOT NULL,
-  `cpf` int(11) NOT NULL,
-  `rg` int(10) NOT NULL,
+  `cpf` int(14) NOT NULL,
+  `rg` int(13) NOT NULL,
   `org_exp` varchar(10) NOT NULL,
   `genero` varchar(15) NOT NULL,
   `data_nasc` date NOT NULL,
@@ -137,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
   UNIQUE KEY `login` (`login`),
   KEY `id_funcionario` (`id_funcionario`),
   KEY `FK_funcionario_tipo_funcionario` (`id_tipo_funcionario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Extraindo dados da tabela `funcionario`
@@ -146,8 +147,9 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
 INSERT INTO `funcionario` (`id_funcionario`, `login`, `senha`, `nome_funcionario`, `cpf`, `rg`, `org_exp`, `genero`, `data_nasc`, `endereco`, `bairro`, `cep`, `cidade`, `estado`, `pais_nacionalidade`, `cidade_natural`, `estado_natural`, `ubs_atendimento`, `nome_mae`, `nome_pai`, `estado_civil`, `escolaridade`, `tipo_sanguineo`, `email_pessoal`, `email_prof`, `tel_cel`, `tel_fixo`, `id_tipo_funcionario`) VALUES
 (2, 'admin', 'admin', 'Francisco Henrique de Paiva Nelsis', 2147483647, 2147483647, 'SSP/RS', 'M', '0000-00-00', 'Rua Silveiro, 597/401', 'Menino Deus', '90850-000', 'Porto Alegre', 'RS', 'Brasil', 'Porto Alegre', 'RS', 'UBS Menino Deus', 'Maria Cristina Paiva', 'Pedro Augosto Nelsis', 'Casado', 'Superior Completo', 'A+', 'fhnelsis@outlook.com', 'francisco.nelsis@ilegra.com', 2147483647, 2147483647, 1),
 (5, 'elisa.solano', 'eliosa', 'Elisa Pereira Solano', 2147483647, 2147483647, 'SSP/RS', 'F', '1984-06-13', 'Travessa do Camarim, 480/201', 'Menino Deus', '90804-000', 'Porto Alegre', 'RS', 'Brasileira', 'Porto Aegre', 'RS', 'UBS Menino Deus', 'Luciana de Assis Pereira', 'Luiz de Almeida Solano', 'Casada', 'Superior Completo', 'A+', 'solanoelisa@hotmail.com', 'elisa.solano@ubs.com.br', 2147483647, 2147483647, 5),
-(10, 'agente', 'agente', 'Luiz Carlos de Paiva Filho', 2147483647, 2147483647, 'SSP/RS', 'M', '1956-05-13', 'Travessa Almodovar, 50', 'Azenha', '90484-030', 'Porto Alegre', 'RS', 'Brasileiro', 'Porto Alegre', 'RS', 'UBS Azenha', 'Norma Cristina Paiva', 'Gilberto Paiva', 'Divorciado', 'Ensino Médio Incompleto', 'A+', 'luiz@gmail.com', 'luiz.paiva@ubsazenha.com', 2147483647, 2147483647, 7),
-(12, 'tecnico', 'tecnico', 'João Augusto Pereira', 2147483647, 2147483647, 'SSP/RS', 'Feminino', '1983-02-13', 'Rua dos Imigrantes, 59', 'Azenha', '90484-030', 'Porto Alegre', 'RS', 'Brasileiro', 'Porto Alegre', 'RS', 'UBS Azenha', 'Norma Cristina Paiva', 'Gilberto Paiva', 'Divorciado', 'Ensino Médio Incompleto', 'A+', 'luiz@gmail.com', 'luiz.paiva@ubsazenha.com', 2147483647, 2147483647, 8);
+(10, 'agente', 'agente', 'Luiz Carlos de Paiva Filho', 2147483647, 2147483647, 'SSP/RS', 'M', '1956-05-13', 'Travessa Almodovar, 50', 'Azenha', '90484-030', 'Porto Alegre', 'RS', 'Brasileiro', 'Porto Alegre', 'RS', 'UBS Azenha', 'Norma Cristina Paiva', 'Gilberto Paiva', 'Divorciado', 'Ensino Médio Incompleto', 'A+', 'luiz@gmail.com', 'luiz.paiva@ubsazenha.com', 2147483647, 2147483647, 8),
+(12, 'tecnico', 'tecnico', 'João Augusto Pereira', 2147483647, 2147483647, 'SSP/RS', 'Feminino', '1983-02-13', 'Rua dos Imigrantes, 59', 'Azenha', '90484-030', 'Porto Alegre', 'RS', 'Brasileiro', 'Porto Alegre', 'RS', 'UBS Azenha', 'Norma Cristina Paiva', 'Gilberto Paiva', 'Divorciado', 'Ensino Médio Incompleto', 'A+', 'luiz@gmail.com', 'luiz.paiva@ubsazenha.com', 2147483647, 2147483647, 7),
+(13, 'teste', 'teste', 'Teste', 2147483647, 1231231231, 'SSP/RS', 'M', '1999-10-28', 'Rua dos Imigrantes, 59', 'Azenha', '90484-030', 'Porto Alegre', 'RS', 'Brasileiro', 'Porto Alegre', 'RS', 'UBS Azenha', 'Norma Cristina Paiva', 'Gilberto Paiva', 'Divorciado', '', '', '', '', 2147483647, 516541995, 8);
 
 -- --------------------------------------------------------
 
@@ -316,104 +318,28 @@ INSERT INTO `tipo_funcionario_funcionalidade` (`id_tipo_funcionario`, `id_funcio
 (1, 16),
 (1, 17),
 (1, 18),
-(2, 1),
-(2, 2),
-(2, 3),
-(2, 4),
-(2, 5),
-(2, 6),
-(2, 7),
-(2, 8),
-(2, 9),
-(2, 10),
-(2, 11),
-(2, 12),
-(2, 13),
-(2, 14),
-(2, 15),
-(2, 16),
-(2, 17),
 (3, 1),
-(3, 2),
-(3, 3),
-(3, 4),
 (3, 5),
 (3, 6),
 (3, 7),
 (3, 8),
 (3, 9),
-(3, 10),
-(3, 11),
-(3, 12),
 (3, 13),
 (3, 14),
 (3, 15),
 (3, 16),
 (3, 17),
-(3, 18),
-(4, 1),
-(4, 2),
-(4, 3),
-(4, 4),
-(4, 5),
-(4, 6),
-(4, 7),
-(4, 8),
-(4, 9),
-(4, 10),
-(4, 11),
-(4, 12),
-(4, 13),
-(4, 15),
-(4, 16),
-(4, 17),
 (5, 1),
-(5, 2),
-(5, 3),
-(5, 4),
 (5, 5),
-(5, 6),
-(5, 7),
-(5, 8),
 (5, 9),
-(5, 10),
-(5, 11),
-(5, 12),
 (5, 13),
-(5, 15),
-(5, 16),
-(6, 1),
-(6, 2),
-(6, 3),
-(6, 4),
-(6, 5),
-(6, 6),
-(6, 7),
-(6, 8),
-(6, 9),
-(6, 10),
-(6, 11),
-(6, 12),
-(6, 13),
-(6, 15),
-(6, 16),
-(7, 1),
+(5, 18),
 (7, 2),
-(7, 3),
-(7, 4),
 (7, 5),
-(7, 7),
-(7, 8),
 (7, 9),
-(7, 11),
-(7, 12),
-(7, 13),
-(7, 15),
-(7, 16),
-(8, 1),
-(8, 9),
-(8, 13),
-(8, 18);
+(8, 2),
+(8, 5),
+(8, 9);
 
 --
 -- Constraints for dumped tables
