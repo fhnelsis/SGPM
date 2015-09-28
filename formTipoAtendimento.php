@@ -90,7 +90,7 @@ if (isset ( $_GET ['id'] )) {
 						<tr>
 							<br />
 							<td><label for="data_insercao">Data de Inser&#231;&#227;o:</label></td>
-							<td><input readonly style="width: 100px;" type="text"
+							<td><input readonly style="width: 100px; margin-bottom: 5px;" type="text"
 								name="data_insercao" id="data_insercao" maxlength="10"
 								value="<?php
 								if (isset ( $dadosTipoAtendimento ['data_insercao'] )) {

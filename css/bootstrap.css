@@ -10515,7 +10515,7 @@ Aqui come�am edi��es no Bootstrap CSS original.
 }
 
 /* ------------------------------------------------ 1366x768 (notebook) ----------------------------------------------- */
-@media ( min-width : 1366px) {
+@media ( min-width : 1300px) {
 	.divTudoConsultarAtendimento {
 		height: 130%;
 		position: relative top;
@@ -10566,7 +10566,23 @@ Aqui come�am edi��es no Bootstrap CSS original.
 		margin-bottom: -30px;
 		position: inherit;
 		font-size: 22;
+	}	
+	.divTudoFormUBS {
+		height: 130%;
+		position: relative top;
+		font-family: Raleway, sans-serif;
+		margin-top: -1200px;
+		background-image: url('../img/background_su.jpg'); 
 	}
+	
+	#tituloPaginaUBSCadastroAlteracao {
+		margin-left: -750px;
+		margin-top: -450px;
+		margin-bottom: 150px;
+		position: relative;
+		font-size: 22;
+	}
+		
 	.cabecalho {
 		height: 50px;
 		position: absolute top;

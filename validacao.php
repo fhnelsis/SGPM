@@ -14,9 +14,7 @@ if (mysqli_connect_error())
         $login= $_POST['login'];
         //$senha= md5($_POST['senha']);
         $senha= $_POST['senha'];
-        
-        echo $senha;
-        
+
         $sql = mysqli_query($con, "SELECT func.*, tp.nome_tipo FROM funcionario func INNER JOIN tipo_funcionario tp ON tp.id_tipo_funcionario = func.id_tipo_funcionario WHERE login = '{$login}' and senha = '{$senha}'");
      
        // $row = mysqli_fetch_array($sql);
@@ -26,7 +24,7 @@ if (mysqli_connect_error())
         
         //Se <> de zero, invalida o acesso
         if($num_rows != 1){
-            throw new Exception('Usu√°rio ou senha inv√°lidos!');
+            throw new Exception('Usu·rio ou senha inv·lidos!');
         }      
 
         //Pega a linha da mem√≥ria
