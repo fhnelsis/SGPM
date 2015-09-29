@@ -33,15 +33,14 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 	$email_prof = $_POST ['email_prof'];
 	$tel_cel = $_POST ['tel_cel'];
 	$tel_fixo = $_POST ['tel_fixo'];
-
+	
 	$id_tipo_funcionario = $_POST ['id_tipo_funcionario'];
 	$id_genero = $_POST ['id_genero'];
 	$id_estado = $_POST ['id_estado'];
 	$id_ubs = $_POST ['id_ubs'];
 	$id_estado_civil = $_POST ['id_estado_civil'];
-	$id_escolaridade = $_POST ['id_escolaridade'];	
-	$id_tipo_sanguineo = $_POST ['id_tipo_sanguineo'];	
-	
+	$id_escolaridade = $_POST ['id_escolaridade'];
+	$id_tipo_sanguineo = $_POST ['id_tipo_sanguineo'];
 	
 	if (empty ( $id_funcionario )) {
 		$sql = "INSERT INTO funcionario 
@@ -132,7 +131,6 @@ VALUES      ('{$login}',
 		echo $sql;
 		header ( 'Location: consultarFuncionario.php' );
 		$_SESSION ['msg'] = 'Registro falhou!';
-		
 	}
 }
 
@@ -177,6 +175,8 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 			<div class="content-dataTable" style="width: 40%; margin: 0 auto">
 				<form method="POST">
 					<table width="100%">
+
+						<!-- Login  -->
 						<tr>
 							<br />
 							<td><label for="login">Login:</label></td>
@@ -184,18 +184,21 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 								name="login" id="login" maxlength="30"
 								value="<?php
 								if (isset ( $dadosFuncionario ['login'] )) {
-									echo $dadosFuncionario ['login'];}?>"/>
-							</td>
+									echo $dadosFuncionario ['login'];
+								}
+								?>" /></td>
 						</tr>
 
+						<!-- Senha  -->
 						<tr>
 							<td><label for="senha">Senha:</label></td>
 							<td><input style="width: 150px; margin-bottom: 5px;"
 								type="password" name="senha" id="senha" maxlength="15"
 								value="<?php
 								if (isset ( $dadosFuncionario ['senha'] )) {
-									echo $dadosFuncionario ['senha'];}?>" />
-							</td>
+									echo $dadosFuncionario ['senha'];
+								}
+								?>" /></td>
 						</tr>
 
 						<!-- Tipo de Funcionário  -->
@@ -212,6 +215,7 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
                                                             <?php endwhile; ?></select></td>
 						</tr>
 
+						<!-- Nome do Funcionário -->
 						<tr>
 							<td><label for="nome_funcionario">Nome:</label></td>
 							<td><input style="width: 400px; margin-bottom: 5px;" type="text"
@@ -236,9 +240,9 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 							</td>
 						</tr>
 
+						<!-- Orgão Expedidor  -->
 						<tr>
-							<td><label for="org_exp" style="width: 140px">Org&#227;o
-									Expedidor:</label></td>
+							<td><label for="org_exp" style="width: 140px">Orgão Expedidor:</label></td>
 							<td><input style="width: 100px; margin-bottom: 5px;" type="text"
 								name="org_exp" id="org_exp" maxlength="6"
 								value="<?php if (isset ( $dadosFuncionario ['org_exp'] )) { echo $dadosFuncionario ['org_exp'];}?>" />
@@ -248,15 +252,18 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 						<!-- Gênero  -->
 						<tr>
 							<td><label for="id_genero">Gênero:</label></td>
-							<td><select name="id_genero" id="id_genero"	style="margin-bottom: 5px;">
+							<td><select name="id_genero" id="id_genero"
+								style="margin-bottom: 5px;">
 									<option value="" selected></option>
 										<?php while ($linhaGenero = mysqli_fetch_array($queryGenero)): ?>
-									<option <?php if (isset($dadosFuncionario['id_genero']) && $dadosFuncionario['id_genero'] == $linhaGenero['id_genero']) : ?>
+									<option
+										<?php if (isset($dadosFuncionario['id_genero']) && $dadosFuncionario['id_genero'] == $linhaGenero['id_genero']) : ?>
 										selected <?php endif; ?>
 										value="<?php echo $linhaGenero['id_genero']; ?>"><?php echo $linhaGenero['nome_genero']; ?></option>
                                                             <?php endwhile; ?></select></td>
 						</tr>
 
+						<!-- Data de Nascimento  -->
 						<tr>
 							<td><label for="data_nasc" style="width: 160px">Data de
 									Nascimento:</label></td>
@@ -270,6 +277,7 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 								?>" /></td>
 						</tr>
 
+						<!-- Endereço  -->
 						<tr>
 							<td><label for="endereco" style="width: 100px">Endereço:</label></td>
 							<td><input style="width: 300px; margin-bottom: 5px;" type="text"
@@ -282,6 +290,7 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 								?>" /></td>
 						</tr>
 
+						<!-- Bairro  -->
 						<tr>
 							<td><label for="bairro" style="width: 100px">Bairro:</label></td>
 							<td><input style="width: 160px; margin-bottom: 5px;" type="text"
@@ -294,6 +303,7 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 								?>" /></td>
 						</tr>
 
+						<!-- CEP  -->
 						<tr>
 							<td><label for="cep" style="width: 100px">CEP:</label></td>
 							<td><input style="width: 160px; margin-bottom: 5px;" type="text"
@@ -306,6 +316,7 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 								?>" /></td>
 						</tr>
 
+						<!-- Cidade  -->
 						<tr>
 							<td><label for="cidade" style="width: 100px">Cidade:</label></td>
 							<td><input style="width: 160px; margin-bottom: 5px;" type="text"
@@ -318,7 +329,7 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 								?>" /></td>
 						</tr>
 
-				<!-- Estado  -->
+						<!-- Estado  -->
 						<tr>
 							<td><label for="id_estado">Estado:</label></td>
 							<td><select name="id_estado" id="id_estado"
@@ -336,8 +347,7 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 						<!-- UBS Atendimento  -->
 						<tr>
 							<td><label for="id_ubs">UBS de Atendimento:</label></td>
-							<td><select name="id_ubs" id="id_ubs"
-								style="margin-bottom: 5px;">
+							<td><select name="id_ubs" id="id_ubs" style="margin-bottom: 5px;">
 									<option value="" selected></option>
                                                             <?php while ($linhaUBS = mysqli_fetch_array($queryUBS)): ?>
                                                                 <option
@@ -347,6 +357,7 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
                                                             <?php endwhile; ?></select></td>
 						</tr>
 
+						<!-- Nome da Mãe  -->
 						<tr>
 							<td><label for="nome_mae" style="width: 120px">Nome da M&#227;e:</label></td>
 							<td><input style="width: 300px; margin-bottom: 5px;" type="text"
@@ -359,12 +370,12 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 								?>" /></td>
 						</tr>
 
+						<!-- Nome do Pai  -->
 						<tr>
 							<td><label for="nome_pai" style="width: 120px">Nome do Pai:</label></td>
 							<td><input style="width: 300px; margin-bottom: 5px;" type="text"
 								name="nome_pai" id="nome_pai" maxlength="50"
 								value="<?php
-								
 								if (isset ( $dadosFuncionario ['nome_pai'] )) {
 									echo $dadosFuncionario ['nome_pai'];
 								}
@@ -398,7 +409,7 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 										value="<?php echo $linhaEscolaridade['id_escolaridade']; ?>"><?php echo $linhaEscolaridade['escolaridade']; ?></option>
                                                             <?php endwhile; ?></select></td>
 						</tr>
-						
+
 						<!-- Tipo Sanguíneo  -->
 						<tr>
 							<td><label for="id_tipo_sanguineo">Tipo Sanguíneo:</label></td>
@@ -412,7 +423,8 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 										value="<?php echo $linhaTipoSanguineo['id_tipo_sanguineo']; ?>"><?php echo $linhaTipoSanguineo['tipo_sanguineo']; ?></option>
                                                             <?php endwhile; ?></select></td>
 						</tr>
-						
+
+						<!-- E-mail Pessoal  -->
 						<tr>
 							<td><label for="email_pessoal" style="width: 140px">E-mail
 									Pessoal:</label></td>
@@ -426,37 +438,37 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 								?>" /></td>
 						</tr>
 
+						<!-- E-mail Profissional  -->
 						<tr>
 							<td><label for="email_prof" style="width: 140px">E-mail
 									Profissional:</label></td>
 							<td><input style="width: 300px; margin-bottom: 5px;" type="text"
 								name="email_prof" id="email_pessoal" maxlength="50"
 								value="<?php
-								
 								if (isset ( $dadosFuncionario ['email_prof'] )) {
 									echo $dadosFuncionario ['email_prof'];
 								}
 								?>" /></td>
 						</tr>
 
+						<!-- Telefone Celular  -->
 						<tr>
 							<td><label for="tel_cel" style="width: 140px">Telefone Celular:</label></td>
 							<td><input style="width: 100px; margin-bottom: 5px;" type="text"
 								name="tel_cel" id="tel_cel" maxlength="10"
 								value="<?php
-								
 								if (isset ( $dadosFuncionario ['tel_cel'] )) {
 									echo $dadosFuncionario ['tel_cel'];
 								}
 								?>" /></td>
 						</tr>
 
+						<!-- Telefone Fixo  -->
 						<tr>
 							<td><label for="tel_fixo" style="width: 140px">Telefone Fixo:</label></td>
 							<td><input style="width: 100px; margin-bottom: 5px;" type="text"
 								name="tel_fixo" id="tel_cel" maxlength="10"
 								value="<?php
-								
 								if (isset ( $dadosFuncionario ['tel_fixo'] )) {
 									echo $dadosFuncionario ['tel_fixo'];
 								}
