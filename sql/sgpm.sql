@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 11-Set-2015 às 22:27
+-- Generation Time: 29-Set-2015 às 21:15
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -49,16 +49,106 @@ CREATE TABLE IF NOT EXISTS `atendimento` (
   KEY `FK_funcionario_atendimento` (`id_funcionario`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
+-- --------------------------------------------------------
+
 --
--- Extraindo dados da tabela `atendimento`
+-- Estrutura da tabela `escolaridade`
 --
 
-INSERT INTO `atendimento` (`id_atendimento`, `id_tipo_atendimento`, `id_paciente`, `id_funcionario`, `data_atendimento`, `fumante`, `alcool`, `alergia_reac_div`, `sintomas`, `queixa_principal`, `hist_molestia`, `frequencia_cardiaca`, `ritmo_cardiaco`, `pressao_arterial`, `ritmo_respiratorio`, `observacoes`) VALUES
-(1, 8, 42, 5, '2015-09-08', '0', '0', 'AAS', 'Nenhum', 'Nenhuma', 'Asma', '15/8', '18/3', '18/6', '20', 'Exame de rotina, clínico.                                                                    '),
-(2, 12, 112, 10, '2015-09-08', '0', '0', 'AAS', 'Pés cianóticos.', 'Dores no peito.', 'Nenhum.', '18/5', '12/3', '17/5', '20', 'Verificado que blá blá blá blá blá blá .                                                                    '),
-(3, 9, 111, 10, '2015-09-08', '0', '0', 'Picada de abelha', 'Nenhum', 'Dores nas costas.', 'Nenhum', '15/5', '17/6', '13/2', '20', 'Visita de rotina, pré natal. Receitado analgésico.                                                                    '),
-(4, 8, 112, 5, '2015-09-08', '0', '1', 'AAS', 'Nenhum', 'Nenhum', 'Nenhum', '18/5', '41/3', '26/2', '20', 'Exame de rotina, clínico.                                                                    '),
-(5, 9, 110, 5, '2015-09-08', '0', '0', 'Torsilax', 'Nenhum', 'Nenhuma', 'Nenhum', '15/5', '50/3', '20/4', '20', 'Pré-natal de rotina.                                                                    ');
+CREATE TABLE IF NOT EXISTS `escolaridade` (
+  `id_escolaridade` int(11) NOT NULL AUTO_INCREMENT,
+  `escolaridade` varchar(50) DEFAULT '0',
+  KEY `id_escolaridade` (`id_escolaridade`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=58 ;
+
+--
+-- Extraindo dados da tabela `escolaridade`
+--
+
+INSERT INTO `escolaridade` (`id_escolaridade`, `escolaridade`) VALUES
+(45, 'Analfabeto'),
+(46, 'Até 4ª série incompleta do 1º grau'),
+(47, '4ª série completa do 1º grau'),
+(48, '5ª a 8ª série incompleta do 1º grau '),
+(49, '1º grau completo'),
+(50, '2º grau incompleto'),
+(51, '2º grau completo'),
+(52, 'Superior Incompleto'),
+(53, 'Superior Completo'),
+(54, 'Pós-Graduação/Especialização'),
+(55, 'Mestrado'),
+(56, 'Doutorado'),
+(57, 'Pós-Doutorado');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `estado`
+--
+
+CREATE TABLE IF NOT EXISTS `estado` (
+  `id_estado` int(15) NOT NULL AUTO_INCREMENT,
+  `sigla_estado` varchar(50) NOT NULL DEFAULT '0',
+  `estado` varchar(50) DEFAULT NULL,
+  KEY `id_estado` (`id_estado`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
+
+--
+-- Extraindo dados da tabela `estado`
+--
+
+INSERT INTO `estado` (`id_estado`, `sigla_estado`, `estado`) VALUES
+(2, 'AC', 'Acre'),
+(3, 'AL', 'Alagoas'),
+(4, 'AP', 'Amapá'),
+(5, 'AM', 'Amazonas'),
+(6, 'BA', 'Bahia'),
+(7, 'CE', 'Ceará'),
+(8, 'DF', 'Distrito Federal'),
+(9, 'ES', 'Espírito Santo'),
+(10, 'GO', 'Goiás'),
+(11, 'MA', 'Maranhão'),
+(12, 'MT', 'Mato Grosso'),
+(13, 'MS', 'Mato Grosso do Sul'),
+(14, 'MG', 'Minas Gerais'),
+(15, 'PA', 'Pará'),
+(16, 'PB', 'Paraíba'),
+(17, 'PR', 'Paraná'),
+(18, 'PE', 'Pernambuco'),
+(19, 'PI', 'Piauí'),
+(20, 'RJ', 'Rio de Janeiro'),
+(21, 'RN', 'Rio Grande do Norte'),
+(22, 'RS', 'Rio Grande do Sul'),
+(23, 'RO', 'Rondônia'),
+(24, 'RR', 'Roraima'),
+(25, 'SC', 'Santa Catarina'),
+(26, 'SP', 'São Paulo'),
+(27, 'SE', 'Sergipe'),
+(28, 'TO', 'Tocantins');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `estado_civil`
+--
+
+CREATE TABLE IF NOT EXISTS `estado_civil` (
+  `id_estado_civil` int(15) NOT NULL AUTO_INCREMENT,
+  `estado_civil` varchar(50) NOT NULL,
+  KEY `id_estado_civil` (`id_estado_civil`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Extraindo dados da tabela `estado_civil`
+--
+
+INSERT INTO `estado_civil` (`id_estado_civil`, `estado_civil`) VALUES
+(1, 'Solteiro(a)'),
+(2, 'Casado(a)'),
+(3, 'Divorciado(a)'),
+(4, 'Viúvo(a)'),
+(5, 'Separado(a)'),
+(6, 'Companheiro(a)');
 
 -- --------------------------------------------------------
 
@@ -72,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `funcionalidades` (
   `nome_funcionalidade` varchar(50) NOT NULL,
   PRIMARY KEY (`id_funcionalidade`),
   UNIQUE KEY `UQ_funcionalidades_id_funcionalidade` (`id_funcionalidade`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
 
 --
 -- Extraindo dados da tabela `funcionalidades`
@@ -97,7 +187,11 @@ INSERT INTO `funcionalidades` (`id_funcionalidade`, `sigla_funcionalidade`, `nom
 (16, 'FUNCIONARIO_EXCLUIR', 'Excluir Funcionário'),
 (17, 'RELATORIO', 'Relatórios'),
 (18, 'ATENDIMENTO_DETALHES', 'Atendimento Detalhes'),
-(19, 'PACIENTE_DETALHES', 'Paciente Detalhes');
+(19, 'PACIENTE_DETALHES', 'Paciente Detalhes'),
+(20, 'UBS_LISTAR', 'Buscar UBS'),
+(21, 'UBS_INSERIR', 'Inserir UBS'),
+(22, 'UBS_ALTERAR', 'Alterar UBS'),
+(23, 'UBS_EXCLUIR', 'Excluir UBS');
 
 -- --------------------------------------------------------
 
@@ -113,43 +207,42 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
   `cpf` int(14) NOT NULL,
   `rg` int(13) NOT NULL,
   `org_exp` varchar(10) NOT NULL,
-  `genero` varchar(15) NOT NULL,
   `data_nasc` date NOT NULL,
   `endereco` varchar(30) NOT NULL,
   `bairro` varchar(30) NOT NULL,
   `cep` varchar(10) NOT NULL,
   `cidade` varchar(30) NOT NULL,
-  `estado` varchar(2) NOT NULL,
-  `pais_nacionalidade` varchar(30) NOT NULL,
-  `cidade_natural` varchar(30) NOT NULL,
-  `estado_natural` varchar(2) NOT NULL,
-  `ubs_atendimento` varchar(30) NOT NULL,
   `nome_mae` varchar(30) NOT NULL,
   `nome_pai` varchar(30) NOT NULL,
-  `estado_civil` varchar(15) NOT NULL,
-  `escolaridade` varchar(30) NOT NULL,
-  `tipo_sanguineo` varchar(3) NOT NULL,
   `email_pessoal` varchar(50) NOT NULL,
   `email_prof` varchar(30) NOT NULL,
   `tel_cel` int(15) NOT NULL,
   `tel_fixo` int(15) NOT NULL,
   `id_tipo_funcionario` int(15) NOT NULL,
+  `id_genero` int(15) NOT NULL,
+  `id_ubs` int(11) NOT NULL,
+  `id_estado_civil` int(15) NOT NULL,
+  `id_escolaridade` int(15) NOT NULL,
+  `id_tipo_sanguineo` int(15) NOT NULL,
+  `id_estado` int(15) NOT NULL,
   PRIMARY KEY (`id_funcionario`),
   UNIQUE KEY `login` (`login`),
   KEY `id_funcionario` (`id_funcionario`),
-  KEY `FK_funcionario_tipo_funcionario` (`id_tipo_funcionario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+  KEY `FK_funcionario_tipo_funcionario` (`id_tipo_funcionario`),
+  KEY `FK_funcionario_genero` (`id_genero`),
+  KEY `FK_funcionario_ubs` (`id_ubs`),
+  KEY `FK_funcionario_estado_civil` (`id_estado_civil`),
+  KEY `FK_funcionario_escolaridade` (`id_escolaridade`),
+  KEY `FK_funcionario_tipo_sanguineo` (`id_tipo_sanguineo`),
+  KEY `FK_funcionario_estado` (`id_estado`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
 -- Extraindo dados da tabela `funcionario`
 --
 
-INSERT INTO `funcionario` (`id_funcionario`, `login`, `senha`, `nome_funcionario`, `cpf`, `rg`, `org_exp`, `genero`, `data_nasc`, `endereco`, `bairro`, `cep`, `cidade`, `estado`, `pais_nacionalidade`, `cidade_natural`, `estado_natural`, `ubs_atendimento`, `nome_mae`, `nome_pai`, `estado_civil`, `escolaridade`, `tipo_sanguineo`, `email_pessoal`, `email_prof`, `tel_cel`, `tel_fixo`, `id_tipo_funcionario`) VALUES
-(2, 'admin', 'admin', 'Francisco Henrique de Paiva Nelsis', 2147483647, 2147483647, 'SSP/RS', 'M', '0000-00-00', 'Rua Silveiro, 597/401', 'Menino Deus', '90850-000', 'Porto Alegre', 'RS', 'Brasil', 'Porto Alegre', 'RS', 'UBS Menino Deus', 'Maria Cristina Paiva', 'Pedro Augosto Nelsis', 'Casado', 'Superior Completo', 'A+', 'fhnelsis@outlook.com', 'francisco.nelsis@ilegra.com', 2147483647, 2147483647, 1),
-(5, 'elisa.solano', 'eliosa', 'Elisa Pereira Solano', 2147483647, 2147483647, 'SSP/RS', 'F', '1984-06-13', 'Travessa do Camarim, 480/201', 'Menino Deus', '90804-000', 'Porto Alegre', 'RS', 'Brasileira', 'Porto Aegre', 'RS', 'UBS Menino Deus', 'Luciana de Assis Pereira', 'Luiz de Almeida Solano', 'Casada', 'Superior Completo', 'A+', 'solanoelisa@hotmail.com', 'elisa.solano@ubs.com.br', 2147483647, 2147483647, 5),
-(10, 'agente', 'agente', 'Luiz Carlos de Paiva Filho', 2147483647, 2147483647, 'SSP/RS', 'M', '1956-05-13', 'Travessa Almodovar, 50', 'Azenha', '90484-030', 'Porto Alegre', 'RS', 'Brasileiro', 'Porto Alegre', 'RS', 'UBS Azenha', 'Norma Cristina Paiva', 'Gilberto Paiva', 'Divorciado', 'Ensino Médio Incompleto', 'A+', 'luiz@gmail.com', 'luiz.paiva@ubsazenha.com', 2147483647, 2147483647, 8),
-(12, 'tecnico', 'tecnico', 'João Augusto Pereira', 2147483647, 2147483647, 'SSP/RS', 'Feminino', '1983-02-13', 'Rua dos Imigrantes, 59', 'Azenha', '90484-030', 'Porto Alegre', 'RS', 'Brasileiro', 'Porto Alegre', 'RS', 'UBS Azenha', 'Norma Cristina Paiva', 'Gilberto Paiva', 'Divorciado', 'Ensino Médio Incompleto', 'A+', 'luiz@gmail.com', 'luiz.paiva@ubsazenha.com', 2147483647, 2147483647, 7),
-(13, 'teste', 'teste', 'Teste', 2147483647, 1231231231, 'SSP/RS', 'M', '1999-10-28', 'Rua dos Imigrantes, 59', 'Azenha', '90484-030', 'Porto Alegre', 'RS', 'Brasileiro', 'Porto Alegre', 'RS', 'UBS Azenha', 'Norma Cristina Paiva', 'Gilberto Paiva', 'Divorciado', '', '', '', '', 2147483647, 516541995, 8);
+INSERT INTO `funcionario` (`id_funcionario`, `login`, `senha`, `nome_funcionario`, `cpf`, `rg`, `org_exp`, `data_nasc`, `endereco`, `bairro`, `cep`, `cidade`, `nome_mae`, `nome_pai`, `email_pessoal`, `email_prof`, `tel_cel`, `tel_fixo`, `id_tipo_funcionario`, `id_genero`, `id_ubs`, `id_estado_civil`, `id_escolaridade`, `id_tipo_sanguineo`, `id_estado`) VALUES
+(24, 'admin', 'admin', 'Francisco Nelsis', 2147483647, 2147483647, 'SSP/RS', '1987-02-04', 'Rua Silveiro, 412', 'Menino Deus', '90160030', 'Porto Alegre', 'Helenice Paiva', 'James Nelsis', 'fhnelsis@outlook.com', 'francisco.nelsis@ilegra.com', 2147483647, 2147483647, 1, 1, 1, 2, 52, 1, 22);
 
 -- --------------------------------------------------------
 
@@ -158,7 +251,7 @@ INSERT INTO `funcionario` (`id_funcionario`, `login`, `senha`, `nome_funcionario
 --
 
 CREATE TABLE IF NOT EXISTS `genero` (
-  `id_genero` int(3) NOT NULL AUTO_INCREMENT,
+  `id_genero` int(15) NOT NULL AUTO_INCREMENT,
   `nome_genero` varchar(10) NOT NULL,
   PRIMARY KEY (`id_genero`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
@@ -210,22 +303,6 @@ CREATE TABLE IF NOT EXISTS `paciente` (
   KEY `id_paciente` (`id_paciente`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=113 ;
 
---
--- Extraindo dados da tabela `paciente`
---
-
-INSERT INTO `paciente` (`id_paciente`, `nome_paciente`, `cpf`, `rg`, `org_exp`, `genero`, `data_nasc`, `endereco`, `bairro`, `cep`, `cidade`, `estado`, `pais_nacionalidade`, `cidade_natural`, `estado_natural`, `ubs_atendimento`, `nome_mae`, `nome_pai`, `profissao`, `estado_civil`, `escolaridade`, `tipo_sanguineo`, `email_pessoal`, `email_prof`, `tel_cel`, `tel_fixo`, `tel_contato`) VALUES
-(32, 'Francisco Henrique Paiva Nelsis', '8330763000', 2147483647, 'SSP/RS', 'M', '1987-02-04', 'Rua Silveiro, 377', 'Menino Deus', 90850, 'Porto Alegre', 'RS', 'Brasileiro', 'Porto Alegre', 'RS', 'UBS Menino Deus', 'Helenice Zani de Paiva', 'James Sidney Schiafino Nelsis', 'Analista de Sistemas', 'Solteiro', 'Superior Incompleto', 'A+', 'fhnelsis@outlook.com', 'fransico.nelsis@ilegra.com', '5191010061', '5130192991', '5130897744'),
-(41, 'Fábio Tentardini Leite', '9631954877', 99548487, 'SSP/RS', 'M', '1986-03-12', 'Rua Espírito Santo, 483/412', 'Centro Histórico', 90900, 'Porto Alegre', 'RS', 'Brasileiro', 'Porto Alegre', 'RS', 'UBS Centro Histórico', 'Vera Tentardini Leite', 'João Tentardini Leite', 'Personal Trainer', 'Solteiro', 'Superior Completo', 'AB+', 'fabio.leite@gmail.com', 'fleite@academia.com.br', '5192745444', '5130186211', ''),
-(42, 'Adão de Oliveira Barcellos', '93654179966', 1998788481, 'SSP/RS', 'M', '1953-06-09', 'Rua Duque de Caxias, 321/203', 'Centro Histórico', 90960, 'Porto Alegre', 'RS', 'Brasileiro', 'Porto Alegre', 'RS', 'UBS Centro Histórico', 'Magali Santos Oliveira', 'Cláudio Barcellos', 'Administrador', 'Casado', 'Ensino Médio Completo', 'B+', 'abarcellos@outlook.com', 'adaobarcellos@empresa.com.br', '5197322544', '5130254877', '5130998877'),
-(44, 'Ana Terra de Almeida Silva', '93154111151', 2147483647, 'SSPRS', 'F', '1989-12-18', 'Rua Andradas, 120/610', 'Centro Histórico', 90860, 'Porto Alegre', 'RS', 'Brasileira', 'Porto Alegre', 'RS', 'UBS Centro Histórico', 'Júlia de Almeira Santos', 'Paulo Oliveira Silva', 'Analista de Turismo', 'Solteira', 'Superior Incompleto', 'A+', 'atgarcia@yahoo.com', 'ana.garcia@carlsonwagonlit.com', '5192658444', '5130458777', '5140019874'),
-(107, 'Jéferson Machado de Assis', '97622215151', 1981981651, 'SSP/RS', '', '1986-02-19', 'Rua da República, 488/901', 'Cidade Baixa', 90874, 'Porto Alegre', 'RS', 'Brasileiro', 'Porto Alegre', 'RS', 'UBS Cidade Baixa', 'Joana de Machado', 'Joaquim Pereira de Assis', 'Estudante', 'Solteiro', 'Superior Incompleto', 'A+', 'jeff@outlook.com', '', '5192454444', '5130244877', ''),
-(108, 'Lucas Poletti Garcia', '932154877', 1819873159, 'SSP/RS', 'M', '1991-03-21', 'Rua do Samba, 820/41', 'Agronomia', 90874, 'Porto Alegre', 'RS', 'Brasileiro', 'Cachoeirinha', 'RS', 'UBS Agronomia', 'Cristina de Oliveira Poletti', 'Pedro de Assis Garcia', 'Engenheiro de Software', 'Solteiro', 'Superior Completo', 'AB+', 'lucaspolettig@gmail.com', 'lucas.garcia@und.com.br', '519254766', '5120141158', ''),
-(109, 'Cristiane Bastos Einhonfen', '98225845132', 2147483647, 'SSP/RS', 'F', '1988-04-22', 'Avenida Getúlio Vargas, 1600/802', 'Menino Deus', 90850, 'Porto Alegre', 'RS', 'Brasileira', 'Porto Alegre', 'RS', 'UBS Menino Deus', 'Maria das Graças Bastos', 'Henrique dos Santos Einhonfen', 'Vendedora', 'Solteira', 'Ensino Médio Incompleto', 'O-', 'crisein@gmail.com', '', '5192179865', '5130286555', '5130584849'),
-(110, 'Paula Hering Batista', '89981981959', 1891686176, 'SSP/RS', 'F', '1984-01-22', 'Rua Lima e Silva, 640/1200', 'Cidade Baixa', 90856, 'Porto Alegre', 'RS', 'Brasileira', 'Porto Alegre', 'RS', 'UBS Cidade Baixa', 'Luana Batista dos Santos', 'Paulo Hering Batista', 'Publicitária', 'Solteira', 'Superior Completo', 'A-', 'paulah@hotmail.com', 'paula.hering@oisf.com.br', '5192001111', '5130251544', '5190458877'),
-(111, 'Zenilde Soneca de Assis', '87484844324', 2147483647, 'SSP/RS', 'F', '1954-08-12', 'Rua João Pessoa, 1643/201', 'Cidade Baixa', 90874, 'Porto Alegre', 'RS', 'Brasileira', 'Porto Alegre', 'RS', 'UBS Cidade Baixa', 'Suzana Soneca de Assis', 'João Pedro de Assis Pereira', 'Enfermeira', 'Casada', 'Superior Completo', 'A+', 'zenildeassis@hotmail.com', 'zenilde.assis@hpv.com', '5190555000', '5130284577', '5180545888'),
-(112, 'Nilmar Júnior de Assis Schiafino', '59197179179', 2147483647, 'SSP/RS', 'M', '2000-05-12', 'Rua do Busão, 580', 'Morada dos Ventos', 74099, 'Porto Alegre', 'RS', 'Brasileiro', 'Porto Alegre', 'RS', 'UBS Morada dos Ventos', 'Nilmar Pereira de Assis', 'Joana Pereira Schiafino', 'Estudante', 'Solteiro', 'Ensino Médio Incompleto', 'A-', 'nilmaravilha@hotmail.com', '', '5192147555', '5130259887', '');
-
 -- --------------------------------------------------------
 
 --
@@ -240,7 +317,7 @@ CREATE TABLE IF NOT EXISTS `tipo_atendimento` (
   `data_desativacao` date DEFAULT NULL,
   `data_alteracao` date DEFAULT NULL,
   PRIMARY KEY (`id_tipo_atendimento`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Extraindo dados da tabela `tipo_atendimento`
@@ -252,7 +329,8 @@ INSERT INTO `tipo_atendimento` (`id_tipo_atendimento`, `nome_tipo_atendimento`, 
 (10, 'Recèm-nascido', 'Atendimento a recém-nascidos.', '2015-09-07', NULL, NULL),
 (11, 'Idoso', 'Atendimento a idoso.', '2015-09-07', NULL, NULL),
 (12, 'Visita domiciliar', 'Atendimento feito em residência.', '2015-09-07', NULL, NULL),
-(13, 'Criança', 'Atendimento a criança.', '2015-09-07', NULL, NULL);
+(13, 'Criança', 'Atendimento a criança.', '2015-09-07', NULL, NULL),
+(14, 'Teste', 'Teste', '2015-09-22', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -273,9 +351,7 @@ CREATE TABLE IF NOT EXISTS `tipo_funcionario` (
 
 INSERT INTO `tipo_funcionario` (`id_tipo_funcionario`, `nome_tipo`) VALUES
 (1, 'Administrador'),
-(2, 'Secretaria de Saúde'),
 (3, 'Gestor de Unidade'),
-(4, 'Enfermeiro-Chefe'),
 (5, 'Enfermeiro'),
 (6, 'Médico'),
 (7, 'Técnico de Enfermagem'),
@@ -318,6 +394,11 @@ INSERT INTO `tipo_funcionario_funcionalidade` (`id_tipo_funcionario`, `id_funcio
 (1, 16),
 (1, 17),
 (1, 18),
+(1, 19),
+(1, 20),
+(1, 21),
+(1, 22),
+(1, 23),
 (3, 1),
 (3, 5),
 (3, 6),
@@ -334,12 +415,69 @@ INSERT INTO `tipo_funcionario_funcionalidade` (`id_tipo_funcionario`, `id_funcio
 (5, 9),
 (5, 13),
 (5, 18),
+(6, 13),
 (7, 2),
 (7, 5),
 (7, 9),
+(7, 13),
 (8, 2),
 (8, 5),
-(8, 9);
+(8, 9),
+(8, 13);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tipo_sanguineo`
+--
+
+CREATE TABLE IF NOT EXISTS `tipo_sanguineo` (
+  `id_tipo_sanguineo` int(15) NOT NULL AUTO_INCREMENT,
+  `tipo_sanguineo` varchar(50) DEFAULT NULL,
+  KEY `id_tipo_sanguineo` (`id_tipo_sanguineo`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Extraindo dados da tabela `tipo_sanguineo`
+--
+
+INSERT INTO `tipo_sanguineo` (`id_tipo_sanguineo`, `tipo_sanguineo`) VALUES
+(1, 'A+'),
+(2, 'A-'),
+(3, 'B+'),
+(4, 'B-'),
+(5, 'AB+'),
+(6, 'AB-'),
+(7, 'O+'),
+(8, 'O-');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `ubs`
+--
+
+CREATE TABLE IF NOT EXISTS `ubs` (
+  `id_ubs` int(5) NOT NULL AUTO_INCREMENT,
+  `ubs_atendimento` varchar(50) NOT NULL,
+  `endereco` varchar(50) DEFAULT NULL,
+  `telefone` int(10) DEFAULT NULL,
+  `data_insercao` date DEFAULT NULL,
+  `data_alteracao` date DEFAULT NULL,
+  `data_desativacao` date DEFAULT NULL,
+  PRIMARY KEY (`id_ubs`),
+  UNIQUE KEY `id_ubs` (`id_ubs`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+
+--
+-- Extraindo dados da tabela `ubs`
+--
+
+INSERT INTO `ubs` (`id_ubs`, `ubs_atendimento`, `endereco`, `telefone`, `data_insercao`, `data_alteracao`, `data_desativacao`) VALUES
+(1, 'UBS Menino Deus', 'Av. Getúlio Vargas, 250', 1111, '2015-09-22', '2015-09-28', NULL),
+(4, 'UBS Azenha', 'Avenida Azenha, 50', 111, '2015-09-28', '2015-09-28', NULL),
+(8, 'UBS Cavalhada', 'Avenida Cavalhada, 2045', 2147483647, '2015-09-28', NULL, NULL),
+(17, 'UBS Centro', 'Rua dos Andradas, 500', 1111111111, '2015-09-28', '2015-09-28', NULL);
 
 --
 -- Constraints for dumped tables
@@ -356,7 +494,13 @@ ALTER TABLE `atendimento`
 -- Limitadores para a tabela `funcionario`
 --
 ALTER TABLE `funcionario`
-  ADD CONSTRAINT `FK_funcionario_tipo_funcionario` FOREIGN KEY (`id_tipo_funcionario`) REFERENCES `tipo_funcionario` (`id_tipo_funcionario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `FK_funcionario_estado` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_funcionario_escolaridade` FOREIGN KEY (`id_escolaridade`) REFERENCES `escolaridade` (`id_escolaridade`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_funcionario_estado_civil` FOREIGN KEY (`id_estado_civil`) REFERENCES `estado_civil` (`id_estado_civil`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_funcionario_genero` FOREIGN KEY (`id_genero`) REFERENCES `genero` (`id_genero`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_funcionario_tipo_funcionario` FOREIGN KEY (`id_tipo_funcionario`) REFERENCES `tipo_funcionario` (`id_tipo_funcionario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_funcionario_tipo_sanguineo` FOREIGN KEY (`id_tipo_sanguineo`) REFERENCES `tipo_sanguineo` (`id_tipo_sanguineo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_funcionario_ubs` FOREIGN KEY (`id_ubs`) REFERENCES `ubs` (`id_ubs`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tipo_funcionario_funcionalidade`
