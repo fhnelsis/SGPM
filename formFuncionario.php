@@ -138,7 +138,6 @@ VALUES      ('{$login}',
 if (isset ( $_GET ['id_funcionario'] )) {
 	$con = mysqli_connect ( "localhost", "root", "", "sgpm" );
 	mysqli_set_charset ( $con, "utf8" );
-	
 	$query = mysqli_query ( $con, "SELECT * FROM funcionario WHERE id_funcionario = {$_GET['id_funcionario']} " );
 	$dadosFuncionario = mysqli_fetch_array ( $query );
 }
@@ -160,7 +159,6 @@ $queryEscolaridade = mysqli_query ( $con, "SELECT * FROM escolaridade" );
 $queryTipoSanguineo = mysqli_query ( $con, "SELECT * FROM tipo_sanguineo" );
 // Busca os graus de escolaridade
 $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado asc" );
-
 ?>
 
 <div class="divTudoFormPaciente">
@@ -169,7 +167,6 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 				<?php echo isset($_GET['id_funcionario']) ? "Alterar Funcionário" : "Cadastrar Funcionário"; ?>
 			</center>
 	</div>
-
 	<center>
 		<div id="formAlteraPaciente">
 			<div class="content-dataTable" style="width: 40%; margin: 0 auto">
@@ -342,7 +339,6 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 										value="<?php echo $linhaEstado['id_estado']; ?>"><?php echo $linhaEstado['sigla_estado']; ?></option>
                                                             <?php endwhile; ?></select></td>
 						</tr>
-
 
 						<!-- UBS Atendimento  -->
 						<tr>
