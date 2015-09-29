@@ -128,7 +128,6 @@ VALUES      ('{$login}',
 		header ( 'Location: consultarFuncionario.php' );
 		$_SESSION ['msg'] = 'Registro Salvo Com Sucesso!';
 	} else {
-		echo $sql;
 		header ( 'Location: consultarFuncionario.php' );
 		$_SESSION ['msg'] = 'Registro falhou!';
 	}
