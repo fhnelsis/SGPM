@@ -8,9 +8,6 @@ if (isset ( $_GET ['id'] )) {
 } else {
 	verificarPermissaoPagina ( 'TIPO_ATENDIMENTO_INSERIR' );
 }
-?>
-
-<?php
 
 if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 	$con = mysqli_connect ( "localhost", "root", "", "sgpm" );
@@ -21,8 +18,7 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 	$descricao = $_POST ['descricao'];
 	$data_insercao = $_POST ['data_insercao'];
 	$data_alteracao = $_POST ['data_alteracao'];
-	$data_desativacao = $_POST ['data_desativacao'];
-	
+		
 	if (empty ( $id )) {
 		$sql = "INSERT INTO tipo_atendimento (nome_tipo_atendimento, descricao, data_insercao) 
 				VALUES ('{$nome_tipo_atendimento}', '{$descricao}', NOW())";
