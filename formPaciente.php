@@ -159,8 +159,8 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
             $('input, select, textarea').attr('disabled', true);
         });
 <?php endif; ?>
-
 </script>
+
 <div class="divTudoFormPaciente">
 	<div id="tituloPaginaCadastroAlteracao">
 		<center>

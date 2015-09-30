@@ -3,8 +3,10 @@
 <?php include ('includes/menuBack.php')?>
 <?php
 
-if (isset ( $_GET ['id_funcionario'] )) {
+if (isset ( $_GET ['id'] ) && ! isset ( $_GET ['detalhes'] )) {
 	verificarPermissaoPagina ( 'FUNCIONARIO_ALTERAR' );
+} else if (isset ( $_GET ['id'] ) && isset ( $_GET ['detalhes'] )) {
+	verificarPermissaoPagina ( 'FUNCIONARIO_DETALHES' );
 } else {
 	verificarPermissaoPagina ( 'FUNCIONARIO_INSERIR' );
 }
@@ -160,10 +162,29 @@ $queryTipoSanguineo = mysqli_query ( $con, "SELECT * FROM tipo_sanguineo" );
 $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado asc" );
 ?>
 
+<script>
+<?php if (isset($_GET['detalhes'])): ?>
+        $(document).ready(function() {
+            $('input, select, textarea').attr('disabled', true);
+        });
+<?php endif; ?>
+</script>
+
 <div class="divTudoFormPaciente">
 	<div id="tituloPaginaCadastroAlteracao">
 		<center>
-				<?php echo isset($_GET['id_funcionario']) ? "Alterar Funcionário" : "Cadastrar Funcionário"; ?>
+				<?php
+				if (isset ( $_GET ['id'] ) && ! isset ( $_GET ['detalhes'] )) {
+					echo "Alterar Funcionário";
+				} else if (isset ( $_GET ['id'] ) && isset ( $_GET ['detalhes'] )) {
+					echo "Visualizar Funcionário";
+				} else {
+					echo "Cadastrar Funcionário";
+				}
+				?>
+				
+				
+				
 			</center>
 	</div>
 
@@ -483,13 +504,23 @@ $(document).ready(function(){
 						</tr>
 
 					</table>
-					<br> <input type="hidden" id="id" name="id"
+					<br>
+					
+					
+					
+					
+					
+					
+					
+					<?php if (!isset($_GET['detalhes'])): ?>
+					<input type="hidden" id="id" name="id"
 						value="<?php
 						if (isset ( $dadosFuncionario ['id_funcionario'] )) {
 							echo $dadosFuncionario ['id_funcionario'];
 						}
 						?>" /> <input type="submit" name="enviar" value="ENVIAR"
 						id="enviar_cadastro" />
+						<?php endif; ?>
 				</form>
 			</div>
 		</div>

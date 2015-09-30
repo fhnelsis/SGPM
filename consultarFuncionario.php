@@ -24,8 +24,18 @@
 					<tr>
 						<th>Nome</th>
 						<th>Cargo</th>
-						<th>Edi&#231;&#228;o</th>
-						<th>Exclus&#228;o</th>
+						
+						<?php if (verificarPermissao('FUNCIONARIO_ALTERAR')): ?>
+						<th><center>Edição</center></th>
+						<?php endif; ?>
+						
+						<?php if (verificarPermissao('FUNCIONARIO_DETALHES')): ?>
+						<th><center>Detalhes</center></th>
+						<?php endif; ?>
+						
+						<?php if (verificarPermissao('FUNCIONARIO_EXCLUIR')): ?>
+						<th><center>Exclusão</center></th>
+						<?php endif; ?>
 					</tr>
 				</thead>
 
@@ -45,22 +55,27 @@ while ( $linha = mysqli_fetch_array ( $query ) ) {
 						<td><?php echo $linha['nome_funcionario']; ?></td>
 						<td><?php echo $linha['nome_tipo']; ?></td>
 						
+						<?php if (verificarPermissao('FUNCIONARIO_ALTERAR')): ?>
 						<td>
-							<?php if (verificarPermissao('FUNCIONARIO_ALTERAR')): ?>
-                            <center><a href="formFuncionario.php?id_funcionario=<?php echo $linha['id_funcionario']; ?>">Editar</a></center>
-                            <?php endif; ?>
+						<center><a href="formFuncionario.php?id_funcionario=<?php echo $linha['id_funcionario']; ?>">Editar</a></center>
+						</td>
+                        <?php endif; ?>
                             
-                                                    <?php if (verificarPermissao('FUNCIONARIO_DETALHES')): ?>
-                            <a href="formFuncionario.php?id=<?php echo $linha['id_funcionario']; ?>&detalhes=1">Detalhes</a>
+						<?php if (verificarPermissao('FUNCIONARIO_DETALHES')): ?>
+						<td>
+                        <center><a href="formFuncionario.php?id=<?php echo $linha['id_funcionario']; ?>&detalhes=1">Detalhes</a></center>
+                        </td>
                         <?php endif; ?>
                        
-                        	<?php if (verificarPermissao('FUNCIONARIO_ALTERAR')): ?>
-                            <center><a href="excluirFuncionario.php?id_exclusao=<?php echo $linha['id_funcionario']; ?>">Excluir</a></center>
-                            <?php endif; ?>
+                        <?php if (verificarPermissao('FUNCIONARIO_EXCLUIR')): ?>
+                        <td>
+                        <center><a href="excluirFuncionario.php?id_exclusao=<?php echo $linha['id_funcionario']; ?>">Excluir</a></center>
                         </td>
+                        <?php endif; ?>
+                        
 <?php }?>
 
-                	</tr>
+              	   </tr>
 				</tbody>
 			</table>
 		</div>
