@@ -9,12 +9,8 @@
     </script>
 
 <div class="divTudoConsultarPaciente">
-
-
-	<div id="tituloPagina">Buscar Funcion&#225;rio</div>
-
+	<div id="tituloPagina">Buscar Funcionário</div>
 	<div id="formBuscaPaciente">
-
 
 		<div class="content-dataTable"
 			style="width: 80%; margin: 0 auto; margin-top: -70px; margin-right: 70px">
@@ -45,22 +41,26 @@ $query = mysqli_query ( $con, "SELECT fun.*, tp_fun.nome_tipo FROM funcionario f
 while ( $linha = mysqli_fetch_array ( $query ) ) {
 	?>
 
-                                            <tr>
+             	   <tr>
 						<td><?php echo $linha['nome_funcionario']; ?></td>
-						<td><center><?php echo $linha['nome_tipo']; ?></center></td>
+						<td><?php echo $linha['nome_tipo']; ?></td>
+						
 						<td>
-                                                    <?php if (verificarPermissao('FUNCIONARIO_ALTERAR')): ?>
-                                                        <center><a href="formFuncionario.php?id_funcionario=<?php echo $linha['id_funcionario']; ?>">Editar</a></center>
-                                                    <?php endif; ?>
-                                                </td>
-						<td>
-                                                    <?php if (verificarPermissao('FUNCIONARIO_ALTERAR')): ?>
-                                                        <center><a href="excluirFuncionario.php?id_exclusao=<?php echo $linha['id_funcionario']; ?>">Excluir</a></center>
-                                                    <?php endif; ?>
-                                                </td>
+							<?php if (verificarPermissao('FUNCIONARIO_ALTERAR')): ?>
+                            <center><a href="formFuncionario.php?id_funcionario=<?php echo $linha['id_funcionario']; ?>">Editar</a></center>
+                            <?php endif; ?>
+                            
+                                                    <?php if (verificarPermissao('FUNCIONARIO_DETALHES')): ?>
+                            <a href="formFuncionario.php?id=<?php echo $linha['id_funcionario']; ?>&detalhes=1">Detalhes</a>
+                        <?php endif; ?>
+                       
+                        	<?php if (verificarPermissao('FUNCIONARIO_ALTERAR')): ?>
+                            <center><a href="excluirFuncionario.php?id_exclusao=<?php echo $linha['id_funcionario']; ?>">Excluir</a></center>
+                            <?php endif; ?>
+                        </td>
 <?php }?>
 
-                                            </tr>
+                	</tr>
 				</tbody>
 			</table>
 		</div>

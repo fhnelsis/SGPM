@@ -9,12 +9,8 @@
     
 </script>
 <div class="divTudoConsultarAtendimento">
-
-
     <div id="tituloPagina">Buscar Atendimento</div>
-
-    <div id="formBuscaAtendimento">
-
+	    <div id="formBuscaAtendimento">
 
         <div class="content-dataTable"
              style="width: 80%; margin: 0 auto; margin-top: -70px; margin-right: 70px">
@@ -44,20 +40,20 @@
                     while ($linha = mysqli_fetch_array($query)) {
                         ?>
 
-                        <tr>
+                <tr>
                             <td><?php echo $linha['nome_paciente']; ?></td>
                             <td><?php echo $linha['data_atendimento']; ?></td>
                     <td>
-                        <?php if (verificarPermissao('ATENDIMENTO_ALTERAR')): ?>
-                            <a href="formAtendimento.php?id=<?php echo $linha['id_atendimento']; ?>">Editar</a>
+                        <?php if (verificarPermissao('ATENDIMENTO_DETALHES')): ?>
+                        <a href="formAtendimento.php?id=<?php echo $linha['id_atendimento']; ?>&detalhes=1">Detalhes</a>
                         <?php endif; ?>
                         
-                        <?php if (verificarPermissao('ATENDIMENTO_DETALHES')): ?>
-                            <a href="formAtendimento.php?id=<?php echo $linha['id_atendimento']; ?>&detalhes=1">Detalhes</a>
+                        <?php if (verificarPermissao('ATENDIMENTO_ALTERAR')): ?>
+                        <a href="formAtendimento.php?id=<?php echo $linha['id_atendimento']; ?>">Editar</a>
                         <?php endif; ?>
-                            
+                                                   
                         <?php if (verificarPermissao('ATENDIMENTO_EXCLUIR')): ?>
-                            <a href="excluirAtendimento.php?id_excluido=<?php echo $linha['id_atendimento']; ?>">Excluir</a>
+                        <a href="excluirAtendimento.php?id_excluido=<?php echo $linha['id_atendimento']; ?>">Excluir</a>
                         <?php endif; ?>
                     </td>
                    
