@@ -40,29 +40,37 @@ $con = mysqli_connect ( "localhost", "root", "", "sgpm" );
 mysqli_set_charset ( $con, "utf8" );
 
 // Verificar essa query. Saber de onde ela pega o POST para a busca.
-$ubs_logada = $_SESSION['LOGIN'] ['UBS'];
-$ubs_logada = $_SESSION['LOGIN'] ['UBS'];
+$ubs_logada = $_SESSION ['LOGIN'] ['UBS'];
+$tipo_funcionario_logado = $_SESSION ['LOGIN'] ['TIPO_FUNCIONARIO'];
 
-if ($ubs_logada = )
-$query = mysqli_query ( $con, "SELECT * FROM paciente where id_ubs = '".$ubs_logada."'");
-
+if ($tipo_funcionario_logado == 1) {
+	$query = mysqli_query ( $con, "SELECT * FROM paciente");
+} else {
+	$query = mysqli_query ( $con, "SELECT * FROM paciente where id_ubs = '" . $ubs_logada . "'" );
+}
 
 while ( $linha = mysqli_fetch_array ( $query ) ) {
-		?>
+	?>
 
                             <tr>
 						<td><?php echo $linha['nome_paciente']; ?></td>
 						<td><?php echo $linha['cpf']; ?></td>
-						
+
 						<td>
                         	<?php if (verificarPermissao('PACIENTE_ALTERAR')): ?>
-                            	<center><a href="formPaciente.php?id=<?php echo $linha['id_paciente']; ?>">Editar</a></center>
+                            	<center>
+								<a
+									href="formPaciente.php?id=<?php echo $linha['id_paciente']; ?>">Editar</a>
+							</center>
                             <?php endif; ?>
                         </td>
-						
+
 						<td>
                         	<?php if (verificarPermissao('PACIENTE_EXCLUIR')): ?>
-                            	<center><a href="excluirPaciente.php?id_exclusao=<?php echo $linha['id_paciente']; ?>">Excluir</a></center>
+                            	<center>
+								<a
+									href="excluirPaciente.php?id_exclusao=<?php echo $linha['id_paciente']; ?>">Excluir</a>
+							</center>
                             <?php endif; ?>
 						</td>
 						

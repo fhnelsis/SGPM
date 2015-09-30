@@ -38,6 +38,7 @@ try {
 	// $_SESSION['LOGIN']['CODIGO']= $consulta['idadmin'];
 	$_SESSION ['LOGIN'] ['NOME'] = $consulta ['nome_funcionario'];
 	$_SESSION ['LOGIN'] ['CARGO'] = $consulta ['nome_tipo'];
+	$_SESSION ['LOGIN'] ['TIPO_FUNCIONARIO'] = $consulta ['id_tipo_funcionario'];
 	$_SESSION ['LOGIN'] ['USUARIO'] = $consulta ['login'];
 	$_SESSION ['LOGIN'] ['UBS'] = $consulta ['id_ubs'];
 	
