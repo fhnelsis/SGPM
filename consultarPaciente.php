@@ -27,8 +27,19 @@
 					<tr>
 						<th>Nome</th>
 						<th>CPF</th>
+						
+						<?php if (verificarPermissao('PACIENTE_DETALHES')): ?>
+						<th><center>Detalhes</center></th>
+						<?php endif; ?>
+						
+						<?php if (verificarPermissao('PACIENTE_ALTERAR')): ?>
 						<th><center>Edição</center></th>
+						<?php endif; ?>
+						
+						
+						<?php if (verificarPermissao('PACIENTE_EXCLUIR')): ?>
 						<th><center>Exclusão</center></th>
+						<?php endif; ?>
 					</tr>
 				</thead>
 
@@ -52,30 +63,29 @@ if ($tipo_funcionario_logado == 1) {
 while ( $linha = mysqli_fetch_array ( $query ) ) {
 	?>
 
-                            <tr>
-						<td><?php echo $linha['nome_paciente']; ?></td>
-						<td><?php echo $linha['cpf']; ?></td>
+	<tr>
+		<td><?php echo $linha['nome_paciente']; ?></td>
+		<td><?php echo $linha['cpf']; ?></td>
 
-						<td>
-                        	<?php if (verificarPermissao('PACIENTE_ALTERAR')): ?>
-                            	<center>
-								<a
-									href="formPaciente.php?id=<?php echo $linha['id_paciente']; ?>">Editar</a>
-							</center>
-                            <?php endif; ?>
-                        </td>
+            <?php if (verificarPermissao('PACIENTE_DETALHES')): ?>
+            <td>
+			<center><a href="formPaciente.php?id=<?php echo $linha['id_paciente']; ?>&detalhes=1">Detalhes</a></center>
+            </td>
+            <?php endif; ?>
+            
+			<?php if (verificarPermissao('PACIENTE_ALTERAR')): ?>
+			<td>
+			<center><a href="formPaciente.php?id=<?php echo $linha['id_paciente']; ?>">Editar</a></center>
+            </td>
+            <?php endif; ?>
 
-						<td>
-                        	<?php if (verificarPermissao('PACIENTE_EXCLUIR')): ?>
-                            	<center>
-								<a
-									href="excluirPaciente.php?id_exclusao=<?php echo $linha['id_paciente']; ?>">Excluir</a>
-							</center>
-                            <?php endif; ?>
-						</td>
-						
+			<?php if (verificarPermissao('PACIENTE_EXCLUIR')): ?>
+			<td>            
+            <center><a href="excluirPaciente.php?id_exclusao=<?php echo $linha['id_paciente']; ?>">Excluir</a></center>
+			</td>
+			<?php endif; ?>
+					
 <?php }?>
-
 						</tr>
 				</tbody>
 			</table>
