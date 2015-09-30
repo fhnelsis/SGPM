@@ -31,7 +31,7 @@ try {
 	} else
 		header ( 'Location: visualizarPaciente.php' );
 		
-		// Pega a linha da mem�ria
+		// Pega a linha da memória
 	$consulta = mysqli_fetch_array ( $sql );
 } catch ( Exception $e ) {
 	echo "<script>alert('" . $e->getMessage () . "');</script>";

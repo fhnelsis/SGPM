@@ -1,5 +1,7 @@
-<?php session_start(); ?>
-<?php include ('includes/funcoes_permissao.php'); ?>
+<?php
+session_start ();
+include ('includes/funcoes_permissao.php');
+?>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,6 +19,7 @@
 <script type="text/javascript" language="javascript" src="js/menu.js"></script>
 <script type="text/javascript" src="jquery.js"></script>
 
+
 </head>
 
 <body style="background-image: url(img/background_su.jpg);">
@@ -25,7 +28,7 @@
 			class="logo"></a>
             <?php if (isset($_SESSION['LOGIN'])): ?>
                 <div class="apresentacao">
-			<strong>Bem-vindo, <?php echo $_SESSION['LOGIN']['NOME'] . " - " . $_SESSION['LOGIN']['CARGO']; ?></strong>
+			<strong>Bem-vindo, <?php echo $_SESSION ['LOGIN'] ['NOME'] . " - " . $_SESSION ['LOGIN'] ['CARGO']; ?></strong>
 		</div>
 		<div class="wrapLogoutButton">
 			<a class="logoutButton" href="logout.php">Logout</a>

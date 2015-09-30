@@ -208,8 +208,8 @@ $(document).ready(function(){
 					<table width="100%">
 						<tr>
 							<td><label for="cpf">CPF:</label></td>
-							<td><input style="width: 120px; margin-top: 5px;" type="text"
-								name="cpf_paciente" class="cpf" id="cpf_paciente" maxlength="15"
+							<td><input style="width: 150px; margin-top: 5px;" type="text"
+								name="cpf_paciente" class="cpf" id="cpf_paciente" maxlength="15" placeholder="CPF do paciente"
 								value="<?php
 								if (isset ( $dadosAtendimento ['cpf_paciente'] )) {
 									echo $dadosAtendimento ['cpf_paciente'];

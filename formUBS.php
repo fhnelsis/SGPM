@@ -64,7 +64,7 @@ if (isset ( $_GET ['id'] )) {
 						<tr>
 							<br />
 							<td><label for="ubs_atendimento" style="width: 250px;">Nome da UBS:</label></td>
-							<td><input style="width: 300px; margin-bottom: 5px;" type="text"
+							<td><input style="width: 300px; margin-bottom: 5px;" type="text" placeholder="Nome da UBS de Atendimento"
 								name="ubs_atendimento" id="ubs_atendimento"
 								maxlength="50"
 								value="<?php
@@ -92,7 +92,7 @@ if (isset ( $_GET ['id'] )) {
 							<br />
 							<td><label for="telefone">Telefone:</label></td>
 							<td><input style="width: 150px; margin-bottom: 5px;" type="text"
-								name="telefone" id="telefone" maxlength="10"
+								name="telefone" id="telefone" maxlength="10" 
 								value="<?php
 								
 								if (isset ( $dadosUBS ['telefone'] )) {
