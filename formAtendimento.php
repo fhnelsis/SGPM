@@ -85,7 +85,7 @@ mysqli_set_charset ( $con, "utf8" );
 $queryTipos = mysqli_query ( $con, "SELECT * FROM tipo_atendimento" );
 
 // Busca os funcionÃ¡rios
-$queryFuncionario = mysqli_query ( $con, "SELECT * FROM funcionario" );
+$queryFuncionario = mysqli_query ( $con, "SELECT * FROM funcionario where id_tipo_funcionario not in (1)" );
 ?>
 
 <script type="text/javascript">
@@ -166,12 +166,7 @@ $queryFuncionario = mysqli_query ( $con, "SELECT * FROM funcionario" );
             }
 
             $('form').submit();
-
-
         });
-
-
-
     }
 
 <?php if (isset($_GET['detalhes'])): ?>
@@ -196,6 +191,15 @@ $queryFuncionario = mysqli_query ( $con, "SELECT * FROM funcionario" );
 												?>
         </center>
 	</div>
+	
+	<script type="text/javascript">
+$(document).ready(function(){
+	    $("input.cpf").mask("999.999.999-99");
+        $("input.cep").mask("99999-999");
+        $("input.telefone").mask('(99) 9999-9999');
+});
+
+</script>
 
 	<center>
 		<div id="formConsultaAtendimento">
@@ -204,8 +208,8 @@ $queryFuncionario = mysqli_query ( $con, "SELECT * FROM funcionario" );
 					<table width="100%">
 						<tr>
 							<td><label for="cpf">CPF:</label></td>
-							<td><input style="width: 150px; margin-top: 5px;" type="text"
-								name="cpf_paciente" id="cpf_paciente" maxlength="11"
+							<td><input style="width: 120px; margin-top: 5px;" type="text"
+								name="cpf_paciente" class="cpf" id="cpf_paciente" maxlength="15"
 								value="<?php
 								if (isset ( $dadosAtendimento ['cpf_paciente'] )) {
 									echo $dadosAtendimento ['cpf_paciente'];
@@ -217,7 +221,7 @@ $queryFuncionario = mysqli_query ( $con, "SELECT * FROM funcionario" );
 						<tr>
 							<td><label for="id_tipo_atendimento">Tipo Atendimento:</label></td>
 							<td><select name="id_tipo_atendimento" id="id_tipo_atendimento"
-								style="margin-top: 5px;">
+								style="width: 200px; margin-top: 5px;">
 									<option value="" selected></option>
                                     <?php while ($linhaAtendimento = mysqli_fetch_array($queryTipos)): ?>
                                         <option
@@ -228,11 +232,11 @@ $queryFuncionario = mysqli_query ( $con, "SELECT * FROM funcionario" );
                                 </select></td>
 						</tr>
 
-						<!-- FuncionÃ¡rio  -->
+						<!-- Funcionário  -->
 						<tr>
 							<td><label for="id_funcionario">Funcionário:</label></td>
 							<td><select name="id_funcionario" id="id_funcionario"
-								style="margin-top: 5px;">
+								style="width: 300px; margin-top: 5px;">
 									<option value="" selected></option>
                                     <?php while ($linhaFuncionario = mysqli_fetch_array($queryFuncionario)): ?>
                                         <option
@@ -293,7 +297,7 @@ $queryFuncionario = mysqli_query ( $con, "SELECT * FROM funcionario" );
 								value="<?php echo isset($dadosAtendimento['queixa_principal']) ? $dadosAtendimento['queixa_principal'] : ""; ?>" /></td>
 						</tr>
 
-						<!-- HistÃ³rico Molestia -->
+						<!-- Histórico Molestia -->
 						<tr>
 							<td><label for="hist_molestia">Histórico Molestia:</label></td>
 							<td><input style="width: 400px; margin-top: 5px;" type="text"
@@ -302,10 +306,10 @@ $queryFuncionario = mysqli_query ( $con, "SELECT * FROM funcionario" );
 						</tr>
 
 
-						<!-- Frequencia Cardiaca -->
+						<!-- Frequência Cardíaca -->
 						<tr>
 							<td><label for="frequencia_cardiaca">Frequência Cardíaca:</label></td>
-							<td><input style="width: 400px; margin-top: 5px;" type="text"
+							<td><input style="width: 70px; margin-top: 5px;" type="text"
 								name="frequencia_cardiaca" id="frequencia_cardiaca"
 								maxlength="10"
 								value="<?php echo isset($dadosAtendimento['frequencia_cardiaca']) ? $dadosAtendimento['frequencia_cardiaca'] : ""; ?>" /></td>
@@ -314,31 +318,31 @@ $queryFuncionario = mysqli_query ( $con, "SELECT * FROM funcionario" );
 						<!-- Ritmo Cardiaco -->
 						<tr>
 							<td><label for="ritmo_cardiaco">Ritmo Cardíaco:</label></td>
-							<td><input style="width: 400px; margin-top: 5px;" type="text"
+							<td><input style="width: 70px; margin-top: 5px;" type="text"
 								name="ritmo_cardiaco" id="ritmo_cardiaco" maxlength="10"
 								value="<?php echo isset($dadosAtendimento['ritmo_cardiaco']) ? $dadosAtendimento['ritmo_cardiaco'] : ""; ?>" /></td>
 						</tr>
 
-						<!-- PressÃ£o Arterial -->
+						<!-- Pressão Arterial -->
 						<tr>
 							<td><label for="pressao_arterial">Pressão Arterial:</label></td>
-							<td><input style="width: 400px; margin-top: 5px;" type="text"
+							<td><input style="width: 70px; margin-top: 5px;" type="text"
 								name="pressao_arterial" id="pressao_arterial" maxlength="10"
 								value="<?php echo isset($dadosAtendimento['pressao_arterial']) ? $dadosAtendimento['pressao_arterial'] : ""; ?>" /></td>
 						</tr>
 
-						<!-- Ritmo RespiratÃ³rio -->
+						<!-- Ritmo Respiratório -->
 						<tr>
 							<td><label for="ritmo_respiratorio">Ritmo Respiratório:</label></td>
-							<td><input style="width: 400px; margin-top: 5px;" type="text"
+							<td><input style="width: 100px; margin-top: 5px;" type="text"
 								name="ritmo_respiratorio" id="ritmo_respiratorio" maxlength="10"
 								value="<?php echo isset($dadosAtendimento['ritmo_respiratorio']) ? $dadosAtendimento['ritmo_respiratorio'] : ""; ?>" /></td>
 						</tr>
 
-						<!-- ObservaÃ§Ãµes -->
+						<!-- Observações -->
 						<tr>
 							<td><label for="observacoes">Observações:</label></td>
-							<td><textarea cols="50" maxlength="300" name="observacoes"
+							<td><textarea cols="70" maxlength="300" name="observacoes"
 									id="observacoes" style="height: 100px; margin-top: 10px;">
                                     <?php echo isset($dadosAtendimento['observacoes']) ? $dadosAtendimento['observacoes'] : ""; ?>
                                 </textarea></td>
