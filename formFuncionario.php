@@ -69,8 +69,8 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
              tel_cel, 
              tel_fixo
             ) 
-VALUES      ('{$login}', 
-             '{$senha}', 
+VALUES      ('{$login}',
+			 md5('{$senha}'),
              " . $id_tipo_funcionario . ",
              '{$nome_funcionario}', 
              '{$cpf}', 
@@ -97,7 +97,7 @@ VALUES      ('{$login}',
 	} else {
 		$sql = "UPDATE funcionario 
 					SET    login = '{$login}', 
-					       senha = '{$senha}', 
+					       senha = md5('{$senha}'),
 						   id_tipo_funcionario = " . $id_tipo_funcionario . ",
 					       nome_funcionario = '{$nome_funcionario}',
 					       cpf = '{$cpf}', 
@@ -198,8 +198,8 @@ $(document).ready(function(){
 						<!-- Senha  -->
 						<tr>
 							<td><label for="senha">Senha:</label></td>
-							<td><input style="width: 150px; margin-bottom: 5px;"
-								type="password" name="senha" id="senha" maxlength="15"
+							<td><input style="width: 230px; margin-bottom: 5px;"
+								type="password" name="senha" id="senha" maxlength="40"
 								value="<?php
 								if (isset ( $dadosFuncionario ['senha'] )) {
 									echo $dadosFuncionario ['senha'];
