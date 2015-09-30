@@ -41,6 +41,7 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 	$tel_contato = $_POST ['tel_contato'];
 	
 	if (empty ( $id )) {
+		mysqli_set_charset ( $con, "utf8" );
 		$sql = "INSERT INTO paciente (nome_paciente,
 									  cpf,
 									  rg,
@@ -88,6 +89,7 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 										'{$tel_fixo}',
 										'{$tel_contato}')";
 	} else {
+		mysqli_set_charset ( $con, "utf8" );
 		$sql = "UPDATE paciente 
 					SET    nome_paciente = '{$nome_paciente}',
 						   cpf = '{$cpf}', 
@@ -119,7 +121,6 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 		$_SESSION ['msg'] = 'Registro Salvo Com Sucesso!';
 		header ( 'Location: consultarPaciente.php' );
 	} else {
-		echo $sql;
 		$_SESSION ['msg'] = 'Registro falhou!';
 		header ( 'Location: consultarPaciente.php' );
 	}
@@ -157,6 +158,15 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 			</center>
 	</div>
 
+	<script type="text/javascript">
+$(document).ready(function(){
+	    $("input.cpf").mask("999.999.999-99");
+        $("input.cep").mask("99999-999");
+        $("input.telefone").mask('(99) 9999-9999');
+});
+
+</script>
+
 	<center>
 		<div id="formAlteraPaciente">
 			<div class="content-dataTable" style="width: 40%; margin: 0 auto">
@@ -180,7 +190,7 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 						<tr>
 							<td><label for="cpf">CPF:</label></td>
 							<td><input style="width: 150px; margin-bottom: 5px;" type="text"
-								name="cpf" id="cpf" maxlength="11"
+								name="cpf" class="cpf" id="cpf" maxlength="11"
 								value="<?php
 								if (isset ( $dadosPaciente ['cpf'] )) {
 									echo $dadosPaciente ['cpf'];
@@ -268,7 +278,7 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 						<tr>
 							<td><label for="cep" style="width: 100px">CEP:</label></td>
 							<td><input style="width: 160px; margin-bottom: 5px;" type="text"
-								name="cep" id="cep" maxlength="9"
+								name="cep" class="cep" id="cep" maxlength="9"
 								value="<?php
 								if (isset ( $dadosPaciente ['cep'] )) {
 									echo $dadosPaciente ['cep'];
@@ -421,9 +431,9 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 
 						<!--  Telefone Celular  -->
 						<tr>
-							<td><label for="tel_cel" style="width: 140px">Telefone Celular:</label></td>
-							<td><input style="width: 100px; margin-bottom: 5px;" type="text"
-								name="tel_cel" id="tel_cel" maxlength="10"
+							<td><label for="tel_cel" style="width: 180px">Telefone Celular:</label></td>
+							<td><input style="width: 150px; margin-bottom: 5px;" type="text"
+								name="tel_cel" class="telefone" id="tel_cel" maxlength="15"
 								value="<?php
 								
 								if (isset ( $dadosPaciente ['tel_cel'] )) {
@@ -434,9 +444,9 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 
 						<!--  Telefone Fixo -->
 						<tr>
-							<td><label for="tel_fixo" style="width: 140px">Telefone Fixo:</label></td>
-							<td><input style="width: 100px; margin-bottom: 5px;" type="text"
-								name="tel_fixo" id="tel_cel" maxlength="10"
+							<td><label for="tel_fixo" style="width: 180px">Telefone Fixo:</label></td>
+							<td><input style="width: 150px; margin-bottom: 5px;" type="text"
+								name="tel_fixo" class="telefone" id="tel_cel" maxlength="15"
 								value="<?php
 								
 								if (isset ( $dadosPaciente ['tel_fixo'] )) {
@@ -447,10 +457,11 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 
 						<!--  Telefone Contato  -->
 						<tr>
-							<td><label for="tel_contato" style="width: 140px">Telefone
+							<td><label for="tel_contato" style="width: 180px">Telefone
 									Contato:</label></td>
-							<td><input style="width: 100px; margin-bottom: 5px;" type="text"
-								name="tel_contato" id="tel_contato" maxlength="10"
+							<td><input style="width: 150px; margin-bottom: 5px;" type="text"
+								name="tel_contato" class="telefone" id="tel_contato"
+								maxlength="15"
 								value="<?php
 								
 								if (isset ( $dadosPaciente ['tel_contato'] )) {
