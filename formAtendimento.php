@@ -191,7 +191,7 @@ $queryFuncionario = mysqli_query ( $con, "SELECT * FROM funcionario where id_tip
 												?>
         </center>
 	</div>
-	
+
 	<script type="text/javascript">
 $(document).ready(function(){
 	    $("input.cpf").mask("999.999.999-99");
