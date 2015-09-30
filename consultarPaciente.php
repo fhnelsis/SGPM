@@ -27,8 +27,8 @@
 					<tr>
 						<th>Nome</th>
 						<th>CPF</th>
-						<th><center>Edi&#231;&#228;o</center></th>
-						<th><center>Exclus&#228;o</center></th>
+						<th><center>Edição</center></th>
+						<th><center>Exclusão</center></th>
 					</tr>
 				</thead>
 
@@ -40,9 +40,15 @@ $con = mysqli_connect ( "localhost", "root", "", "sgpm" );
 mysqli_set_charset ( $con, "utf8" );
 
 // Verificar essa query. Saber de onde ela pega o POST para a busca.
-$query = mysqli_query ( $con, "SELECT * FROM paciente" );
+$ubs_logada = $_SESSION['LOGIN'] ['UBS'];
+$ubs_logada = $_SESSION['LOGIN'] ['UBS'];
+
+if ($ubs_logada = )
+$query = mysqli_query ( $con, "SELECT * FROM paciente where id_ubs = '".$ubs_logada."'");
+
+
 while ( $linha = mysqli_fetch_array ( $query ) ) {
-	?>
+		?>
 
                             <tr>
 						<td><?php echo $linha['nome_paciente']; ?></td>

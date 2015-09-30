@@ -39,6 +39,7 @@ try {
 	$_SESSION ['LOGIN'] ['NOME'] = $consulta ['nome_funcionario'];
 	$_SESSION ['LOGIN'] ['CARGO'] = $consulta ['nome_tipo'];
 	$_SESSION ['LOGIN'] ['USUARIO'] = $consulta ['login'];
+	$_SESSION ['LOGIN'] ['UBS'] = $consulta ['id_ubs'];
 	
 	// Cria o array que receberá as permissões do usuário
 	$arrayPermissoes = array ();

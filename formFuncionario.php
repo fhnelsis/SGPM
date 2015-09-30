@@ -186,7 +186,7 @@ $(document).ready(function(){
 						<tr>
 							<br />
 							<td><label for="login">Login:</label></td>
-							<td><input style="width: 150px; margin-bottom: 5px;" type="text"
+							<td><input style="width: 230px; margin-bottom: 5px;" type="text"
 								name="login" id="login" maxlength="30"
 								value="<?php
 								if (isset ( $dadosFuncionario ['login'] )) {
