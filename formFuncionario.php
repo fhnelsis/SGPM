@@ -166,6 +166,16 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 				<?php echo isset($_GET['id_funcionario']) ? "Alterar Funcionário" : "Cadastrar Funcionário"; ?>
 			</center>
 	</div>
+
+	<script type="text/javascript">
+$(document).ready(function(){
+	    $("input.cpf").mask("999.999.999-99");
+        $("input.cep").mask("99999-999");
+        $("input.telefone").mask('(99) 9999-9999');
+});
+
+</script>
+
 	<center>
 		<div id="formAlteraPaciente">
 			<div class="content-dataTable" style="width: 40%; margin: 0 auto">
@@ -220,14 +230,16 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 							</td>
 						</tr>
 
+						<!-- CPF -->
 						<tr>
 							<td><label for="cpf">CPF:</label></td>
 							<td><input style="margin-bottom: 5px;" type="text" name="cpf"
-								id="cpf" maxlength="11"
+								id="cpf" maxlength="15" class="cpf"
 								value="<?php if (isset ( $dadosFuncionario ['cpf'] )) { echo $dadosFuncionario ['cpf'];}?>" />
 							</td>
 						</tr>
 
+						<!-- RG -->
 						<tr>
 							<td><label for="rg">RG:</label></td>
 							<td><input style="margin-bottom: 5px;" type="text" name="rg"
@@ -303,7 +315,7 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 						<tr>
 							<td><label for="cep" style="width: 100px">CEP:</label></td>
 							<td><input style="width: 160px; margin-bottom: 5px;" type="text"
-								name="cep" id="cep" maxlength="9"
+								name="cep" id="cep" maxlength="9" class="cep"
 								value="<?php
 								
 								if (isset ( $dadosFuncionario ['cep'] )) {
@@ -449,8 +461,8 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 						<!-- Telefone Celular  -->
 						<tr>
 							<td><label for="tel_cel" style="width: 140px">Telefone Celular:</label></td>
-							<td><input style="width: 100px; margin-bottom: 5px;" type="text"
-								name="tel_cel" id="tel_cel" maxlength="10"
+							<td><input style="width: 150px; margin-bottom: 5px;" type="text"
+								name="tel_cel" id="tel_cel" maxlength="15" class="telefone"
 								value="<?php
 								if (isset ( $dadosFuncionario ['tel_cel'] )) {
 									echo $dadosFuncionario ['tel_cel'];
@@ -461,8 +473,8 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 						<!-- Telefone Fixo  -->
 						<tr>
 							<td><label for="tel_fixo" style="width: 140px">Telefone Fixo:</label></td>
-							<td><input style="width: 100px; margin-bottom: 5px;" type="text"
-								name="tel_fixo" id="tel_cel" maxlength="10"
+							<td><input style="width: 150px; margin-bottom: 5px;" type="text"
+								name="tel_fixo" id="tel_cel" maxlength="15" class="telefone"
 								value="<?php
 								if (isset ( $dadosFuncionario ['tel_fixo'] )) {
 									echo $dadosFuncionario ['tel_fixo'];
