@@ -24,7 +24,15 @@
                     <tr>
                         <th>Paciente</th>
                         <th>Data do Atendimento</th>
-                        <th>Visualizar</th>
+                        <?php if (verificarPermissao('ATENDIMENTO_DETALHES')): ?>
+                        <th><center>Detalhes</center></th>
+                        <?php endif; ?>
+                        <?php if (verificarPermissao('ATENDIMENTO_ALTERAR')): ?>
+                        <th><center>Edição</center></th>
+                        <?php endif; ?>
+                        <?php if (verificarPermissao('ATENDIMENTO_EXCLUIR')): ?>
+                        <th><center>Exclusão</center></th>
+                        <?php endif; ?>
                     </tr>
                 </thead>
 
@@ -41,23 +49,27 @@
                         ?>
 
                 <tr>
-                            <td><?php echo $linha['nome_paciente']; ?></td>
-                            <td><?php echo $linha['data_atendimento']; ?></td>
+                   <td><?php echo $linha['nome_paciente']; ?></td>
+                   <td><?php echo $linha['data_atendimento']; ?></td>
+                    
+                    <?php if (verificarPermissao('ATENDIMENTO_DETALHES')): ?>
                     <td>
-                        <?php if (verificarPermissao('ATENDIMENTO_DETALHES')): ?>
-                        <a href="formAtendimento.php?id=<?php echo $linha['id_atendimento']; ?>&detalhes=1">Detalhes</a>
-                        <?php endif; ?>
-                        
-                        <?php if (verificarPermissao('ATENDIMENTO_ALTERAR')): ?>
-                        <a href="formAtendimento.php?id=<?php echo $linha['id_atendimento']; ?>">Editar</a>
-                        <?php endif; ?>
-                                                   
-                        <?php if (verificarPermissao('ATENDIMENTO_EXCLUIR')): ?>
-                        <a href="excluirAtendimento.php?id_excluido=<?php echo $linha['id_atendimento']; ?>">Excluir</a>
-                        <?php endif; ?>
+                    <center><a href="formAtendimento.php?id=<?php echo $linha['id_atendimento']; ?>&detalhes=1">Detalhes</a></center>
                     </td>
-                   
-                    </center>
+                    <?php endif; ?>
+                        
+                    <?php if (verificarPermissao('ATENDIMENTO_ALTERAR')): ?>
+                    <td>
+                    <center><a href="formAtendimento.php?id=<?php echo $linha['id_atendimento']; ?>">Editar</a></center>
+                    </td>
+                    <?php endif; ?>
+                                                   
+                    <?php if (verificarPermissao('ATENDIMENTO_EXCLUIR')): ?>
+                    <td>
+                    <center><a href="excluirAtendimento.php?id_excluido=<?php echo $linha['id_atendimento']; ?>">Excluir</a></center>
+                    </td>
+                    <?php endif; ?>
+                    
                 <?php } ?>
 
                 </tr>
