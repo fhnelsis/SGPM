@@ -8,17 +8,14 @@
 <link rel="stylesheet" type="text/css" href="css/dataTables.css">
 <link rel="stylesheet" type="text/css" href="css/menu.css">
 
-<script type="text/javascript" language="javascript"
-	src="js/jquery-1.11.2.min.js"></script>
-<script type="text/javascript" language="javascript"
-	src="js/dataTables.js"></script>
-<script type="text/javascript" language="javascript"
-	src="js/highchart/highcharts.js"></script>
-<script type="text/javascript" language="javascript"
-	src="js/highchart/highcharts-3d.js"></script>
-<script type="text/javascript" language="javascript"
-	src="js/highchart/modules/exporting.js"></script>
+<script type="text/javascript" language="javascript" src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" language="javascript" src="js/jquery.maskedinput.js"></script>
+<script type="text/javascript" language="javascript" src="js/dataTables.js"></script>
+<script type="text/javascript" language="javascript" src="js/highchart/highcharts.js"></script>
+<script type="text/javascript" language="javascript" src="js/highchart/highcharts-3d.js"></script>
+<script type="text/javascript" language="javascript" src="js/highchart/modules/exporting.js"></script>
 <script type="text/javascript" language="javascript" src="js/menu.js"></script>
+<script type="text/javascript" src="jquery.js"></script>
 
 </head>
 
