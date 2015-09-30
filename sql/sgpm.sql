@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 29-Set-2015 às 21:15
+-- Generation Time: 30-Set-2015 às 18:36
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -47,7 +47,14 @@ CREATE TABLE IF NOT EXISTS `atendimento` (
   KEY `id_atendimento` (`id_atendimento`),
   KEY `FK_tipo_atendimento` (`id_tipo_atendimento`),
   KEY `FK_funcionario_atendimento` (`id_funcionario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Extraindo dados da tabela `atendimento`
+--
+
+INSERT INTO `atendimento` (`id_atendimento`, `id_tipo_atendimento`, `id_paciente`, `id_funcionario`, `data_atendimento`, `fumante`, `alcool`, `alergia_reac_div`, `sintomas`, `queixa_principal`, `hist_molestia`, `frequencia_cardiaca`, `ritmo_cardiaco`, `pressao_arterial`, `ritmo_respiratorio`, `observacoes`) VALUES
+(1, 8, 115, 38, '2015-09-30', '1', '0', '123123', '12312312', '3123123', '12312312', '1321322', '123', '12312', '312312', '112323                                                               ');
 
 -- --------------------------------------------------------
 
@@ -202,10 +209,10 @@ INSERT INTO `funcionalidades` (`id_funcionalidade`, `sigla_funcionalidade`, `nom
 CREATE TABLE IF NOT EXISTS `funcionario` (
   `id_funcionario` int(4) NOT NULL AUTO_INCREMENT,
   `login` varchar(30) NOT NULL,
-  `senha` varchar(30) NOT NULL,
+  `senha` varchar(32) NOT NULL,
   `nome_funcionario` varchar(50) NOT NULL,
-  `cpf` int(14) NOT NULL,
-  `rg` int(13) NOT NULL,
+  `cpf` varchar(50) NOT NULL,
+  `rg` varchar(50) NOT NULL,
   `org_exp` varchar(10) NOT NULL,
   `data_nasc` date NOT NULL,
   `endereco` varchar(30) NOT NULL,
@@ -216,8 +223,8 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
   `nome_pai` varchar(30) NOT NULL,
   `email_pessoal` varchar(50) NOT NULL,
   `email_prof` varchar(30) NOT NULL,
-  `tel_cel` int(15) NOT NULL,
-  `tel_fixo` int(15) NOT NULL,
+  `tel_cel` varchar(50) NOT NULL,
+  `tel_fixo` varchar(50) NOT NULL,
   `id_tipo_funcionario` int(15) NOT NULL,
   `id_genero` int(15) NOT NULL,
   `id_ubs` int(11) NOT NULL,
@@ -227,6 +234,8 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
   `id_estado` int(15) NOT NULL,
   PRIMARY KEY (`id_funcionario`),
   UNIQUE KEY `login` (`login`),
+  UNIQUE KEY `cpf` (`cpf`),
+  UNIQUE KEY `rg` (`rg`),
   KEY `id_funcionario` (`id_funcionario`),
   KEY `FK_funcionario_tipo_funcionario` (`id_tipo_funcionario`),
   KEY `FK_funcionario_genero` (`id_genero`),
@@ -235,14 +244,18 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
   KEY `FK_funcionario_escolaridade` (`id_escolaridade`),
   KEY `FK_funcionario_tipo_sanguineo` (`id_tipo_sanguineo`),
   KEY `FK_funcionario_estado` (`id_estado`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
 
 --
 -- Extraindo dados da tabela `funcionario`
 --
 
 INSERT INTO `funcionario` (`id_funcionario`, `login`, `senha`, `nome_funcionario`, `cpf`, `rg`, `org_exp`, `data_nasc`, `endereco`, `bairro`, `cep`, `cidade`, `nome_mae`, `nome_pai`, `email_pessoal`, `email_prof`, `tel_cel`, `tel_fixo`, `id_tipo_funcionario`, `id_genero`, `id_ubs`, `id_estado_civil`, `id_escolaridade`, `id_tipo_sanguineo`, `id_estado`) VALUES
-(24, 'admin', 'admin', 'Francisco Nelsis', 2147483647, 2147483647, 'SSP/RS', '1987-02-04', 'Rua Silveiro, 412', 'Menino Deus', '90160030', 'Porto Alegre', 'Helenice Paiva', 'James Nelsis', 'fhnelsis@outlook.com', 'francisco.nelsis@ilegra.com', 2147483647, 2147483647, 1, 1, 1, 2, 52, 1, 22);
+(34, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Francisco Nelsis', '833.307.630-00', '6078831697', 'SSP/RS', '1987-02-04', 'Rua Silveiro, 412', 'Menino Deus', '90160-030', 'Porto Alegre', 'Helenice Paiva', 'James Nelsis', 'fhnelsis@outlook.com', 'francisco.nelsis@ilegra.com', '(51) 9101-0061', '(51) 3084-1409', 1, 1, 1, 2, 52, 1, 22),
+(38, 'enfermeiro_cavalhada', 'b25cd5bb47929a4a6cc85abfe7bebdfc', 'Enfermeiro Cavalhada', '598.748.498-19', '9581951957', 'SSP/RS', '1981-08-25', 'Avenida Cavalhada, 2045', 'Cavalhada', '90160-030', 'Porto Alegre', 'Joana Maria de Assis Pereira', 'Carlos dos Santos', 'ana.almeida@outlook.com', 'luiz.paiva@ubsazenha.com', '(51) 6301-9819', '(51) 6518-9195', 5, 1, 8, 2, 53, 6, 22),
+(39, 'medico_centro', '6921c75549f53d5b61ad45067cdf98e3', 'Médico Centro', '934.165.487-47', '2195249846', 'SSP/RS', '1973-06-21', 'Rua Lininho, 205', 'Centro', '96014-848', 'Porto Alegre', 'Maria Augusta', 'Calor Guimarães', 'medico@ubs.com', 'medico@ubs.com', '(51) 9101-0000', '(51) 3015-4877', 6, 1, 17, 3, 54, 6, 22),
+(40, 'medico_menino_deus', '01e42ffe411ec4db0f413d8a39687b23', 'Medico Menino Deus', '995.195.195-49', '8198136816', 'SSP/RS', '2006-03-23', 'Avenida Getúlio Vargas, 205', 'Menino Deus', '90498-198', 'Porto Alegre', 'Maria Augusta', 'Calor Guimarães', 'medico@ubs.com', 'medico@ubs.com', '(51) 9519-5195', '(51) 3201-5187', 6, 1, 1, 1, 47, 4, 22),
+(41, 'medico_cavalhada', 'fe434af67c391e1ab5876713f7dbc6cb', 'Medico Cavalhada', '951.951.951-95', '1951951951', 'SSP/RS', '2001-06-22', 'Avenida Cavalhada, 1504', 'Cavalhada', '90198-168', 'Porto Alegre', 'Maria Augusta', 'Calor Guimarães', 'medico@ubs.com', 'medico@ubs.com', '(51) 9115-1515', '(51) 3015-4549', 6, 1, 8, 2, 55, 3, 22);
 
 -- --------------------------------------------------------
 
@@ -273,35 +286,47 @@ INSERT INTO `genero` (`id_genero`, `nome_genero`) VALUES
 CREATE TABLE IF NOT EXISTS `paciente` (
   `id_paciente` int(4) NOT NULL AUTO_INCREMENT,
   `nome_paciente` varchar(50) NOT NULL,
-  `cpf` varchar(11) NOT NULL,
-  `rg` int(11) NOT NULL,
+  `cpf` varchar(14) NOT NULL,
+  `rg` varchar(50) NOT NULL,
   `org_exp` varchar(10) NOT NULL,
-  `genero` varchar(1) NOT NULL,
   `data_nasc` date NOT NULL,
   `endereco` varchar(50) NOT NULL,
   `bairro` varchar(30) NOT NULL,
-  `cep` int(11) NOT NULL,
+  `cep` varchar(50) NOT NULL,
   `cidade` varchar(30) NOT NULL,
-  `estado` varchar(2) NOT NULL,
-  `pais_nacionalidade` varchar(30) NOT NULL,
-  `cidade_natural` varchar(30) NOT NULL,
-  `estado_natural` varchar(2) NOT NULL,
-  `ubs_atendimento` varchar(50) NOT NULL,
   `nome_mae` varchar(50) NOT NULL,
   `nome_pai` varchar(50) NOT NULL,
   `profissao` varchar(30) NOT NULL,
-  `estado_civil` varchar(30) NOT NULL,
-  `escolaridade` varchar(30) NOT NULL,
-  `tipo_sanguineo` varchar(5) NOT NULL,
   `email_pessoal` varchar(50) NOT NULL,
   `email_prof` varchar(50) NOT NULL,
   `tel_cel` varchar(30) NOT NULL,
   `tel_fixo` varchar(30) NOT NULL,
   `tel_contato` varchar(30) NOT NULL,
+  `id_genero` int(15) NOT NULL,
+  `id_estado` int(15) NOT NULL,
+  `id_ubs` int(15) NOT NULL,
+  `id_estado_civil` int(15) NOT NULL,
+  `id_escolaridade` int(15) NOT NULL,
+  `id_tipo_sanguineo` int(15) NOT NULL,
   PRIMARY KEY (`id_paciente`),
   UNIQUE KEY `cpf` (`cpf`),
-  KEY `id_paciente` (`id_paciente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=113 ;
+  UNIQUE KEY `rg` (`rg`),
+  KEY `id_paciente` (`id_paciente`),
+  KEY `id_tipo_sanguineo` (`id_tipo_sanguineo`),
+  KEY `id_genero` (`id_genero`),
+  KEY `id_estado` (`id_estado`),
+  KEY `id_ubs` (`id_ubs`),
+  KEY `id_estado_civil` (`id_estado_civil`),
+  KEY `id_escolaridade` (`id_escolaridade`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=128 ;
+
+--
+-- Extraindo dados da tabela `paciente`
+--
+
+INSERT INTO `paciente` (`id_paciente`, `nome_paciente`, `cpf`, `rg`, `org_exp`, `data_nasc`, `endereco`, `bairro`, `cep`, `cidade`, `nome_mae`, `nome_pai`, `profissao`, `email_pessoal`, `email_prof`, `tel_cel`, `tel_fixo`, `tel_contato`, `id_genero`, `id_estado`, `id_ubs`, `id_estado_civil`, `id_escolaridade`, `id_tipo_sanguineo`) VALUES
+(115, 'Adão de Souza Augusto', '833.014.587-44', '6078896578', 'SSP/RS', '1958-10-04', 'Rua dos Imigrantes, 59', 'Menino Deus', '90160030', 'Porto Alegre', 'Norma Cristina Souza', 'Gilberto Augusto', 'Marceneiro', 'adao.augusto@gmail.com', 'aaugusto@marcenaria.com', '5191048544', '5130154877', '5130985788', 1, 22, 1, 2, 51, 1),
+(121, 'Ana Beatriz Quincas de Almeida', '904.165.844-87', '9648236548', 'SSP/RS', '1978-11-17', 'Avenida Cavalhada, 2045', 'Cavalhada', '90458-965', 'Porto Alegre', 'Joana Quincas Augusta', 'Carlos dos Santos Almeida', 'Professora', 'ana.almeida@outlook.com', 'almeidaana@terra.com.br', '(51) 9147-8965', '(51) 3015-4588', '(51) 3058-9632', 2, 22, 8, 2, 55, 4);
 
 -- --------------------------------------------------------
 
@@ -317,20 +342,19 @@ CREATE TABLE IF NOT EXISTS `tipo_atendimento` (
   `data_desativacao` date DEFAULT NULL,
   `data_alteracao` date DEFAULT NULL,
   PRIMARY KEY (`id_tipo_atendimento`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Extraindo dados da tabela `tipo_atendimento`
 --
 
 INSERT INTO `tipo_atendimento` (`id_tipo_atendimento`, `nome_tipo_atendimento`, `descricao`, `data_insercao`, `data_desativacao`, `data_alteracao`) VALUES
-(8, 'Clínico', 'Atendimento Clínico Geral.', '2015-09-07', NULL, '2015-09-07'),
+(8, 'Clínico', 'Atendimento Clínico Geral', '2015-09-07', NULL, '2015-09-29'),
 (9, 'Gestante', 'Atendimento pré-natal a gestante.', '2015-09-07', NULL, NULL),
 (10, 'Recèm-nascido', 'Atendimento a recém-nascidos.', '2015-09-07', NULL, NULL),
 (11, 'Idoso', 'Atendimento a idoso.', '2015-09-07', NULL, NULL),
 (12, 'Visita domiciliar', 'Atendimento feito em residência.', '2015-09-07', NULL, NULL),
-(13, 'Criança', 'Atendimento a criança.', '2015-09-07', NULL, NULL),
-(14, 'Teste', 'Teste', '2015-09-22', NULL, NULL);
+(13, 'Criança', 'Atendimento a criança.', '2015-09-07', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -415,7 +439,12 @@ INSERT INTO `tipo_funcionario_funcionalidade` (`id_tipo_funcionario`, `id_funcio
 (5, 9),
 (5, 13),
 (5, 18),
+(6, 1),
+(6, 2),
+(6, 5),
+(6, 9),
 (6, 13),
+(6, 18),
 (7, 2),
 (7, 5),
 (7, 9),
@@ -475,7 +504,7 @@ CREATE TABLE IF NOT EXISTS `ubs` (
 
 INSERT INTO `ubs` (`id_ubs`, `ubs_atendimento`, `endereco`, `telefone`, `data_insercao`, `data_alteracao`, `data_desativacao`) VALUES
 (1, 'UBS Menino Deus', 'Av. Getúlio Vargas, 250', 1111, '2015-09-22', '2015-09-28', NULL),
-(4, 'UBS Azenha', 'Avenida Azenha, 50', 111, '2015-09-28', '2015-09-28', NULL),
+(4, 'UBS Azenha', 'Avenida Azenha, 50', 2147483647, '2015-09-28', '2015-09-29', NULL),
 (8, 'UBS Cavalhada', 'Avenida Cavalhada, 2045', 2147483647, '2015-09-28', NULL, NULL),
 (17, 'UBS Centro', 'Rua dos Andradas, 500', 1111111111, '2015-09-28', '2015-09-28', NULL);
 
@@ -494,8 +523,8 @@ ALTER TABLE `atendimento`
 -- Limitadores para a tabela `funcionario`
 --
 ALTER TABLE `funcionario`
-  ADD CONSTRAINT `FK_funcionario_estado` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_funcionario_escolaridade` FOREIGN KEY (`id_escolaridade`) REFERENCES `escolaridade` (`id_escolaridade`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_funcionario_estado` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_funcionario_estado_civil` FOREIGN KEY (`id_estado_civil`) REFERENCES `estado_civil` (`id_estado_civil`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_funcionario_genero` FOREIGN KEY (`id_genero`) REFERENCES `genero` (`id_genero`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_funcionario_tipo_funcionario` FOREIGN KEY (`id_tipo_funcionario`) REFERENCES `tipo_funcionario` (`id_tipo_funcionario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -503,11 +532,25 @@ ALTER TABLE `funcionario`
   ADD CONSTRAINT `FK_funcionario_ubs` FOREIGN KEY (`id_ubs`) REFERENCES `ubs` (`id_ubs`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Limitadores para a tabela `paciente`
+--
+ALTER TABLE `paciente`
+  ADD CONSTRAINT `FK_paciente_escolaridade` FOREIGN KEY (`id_escolaridade`) REFERENCES `escolaridade` (`id_escolaridade`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_paciente_estado` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_paciente_estado_civil` FOREIGN KEY (`id_estado_civil`) REFERENCES `estado_civil` (`id_estado_civil`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_paciente_genero` FOREIGN KEY (`id_genero`) REFERENCES `genero` (`id_genero`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_paciente_tipo_sanguineo` FOREIGN KEY (`id_tipo_sanguineo`) REFERENCES `tipo_sanguineo` (`id_tipo_sanguineo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_paciente_ubs` FOREIGN KEY (`id_ubs`) REFERENCES `ubs` (`id_ubs`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Limitadores para a tabela `tipo_funcionario_funcionalidade`
 --
 ALTER TABLE `tipo_funcionario_funcionalidade`
   ADD CONSTRAINT `FK_tipo_funcionario_funcionalidade_funcionalidades` FOREIGN KEY (`id_funcionalidade`) REFERENCES `funcionalidades` (`id_funcionalidade`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_tipo_funcionario_funcionalidade_tipo_funcionario` FOREIGN KEY (`id_tipo_funcionario`) REFERENCES `tipo_funcionario` (`id_tipo_funcionario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+--
+-- Database: `test`
+--
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
