@@ -3,8 +3,10 @@
 <?php include ('includes/menuBack.php')?>
 <?php
 
-if (isset ( $_GET ['id'] )) {
+if (isset ( $_GET ['id'] ) && ! isset ( $_GET ['detalhes'] )) {
 	verificarPermissaoPagina ( 'TIPO_ATENDIMENTO_ALTERAR' );
+} else if (isset ( $_GET ['id'] ) && isset ( $_GET ['detalhes'] )) {
+	verificarPermissaoPagina ( 'TIPO_ATENDIMENTO_DETALHES' );
 } else {
 	verificarPermissaoPagina ( 'TIPO_ATENDIMENTO_INSERIR' );
 }
@@ -18,7 +20,7 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 	$descricao = $_POST ['descricao'];
 	$data_insercao = $_POST ['data_insercao'];
 	$data_alteracao = $_POST ['data_alteracao'];
-		
+	
 	if (empty ( $id )) {
 		$sql = "INSERT INTO tipo_atendimento (nome_tipo_atendimento, descricao, data_insercao) 
 				VALUES ('{$nome_tipo_atendimento}', '{$descricao}', NOW())";
@@ -45,14 +47,33 @@ if (isset ( $_GET ['id'] )) {
 }
 ?>
 
+<script>
+<?php if (isset($_GET['detalhes'])): ?>
+        $(document).ready(function() {
+            $('input, select, textarea').attr('disabled', true);
+        });
+<?php endif; ?>
+</script>
+
 <div class="divTudoFormTipoAtendimento">
 	<div id="tituloPaginaTipoAtendimentoCadastroAlteracao">
-		<center><?php echo isset($_GET['id']) ? "Alterar Tipo de Atendimento" : "Novo Tipo de Atendimento"; ?></center>
+		<center>
+				 <?php
+					if (isset ( $_GET ['id'] ) && ! isset ( $_GET ['detalhes'] )) {
+						echo "Alterar Tipo de Atendimento";
+					} else if (isset ( $_GET ['id'] ) && isset ( $_GET ['detalhes'] )) {
+						echo "Visualizar Tipo de Atendimento";
+					} else {
+						echo "Novo Tipo de Atendimento";
+					}
+					?>
+		</center>
 	</div>
 
 	<center>
 		<div id="formConsultaAtendimento">
-			<div class="content-dataTable" style="width: 40%; margin: 0 auto; margin-top: -200px; margin-left: 300px">
+			<div class="content-dataTable"
+				style="width: 40%; margin: 0 auto; margin-top: -200px; margin-left: 300px">
 				<form method="POST">
 					<table width="100%">
 						<tr>
@@ -86,8 +107,9 @@ if (isset ( $_GET ['id'] )) {
 						<tr>
 							<br />
 							<td><label for="data_insercao">Data de Inser&#231;&#227;o:</label></td>
-							<td><input readonly style="width: 100px; margin-bottom: 5px;" type="text"
-								name="data_insercao" id="data_insercao" maxlength="10"
+							<td><input readonly style="width: 100px; margin-bottom: 5px;"
+								type="text" name="data_insercao" id="data_insercao"
+								maxlength="10"
 								value="<?php
 								if (isset ( $dadosTipoAtendimento ['data_insercao'] )) {
 									echo $dadosTipoAtendimento ['data_insercao'];
@@ -112,13 +134,16 @@ if (isset ( $_GET ['id'] )) {
 
 
 					</table>
-					<br> <input type="hidden" id="id" name="id"
+					<br>
+					<?php if (!isset($_GET['detalhes'])): ?>
+					<input type="hidden" id="id" name="id"
 						value="<?php
-						if (isset ( $dadosTipoAtendimento ['id_tipo_atendimento'] )) {
-							echo $dadosTipoAtendimento ['id_tipo_atendimento'];
+						if (isset ( $dadosTipoAtendimento ['id_paciente'] )) {
+							echo $dadosTipoAtendimento ['id_paciente'];
 						}
 						?>" /> <input type="submit" name="enviar" value="ENVIAR"
 						id="enviar_cadastro" />
+						<?php endif; ?>
 				</form>
 			</div>
 		</div>

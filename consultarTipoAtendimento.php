@@ -25,8 +25,19 @@
 				<thead>
 					<tr>
 						<th>Tipo de Atendimento</th>
-						<th>Edi&#231;&#228;o</th>
-						<th>Exclus&#228;o</th>
+						
+						<?php if (verificarPermissao('TIPO_ATENDIMENTO_DETALHES')): ?>
+						<th><center>Visualizar</center></th>
+						<?php endif; ?>
+						
+						<?php if (verificarPermissao('TIPO_ATENDIMENTO_ALTERAR')): ?>
+						<th><center>Edição</center></th>
+						<?php endif; ?>
+						
+						<?php if (verificarPermissao('TIPO_ATENDIMENTO_EXCLUIR')): ?>
+						<th><center>Exclusão</center></th>
+						<?php endif; ?>
+							
 					</tr>
 				</thead>
 
@@ -42,20 +53,28 @@ $query = mysqli_query ( $con, "SELECT * FROM tipo_atendimento" );
 while ( $linha = mysqli_fetch_array ( $query ) ) {
 	?>
 
-                            <tr>
-						<td><?php echo $linha['nome_tipo_atendimento']; ?></td>
-						<td>
-                                                    <?php if (verificarPermissao('TIPO_ATENDIMENTO_ALTERAR')): ?>
-                                                        <center><a href="formTipoAtendimento.php?id=<?php echo $linha['id_tipo_atendimento']; ?>">Editar</a></center>
-                                                    <?php endif; ?>
-                                                </td>
-						<td>
-                                                    <?php if (verificarPermissao('TIPO_ATENDIMENTO_EXCLUIR')): ?>
-                                                        <center><a  href="excluirTipoAtendimento.php?id_tipo_atendimento_exclusao=<?php echo $linha['id_tipo_atendimento']; ?>">Excluir</a></center>
-                                                    <?php endif; ?>
-                                                </td>
+	<tr>
+		<td><?php echo $linha['nome_tipo_atendimento']; ?></td>
+		
+		<?php if (verificarPermissao('TIPO_ATENDIMENTO_DETALHES')): ?>
+		<td>
+        <center><a href="formTipoAtendimento.php?id=<?php echo $linha['id_tipo_atendimento']; ?>&detalhes=1">Detalhes</a></center>
+        </td>
+		<?php endif; ?>
+       	
+		<?php if (verificarPermissao('TIPO_ATENDIMENTO_ALTERAR')): ?>
+		<td>
+        <center><a href="formTipoAtendimento.php?id=<?php echo $linha['id_tipo_atendimento']; ?>">Editar</a></center>
+        </td>
+        <?php endif; ?>
+		
+		<?php if (verificarPermissao('TIPO_ATENDIMENTO_EXCLUIR')): ?>
+		<td>
+        <center><a  href="excluirTipoAtendimento.php?id_tipo_atendimento_exclusao=<?php echo $linha['id_tipo_atendimento']; ?>">Excluir</a></center>
+        </td>
+        <?php endif; ?>
+        
 <?php }?>
-
 						</tr>
 				</tbody>
 			</table>
