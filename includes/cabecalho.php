@@ -34,7 +34,7 @@ include ('includes/funcoes_permissao.php');
 			<?php endif; ?>
 			
 			<?php if ($_SESSION ['LOGIN'] ['TIPO_FUNCIONARIO'] != 1): ?>
-				<strong>Bem-vindo, <?php echo $_SESSION ['LOGIN'] ['NOME'] . " - " . utf8_encode($_SESSION ['LOGIN'] ['CARGO'] . " - " . $_SESSION ['LOGIN'] ['NOME_UBS']); ?></strong>
+				<strong>Bem-vindo, <?php echo utf8_encode($_SESSION ['LOGIN'] ['NOME'] . " - " . $_SESSION ['LOGIN'] ['CARGO'] . " - " . $_SESSION ['LOGIN'] ['NOME_UBS']); ?></strong>
 			<?php endif; ?>
 
 		</div>
