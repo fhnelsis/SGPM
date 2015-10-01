@@ -163,17 +163,19 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 
 <div class="divTudoFormPaciente">
 	<div id="tituloPaginaCadastroAlteracao">
-		<center>
-            <?php
-												if (isset ( $_GET ['id'] ) && ! isset ( $_GET ['detalhes'] )) {
-													echo "Alterar Paciente";
-												} else if (isset ( $_GET ['id'] ) && isset ( $_GET ['detalhes'] )) {
-													echo "Visualizar Paciente";
-												} else {
-													echo "Novo Paciente";
-												}
-												?>
-				</center>
+
+<center>
+<?php
+if (isset ( $_GET ['id'] ) && ! isset ( $_GET ['detalhes'] )) {
+	echo "Alterar Paciente";
+} else if (isset ( $_GET ['id'] ) && isset ( $_GET ['detalhes'] )) {
+	echo "Visualizar Paciente";
+} else {
+	echo "Novo Paciente";
+}
+?>
+</center>
+
 	</div>
 
 	<script type="text/javascript">

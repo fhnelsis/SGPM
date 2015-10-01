@@ -93,7 +93,7 @@ if (isset ( $_GET ['id'] )) {
 
 						<tr>
 							<br />
-							<td><label for="descricao">Descri&#231;&#227;o:</label></td>
+							<td><label for="descricao">Descrição:</label></td>
 							<td><input style="width: 400px; margin-bottom: 5px;" type="text"
 								name="descricao" id="descricao" maxlength="300"
 								value="<?php
@@ -106,7 +106,7 @@ if (isset ( $_GET ['id'] )) {
 
 						<tr>
 							<br />
-							<td><label for="data_insercao">Data de Inser&#231;&#227;o:</label></td>
+							<td><label for="data_insercao">Data de Inserção:</label></td>
 							<td><input readonly style="width: 100px; margin-bottom: 5px;"
 								type="text" name="data_insercao" id="data_insercao"
 								maxlength="10"
