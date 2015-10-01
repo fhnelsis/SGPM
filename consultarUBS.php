@@ -24,8 +24,14 @@
 				<thead>
 					<tr>
 						<th>UBS</th>
+						
+						<?php if (verificarPermissao('UBS_ALTERAR')): ?>
 						<th>Edição</th>
+						<?php endif; ?>
+						
+						<?php if (verificarPermissao('UBS_EXCLUIR')): ?>
 						<th>Exclusão</th>
+						<?php endif; ?>
 					</tr>
 				</thead>
 
@@ -41,21 +47,22 @@ $query = mysqli_query ( $con, "SELECT * FROM ubs" );
 while ( $linha = mysqli_fetch_array ( $query ) ) {
 	?>
 
-                            <tr>
+					<tr>
 						<td><?php echo $linha['ubs_atendimento']; ?></td>
+						
+						<?php if (verificarPermissao('UBS_ALTERAR')): ?>
 						<td>
-                                                    <?php if (verificarPermissao('UBS_ALTERAR')): ?>
-                                                        <center><a href="formUBS.php?id=<?php echo $linha['id_ubs']; ?>">Editar</a></center>
-                                                    <?php endif; ?>
-                                                </td>
+                        <center><a href="formUBS.php?id=<?php echo $linha['id_ubs']; ?>">Editar</a></center>
+                        </td>
+                        <?php endif; ?>
+						
+						<?php if (verificarPermissao('UBS_EXCLUIR')): ?>
 						<td>
-                                                    <?php if (verificarPermissao('UBS_EXCLUIR')): ?>
-                                                        <center><a  href="excluirUBS.php?id_ubs_exclusao=<?php echo $linha['id_ubs']; ?>">Excluir</a></center>
-                                                    <?php endif; ?>
-                                                </td>
-<?php }?>
-
-						</tr>
+                        <center><a  href="excluirUBS.php?id_ubs_exclusao=<?php echo $linha['id_ubs']; ?>">Excluir</a></center>
+                        </td>
+                        <?php endif; ?>
+					</tr>
+						<?php }?>
 				</tbody>
 			</table>
 		</div>
