@@ -147,7 +147,11 @@ $con = mysqli_connect ( "localhost", "root", "", "sgpm" );
 mysqli_set_charset ( $con, "utf8" );
 
 // Busca os tipos de funcionários
-$queryTipoFuncionario = mysqli_query ( $con, "SELECT * FROM tipo_funcionario" );
+if ($_SESSION ['LOGIN'] ['TIPO_FUNCIONARIO'] == 1) {
+	$queryTipoFuncionario = mysqli_query ( $con, "SELECT * FROM tipo_funcionario" );
+} else {
+	$queryTipoFuncionario = mysqli_query ( $con, "SELECT * FROM tipo_funcionario where id_tipo_funcionario not in ('1', '3')" );
+}
 // Busca os gêneros
 $queryGenero = mysqli_query ( $con, "SELECT * FROM genero" );
 // Busca as UBS de atendimento
