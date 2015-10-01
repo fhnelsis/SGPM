@@ -13,7 +13,7 @@ try {
 	// $senha= md5($_POST['senha']);
 	$senha = $_POST ['senha'];
 	
-	$sql = mysqli_query ( $con, "SELECT func.*, tp.nome_tipo FROM funcionario func INNER JOIN tipo_funcionario tp ON tp.id_tipo_funcionario = func.id_tipo_funcionario WHERE login = '{$login}' and senha = md5('{$senha}')" );
+	$sql = mysqli_query ( $con, "SELECT func.*, tp.nome_tipo, ubs.ubs_atendimento FROM funcionario func INNER JOIN tipo_funcionario tp ON tp.id_tipo_funcionario = func.id_tipo_funcionario INNER JOIN ubs ubs ON ubs.id_ubs = func.id_ubs WHERE login = '{$login}' and senha = md5('{$senha}')" );
 	
 	// $row = mysqli_fetch_array($sql);
 	
@@ -41,6 +41,7 @@ try {
 	$_SESSION ['LOGIN'] ['TIPO_FUNCIONARIO'] = $consulta ['id_tipo_funcionario'];
 	$_SESSION ['LOGIN'] ['USUARIO'] = $consulta ['login'];
 	$_SESSION ['LOGIN'] ['UBS'] = $consulta ['id_ubs'];
+	$_SESSION ['LOGIN'] ['NOME_UBS'] = $consulta ['ubs_atendimento'];
 	
 	// Cria o array que receberá as permissões do usuário
 	$arrayPermissoes = array ();

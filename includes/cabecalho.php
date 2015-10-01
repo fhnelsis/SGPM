@@ -28,7 +28,15 @@ include ('includes/funcoes_permissao.php');
 			class="logo"></a>
             <?php if (isset($_SESSION['LOGIN'])): ?>
                 <div class="apresentacao">
-			<strong>Bem-vindo, <?php echo $_SESSION ['LOGIN'] ['NOME'] . " - " . $_SESSION ['LOGIN'] ['CARGO']; ?></strong>
+			
+			<?php if ($_SESSION ['LOGIN'] ['TIPO_FUNCIONARIO'] == 1): ?>
+				<strong>Bem-vindo, <?php echo $_SESSION ['LOGIN'] ['NOME'] . " - " . $_SESSION ['LOGIN'] ['CARGO']; ?></strong>
+			<?php endif; ?>
+			
+			<?php if ($_SESSION ['LOGIN'] ['TIPO_FUNCIONARIO'] != 1): ?>
+				<strong>Bem-vindo, <?php echo $_SESSION ['LOGIN'] ['NOME'] . " - " . $_SESSION ['LOGIN'] ['CARGO'] . " - " . $_SESSION ['LOGIN'] ['NOME_UBS']; ?></strong>
+			<?php endif; ?>
+
 		</div>
 		<div class="wrapLogoutButton">
 			<a class="logoutButton" href="logout.php">Logout</a>
