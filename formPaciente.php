@@ -234,8 +234,8 @@ $(document).ready(function(){
 						<!-- Orgão Expedidor  -->
 						<tr>
 							<td><label for="org_exp" style="width: 140px">Orgão Expedidor:</label></td>
-							<td><input style="width: 100px; margin-bottom: 5px;" type="text"
-								name="org_exp" id="org_exp" maxlength="6"
+							<td><input style="width: 200px; margin-bottom: 5px;" type="text"
+								name="org_exp" id="org_exp" maxlength="30"
 								value="<?php
 								if (isset ( $dadosPaciente ['org_exp'] )) {
 									echo $dadosPaciente ['org_exp'];

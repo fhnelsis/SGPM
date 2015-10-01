@@ -26,11 +26,11 @@
 						<th>UBS</th>
 						
 						<?php if (verificarPermissao('UBS_ALTERAR')): ?>
-						<th>Edição</th>
+						<th><center>Edição</center></th>
 						<?php endif; ?>
 						
 						<?php if (verificarPermissao('UBS_EXCLUIR')): ?>
-						<th>Exclusão</th>
+						<th><center>Exclusão</center></th>
 						<?php endif; ?>
 					</tr>
 				</thead>
