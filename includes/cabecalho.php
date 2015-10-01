@@ -29,7 +29,6 @@ include ('includes/funcoes_permissao.php');
                 <div class="apresentacao">
 			
 			<?php if ($_SESSION ['LOGIN'] ['TIPO_FUNCIONARIO'] == 1): ?>
-			
 				<strong>Bem-vindo, <?php echo $_SESSION ['LOGIN'] ['NOME'] . " - " . $_SESSION ['LOGIN'] ['CARGO']; ?></strong>
 			<?php endif; ?>
 			

@@ -46,29 +46,43 @@ $con = mysqli_connect ( "localhost", "root", "", "sgpm" );
 mysqli_set_charset ( $con, "utf8" );
 
 // Verificar essa query. Saber de onde ela pega o POST para a busca.
-$query = mysqli_query ( $con, "SELECT fun.*, tp_fun.nome_tipo FROM funcionario fun INNER JOIN tipo_funcionario tp_fun ON fun.id_tipo_funcionario = tp_fun.id_tipo_funcionario" );
+if ($_SESSION ['LOGIN'] ['TIPO_FUNCIONARIO'] == 1) {
+	$query = mysqli_query ( $con, "SELECT fun.*, tp_fun.nome_tipo FROM funcionario fun INNER JOIN tipo_funcionario tp_fun ON fun.id_tipo_funcionario = tp_fun.id_tipo_funcionario" );
+} else {
+	$query = mysqli_query ( $con, "SELECT fun.*, tp_fun.nome_tipo FROM funcionario fun INNER JOIN tipo_funcionario tp_fun ON fun.id_tipo_funcionario = tp_fun.id_tipo_funcionario and id_ubs = ".$_SESSION ['LOGIN'] ['UBS'] );
+}
+
 while ( $linha = mysqli_fetch_array ( $query ) ) {
-?>
+	?>
              	   <tr>
 						<td><?php echo $linha['nome_funcionario']; ?></td>
 						<td><?php echo $linha['nome_tipo']; ?></td>
 						
 						<?php if (verificarPermissao('FUNCIONARIO_DETALHES')): ?>
 						<td>
-                        <center><a href="formFuncionario.php?id=<?php echo $linha['id_funcionario']; ?>&detalhes=1">Detalhes</a></center>
-                        </td>
+							<center>
+								<a
+									href="formFuncionario.php?id=<?php echo $linha['id_funcionario']; ?>&detalhes=1">Detalhes</a>
+							</center>
+						</td>
                         <?php endif; ?>
                         
 						<?php if (verificarPermissao('FUNCIONARIO_ALTERAR')): ?>
 						<td>
-						<center><a href="formFuncionario.php?id=<?php echo $linha['id_funcionario']; ?>">Editar</a></center>
+							<center>
+								<a
+									href="formFuncionario.php?id=<?php echo $linha['id_funcionario']; ?>">Editar</a>
+							</center>
 						</td>
                         <?php endif; ?>
                                                
                         <?php if (verificarPermissao('FUNCIONARIO_EXCLUIR')): ?>
                         <td>
-                        <center><a href="excluirFuncionario.php?id_exclusao=<?php echo $linha['id_funcionario']; ?>">Excluir</a></center>
-                        </td>
+							<center>
+								<a
+									href="excluirFuncionario.php?id_exclusao=<?php echo $linha['id_funcionario']; ?>">Excluir</a>
+							</center>
+						</td>
                         <?php endif; ?>
                         
 <?php }?>
