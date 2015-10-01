@@ -10,8 +10,6 @@ if (isset ( $_GET ['id'] ) && ! isset ( $_GET ['detalhes'] )) {
 } else {
 	verificarPermissaoPagina ( 'FUNCIONARIO_INSERIR' );
 }
-?>
-<?php
 
 if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 	$con = mysqli_connect ( "localhost", "root", "", "sgpm" );
@@ -130,16 +128,18 @@ VALUES      ('{$login}',
 		header ( 'Location: consultarFuncionario.php' );
 		$_SESSION ['msg'] = 'Registro Salvo Com Sucesso!';
 	} else {
+		echo $sql;
 		header ( 'Location: consultarFuncionario.php' );
+		echo $sql;
 		$_SESSION ['msg'] = 'Registro falhou!';
 	}
 }
 
 // Se exitir um id passado por parametro
-if (isset ( $_GET ['id_funcionario'] )) {
+if (isset ( $_GET ['id'] )) {
 	$con = mysqli_connect ( "localhost", "root", "", "sgpm" );
 	mysqli_set_charset ( $con, "utf8" );
-	$query = mysqli_query ( $con, "SELECT * FROM funcionario WHERE id_funcionario = {$_GET['id_funcionario']} " );
+	$query = mysqli_query ( $con, "SELECT * FROM funcionario WHERE id_funcionario = {$_GET['id']} " );
 	$dadosFuncionario = mysqli_fetch_array ( $query );
 }
 
@@ -182,10 +182,7 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 					echo "Cadastrar Funcionário";
 				}
 				?>
-				
-				
-				
-			</center>
+		</center>
 	</div>
 
 	<script type="text/javascript">
@@ -194,7 +191,6 @@ $(document).ready(function(){
         $("input.cep").mask("99999-999");
         $("input.telefone").mask('(99) 9999-9999');
 });
-
 </script>
 
 	<center>
@@ -504,13 +500,7 @@ $(document).ready(function(){
 						</tr>
 
 					</table>
-					<br>
-					
-					
-					
-					
-					
-					
+					<br>				
 					
 					<?php if (!isset($_GET['detalhes'])): ?>
 					<input type="hidden" id="id" name="id"
