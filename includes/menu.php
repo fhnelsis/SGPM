@@ -70,14 +70,14 @@
             </ul></li>
 <?php endif; ?>
 
-<?php if (verificarPermissao('RELATORIO') || verificarPermissao('RELATORIO')): ?>
+<?php if (verificarPermissao('RELATORIOS_ADMINISTRATIVOS') || verificarPermissao('RELATORIOS_MEDICOS')): ?>
 		<li class='active'><a href='#'>Relatórios</a>
 			<ul>
-			    <?php if (verificarPermissao('RELATORIO')): ?>
+			    <?php if (verificarPermissao('RELATORIOS_ADMINISTRATIVOS')): ?>
                     <li><a href='relatoriosAdministrativos.php'>Relatórios Administrativos</a></li>
                 <?php endif; ?>
 
-                <?php if (verificarPermissao('RELATORIO')): ?>
+                <?php if (verificarPermissao('RELATORIOS_MEDICOS')): ?>
                     <li><a href='#'>Relatórios Médicos</a></li>
                 <?php endif; ?>
                 

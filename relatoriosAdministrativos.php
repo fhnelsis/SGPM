@@ -1,6 +1,6 @@
 <?php include ('includes/cabecalho.php'); ?>
 <?php include ('includes/menu.php'); ?>
-<?php verificarPermissaoPagina('RELATORIO'); ?>
+<?php verificarPermissaoPagina('RELATORIOS_ADMINISTRATIVOS'); ?>
 <?php
 //Realiza a conexão
 $con = mysqli_connect("localhost", "root", "", "sgpm");

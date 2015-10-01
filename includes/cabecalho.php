@@ -6,10 +6,10 @@ include ('includes/funcoes_permissao.php');
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>SGPM - Sistema Gerenciador de Prontuários Médicos</title>
+
 <LINK href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="css/dataTables.css">
 <link rel="stylesheet" type="text/css" href="css/menu.css">
-
 <script type="text/javascript" language="javascript" src="js/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" language="javascript" src="js/jquery.maskedinput.js"></script>
 <script type="text/javascript" language="javascript" src="js/dataTables.js"></script>
@@ -18,7 +18,6 @@ include ('includes/funcoes_permissao.php');
 <script type="text/javascript" language="javascript" src="js/highchart/modules/exporting.js"></script>
 <script type="text/javascript" language="javascript" src="js/menu.js"></script>
 <script type="text/javascript" src="jquery.js"></script>
-
 
 </head>
 
@@ -30,11 +29,12 @@ include ('includes/funcoes_permissao.php');
                 <div class="apresentacao">
 			
 			<?php if ($_SESSION ['LOGIN'] ['TIPO_FUNCIONARIO'] == 1): ?>
+			
 				<strong>Bem-vindo, <?php echo $_SESSION ['LOGIN'] ['NOME'] . " - " . $_SESSION ['LOGIN'] ['CARGO']; ?></strong>
 			<?php endif; ?>
 			
 			<?php if ($_SESSION ['LOGIN'] ['TIPO_FUNCIONARIO'] != 1): ?>
-				<strong>Bem-vindo, <?php echo $_SESSION ['LOGIN'] ['NOME'] . " - " . $_SESSION ['LOGIN'] ['CARGO'] . " - " . $_SESSION ['LOGIN'] ['NOME_UBS']; ?></strong>
+				<strong>Bem-vindo, <?php echo $_SESSION ['LOGIN'] ['NOME'] . " - " . utf8_encode($_SESSION ['LOGIN'] ['CARGO'] . " - " . $_SESSION ['LOGIN'] ['NOME_UBS']); ?></strong>
 			<?php endif; ?>
 
 		</div>
