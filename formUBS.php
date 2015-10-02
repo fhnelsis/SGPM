@@ -51,6 +51,14 @@ if (isset ( $_GET ['id'] )) {
 }
 ?>
 
+<script type="text/javascript">
+$(document).ready(function(){
+	    $("input.cpf").mask("999.999.999-99");
+        $("input.cep").mask("99999-999");
+        $("input.telefone").mask('(99) 9999-9999');
+});
+</script>
+
 <div class="divTudoFormUBS">
 	<div id="tituloPaginaUBSCadastroAlteracao">
 		<center><?php echo isset($_GET['id']) ? "Alterar UBS" : "Nova UBS"; ?></center>
@@ -92,7 +100,7 @@ if (isset ( $_GET ['id'] )) {
 							<br />
 							<td><label for="telefone">Telefone:</label></td>
 							<td><input style="width: 150px; margin-bottom: 5px;" type="text"
-								name="telefone" id="telefone" maxlength="10" 
+								name="telefone" class="telefone" id="telefone" maxlength="10" 
 								value="<?php
 								
 								if (isset ( $dadosUBS ['telefone'] )) {
