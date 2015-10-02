@@ -178,13 +178,12 @@ if (isset ( $_GET ['id'] ) && ! isset ( $_GET ['detalhes'] )) {
 
 	</div>
 
-	<script type="text/javascript">
+<script type="text/javascript">
 $(document).ready(function(){
 	    $("input.cpf").mask("999.999.999-99");
         $("input.cep").mask("99999-999");
         $("input.telefone").mask('(99) 9999-9999');
 });
-
 </script>
 
 	<center>

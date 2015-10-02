@@ -127,6 +127,7 @@ VALUES      ('{$login}',
 	if ($exec = mysqli_query ( $con, $sql )) {
 		header ( 'Location: consultarFuncionario.php' );
 		$_SESSION ['msg'] = 'Registro Salvo Com Sucesso!';
+		echo $sql;
 	} else {
 		echo $sql;
 		header ( 'Location: consultarFuncionario.php' );
