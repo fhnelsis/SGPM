@@ -84,8 +84,13 @@ mysqli_set_charset ( $con, "utf8" );
 // Busca os tipos de atendimento
 $queryTipos = mysqli_query ( $con, "SELECT * FROM tipo_atendimento" );
 
-// Busca os funcionÃ¡rios
-$queryFuncionario = mysqli_query ( $con, "SELECT * FROM funcionario where id_tipo_funcionario not in (1)" );
+// Busca os funcionários
+if ($_SESSION ['LOGIN'] ['TIPO_FUNCIONARIO'] != 1) {
+$queryFuncionario = mysqli_query ( $con, "SELECT * FROM funcionario where id_tipo_funcionario not in (1) and id_ubs = ".$_SESSION ['LOGIN'] ['UBS'] );
+}else{
+	$queryFuncionario = mysqli_query ( $con, "SELECT * FROM funcionario where id_tipo_funcionario not in (1)");
+}
+
 ?>
 
 <script type="text/javascript">
