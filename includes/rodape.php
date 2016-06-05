@@ -4,7 +4,7 @@
 <style type="text/css"></style>
 <div class="rodape">
 	<div class="rodapeTexto">
-		<div>SGPM - Sistema Gerenciador de Prontuários</div>
+		<div>SGPM - Sistema Gerenciador de Prontuários Medicos</div>
 	</div>
 	</body>
 

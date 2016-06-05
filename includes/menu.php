@@ -2,6 +2,19 @@
 	<ul>
 		<li><a href='home.php'>Home</a></li>
 
+<?php if (verificarPermissao('AGENDA_LISTAR') || verificarPermissao('AGENDA_INSERIR')): ?>
+		<li class='active'><a href='#'>Agenda</a>
+			<ul>
+                <?php if (verificarPermissao('AGENDA_LISTAR')): ?>
+                    <li><a href='consultarAgenda.php'>Agenda</a></li>
+                <?php endif; ?>
+
+                <?php if (verificarPermissao('AGENDA_INSERIR')): ?>
+                    <li><a href='formAgenda.php'>Novo Atendimento</a>
+                    <?php endif; ?>
+			</ul></li>
+<?php endif; ?>
+
 <?php if (verificarPermissao('ATENDIMENTO_LISTAR') || verificarPermissao('ATENDIMENTO_INSERIR')): ?>
 		<li class='active'><a href='#'>Atendimentos</a>
 			<ul>
@@ -58,14 +71,14 @@
 <?php endif; ?>
 
 <?php if (verificarPermissao('UBS_LISTAR') || verificarPermissao('UBS_INSERIR')): ?>
-		<li class='active'><a href='#'>UBS</a>
+		<li class='active'><a href='#'>Unidades</a>
 			<ul>
                 <?php if (verificarPermissao('UBS_LISTAR')): ?>
-                    <li><a href='consultarUBS.php'>Buscar UBS</a></li>
+                    <li><a href='consultarUBS.php'>Buscar Unidades</a></li>
                 <?php endif; ?>
 
                 <?php if (verificarPermissao('UBS_INSERIR')): ?>
-                    <li><a href='formUBS.php'>Cadastrar UBS</a></li>
+                    <li><a href='formUBS.php'>Cadastrar Unidades</a></li>
                 <?php endif; ?>
             </ul></li>
 <?php endif; ?>
