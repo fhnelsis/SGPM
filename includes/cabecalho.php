@@ -10,6 +10,7 @@ include ('includes/funcoes_permissao.php');
 <LINK href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="css/dataTables.css">
 <link rel="stylesheet" type="text/css" href="css/menu.css">
+<link rel="stylesheet" type="text/css" href="js/calendar/fullcalendar.css">
 <script type="text/javascript" language="javascript" src="js/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" language="javascript" src="js/jquery.maskedinput.js"></script>
 <script type="text/javascript" language="javascript" src="js/dataTables.js"></script>
@@ -17,6 +18,9 @@ include ('includes/funcoes_permissao.php');
 <script type="text/javascript" language="javascript" src="js/highchart/highcharts-3d.js"></script>
 <script type="text/javascript" language="javascript" src="js/highchart/modules/exporting.js"></script>
 <script type="text/javascript" language="javascript" src="js/menu.js"></script>
+<script type="text/javascript" language="javascript" src="js/calendar/lib/moment.min.js"></script>
+<script type="text/javascript" language="javascript" src="js/calendar/fullcalendar.js"></script>
+<script type="text/javascript" language="javascript" src="js/calendar/lang-all.js"></script>
 <script type="text/javascript" src="jquery.js"></script>
 
 </head>

@@ -2,18 +2,18 @@
 	<ul>
 		<li><a href='home.php'>Home</a></li>
 
-<?php if (verificarPermissao('AGENDA_LISTAR') || verificarPermissao('AGENDA_INSERIR')): ?>
+<?php //if (verificarPermissao('AGENDA_LISTAR') || verificarPermissao('AGENDA_INSERIR')): ?>
 		<li class='active'><a href='#'>Agenda</a>
 			<ul>
-                <?php if (verificarPermissao('AGENDA_LISTAR')): ?>
+                <?php //if (verificarPermissao('AGENDA_LISTAR')): ?>
                     <li><a href='consultarAgenda.php'>Agenda</a></li>
-                <?php endif; ?>
+                <?php //endif; ?>
 
-                <?php if (verificarPermissao('AGENDA_INSERIR')): ?>
+                <?php //if (verificarPermissao('AGENDA_INSERIR')): ?>
                     <li><a href='formAgenda.php'>Novo Atendimento</a>
-                    <?php endif; ?>
+                    <?php// endif; ?>
 			</ul></li>
-<?php endif; ?>
+<?php //endif; ?>
 
 <?php if (verificarPermissao('ATENDIMENTO_LISTAR') || verificarPermissao('ATENDIMENTO_INSERIR')): ?>
 		<li class='active'><a href='#'>Atendimentos</a>
