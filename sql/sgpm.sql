@@ -10,9 +10,24 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Copiando estrutura do banco de dados para sgpm
-CREATE DATABASE IF NOT EXISTS `sgpm` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `sgpm`;
+-- Copiando estrutura para tabela sgpm.agenda
+CREATE TABLE IF NOT EXISTS `agenda` (
+  `id_agenda` int(11) NOT NULL auto_increment,
+  `data_hora_inicio` datetime NOT NULL,
+  `data_hora_fim` datetime NOT NULL,
+  `id_ubs` int(5) default NULL,
+  `id_tipo_atendimento` int(3) default NULL,
+  `id_funcionario` int(4) default NULL,
+  `nome_paciente` varchar(255) collate utf8_estonian_ci NOT NULL,
+  `cpf_paciente` varchar(25) character set latin1 NOT NULL,
+  PRIMARY KEY  (`id_agenda`),
+  KEY `id_ubs` (`id_ubs`),
+  KEY `id_tipo_atendimento` (`id_tipo_atendimento`),
+  KEY `id_funcionario` (`id_funcionario`),
+  CONSTRAINT `fk_agenda_funcionario` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`) ON DELETE SET NULL ON UPDATE SET NULL,
+  CONSTRAINT `fk_agenda_tipo_atendimento` FOREIGN KEY (`id_tipo_atendimento`) REFERENCES `tipo_atendimento` (`id_tipo_atendimento`) ON DELETE SET NULL ON UPDATE SET NULL,
+  CONSTRAINT `fk_agenda_ubs` FOREIGN KEY (`id_ubs`) REFERENCES `ubs` (`id_ubs`) ON DELETE SET NULL ON UPDATE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci;
 
 -- Copiando dados para a tabela sgpm.agenda: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `agenda` DISABLE KEYS */;
@@ -26,12 +41,47 @@ INSERT INTO `agenda` (`id_agenda`, `data_hora_inicio`, `data_hora_fim`, `id_ubs`
 	(10, '2016-06-15 15:30:00', '2016-06-15 16:30:00', 1, 11, 34, 'eee', '545.456.465-45');
 /*!40000 ALTER TABLE `agenda` ENABLE KEYS */;
 
+
+-- Copiando estrutura para tabela sgpm.atendimento
+CREATE TABLE IF NOT EXISTS `atendimento` (
+  `id_atendimento` int(12) NOT NULL auto_increment,
+  `id_tipo_atendimento` int(12) NOT NULL,
+  `id_paciente` int(12) NOT NULL,
+  `id_funcionario` int(5) NOT NULL,
+  `data_atendimento` date NOT NULL,
+  `fumante` varchar(1) NOT NULL,
+  `alcool` varchar(1) NOT NULL,
+  `alergia_reac_div` varchar(50) NOT NULL,
+  `sintomas` varchar(30) NOT NULL,
+  `queixa_principal` varchar(30) NOT NULL,
+  `hist_molestia` varchar(100) NOT NULL,
+  `frequencia_cardiaca` varchar(10) NOT NULL,
+  `ritmo_cardiaco` varchar(10) NOT NULL,
+  `pressao_arterial` varchar(10) NOT NULL,
+  `ritmo_respiratorio` varchar(10) NOT NULL,
+  `observacoes` varchar(300) NOT NULL,
+  PRIMARY KEY  (`id_atendimento`),
+  KEY `id_atendimento` (`id_atendimento`),
+  KEY `FK_tipo_atendimento` (`id_tipo_atendimento`),
+  KEY `FK_funcionario_atendimento` (`id_funcionario`),
+  CONSTRAINT `FK_funcionario_atendimento` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_tipo_atendimento` FOREIGN KEY (`id_tipo_atendimento`) REFERENCES `tipo_atendimento` (`id_tipo_atendimento`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
 -- Copiando dados para a tabela sgpm.atendimento: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `atendimento` DISABLE KEYS */;
 INSERT INTO `atendimento` (`id_atendimento`, `id_tipo_atendimento`, `id_paciente`, `id_funcionario`, `data_atendimento`, `fumante`, `alcool`, `alergia_reac_div`, `sintomas`, `queixa_principal`, `hist_molestia`, `frequencia_cardiaca`, `ritmo_cardiaco`, `pressao_arterial`, `ritmo_respiratorio`, `observacoes`) VALUES
 	(1, 8, 115, 38, '2015-09-30', '1', '0', '123123', '12312312', '3123123', '12312312', '1321322', '123', '12312', '312312', '112323                                                               '),
 	(2, 9, 121, 39, '2016-06-08', '1', '1', 'wef', 'wef', 'wef', 'wef', '12', '21', '22', '65', 'wef                                                                    ');
 /*!40000 ALTER TABLE `atendimento` ENABLE KEYS */;
+
+
+-- Copiando estrutura para tabela sgpm.escolaridade
+CREATE TABLE IF NOT EXISTS `escolaridade` (
+  `id_escolaridade` int(11) NOT NULL auto_increment,
+  `escolaridade` varchar(50) default '0',
+  KEY `id_escolaridade` (`id_escolaridade`)
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela sgpm.escolaridade: ~13 rows (aproximadamente)
 /*!40000 ALTER TABLE `escolaridade` DISABLE KEYS */;
@@ -50,6 +100,15 @@ INSERT INTO `escolaridade` (`id_escolaridade`, `escolaridade`) VALUES
 	(56, 'Doutorado'),
 	(57, 'Pós-Doutorado');
 /*!40000 ALTER TABLE `escolaridade` ENABLE KEYS */;
+
+
+-- Copiando estrutura para tabela sgpm.estado
+CREATE TABLE IF NOT EXISTS `estado` (
+  `id_estado` int(15) NOT NULL auto_increment,
+  `sigla_estado` varchar(50) NOT NULL default '0',
+  `estado` varchar(50) default NULL,
+  KEY `id_estado` (`id_estado`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela sgpm.estado: ~27 rows (aproximadamente)
 /*!40000 ALTER TABLE `estado` DISABLE KEYS */;
@@ -83,6 +142,14 @@ INSERT INTO `estado` (`id_estado`, `sigla_estado`, `estado`) VALUES
 	(28, 'TO', 'Tocantins');
 /*!40000 ALTER TABLE `estado` ENABLE KEYS */;
 
+
+-- Copiando estrutura para tabela sgpm.estado_civil
+CREATE TABLE IF NOT EXISTS `estado_civil` (
+  `id_estado_civil` int(15) NOT NULL auto_increment,
+  `estado_civil` varchar(50) NOT NULL,
+  KEY `id_estado_civil` (`id_estado_civil`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
 -- Copiando dados para a tabela sgpm.estado_civil: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `estado_civil` DISABLE KEYS */;
 INSERT INTO `estado_civil` (`id_estado_civil`, `estado_civil`) VALUES
@@ -93,6 +160,16 @@ INSERT INTO `estado_civil` (`id_estado_civil`, `estado_civil`) VALUES
 	(5, 'Separado(a)'),
 	(6, 'Companheiro(a)');
 /*!40000 ALTER TABLE `estado_civil` ENABLE KEYS */;
+
+
+-- Copiando estrutura para tabela sgpm.funcionalidades
+CREATE TABLE IF NOT EXISTS `funcionalidades` (
+  `id_funcionalidade` int(11) NOT NULL auto_increment,
+  `sigla_funcionalidade` varchar(50) NOT NULL,
+  `nome_funcionalidade` varchar(50) NOT NULL,
+  PRIMARY KEY  (`id_funcionalidade`),
+  UNIQUE KEY `UQ_funcionalidades_id_funcionalidade` (`id_funcionalidade`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 -- Copiando dados para a tabela sgpm.funcionalidades: ~26 rows (aproximadamente)
 /*!40000 ALTER TABLE `funcionalidades` DISABLE KEYS */;
@@ -125,6 +202,55 @@ INSERT INTO `funcionalidades` (`id_funcionalidade`, `sigla_funcionalidade`, `nom
 	(26, 'RELATORIOS_MEDICOS', 'Relatórios Médicos');
 /*!40000 ALTER TABLE `funcionalidades` ENABLE KEYS */;
 
+
+-- Copiando estrutura para tabela sgpm.funcionario
+CREATE TABLE IF NOT EXISTS `funcionario` (
+  `id_funcionario` int(4) NOT NULL auto_increment,
+  `login` varchar(30) NOT NULL,
+  `senha` varchar(32) NOT NULL,
+  `nome_funcionario` varchar(50) NOT NULL,
+  `cpf` varchar(50) NOT NULL,
+  `rg` varchar(50) NOT NULL,
+  `org_exp` varchar(30) NOT NULL,
+  `data_nasc` date NOT NULL,
+  `endereco` varchar(30) NOT NULL,
+  `bairro` varchar(30) NOT NULL,
+  `cep` varchar(10) NOT NULL,
+  `cidade` varchar(30) NOT NULL,
+  `nome_mae` varchar(30) NOT NULL,
+  `nome_pai` varchar(30) NOT NULL,
+  `email_pessoal` varchar(50) NOT NULL,
+  `email_prof` varchar(30) NOT NULL,
+  `tel_cel` varchar(50) NOT NULL,
+  `tel_fixo` varchar(50) NOT NULL,
+  `id_tipo_funcionario` int(15) NOT NULL,
+  `id_genero` int(15) NOT NULL,
+  `id_ubs` int(11) NOT NULL,
+  `id_estado_civil` int(15) NOT NULL,
+  `id_escolaridade` int(15) NOT NULL,
+  `id_tipo_sanguineo` int(15) NOT NULL,
+  `id_estado` int(15) NOT NULL,
+  PRIMARY KEY  (`id_funcionario`),
+  UNIQUE KEY `login` (`login`),
+  UNIQUE KEY `cpf` (`cpf`),
+  UNIQUE KEY `rg` (`rg`),
+  KEY `id_funcionario` (`id_funcionario`),
+  KEY `FK_funcionario_tipo_funcionario` (`id_tipo_funcionario`),
+  KEY `FK_funcionario_genero` (`id_genero`),
+  KEY `FK_funcionario_ubs` (`id_ubs`),
+  KEY `FK_funcionario_estado_civil` (`id_estado_civil`),
+  KEY `FK_funcionario_escolaridade` (`id_escolaridade`),
+  KEY `FK_funcionario_tipo_sanguineo` (`id_tipo_sanguineo`),
+  KEY `FK_funcionario_estado` (`id_estado`),
+  CONSTRAINT `FK_funcionario_escolaridade` FOREIGN KEY (`id_escolaridade`) REFERENCES `escolaridade` (`id_escolaridade`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_funcionario_estado` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_funcionario_estado_civil` FOREIGN KEY (`id_estado_civil`) REFERENCES `estado_civil` (`id_estado_civil`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_funcionario_genero` FOREIGN KEY (`id_genero`) REFERENCES `genero` (`id_genero`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_funcionario_tipo_funcionario` FOREIGN KEY (`id_tipo_funcionario`) REFERENCES `tipo_funcionario` (`id_tipo_funcionario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_funcionario_tipo_sanguineo` FOREIGN KEY (`id_tipo_sanguineo`) REFERENCES `tipo_sanguineo` (`id_tipo_sanguineo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_funcionario_ubs` FOREIGN KEY (`id_ubs`) REFERENCES `ubs` (`id_ubs`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
+
 -- Copiando dados para a tabela sgpm.funcionario: ~17 rows (aproximadamente)
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
 INSERT INTO `funcionario` (`id_funcionario`, `login`, `senha`, `nome_funcionario`, `cpf`, `rg`, `org_exp`, `data_nasc`, `endereco`, `bairro`, `cep`, `cidade`, `nome_mae`, `nome_pai`, `email_pessoal`, `email_prof`, `tel_cel`, `tel_fixo`, `id_tipo_funcionario`, `id_genero`, `id_ubs`, `id_estado_civil`, `id_escolaridade`, `id_tipo_sanguineo`, `id_estado`) VALUES
@@ -147,6 +273,14 @@ INSERT INTO `funcionario` (`id_funcionario`, `login`, `senha`, `nome_funcionario
 	(65, 'romulo_lima', '9844833cb07abfc5357c17eb6d9cdec5', 'Rômulo do Carmo Aparecido de Lima', '734.126.818-13', '1351681681', 'SSP/RS', '1984-11-19', 'Rua Barão do Triunfo, 204', 'Menino Deus', '81681-063', 'Porto Alegre', 'Aparecida Lima', 'Paulo Lima', 'romulo_lima@outlook.com', 'rlima@ubs.com.br', '(51) 8186-1638', '(51) 3003-4305', 7, 1, 1, 1, 52, 6, 22);
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 
+
+-- Copiando estrutura para tabela sgpm.genero
+CREATE TABLE IF NOT EXISTS `genero` (
+  `id_genero` int(15) NOT NULL auto_increment,
+  `nome_genero` varchar(10) NOT NULL,
+  PRIMARY KEY  (`id_genero`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
 -- Copiando dados para a tabela sgpm.genero: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `genero` DISABLE KEYS */;
 INSERT INTO `genero` (`id_genero`, `nome_genero`) VALUES
@@ -154,7 +288,52 @@ INSERT INTO `genero` (`id_genero`, `nome_genero`) VALUES
 	(2, 'Feminino');
 /*!40000 ALTER TABLE `genero` ENABLE KEYS */;
 
--- Copiando dados para a tabela sgpm.paciente: ~67 rows (aproximadamente)
+
+-- Copiando estrutura para tabela sgpm.paciente
+CREATE TABLE IF NOT EXISTS `paciente` (
+  `id_paciente` int(4) NOT NULL auto_increment,
+  `nome_paciente` varchar(50) NOT NULL,
+  `cpf` varchar(14) NOT NULL,
+  `rg` varchar(50) NOT NULL,
+  `org_exp` varchar(30) NOT NULL,
+  `data_nasc` date NOT NULL,
+  `endereco` varchar(50) NOT NULL,
+  `bairro` varchar(30) NOT NULL,
+  `cep` varchar(50) NOT NULL,
+  `cidade` varchar(30) NOT NULL,
+  `nome_mae` varchar(50) NOT NULL,
+  `nome_pai` varchar(50) NOT NULL,
+  `profissao` varchar(30) NOT NULL,
+  `email_pessoal` varchar(50) NOT NULL,
+  `email_prof` varchar(50) NOT NULL,
+  `tel_cel` varchar(30) NOT NULL,
+  `tel_fixo` varchar(30) NOT NULL,
+  `tel_contato` varchar(30) NOT NULL,
+  `id_genero` int(15) NOT NULL,
+  `id_estado` int(15) NOT NULL,
+  `id_ubs` int(15) NOT NULL,
+  `id_estado_civil` int(15) NOT NULL,
+  `id_escolaridade` int(15) NOT NULL,
+  `id_tipo_sanguineo` int(15) NOT NULL,
+  PRIMARY KEY  (`id_paciente`),
+  UNIQUE KEY `cpf` (`cpf`),
+  UNIQUE KEY `rg` (`rg`),
+  KEY `id_paciente` (`id_paciente`),
+  KEY `id_tipo_sanguineo` (`id_tipo_sanguineo`),
+  KEY `id_genero` (`id_genero`),
+  KEY `id_estado` (`id_estado`),
+  KEY `id_ubs` (`id_ubs`),
+  KEY `id_estado_civil` (`id_estado_civil`),
+  KEY `id_escolaridade` (`id_escolaridade`),
+  CONSTRAINT `FK_paciente_escolaridade` FOREIGN KEY (`id_escolaridade`) REFERENCES `escolaridade` (`id_escolaridade`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_paciente_estado` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_paciente_estado_civil` FOREIGN KEY (`id_estado_civil`) REFERENCES `estado_civil` (`id_estado_civil`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_paciente_genero` FOREIGN KEY (`id_genero`) REFERENCES `genero` (`id_genero`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_paciente_tipo_sanguineo` FOREIGN KEY (`id_tipo_sanguineo`) REFERENCES `tipo_sanguineo` (`id_tipo_sanguineo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_paciente_ubs` FOREIGN KEY (`id_ubs`) REFERENCES `ubs` (`id_ubs`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=230 DEFAULT CHARSET=utf8;
+
+-- Copiando dados para a tabela sgpm.paciente: ~103 rows (aproximadamente)
 /*!40000 ALTER TABLE `paciente` DISABLE KEYS */;
 INSERT INTO `paciente` (`id_paciente`, `nome_paciente`, `cpf`, `rg`, `org_exp`, `data_nasc`, `endereco`, `bairro`, `cep`, `cidade`, `nome_mae`, `nome_pai`, `profissao`, `email_pessoal`, `email_prof`, `tel_cel`, `tel_fixo`, `tel_contato`, `id_genero`, `id_estado`, `id_ubs`, `id_estado_civil`, `id_escolaridade`, `id_tipo_sanguineo`) VALUES
 	(115, 'Adão de Souza Augusto', '833.014.587-44', '6078896578', 'SSP/RS', '1996-10-31', 'Rua dos Imigrantes, 59', 'Menino Deus', '90160030', 'Porto Alegre', 'Adão de Souza Augusto', 'Adão de Souza Augusto', 'Marceneiro', 'adao.augusto@gmail.com', 'aaugusto@marcenaria.com', '(51) 9141-1965', '(51) 3325-4878', '(51) 3089-4588', 1, 22, 1, 2, 51, 1),
@@ -260,6 +439,18 @@ INSERT INTO `paciente` (`id_paciente`, `nome_paciente`, `cpf`, `rg`, `org_exp`, 
 	(229, 'Verno Luis Herrmann', '578.626.050-04', '2047891763', 'SSP/RS', '1985-12-03', 'Rua Pontão, 304', 'Cavalhada', '72746-005', 'Porto Alegre', 'Verno Luis Herrmann', 'Verno Luis Herrmann', 'Professor(a)', 'EstevanAzevedoCastro@rhyta.com', 'JuliaRodriguesAraujo@armyspy.com', '(51) 9147-8965', '(51) 3015-4588', '(51) 3058-9632', 1, 22, 8, 1, 51, 2);
 /*!40000 ALTER TABLE `paciente` ENABLE KEYS */;
 
+
+-- Copiando estrutura para tabela sgpm.tipo_atendimento
+CREATE TABLE IF NOT EXISTS `tipo_atendimento` (
+  `id_tipo_atendimento` int(3) NOT NULL auto_increment,
+  `nome_tipo_atendimento` varchar(100) NOT NULL,
+  `descricao` varchar(300) NOT NULL,
+  `data_insercao` date NOT NULL,
+  `data_desativacao` date default NULL,
+  `data_alteracao` date default NULL,
+  PRIMARY KEY  (`id_tipo_atendimento`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+
 -- Copiando dados para a tabela sgpm.tipo_atendimento: ~10 rows (aproximadamente)
 /*!40000 ALTER TABLE `tipo_atendimento` DISABLE KEYS */;
 INSERT INTO `tipo_atendimento` (`id_tipo_atendimento`, `nome_tipo_atendimento`, `descricao`, `data_insercao`, `data_desativacao`, `data_alteracao`) VALUES
@@ -275,6 +466,15 @@ INSERT INTO `tipo_atendimento` (`id_tipo_atendimento`, `nome_tipo_atendimento`, 
 	(18, 'Pré-natal IV', 'Pré-natal IV', '2015-10-02', NULL, NULL);
 /*!40000 ALTER TABLE `tipo_atendimento` ENABLE KEYS */;
 
+
+-- Copiando estrutura para tabela sgpm.tipo_funcionario
+CREATE TABLE IF NOT EXISTS `tipo_funcionario` (
+  `id_tipo_funcionario` int(11) NOT NULL auto_increment,
+  `nome_tipo` varchar(100) NOT NULL,
+  PRIMARY KEY  (`id_tipo_funcionario`),
+  UNIQUE KEY `UQ_tipo_funcionario_id_tipo_funcionario` (`id_tipo_funcionario`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
 -- Copiando dados para a tabela sgpm.tipo_funcionario: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `tipo_funcionario` DISABLE KEYS */;
 INSERT INTO `tipo_funcionario` (`id_tipo_funcionario`, `nome_tipo`) VALUES
@@ -285,6 +485,18 @@ INSERT INTO `tipo_funcionario` (`id_tipo_funcionario`, `nome_tipo`) VALUES
 	(7, 'Técnico(a) de Enfermagem'),
 	(8, 'Agente de Saúde');
 /*!40000 ALTER TABLE `tipo_funcionario` ENABLE KEYS */;
+
+
+-- Copiando estrutura para tabela sgpm.tipo_funcionario_funcionalidade
+CREATE TABLE IF NOT EXISTS `tipo_funcionario_funcionalidade` (
+  `id_tipo_funcionario` int(11) NOT NULL,
+  `id_funcionalidade` int(11) NOT NULL,
+  PRIMARY KEY  (`id_tipo_funcionario`,`id_funcionalidade`),
+  KEY `IXFK_tipo_funcionario_funcionalidade_tipo_funcionario` (`id_tipo_funcionario`),
+  KEY `IXFK_tipo_funcionario_funcionalidade_funcionalidades` (`id_funcionalidade`),
+  CONSTRAINT `FK_tipo_funcionario_funcionalidade_funcionalidades` FOREIGN KEY (`id_funcionalidade`) REFERENCES `funcionalidades` (`id_funcionalidade`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_tipo_funcionario_funcionalidade_tipo_funcionario` FOREIGN KEY (`id_tipo_funcionario`) REFERENCES `tipo_funcionario` (`id_tipo_funcionario`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Copiando dados para a tabela sgpm.tipo_funcionario_funcionalidade: ~76 rows (aproximadamente)
 /*!40000 ALTER TABLE `tipo_funcionario_funcionalidade` DISABLE KEYS */;
@@ -367,6 +579,14 @@ INSERT INTO `tipo_funcionario_funcionalidade` (`id_tipo_funcionario`, `id_funcio
 	(8, 25);
 /*!40000 ALTER TABLE `tipo_funcionario_funcionalidade` ENABLE KEYS */;
 
+
+-- Copiando estrutura para tabela sgpm.tipo_sanguineo
+CREATE TABLE IF NOT EXISTS `tipo_sanguineo` (
+  `id_tipo_sanguineo` int(15) NOT NULL auto_increment,
+  `tipo_sanguineo` varchar(50) default NULL,
+  KEY `id_tipo_sanguineo` (`id_tipo_sanguineo`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
 -- Copiando dados para a tabela sgpm.tipo_sanguineo: ~8 rows (aproximadamente)
 /*!40000 ALTER TABLE `tipo_sanguineo` DISABLE KEYS */;
 INSERT INTO `tipo_sanguineo` (`id_tipo_sanguineo`, `tipo_sanguineo`) VALUES
@@ -379,6 +599,20 @@ INSERT INTO `tipo_sanguineo` (`id_tipo_sanguineo`, `tipo_sanguineo`) VALUES
 	(7, 'O+'),
 	(8, 'O-');
 /*!40000 ALTER TABLE `tipo_sanguineo` ENABLE KEYS */;
+
+
+-- Copiando estrutura para tabela sgpm.ubs
+CREATE TABLE IF NOT EXISTS `ubs` (
+  `id_ubs` int(5) NOT NULL auto_increment,
+  `ubs_atendimento` varchar(50) NOT NULL,
+  `endereco` varchar(50) default NULL,
+  `telefone` int(10) default NULL,
+  `data_insercao` date default NULL,
+  `data_alteracao` date default NULL,
+  `data_desativacao` date default NULL,
+  PRIMARY KEY  (`id_ubs`),
+  UNIQUE KEY `id_ubs` (`id_ubs`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela sgpm.ubs: ~8 rows (aproximadamente)
 /*!40000 ALTER TABLE `ubs` DISABLE KEYS */;
