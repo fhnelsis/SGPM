@@ -66,7 +66,7 @@
     <div id="formBuscaAtendimento">
 
         <div class="content-dataTable"
-             style="width: 80%; margin: 0 auto; margin-top: -70px; margin-right: 70px">
+             style="width: 80%; margin: 0 auto; margin-top: -70px; margin-right: 70px;">
 <?php if (isset($_SESSION['msg'])) : ?>
                 <div class="alert alert-success" role="alert"><?php echo $_SESSION['msg']; ?></div>
                      <?php unset($_SESSION['msg']); ?>
@@ -76,7 +76,7 @@
         </div>
 
     </div>
-    <div class="agenda-calendar" style="margin-top: 30px; margin-left: 250px; position: absolute; z-index: 0"></div>
+    <div class="agenda-calendar" style="margin-top: 30px; margin-left: 250px; position: absolute; z-index: 0; width: 1080px;"></div>
 </div>
 <?php include ('includes/menuBack.php') ?>
 <?php include ('includes/rodape.php') ?>

@@ -15,16 +15,11 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
     $con = mysqli_connect("localhost", "root", "", "sgpm");
     mysqli_set_charset($con, "utf8");
 
-    $arrDataInicio = explode(' ', $_POST['data_hora_inicio']);
-    $arrDataFim = explode(' ', $_POST['data_hora_fim']);
-    
-    $arrayDataInicio = explode('/', $arrDataInicio[0]);
-    $arrayDataFim = explode('/', $arrDataInicio[0]);
-    
+    $arrayData = explode('/', $_POST['data']);
 
     $id_agenda = $_POST ['id'];
-    $data_hora_inicio =  $arrayDataInicio[2] . "-" .  $arrayDataInicio[1]. "-" . $arrayDataInicio[0] . " " .$arrDataInicio[1] ;
-    $data_hora_fim = $arrayDataFim[2] . "-" . $arrayDataFim[1]. "-" . $arrayDataFim[0] . " " .$arrDataFim[1] ;
+    $data_hora_inicio =  $arrayData[2] . "-" .  $arrayData[1]. "-" . $arrayData[0] . " " .$_POST['hora_inicio'] ;
+    $data_hora_fim = $arrayData[2] . "-" . $arrayData[1]. "-" . $arrayData[0] . " " .$_POST['hora_fim'] ;
     $id_ubs = $_SESSION['LOGIN']['UBS'];
     $id_tipo_atendimento = $_POST['id_tipo_atendimento'];
     $id_funcionario = $_POST['id_funcionario'];
@@ -69,13 +64,18 @@ $queryFuncionario = mysqli_query($con, "SELECT * FROM funcionario where id_tipo_
 <script type="text/javascript">
     function validar() {
 
-        if ($('#data_hora_inicio').val() === "") {
-            alert('Informe a data o hora de início do atendimento!');
+        if ($('#data').val() === "") {
+            alert('Informe a data do atendimento!');
             return false;
         }
 
-        if ($('#data_hora_fim').val() === "") {
-            alert('Informe a data o hora de final do atendimento!');
+        if ($('#hora_inicio').val() === "") {
+            alert('Informe o horário inicial!');
+            return false;
+        }
+        
+         if ($('#hora_fim').val() === "") {
+            alert('Informe o horário final!');
             return false;
         }
 
@@ -131,6 +131,8 @@ $queryFuncionario = mysqli_query($con, "SELECT * FROM funcionario where id_tipo_
             $("input.cpf").mask("999.999.999-99");
             $("input.cep").mask("99999-999");
             $("input.data").mask("99/99/9999 99:99");
+            $('.data_only').mask('99/99/9999');
+            $('.hora').mask('99:99');
         });
 
     </script>
@@ -141,27 +143,21 @@ $queryFuncionario = mysqli_query($con, "SELECT * FROM funcionario where id_tipo_
                 <form method="POST">
                     <table width="100%">
                         <tr>
-                            <td><label for="data_hora_inicio">Data de início do Atendimento:</label></td>
-                            <td><input style="width: 150px; margin-top: 5px;" type="text"
-                                       name="data_hora_inicio" class="data" id="data_hora_inicio" maxlength="15" 
-                                       value="<?php
-//                                                        if (isset($dadosAtendimento['cpf_paciente'])) {
-//                                                            echo $dadosAtendimento['cpf_paciente'];
-//                                                        }
-                                       ?>" /></td>
+                            <td><label for="data">Data do atendimento:</label></td>
+                            <td>
+                                <input style="width: 150px; margin-top: 5px;" type="text" name="data" class="data_only" id="data" maxlength="15" value="" />
+                            </td>
                         </tr>
-
+                        
                         <tr>
-                            <td><label for="data_hora_fim">Data de Término do Atendimento:</label></td>
-                            <td><input style="width: 150px; margin-top: 5px;" type="text"
-                                       name="data_hora_fim" class="data" id="data_hora_fim" maxlength="15" 
-                                       value="<?php
-//                                                        if (isset($dadosAtendimento['cpf_paciente'])) {
-//                                                            echo $dadosAtendimento['cpf_paciente'];
-//                                                        }
-                                       ?>" /></td>
+                            <td><label for="">Hora do Atendimento:</label></td>
+                            <td>
+                                <input style="width: 150px; margin-top: 5px;" type="text" name="hora_inicio" class="hora" id="hora_inicio" maxlength="5" value="" />
+                                Até:
+                                <input style="width: 150px; margin-top: 5px;" type="text" name="hora_fim" class="hora" id="hora_fim" maxlength="5" value="" />
+                            </td>
                         </tr>
-
+                        
                         <tr>
                             <td><label for="nome_paciente">Nome Paciente:</label></td>
                             <td><input style="width: 400px; margin-top: 5px;" type="text"
