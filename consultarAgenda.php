@@ -17,11 +17,11 @@
                                                 tipo_atendimento tp
                                                 ON tp.id_tipo_atendimento = ag.id_tipo_atendimento  WHERE ag.id_ubs = {$_SESSION['LOGIN']['UBS']} ");
     $arrAgenda = array();
-    
+    error_reporting(E_ALL ^ E_WARNING);
     while($linha = mysqli_fetch_array($queryAgenda)){
         $arrAgenda[] = $linha;
     }
-    
+    error_reporting(E_ALL ^ E_WARNING);
 ?>
 <script type="text/javascript">
     jQuery(document).ready(function () {
