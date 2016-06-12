@@ -23,12 +23,14 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
     $id_ubs = $_SESSION['LOGIN']['UBS'];
     $id_tipo_atendimento = $_POST['id_tipo_atendimento'];
     $id_funcionario = $_POST['id_funcionario'];
-    $nome_paciente = $_POST['nome_paciente'];
-    $cpf_paciente = $_POST['cpf_paciente'];
+    
+    $queryCpfPaciente = mysqli_query ( $con, "SELECT id_paciente FROM paciente WHERE cpf = '{$_POST['cpf_paciente']}' " );
+    $paciente = mysqli_fetch_array ( $queryCpfPaciente );
+    $id_paciente = $paciente['id_paciente'];
     
     if (empty($id_agenda)) {
-        $sql = "INSERT INTO agenda (data_hora_inicio, data_hora_fim, id_ubs, id_tipo_atendimento, id_funcionario, nome_paciente, cpf_paciente) 
-				VALUES ('" . $data_hora_inicio . "', '" . $data_hora_fim . "', " . $id_ubs . ", " . $id_tipo_atendimento . ", " . $id_funcionario . ", '" . $nome_paciente . "', '" . $cpf_paciente . "' )";
+        $sql = "INSERT INTO agenda (data_hora_inicio, data_hora_fim, id_ubs, id_tipo_atendimento, id_funcionario, id_paciente) 
+				VALUES ('" . $data_hora_inicio . "', '" . $data_hora_fim . "', " . $id_ubs . ", " . $id_tipo_atendimento . ", " . $id_funcionario . ", " . $id_paciente . " )";
     } else {
         $sql = "UPDATE agenda 
 					SET    
@@ -38,8 +40,7 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 						   id_ubs = " . $id_ubs . ",
 						   id_tipo_atendimento = " . $id_tipo_atendimento . ",
 						   id_funcionario = " . $id_funcionario . ",
-						   nome_paciente = '" . $nome_paciente . "',
-						   cpf_paciente = '" . $cpf_paciente . "'
+						   id_paciente = " . $id_paciente . "
                    WHERE   id_agenda = {$id_agenda} ";
     }
 
@@ -58,54 +59,56 @@ mysqli_set_charset($con, "utf8");
 $queryTipos = mysqli_query($con, "SELECT * FROM tipo_atendimento");
 
 // Busca os funcionários
-$queryFuncionario = mysqli_query($con, "SELECT * FROM funcionario where id_tipo_funcionario = 1 and id_ubs = " . $_SESSION ['LOGIN'] ['UBS']);
+$queryFuncionario = mysqli_query($con, "SELECT * FROM funcionario where id_tipo_funcionario != 1 and id_ubs = " . $_SESSION ['LOGIN'] ['UBS']);
 ?>
 
 <script type="text/javascript">
     function validar() {
+        $.post("validaPaciente.php", {cpf: $("#cpf_paciente").val()}, function(data) {
+            if (data == '0') {
+                alert('Informe um CPF de um paciente que esteja cadastrado no sistema!');
+                return false;
+            }
+            
+            if ($('#data').val() === "") {
+                alert('Informe a data do atendimento!');
+                return false;
+            }
 
-        if ($('#data').val() === "") {
-            alert('Informe a data do atendimento!');
-            return false;
-        }
-
-        if ($('#hora_inicio').val() === "") {
-            alert('Informe o horário inicial!');
-            return false;
-        }
+            if ($('#hora_inicio').val() === "") {
+                alert('Informe o horário inicial!');
+                return false;
+            }
         
-         if ($('#hora_fim').val() === "") {
-            alert('Informe o horário final!');
-            return false;
-        }
+            if ($('#hora_fim').val() === "") {
+               alert('Informe o horário final!');
+               return false;
+           }
 
-        if ($('#id_funcionario').val() === "") {
-            alert('Informe o funcionário!');
-            return false;
-        }
+            if ($('#id_funcionario').val() === "") {
+                alert('Informe o funcionário!');
+                return false;
+            }
 
-        if ($('#id_tipo_atendimento').val() === "") {
-            alert('Informe o tipo de atendimento!');
-            return false;
-        }
+            if ($('#id_tipo_atendimento').val() === "") {
+                alert('Informe o tipo de atendimento!');
+                return false;
+            }
 
-        if ($('#nome_paciente').val() === "") {
-            alert('Informe o nome do paciente!');
-            return false;
-        }
-
-        if ($('#cpf_paciente').val() === "") {
-            alert('Informe o cpf do paciente!');
-            return false;
-        }
+            if ($('#cpf_paciente').val() === "") {
+                alert('Informe o cpf do paciente!');
+                return false;
+            }
 
 
-        $('form').submit();
+            $('form').submit();
+        });
     }
 
 <?php if (isset($_GET['detalhes'])): ?>
         $(document).ready(function () {
             $('input, select, textarea').attr('disabled', true);
+           
         });
 <?php endif; ?>
 
@@ -133,6 +136,22 @@ $queryFuncionario = mysqli_query($con, "SELECT * FROM funcionario where id_tipo_
             $("input.data").mask("99/99/9999 99:99");
             $('.data_only').mask('99/99/9999');
             $('.hora').mask('99:99');
+            
+             
+            $('#cpf_paciente').change(function() {
+                $.post("consultarPacienteCpf.php", {cpf_buscado: $("#cpf_paciente").val()}, function(data) {
+                        if(data){
+                            $('#nome_paciente').html("<strong><i>"+data.nome_paciente+"</i></strong>");
+                        }else{
+                            alert('Paciente não encontrado');
+                            $('#nome_paciente').val("");
+                            $('#cpf_paciente').val("");
+                        }
+                    
+                }, 'json');
+                
+            });
+            
         });
 
     </script>
@@ -159,17 +178,6 @@ $queryFuncionario = mysqli_query($con, "SELECT * FROM funcionario where id_tipo_
                         </tr>
                         
                         <tr>
-                            <td><label for="nome_paciente">Nome Paciente:</label></td>
-                            <td><input style="width: 400px; margin-top: 5px;" type="text"
-                                       name="nome_paciente"  id="nome_paciente"  
-                                       value="<?php
-//                                                        if (isset($dadosAtendimento['cpf_paciente'])) {
-//                                                            echo $dadosAtendimento['cpf_paciente'];
-//                                                        }
-                                       ?>" /></td>
-                        </tr>
-
-                        <tr>
                             <td><label for="cpf">CPF Paciente:</label></td>
                             <td><input style="width: 150px; margin-top: 5px;" type="text"
                                        name="cpf_paciente" class="cpf" id="cpf_paciente" 
@@ -178,7 +186,10 @@ $queryFuncionario = mysqli_query($con, "SELECT * FROM funcionario where id_tipo_
 //                                                        if (isset($dadosAtendimento['cpf_paciente'])) {
 //                                                            echo $dadosAtendimento['cpf_paciente'];
 //                                                        }
-                                       ?>" /></td>
+                                       ?>" />
+                                       <span id="nome_paciente"></span>
+                            
+                            </td>
                         </tr>
 
                         <!-- Tipo de Atendimento -->
