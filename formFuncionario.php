@@ -184,7 +184,7 @@ $queryEstado = mysqli_query ( $con, "select * from estado order by sigla_estado 
 				} else if (isset ( $_GET ['id'] ) && isset ( $_GET ['detalhes'] )) {
 					echo "Visualizar Funcionário";
 				} else {
-					echo "Cadastrar Funcionário";
+					echo "Novo Funcionário";
 				}
 				?>
 		</center>

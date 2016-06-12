@@ -9,7 +9,7 @@
     </script>
 <div class="divTudoConsultarTipoAtendimento">
 
-	<div id="tituloPagina">Buscar UBS</div>
+	<div id="tituloPagina">Buscar Unidade</div>
 
 	<div id="formBuscaTipoAtendimento">
                 
@@ -23,7 +23,7 @@
 				width="100%" content="text/html;charset=utf-8">
 				<thead>
 					<tr>
-						<th>UBS</th>
+						<th>Unidade</th>
 						
 						<?php if (verificarPermissao('UBS_ALTERAR')): ?>
 						<th><center>Edição</center></th>

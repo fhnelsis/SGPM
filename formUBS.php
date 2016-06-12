@@ -61,7 +61,7 @@ $(document).ready(function(){
 
 <div class="divTudoFormUBS">
 	<div id="tituloPaginaUBSCadastroAlteracao">
-		<center><?php echo isset($_GET['id']) ? "Alterar UBS" : "Nova UBS"; ?></center>
+		<center><?php echo isset($_GET['id']) ? "Alterar Unidade" : "Nova Unidade"; ?></center>
 	</div>
 
 	<center>
@@ -71,8 +71,8 @@ $(document).ready(function(){
 					<table width="100%">
 						<tr>
 							<br />
-							<td><label for="ubs_atendimento" style="width: 250px;">Nome da UBS:</label></td>
-							<td><input style="width: 300px; margin-bottom: 5px;" type="text" placeholder="Nome da UBS de Atendimento"
+							<td><label for="ubs_atendimento" style="width: 250px;">Nome da Unidade:</label></td>
+							<td><input style="width: 300px; margin-bottom: 5px;" type="text" placeholder="Nome da Unidade de Atendimento"
 								name="ubs_atendimento" id="ubs_atendimento"
 								maxlength="50"
 								value="<?php

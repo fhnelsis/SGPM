@@ -89,11 +89,6 @@
 			    <?php if (verificarPermissao('RELATORIOS_ADMINISTRATIVOS')): ?>
                     <li><a href='relatoriosAdministrativos.php'>Relatórios Administrativos</a></li>
                 <?php endif; ?>
-
-                <?php if (verificarPermissao('RELATORIOS_MEDICOS')): ?>
-                    <li><a href='#'>Relatórios Médicos</a></li>
-                <?php endif; ?>
-                
             </ul></li>
 <?php endif; ?>  
 	</ul>
