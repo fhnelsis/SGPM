@@ -45,7 +45,7 @@
                 <?php foreach($arrAgenda as $agenda): ?>
                     <?php $i = 1; ?>
                     {
-                        title: "<?php echo $agenda['nome_tipo_atendimento']." - ".$agenda['nome_paciente']." - ".$agenda['nome_funcionario']; ?>",
+                        title: "<?php echo $agenda['nome_tipo_atendimento']." - ".$agenda['nome_paciente']." - Dr(a). ".$agenda['nome_funcionario']; ?>",
                         start: "<?php echo $agenda['data_inicio']; ?>",
                         end: "<?php echo $agenda['data_fim']; ?>"
 

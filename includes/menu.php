@@ -10,7 +10,7 @@
                 <?php endif; ?>
 
                 <?php if (verificarPermissao('AGENDA_INSERIR')): ?>
-                    <li><a href='formAgenda.php'>Novo Atendimento</a>
+                    <li><a href='formAgenda.php'>Novo Agendamento</a>
                     <?php endif; ?>
 			</ul></li>
 <?php endif; ?>
