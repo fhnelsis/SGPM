@@ -64,7 +64,7 @@ $queryFuncionario = mysqli_query($con, "SELECT * FROM funcionario where id_tipo_
 
 <script type="text/javascript">
     function validar() {
-        $.post("validaPaciente.php", {cpf: $("#cpf_paciente").val()}, function(data) {
+        $.post("validaPacienteUbs.php", {cpf: $("#cpf_paciente").val()}, function(data) {
             if (data == '0') {
                 alert('Informe um CPF de um paciente que esteja cadastrado no sistema!');
                 return false;
@@ -144,7 +144,7 @@ $queryFuncionario = mysqli_query($con, "SELECT * FROM funcionario where id_tipo_
                             $('#nome_paciente').html("<strong><i>"+data.nome_paciente+"</i></strong>");
                         }else{
                             alert('Paciente não encontrado');
-                            $('#nome_paciente').val("");
+                            $('#nome_paciente').html("");
                             $('#cpf_paciente').val("");
                         }
                     

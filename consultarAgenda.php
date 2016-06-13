@@ -7,12 +7,15 @@
     mysqli_set_charset($con, "utf8");
 
     // Busca os tipos de atendimento
-    $queryAgenda = mysqli_query($con, "SELECT ag.*, pac.nome_paciente, tp.nome_tipo_atendimento,  DATE_FORMAT(ag.data_hora_inicio, '%Y-%m-%dT%H:%i') data_inicio, DATE_FORMAT(ag.data_hora_fim, '%Y-%m-%dT%H:%i') data_fim
+    $queryAgenda = mysqli_query($con, "SELECT ag.*, func.nome_funcionario, pac.nome_paciente, tp.nome_tipo_atendimento,  DATE_FORMAT(ag.data_hora_inicio, '%Y-%m-%dT%H:%i') data_inicio, DATE_FORMAT(ag.data_hora_fim, '%Y-%m-%dT%H:%i') data_fim
                                         FROM 
                                                 agenda ag
                                         INNER JOIN
                                                 paciente pac
                                                 ON pac.id_paciente = ag.id_paciente 
+                                        INNER JOIN
+                                                funcionario func
+                                                ON func.id_funcionario = ag.id_funcionario 
                                         INNER JOIN
                                                 tipo_atendimento tp
                                                 ON tp.id_tipo_atendimento = ag.id_tipo_atendimento  WHERE ag.id_ubs = {$_SESSION['LOGIN']['UBS']} ");
@@ -42,7 +45,7 @@
                 <?php foreach($arrAgenda as $agenda): ?>
                     <?php $i = 1; ?>
                     {
-                        title: "<?php echo $agenda['nome_tipo_atendimento']." - ".$agenda['nome_paciente']; ?>",
+                        title: "<?php echo $agenda['nome_tipo_atendimento']." - ".$agenda['nome_paciente']." - ".$agenda['nome_funcionario']; ?>",
                         start: "<?php echo $agenda['data_inicio']; ?>",
                         end: "<?php echo $agenda['data_fim']; ?>"
 
