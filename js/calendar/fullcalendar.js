@@ -9988,7 +9988,7 @@ Calendar.defaults = {
 	nextDayThreshold: '09:00:00', // 9am
 
 	// display
-	defaultView: 'month',
+	defaultView: 'agendaDay',
 	aspectRatio: 1.35,
 	header: {
 		left: 'title',
@@ -12653,7 +12653,7 @@ fcViews.agenda = {
 		allDaySlot: true,
 		allDayText: 'all-day',
 		slotDuration: '00:30:00',
-		minTime: '00:00:00',
+		minTime: '07:00:00',
 		maxTime: '24:00:00',
 		slotEventOverlap: true // a bad name. confused with overlap/constraint system
 	}
