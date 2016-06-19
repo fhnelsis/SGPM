@@ -35,7 +35,7 @@
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
-            defaultDate: '2016-05-12',
+            //defaultDate: '2016-05-12',
             lang: 'pt-br',
             buttonIcons: false, // show the prev/next text
             weekNumbers: true,
