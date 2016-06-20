@@ -7,7 +7,7 @@ $con = mysqli_connect("localhost", "root", "", "sgpm");
 mysqli_set_charset($con, "utf8");
 
 //Busca os tipos de atendimento
-$queryTipos = mysqli_query($con, "SELECT * FROM tipo_atendimento where id_ubs = " . $_SESSION ['LOGIN'] ['UBS']);
+$queryTipos = mysqli_query($con, "SELECT * FROM tipo_atendimento");
 
 //Busca os funcionÃ¡rios
 $queryFuncionario = mysqli_query($con, "SELECT * FROM funcionario where id_tipo_funcionario != 1 and id_ubs = " . $_SESSION ['LOGIN'] ['UBS']);
@@ -21,17 +21,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!empty($_POST['periodo_inicial'])) {
         $sqlBusca .= " AND ate.data_atendimento >= '{$_POST['periodo_inicial']}'  ";
-        $dataInicial = DateTime::createFromFormat('d/m/Y', $_POST['periodo_inicial']);
+        //$dataInicial = date('d-m-Y', strtotime($_POST['periodo_final']));
         //$dataInicial = new \DateTime($_POST['periodo_inicial']);
-        $dadosGrafico .= "De: " . $dataInicial->format('d/m/Y') . " - ";
+        
+    function format($date, $format) {
+ 
+        try {
+            //Faz a formatação da data utilizando a classe datetime
+            $datetime = new \DateTime($_POST['periodo_inicial']);
+            return $datetime->format($format);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
-    echo $sqlBusca;
+        
+        
+        
+        //echo $dataInicial;
+    }
 
     if (!empty($_POST['periodo_final'])) {
         $sqlBusca .= " AND ate.data_atendimento <= '{$_POST['periodo_final']}' ";
-        $dataInicial = DateTime::createFromFormat('d/m/Y', $_POST['periodo_final']);
-        //$dataInicial = new \DateTime($_POST['periodo_final']);
-        $dadosGrafico .= "AtÃ©: " . $dataFinal->format('d/m/Y') . " - ";
+        $dataInicial = new \DateTime($_POST['periodo_final']);
+        $dadosGrafico .= "AtÃ©: " . $dataInicial->format('d/m/Y') . " - ";
     }
 
     if (!empty($_POST['id_tipo_atendimento'])) {
