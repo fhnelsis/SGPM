@@ -180,6 +180,7 @@ if (isset ( $_GET ['id'] ) && ! isset ( $_GET ['detalhes'] )) {
 
 <script type="text/javascript">
 $(document).ready(function(){
+		$("input.data_nasc").mask("99/99/9999");
 	    $("input.cpf").mask("999.999.999-99");
         $("input.cep").mask("99999-999");
         $("input.telefone").mask('(99) 9999-9999');
@@ -261,7 +262,7 @@ $(document).ready(function(){
 							<td><label for="data_nasc" style="width: 160px">Data de
 									Nascimento:</label></td>
 							<td><input style="width: 200px; margin-bottom: 5px;" type="date"
-								name="data_nasc" id="data_nasc" maxlength="10"
+								name="data_nasc" class="data_nasc" id="data_nasc" maxlength="10"
 								value="<?php
 								if (isset ( $dadosPaciente ['data_nasc'] )) {
 									echo $dadosPaciente ['data_nasc'];

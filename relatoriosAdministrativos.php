@@ -1,16 +1,16 @@
 <?php include ('includes/cabecalho.php'); ?>
 <?php include ('includes/menu.php'); ?>
-<?php verificarPermissaoPagina('RELATORIOS_ADMINISTRATIVOS'); ?>
+<?php verificarPermissaoPagina('RELATORIOS_MEDICOS'); ?>
 <?php
 //Realiza a conexão
 $con = mysqli_connect("localhost", "root", "", "sgpm");
 mysqli_set_charset($con, "utf8");
 
 //Busca os tipos de atendimento
-$queryTipos = mysqli_query($con, "SELECT * FROM tipo_atendimento");
+$queryTipos = mysqli_query($con, "SELECT * FROM tipo_atendimento where id_ubs = " . $_SESSION ['LOGIN'] ['UBS']);
 
 //Busca os funcionários
-$queryFuncionario = mysqli_query($con, "SELECT * FROM funcionario");
+$queryFuncionario = mysqli_query($con, "SELECT * FROM funcionario where id_tipo_funcionario != 1 and id_ubs = " . $_SESSION ['LOGIN'] ['UBS']);
 ?>
 
 <?php
@@ -21,14 +21,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!empty($_POST['periodo_inicial'])) {
         $sqlBusca .= " AND ate.data_atendimento >= '{$_POST['periodo_inicial']}'  ";
-        $dataInicial = new \DateTime($_POST['periodo_inicial']);
+        $dataInicial = DateTime::createFromFormat('d/m/Y', $_POST['periodo_inicial']);
+        //$dataInicial = new \DateTime($_POST['periodo_inicial']);
         $dadosGrafico .= "De: " . $dataInicial->format('d/m/Y') . " - ";
     }
+    echo $sqlBusca;
 
     if (!empty($_POST['periodo_final'])) {
         $sqlBusca .= " AND ate.data_atendimento <= '{$_POST['periodo_final']}' ";
-        $dataInicial = new \DateTime($_POST['periodo_final']);
-        $dadosGrafico .= "Até: " . $dataInicial->format('d/m/Y') . " - ";
+        $dataInicial = DateTime::createFromFormat('d/m/Y', $_POST['periodo_final']);
+        //$dataInicial = new \DateTime($_POST['periodo_final']);
+        $dadosGrafico .= "Até: " . $dataFinal->format('d/m/Y') . " - ";
     }
 
     if (!empty($_POST['id_tipo_atendimento'])) {
@@ -57,6 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 
+
 <div class="divTudoRelatorio">
     <h1>Relatórios Gerenciais</h1>
     <div class="filtros">
@@ -67,16 +71,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <option value="<?php echo $linhaTipoAtendimento['id_tipo_atendimento']; ?>"><?php echo $linhaTipoAtendimento['nome_tipo_atendimento']; ?></option>
                 <?php endwhile; ?>
             </select>
-
+           
             <select name="id_funcionario" id="id_funcionario" style="margin-top: 5px; ">
                 <option value="" selected>Funcion&aacute;rio</option>
                 <?php while ($linhaFuncionario = mysqli_fetch_array($queryFuncionario)): ?>
                     <option value="<?php echo $linhaFuncionario['id_funcionario']; ?>"><?php echo $linhaFuncionario['nome_funcionario']; ?></option>
                 <?php endwhile; ?>
             </select>
+            
+<script type="text/javascript">
+$(document).ready(function(){
+		$("input.data").mask("99/99/9999");
+});
+</script>
 
-            <label for="periodo_inicial">De: <input type="date" name="periodo_inicial" id="periodo_inicial" /></label>
-            <label for="periodo_final">Até: <input type="date"  name="periodo_final"   id="periodo_final" /></label>
+            <label for="periodo_inicial">De: <input type="date" name="periodo_inicial" id="periodo_inicial" class="data" /></label>
+            <label for="periodo_final">Até: <input type="date"  name="periodo_final"  id="periodo_final" class="data" /></label>
             <input type="submit" value="BUSCAR" />
         </form>
     </div>
